@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, CheckCircle, Star, Zap } from "lucide-react";
@@ -17,20 +17,6 @@ const ArenaBreakoutServicePage = () => {
   const service = config.services.find((s) => s.id === serviceId);
   const seoData = serviceId ? arenaBreakoutSEO[serviceId] : null;
   const { addItem } = useCart();
-
-  useEffect(() => {
-    if (seoData) {
-      document.title = seoData.metaTitle;
-
-      let metaDescription = document.querySelector('meta[name="description"]');
-      if (!metaDescription) {
-        metaDescription = document.createElement('meta');
-        metaDescription.setAttribute('name', 'description');
-        document.head.appendChild(metaDescription);
-      }
-      metaDescription.setAttribute('content', seoData.metaDescription);
-    }
-  }, [seoData]);
 
   if (!service || !seoData) {
     return (
@@ -63,8 +49,15 @@ const ArenaBreakoutServicePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <>
+      <SEO
+        title={seoData.metaTitle}
+        description={seoData.metaDescription}
+        keywords={`arena breakout ${service.name.toLowerCase()}, arena breakout infinite boosting, ${service.name.toLowerCase()} service, buy arena breakout boost`}
+        canonicalUrl={`https://myboost.gg/game/arena-breakout/${serviceId}`}
+      />
+      <div className="min-h-screen bg-background">
+        <Navbar />
 
       {/* Hero */}
       <section className="relative flex items-end overflow-hidden pt-16">
@@ -169,7 +162,8 @@ const ArenaBreakoutServicePage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

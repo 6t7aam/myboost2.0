@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, CheckCircle, Star, Zap } from "lucide-react";
@@ -19,16 +20,22 @@ const GamePage = () => {
 
   if (!config) {
     return (
-      <div className="flex min-h-screen flex-col bg-background">
-        <Navbar />
-        <div className="flex flex-1 items-center justify-center pt-16">
-          <div className="text-center">
-            <h1 className="text-3xl font-bold text-foreground">Game Not Found</h1>
-            <Link to="/"><Button className="mt-4">Go Home</Button></Link>
+      <>
+        <SEO
+          title="Game Not Found"
+          description="The game you're looking for could not be found. Browse our available boosting services."
+        />
+        <div className="flex min-h-screen flex-col bg-background">
+          <Navbar />
+          <div className="flex flex-1 items-center justify-center pt-16">
+            <div className="text-center">
+              <h1 className="text-3xl font-bold text-foreground">Game Not Found</h1>
+              <Link to="/"><Button className="mt-4">Go Home</Button></Link>
+            </div>
           </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </>
     );
   }
 
@@ -38,6 +45,33 @@ const GamePage = () => {
   }
 
   const activeService = config.services.find((s) => s.id === activeServiceId) || config.services[0];
+
+  const getSEOData = () => {
+    const seoMap: Record<string, { title: string; description: string; keywords: string }> = {
+      "cs2": {
+        title: "CS2 Boosting Services - ELO Boost, Premier Rank & Coaching",
+        description: "Professional CS2 boosting services. ELO boost, Premier rank boosting, coaching, and more. 2,400+ orders, 4.9★ rating. Fast, safe, and affordable CS2 boost.",
+        keywords: "cs2 boosting, cs2 elo boost, cs2 premier boost, counter strike 2 boosting, cs2 rank boost, cs2 coaching"
+      },
+      "dota-2": {
+        title: "Dota 2 Boosting Services - MMR Boost, LP Removal & Tokens",
+        description: "Professional Dota 2 boosting by Immortal players. MMR boost, Low Priority removal, rank tokens farming. 1,800+ orders, 4.8★ rating. Safe and fast delivery.",
+        keywords: "dota 2 boosting, dota 2 mmr boost, dota 2 lp removal, dota 2 rank tokens, immortal boosting"
+      },
+      "rust": {
+        title: "Rust Boosting Services - Base Building, Raids & Resource Farming",
+        description: "Professional Rust services. Expert base building, raid assistance, resource farming, and coaching. 900+ orders completed. Dominate your server with our help.",
+        keywords: "rust boosting, rust base building, rust raid boost, rust resource farming, rust services"
+      }
+    };
+    return seoMap[gameSlug || ""] || {
+      title: `${config.title} Boosting Services`,
+      description: config.subtitle,
+      keywords: `${config.title.toLowerCase()} boosting, game boosting services`
+    };
+  };
+
+  const seoData = getSEOData();
 
   const handleAddToCart = (order: OrderSummary) => {
     addItem({
@@ -55,8 +89,15 @@ const GamePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <>
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        canonicalUrl={`https://myboost.gg/game/${gameSlug}`}
+      />
+      <div className="min-h-screen bg-background">
+        <Navbar />
 
       {/* Hero */}
       <section className="relative flex items-end overflow-hidden pt-16">
@@ -140,7 +181,8 @@ const GamePage = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

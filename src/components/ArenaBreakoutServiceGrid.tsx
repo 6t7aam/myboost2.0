@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,8 +14,15 @@ interface ArenaBreakoutServiceGridProps {
 
 const ArenaBreakoutServiceGrid = ({ config }: ArenaBreakoutServiceGridProps) => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <>
+      <SEO
+        title="Arena Breakout Infinite Boosting - Koens, Raids, Coaching Services"
+        description="Professional Arena Breakout Infinite boosting: fast Koens farming, expert raid carries, premium coaching, rent-a-booster. 600+ orders, 4.9★ rating, 1-4hr delivery. Safe & affordable."
+        keywords="arena breakout infinite boosting, arena breakout koens farming, arena breakout raids boost, arena breakout coaching, abi boosting service, arena breakout infinite services"
+        canonicalUrl="https://myboost.gg/game/arena-breakout"
+      />
+      <div className="min-h-screen bg-background">
+        <Navbar />
 
       {/* Hero */}
       <section className="relative flex items-end overflow-hidden pt-16">
@@ -97,7 +105,8 @@ const ArenaBreakoutServiceGrid = ({ config }: ArenaBreakoutServiceGridProps) => 
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 
