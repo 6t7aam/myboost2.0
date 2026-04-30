@@ -5,6 +5,7 @@ import HowItWorks from "@/components/HowItWorks";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Reviews from "@/components/Reviews";
 import FAQ from "@/components/FAQ";
+import ArenaBreakoutGuides from "@/components/ArenaBreakoutGuides";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 
@@ -25,6 +26,7 @@ const Index = () => {
         <WhyChooseUs />
         <Reviews />
         <FAQ />
+        <ArenaBreakoutGuides />
         <Footer />
       </div>
     </>
