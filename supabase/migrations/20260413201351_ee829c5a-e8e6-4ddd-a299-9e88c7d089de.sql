@@ -1,0 +1,1 @@
+ALTER TABLE public.orders ADD COLUMN booster_type text DEFAULT NULL;
