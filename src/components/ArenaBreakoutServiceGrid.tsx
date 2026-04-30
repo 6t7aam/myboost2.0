@@ -19,7 +19,7 @@ const ArenaBreakoutServiceGrid = ({ config }: ArenaBreakoutServiceGridProps) => 
         title="Arena Breakout Infinite Boosting - Koens, Raids, Coaching Services"
         description="Professional Arena Breakout Infinite boosting: fast Koens farming, expert raid carries, premium coaching, rent-a-booster. 600+ orders, 4.9★ rating, 1-4hr delivery. Safe & affordable."
         keywords="arena breakout infinite boosting, arena breakout koens farming, arena breakout raids boost, arena breakout coaching, abi boosting service, arena breakout infinite services"
-        canonicalUrl="https://myboost.gg/game/arena-breakout"
+        canonicalUrl="https://www.myboost.top/game/arena-breakout"
       />
       <div className="min-h-screen bg-background">
         <Navbar />

@@ -1,0 +1,211 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    NEW SEO PAGES - QUICK REFERENCE                           ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+📄 PAGE 1: ARENA BREAKOUT: INFINITE BOOSTING (HUB PAGE)
+═══════════════════════════════════════════════════════════════════════════════
+URL: https://myboost.gg/arena-breakout-infinite-boosting
+
+Purpose: Main landing page for all ABI boosting services
+Target Keywords: arena breakout infinite boosting, abi boosting
+Word Count: 650+ words
+
+H1: Arena Breakout: Infinite Boosting
+
+First Paragraph (Google Snippet):
+"Professional Arena Breakout: Infinite boosting services by elite players.
+Whether you need Koens farming, raid carries, or expert coaching, our
+experienced team delivers fast, safe, and reliable results. Join 600+
+satisfied customers who trust MyBoost for their ABI boosting needs."
+
+CTAs:
+• Get Koens Fast → /game/arena-breakout/koens-farming
+• Raid Carries → /game/arena-breakout/raids-boost
+• Book Coaching → /game/arena-breakout/coaching
+
+Internal Links:
+→ /buy-arena-breakout-infinite-koens
+→ /arena-breakout-infinite-raids-boost
+→ /arena-breakout-infinite-coaching
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📄 PAGE 2: BUY ARENA BREAKOUT: INFINITE KOENS
+═══════════════════════════════════════════════════════════════════════════════
+URL: https://myboost.gg/buy-arena-breakout-infinite-koens
+
+Purpose: Landing page for Koens farming service
+Target Keywords: buy arena breakout infinite koens, abi koens farming
+Word Count: 700+ words
+
+H1: Buy Arena Breakout: Infinite Koens
+
+First Paragraph (Google Snippet):
+"Get Arena Breakout: Infinite Koens fast with our professional farming
+service. Our expert looters deliver 1M to 500M Koens in just 1-2 hours
+per million, using optimal routes and safe extraction strategies. No bots,
+no cheats—just skilled players who know every high-value spawn location
+across all maps."
+
+CTAs:
+• Order Koens Now → /game/arena-breakout/koens-farming
+• View All Services → /arena-breakout-infinite-boosting
+
+Internal Links:
+→ /arena-breakout-infinite-boosting
+→ /arena-breakout-infinite-raids-boost
+→ /arena-breakout-infinite-coaching
+→ /game/arena-breakout/koens-farming
+
+Features Highlighted:
+• 1-2 hours delivery per 1M Koens
+• 100% safe (VPN protected)
+• $1.50 per 1M pricing
+• 1M-500M scalable service
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📄 PAGE 3: ARENA BREAKOUT: INFINITE RAIDS BOOST
+═══════════════════════════════════════════════════════════════════════════════
+URL: https://myboost.gg/arena-breakout-infinite-raids-boost
+
+Purpose: Landing page for raid carry service
+Target Keywords: arena breakout infinite raids boost, abi raids carry
+Word Count: 650+ words
+
+H1: Arena Breakout: Infinite Raids Boost
+
+First Paragraph (Google Snippet):
+"Professional Arena Breakout: Infinite raids boost service on all maps.
+Our elite squad provides expert carries for Lockdown and Forbidden modes
+with guaranteed VIP extraction and maximum loot. Every raid completed in
+30-60 minutes by players who have mastered PvP combat and know every
+dangerous zone inside out."
+
+CTAs:
+• Order Raid Carry → /game/arena-breakout/raids-boost
+• Buy Koens → /buy-arena-breakout-infinite-koens
+• Get Coaching → /arena-breakout-infinite-coaching
+
+Internal Links:
+→ /arena-breakout-infinite-boosting
+→ /buy-arena-breakout-infinite-koens
+→ /arena-breakout-infinite-coaching
+→ /game/arena-breakout/raids-boost
+
+Maps Covered:
+✓ TV Station
+✓ Armory
+✓ Valley
+✓ Farm
+✓ Airport
+✓ Northridge
+
+Modes:
+• Lockdown: $4.50 per raid
+• Forbidden: $8.99 per raid
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📄 PAGE 4: ARENA BREAKOUT: INFINITE COACHING
+═══════════════════════════════════════════════════════════════════════════════
+URL: https://myboost.gg/arena-breakout-infinite-coaching
+
+Purpose: Landing page for coaching service
+Target Keywords: arena breakout infinite coaching, abi coaching
+Word Count: 700+ words
+
+H1: Arena Breakout: Infinite Coaching
+
+First Paragraph (Google Snippet):
+"Master Arena Breakout: Infinite with personalized coaching from elite
+players. Learn map knowledge, rotation strategies, PvP tactics, loot
+optimization, and economy management through 1-on-1 sessions tailored to
+your skill level. Our coaches have thousands of hours in-game and proven
+track records of turning casual players into top-tier operators."
+
+CTAs:
+• Book Coaching Now → /game/arena-breakout/coaching
+• Buy Koens → /buy-arena-breakout-infinite-koens
+• Get Raid Carry → /arena-breakout-infinite-raids-boost
+
+Internal Links:
+→ /arena-breakout-infinite-boosting
+→ /buy-arena-breakout-infinite-koens
+→ /arena-breakout-infinite-raids-boost
+→ /game/arena-breakout/coaching
+
+What You'll Learn:
+✓ Map Knowledge (callouts, landmarks, loot spawns)
+✓ PvP Combat (positioning, aim, engagement tactics)
+✓ Loot Routes (high-value paths and timing)
+✓ Survival Skills (risk management and extraction)
+✓ Economy Management (Koens optimization)
+✓ Advanced Tactics (rotations, sound cues, meta)
+
+Pricing: $8.50/hour, 1-10 hour packages
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🔗 CONVERSION FUNNEL
+═══════════════════════════════════════════════════════════════════════════════
+
+SEO Landing Pages → Service Pages → Cart → Checkout
+
+Example Flow:
+1. User searches "buy arena breakout infinite koens"
+2. Lands on /buy-arena-breakout-infinite-koens
+3. Reads 700 words of content about Koens farming
+4. Clicks "Order Koens Now" CTA
+5. Goes to /game/arena-breakout/koens-farming (service configurator)
+6. Selects amount, adds to cart
+7. Proceeds to checkout
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📊 SEO STRATEGY
+═══════════════════════════════════════════════════════════════════════════════
+
+Landing Pages (SEO Content):
+• /arena-breakout-infinite-boosting
+• /buy-arena-breakout-infinite-koens
+• /arena-breakout-infinite-raids-boost
+• /arena-breakout-infinite-coaching
+
+↓ (CTAs and internal links)
+
+Service Pages (Conversion):
+• /game/arena-breakout/koens-farming
+• /game/arena-breakout/raids-boost
+• /game/arena-breakout/coaching
+
+Benefits:
+✓ Landing pages rank for keywords
+✓ Service pages focus on conversion
+✓ Internal linking passes SEO authority
+✓ Clear user journey from search to purchase
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ FILES CREATED
+═══════════════════════════════════════════════════════════════════════════════
+
+1. src/pages/ArenaBreakoutInfiniteBoostingPage.tsx
+2. src/pages/BuyArenaBreakoutInfiniteKoensPage.tsx
+3. src/pages/ArenaBreakoutInfiniteRaidsBoostPage.tsx
+4. src/pages/ArenaBreakoutInfiniteCoachingPage.tsx
+5. src/App.tsx (updated with new routes)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ READY FOR DEPLOYMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+Build: ✅ SUCCESS
+Routes: ✅ WORKING
+SEO: ✅ OPTIMIZED
+Design: ✅ CONSISTENT
+CTAs: ✅ LINKED
+Internal Links: ✅ CONNECTED
+
+Deploy and start ranking for Arena Breakout: Infinite keywords!

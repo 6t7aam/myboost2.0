@@ -13,7 +13,7 @@ const SEO = ({
   title,
   description,
   keywords,
-  ogImage = "https://myboost.gg/og-image.jpg",
+  ogImage = "https://www.myboost.top/og-image.jpg",
   ogType = "website",
   canonicalUrl
 }: SEOProps) => {

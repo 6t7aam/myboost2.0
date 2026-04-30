@@ -11,6 +11,10 @@ import BoosterSelectionPage from "./pages/BoosterSelectionPage.tsx";
 import OrderStatusPage from "./pages/OrderStatusPage.tsx";
 import GamePage from "./pages/GamePage.tsx";
 import ArenaBreakoutServicePage from "./pages/ArenaBreakoutServicePage.tsx";
+import ArenaBreakoutInfiniteBoostingPage from "./pages/ArenaBreakoutInfiniteBoostingPage.tsx";
+import BuyArenaBreakoutInfiniteKoensPage from "./pages/BuyArenaBreakoutInfiniteKoensPage.tsx";
+import ArenaBreakoutInfiniteRaidsBoostPage from "./pages/ArenaBreakoutInfiniteRaidsBoostPage.tsx";
+import ArenaBreakoutInfiniteCoachingPage from "./pages/ArenaBreakoutInfiniteCoachingPage.tsx";
 import CartPage from "./pages/CartPage.tsx";
 import AdminPage from "./pages/AdminPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
@@ -34,6 +38,10 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/arena-breakout-infinite-boosting" element={<ArenaBreakoutInfiniteBoostingPage />} />
+              <Route path="/buy-arena-breakout-infinite-koens" element={<BuyArenaBreakoutInfiniteKoensPage />} />
+              <Route path="/arena-breakout-infinite-raids-boost" element={<ArenaBreakoutInfiniteRaidsBoostPage />} />
+              <Route path="/arena-breakout-infinite-coaching" element={<ArenaBreakoutInfiniteCoachingPage />} />
               <Route path="/game/arena-breakout/:serviceId" element={<ArenaBreakoutServicePage />} />
               <Route path="/game/:gameSlug" element={<GamePage />} />
               <Route path="/cart" element={<CartPage />} />

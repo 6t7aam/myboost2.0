@@ -54,7 +54,7 @@ const ArenaBreakoutServicePage = () => {
         title={seoData.metaTitle}
         description={seoData.metaDescription}
         keywords={`arena breakout ${service.name.toLowerCase()}, arena breakout infinite boosting, ${service.name.toLowerCase()} service, buy arena breakout boost`}
-        canonicalUrl={`https://myboost.gg/game/arena-breakout/${serviceId}`}
+        canonicalUrl={`https://www.myboost.top/game/arena-breakout/${serviceId}`}
       />
       <div className="min-h-screen bg-background">
         <Navbar />

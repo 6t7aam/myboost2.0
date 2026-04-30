@@ -15,7 +15,7 @@ const Index = () => {
         title="Professional Game Boosting Services - Fast, Safe & Affordable"
         description="Get professional game boosting for Arena Breakout Infinite, CS2, Dota 2, and Rust. Expert boosters, 24/7 support, secure account handling. 5000+ orders completed with 4.9★ rating."
         keywords="game boosting, arena breakout boosting, cs2 boosting, dota 2 boosting, rust boosting, professional boosting service, safe game boost"
-        canonicalUrl="https://myboost.gg/"
+        canonicalUrl="https://www.myboost.top/"
       />
       <div className="min-h-screen bg-background">
         <Navbar />

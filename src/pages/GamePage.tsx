@@ -94,7 +94,7 @@ const GamePage = () => {
         title={seoData.title}
         description={seoData.description}
         keywords={seoData.keywords}
-        canonicalUrl={`https://myboost.gg/game/${gameSlug}`}
+        canonicalUrl={`https://www.myboost.top/game/${gameSlug}`}
       />
       <div className="min-h-screen bg-background">
         <Navbar />
