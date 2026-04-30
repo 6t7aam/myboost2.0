@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Package, Loader2 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 interface Order {
   id: string;
@@ -60,6 +61,9 @@ const MyOrdersPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <link rel="canonical" href="https://www.myboost.top/my-orders" />
+      </Helmet>
       <Navbar />
       <div className="container mx-auto px-4 pt-24 pb-12 max-w-3xl">
         <h1 className="text-3xl font-black uppercase tracking-tight text-foreground mb-8">

@@ -6,6 +6,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { User, LogOut, Package, CheckCircle, ClipboardList } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import { Helmet } from "react-helmet-async";
 
 const AccountPage = () => {
   const { user, loading, signOut } = useAuth();
@@ -53,6 +54,9 @@ const AccountPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <link rel="canonical" href="https://www.myboost.top/account" />
+      </Helmet>
       <Navbar />
       <div className="container mx-auto px-4 pt-24 pb-12 max-w-3xl">
         <Card className="border-primary/20 glow-border mb-8">

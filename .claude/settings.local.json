@@ -4,7 +4,10 @@
       "PowerShell(npm run *)",
       "Bash(npm install *)",
       "Bash(npm run *)",
-      "Bash(awk '{print \"   \" $9 \" \\(\" $5 \"\\)\"}')"
+      "Bash(awk '{print \"   \" $9 \" \\(\" $5 \"\\)\"}')",
+      "Bash(cat)",
+      "Read(//tmp/**)",
+      "Bash(git diff *)"
     ]
   }
 }

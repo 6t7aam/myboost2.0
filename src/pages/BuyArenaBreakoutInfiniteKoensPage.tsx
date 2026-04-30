@@ -130,6 +130,63 @@ const BuyArenaBreakoutInfiniteKoensPage = () => {
                 <p className="text-muted-foreground">
                   Questions about your order? Our support team is available 24/7 via live chat to assist you. Every Koens farming order comes with real-time progress updates and a satisfaction guarantee. If you're not completely happy with the service, we'll make it right. Join hundreds of satisfied customers who trust MyBoost for their Arena Breakout: Infinite Koens needs.
                 </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Who Needs Arena Breakout: Infinite Koens?
+                </h2>
+                <p className="text-muted-foreground">
+                  Every ABI player needs Koens, but some situations demand large amounts quickly. New players need Koens to purchase their first decent loadouts and avoid running budget gear constantly. Mid-level players require Koens for weapon modifications, armor upgrades, and medical supplies to compete in higher-tier raids. Endgame players burn through Koens opening premium cases, crafting rare items, and maintaining expensive loadouts. Players preparing for competitive play need massive Koens reserves to ensure they never run out of optimal gear. Content creators require steady Koens income to showcase different weapons and playstyles. Whatever your reason for needing Koens, our farming service delivers the currency you need without the endless grind.
+                </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Benefits of Buying Koens vs. Farming Manually
+                </h2>
+                <p className="text-muted-foreground">
+                  Manual Koens farming in Arena Breakout: Infinite is time-consuming and risky. A single bad raid can wipe out hours of progress, and extraction campers frequently steal your hard-earned loot. Our professional farming service eliminates these frustrations entirely. You save dozens of hours that you can spend on enjoyable gameplay instead of repetitive grinding. Your Koens arrive safely without risk of losing them to PvP deaths or failed extractions. You can maintain expensive loadouts without worrying about going broke. The time you save is worth far more than the cost of the service—instead of spending 20 hours farming 10M Koens, you can spend those 20 hours actually enjoying the game with the gear you want.
+                </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  What Can You Do With Arena Breakout: Infinite Koens?
+                </h2>
+                <p className="text-muted-foreground">
+                  Koens unlock everything in Arena Breakout: Infinite. Purchase high-tier weapons like the M4A1, AK-74M, and SVD from traders. Buy premium armor sets that dramatically increase your survival rate in PvP encounters. Stock up on medical supplies including medkits, painkillers, and surgery kits. Open premium cases for chances at rare weapon skins and exclusive items. Craft valuable items in your hideout to sell for profit or use in raids. Upgrade your stash size to store more gear and loot. Purchase weapon modifications including scopes, suppressors, grips, and magazines to optimize your loadouts. Fund experimental builds and playstyles without worrying about going broke. With enough Koens, you can play Arena Breakout: Infinite exactly how you want without financial constraints.
+                </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Frequently Asked Questions
+                </h2>
+                <div className="space-y-6 mt-6">
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">Is buying Arena Breakout: Infinite Koens safe?</h3>
+                    <p className="text-muted-foreground">
+                      Yes, buying Koens from MyBoost is completely safe. We use VPN protection matched to your region and our farmers play during your typical gaming hours to maintain natural account behavior. We never use bots, cheats, or any prohibited software—only skilled human players who farm Koens through legitimate gameplay. With 600+ completed orders and zero account bans, your account security is guaranteed.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">How fast is Koens delivery?</h3>
+                    <p className="text-muted-foreground">
+                      We deliver 1 million Koens in approximately 1-2 hours on average. Larger orders scale proportionally—10M Koens typically takes 10-20 hours depending on booster availability and server conditions. Most orders begin within minutes of purchase, and you'll receive real-time progress updates throughout the farming process. Express delivery options are available for urgent orders.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">Is my account safe during Koens farming?</h3>
+                    <p className="text-muted-foreground">
+                      Your account security is our top priority. We use enterprise-grade VPN protection, secure login protocols, and never share your credentials. Our farmers are thoroughly vetted professionals who follow strict security guidelines. We've maintained a 100% account safety record across all Koens farming orders. Your account will be returned with the Koens you ordered, completely safe and secure.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">What is your refund policy for Koens orders?</h3>
+                    <p className="text-muted-foreground">
+                      We offer full refunds for Koens orders that haven't started yet. Once farming begins, we guarantee delivery of the full Koens amount you ordered. If you're unsatisfied with the service quality or delivery time, contact our 24/7 support team and we'll work to resolve any concerns immediately. Customer satisfaction is our priority.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">How do I start ordering Koens?</h3>
+                    <p className="text-muted-foreground">
+                      Ordering Koens is simple. Visit our Koens farming page, select the amount you need (1M to 500M), add to cart, and complete checkout using cryptocurrency (LTC, SOL, or USDT). Our team will contact you within minutes to coordinate account access. You can track your order progress in real-time through our dashboard and communicate directly with your assigned farmer.
+                    </p>
+                  </div>
+                </div>
               </article>
 
               {/* CTA Section */}

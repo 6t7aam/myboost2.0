@@ -110,6 +110,56 @@ const ArenaBreakoutInfiniteBoostingPage = () => {
                 <p className="text-muted-foreground">
                   Our customer support team is available around the clock to answer questions, provide updates, and ensure your complete satisfaction. Every Arena Breakout: Infinite boosting order comes with real-time progress tracking and a satisfaction guarantee. If you're not happy with the results, we'll make it right. Join thousands of satisfied customers who trust MyBoost for their ABI boosting needs.
                 </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Common Use Cases for ABI Boosting Services
+                </h2>
+                <p className="text-muted-foreground">
+                  Players choose our Arena Breakout: Infinite boosting for various reasons. Busy professionals use our services to stay competitive without sacrificing work-life balance. New players accelerate their progression to catch up with friends who started earlier. Experienced players farm Koens during work hours to maximize their gaming time. Content creators maintain their accounts while focusing on video production. Competitive players prepare for tournaments by ensuring their accounts have optimal gear and resources. Whatever your situation, our boosting services adapt to your specific needs and schedule.
+                </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Key Benefits of Professional ABI Boosting
+                </h2>
+                <p className="text-muted-foreground">
+                  Professional Arena Breakout: Infinite boosting saves you hundreds of hours of grinding while maintaining complete account security. You skip the frustrating early-game progression and jump straight to the content you enjoy. Our services eliminate the risk of losing valuable gear to unlucky deaths or extraction campers. You gain access to high-tier equipment and resources that would take weeks to farm manually. Your account progresses even when you're at work, asleep, or busy with other commitments. Most importantly, you reclaim your gaming time to focus on the exciting aspects of ABI—intense PvP battles, strategic raid planning, and playing with friends—instead of tedious resource grinding.
+                </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Frequently Asked Questions
+                </h2>
+                <div className="space-y-6 mt-6">
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">Is Arena Breakout: Infinite boosting safe?</h3>
+                    <p className="text-muted-foreground">
+                      Yes, absolutely. We prioritize account security above all else. Every boosting order uses VPN protection matched to your region, and our boosters play during your typical gaming hours to maintain natural account behavior. We never use bots, cheats, macros, or any prohibited software—only skilled human players. With 600+ completed orders and a perfect security record, your account is in safe hands.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">How fast is the delivery?</h3>
+                    <p className="text-muted-foreground">
+                      Delivery times vary by service. Koens farming delivers 1M Koens in 1-2 hours on average. Raid carries take 30-60 minutes per raid. Coaching sessions are scheduled at your convenience. Most orders begin within minutes of purchase, and we provide real-time progress updates throughout. Express and Super Express options are available for even faster completion.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">Is my account safe during boosting?</h3>
+                    <p className="text-muted-foreground">
+                      Your account security is guaranteed. We use enterprise-grade VPN protection, secure login protocols, and never share your credentials with third parties. Our boosters are thoroughly vetted professionals who follow strict security guidelines. We've maintained a 100% account safety record across all our services. Your account will be returned to you in better condition than we received it.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">What is your refund policy?</h3>
+                    <p className="text-muted-foreground">
+                      We offer full refunds for orders that haven't started yet. Once boosting begins, we guarantee completion of your order. If you're unsatisfied with the service quality, contact our support team and we'll work to resolve any concerns. Our goal is 100% customer satisfaction, and we stand behind every service we provide.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">How do I get started?</h3>
+                    <p className="text-muted-foreground">
+                      Getting started is simple. Choose your desired service (Koens farming, raid carries, or coaching), select your options and quantity, add to cart, and complete checkout using cryptocurrency (LTC, SOL, or USDT). Our team will contact you within minutes to coordinate account access or schedule your session. You'll receive real-time updates throughout the entire process.
+                    </p>
+                  </div>
+                </div>
               </article>
 
               {/* CTA Section */}

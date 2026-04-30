@@ -147,6 +147,77 @@ const ArenaBreakoutInfiniteCoachingPage = () => {
                 <p className="text-muted-foreground">
                   Why spend months learning through trial and error when you can accelerate your progress with professional coaching? Our students consistently report dramatic improvements in survival rate, Koens earned per raid, PvP win rate, and overall confidence. At just $8.50 per hour, Arena Breakout: Infinite coaching is an investment that pays for itself in better gameplay and more enjoyment. Book your first session today and start your journey to becoming an elite ABI operator.
                 </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Who Benefits Most From ABI Coaching?
+                </h2>
+                <p className="text-muted-foreground">
+                  Arena Breakout: Infinite coaching serves players at every skill level. Complete beginners learn the fundamentals—basic controls, map layouts, and survival mechanics—to avoid the frustrating early-game learning curve. Intermediate players who've hit a skill plateau receive targeted training to break through to the next level. Experienced players preparing for competitive play refine advanced tactics and learn meta strategies. Players transitioning from other extraction shooters like Escape from Tarkov adapt their existing skills to ABI's unique mechanics. Content creators improve their gameplay to provide better entertainment value for their audience. Casual players who want to maximize their limited gaming time learn efficient strategies to progress faster. Whatever your current skill level or goals, our coaching adapts to your specific needs.
+                </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Key Benefits of Professional Coaching
+                </h2>
+                <p className="text-muted-foreground">
+                  Professional Arena Breakout: Infinite coaching accelerates your improvement exponentially compared to solo learning. You avoid developing bad habits that are difficult to break later. Our coaches identify your specific weaknesses and provide targeted solutions instead of generic advice. You learn advanced strategies and tactics that most players never discover on their own. Real-time feedback during live sessions allows immediate correction of mistakes. You gain confidence in your decision-making through understanding the "why" behind every action. The time you save by learning efficiently is worth far more than the coaching cost—instead of spending 100 hours figuring out optimal loot routes through trial and error, you learn them in a single session. Most importantly, you enjoy the game more when you understand what you're doing and see consistent improvement.
+                </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  What Makes Our Coaches Elite?
+                </h2>
+                <p className="text-muted-foreground">
+                  Our Arena Breakout: Infinite coaches meet strict qualification standards. Every coach has thousands of verified hours in-game with proven high-level performance. They demonstrate deep understanding of game mechanics, map knowledge, and meta strategies. Most importantly, they possess strong teaching skills—being good at the game isn't enough; they must effectively communicate concepts and adapt their teaching style to different learning preferences. Our coaches undergo training in educational techniques to maximize student improvement. They stay current with game updates, meta shifts, and emerging strategies. Many have competitive experience or content creation backgrounds that provide additional perspective. When you book coaching with MyBoost, you're learning from the best players who are also the best teachers.
+                </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Coaching Session Structure and Format
+                </h2>
+                <p className="text-muted-foreground">
+                  Arena Breakout: Infinite coaching sessions are structured for maximum learning efficiency. Your first session begins with a skill assessment where your coach evaluates your current abilities and identifies areas for improvement. Together, you'll establish clear goals and create a customized training plan. Live coaching sessions involve you playing while your coach watches and provides real-time guidance on positioning, decision-making, and tactics. VOD review sessions analyze recordings of your raids, breaking down what you did well and what needs improvement. Theory sessions cover map knowledge, game mechanics, and strategic concepts. Practice drills focus on specific skills like aim training, positioning, or loot route memorization. Each session ends with a summary of key takeaways and homework assignments to practice between sessions. This structured approach ensures consistent progress toward your goals.
+                </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Measuring Your Improvement
+                </h2>
+                <p className="text-muted-foreground">
+                  We track your progress throughout your Arena Breakout: Infinite coaching journey. Key metrics include survival rate (percentage of raids where you successfully extract), Koens per hour (economic efficiency), PvP kill/death ratio, average raid duration, and quest completion rate. Your coach maintains detailed notes on your strengths, weaknesses, and areas of improvement. Many students report dramatic improvements within just a few sessions—survival rates increasing from 20% to 50%+, Koens per hour doubling or tripling, and PvP confidence transforming from avoidance to active engagement. These measurable improvements validate the effectiveness of professional coaching and demonstrate the return on your investment.
+                </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Frequently Asked Questions
+                </h2>
+                <div className="space-y-6 mt-6">
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">Is Arena Breakout: Infinite coaching safe?</h3>
+                    <p className="text-muted-foreground">
+                      Yes, coaching is completely safe because you play on your own account while our coach guides you through voice communication. There's no account sharing or credential exchange required. You maintain full control of your account at all times while learning from elite players. This makes coaching the safest boosting option available.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">How fast will I see improvement?</h3>
+                    <p className="text-muted-foreground">
+                      Most students see noticeable improvement within their first 1-2 coaching sessions. You'll learn actionable strategies that you can implement immediately. Significant improvements in survival rate, Koens per hour, and PvP performance typically occur within 3-5 hours of coaching. The speed of improvement depends on your dedication to practicing what you learn between sessions.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">Is my account safe during coaching sessions?</h3>
+                    <p className="text-muted-foreground">
+                      Your account is completely safe because coaching doesn't require account sharing. You play on your own account while our coach watches and provides real-time guidance through voice chat. There's zero risk to your account security. You're simply learning from an expert player—no different from playing with a skilled friend.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">What is your refund policy for coaching?</h3>
+                    <p className="text-muted-foreground">
+                      We offer full refunds for coaching sessions that haven't been scheduled yet. If you're unsatisfied with your first coaching session, contact our support team within 24 hours and we'll either provide a different coach or issue a refund. We're committed to ensuring you receive high-quality coaching that meets your expectations.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">How do I get started with coaching?</h3>
+                    <p className="text-muted-foreground">
+                      Getting started is simple. Select the number of coaching hours you want (1-10 hours), add to cart, and complete checkout using cryptocurrency (LTC, SOL, or USDT). Our team will contact you within minutes to schedule your first session at a time that works for you. You'll be matched with a coach who specializes in your areas of interest and learning goals.
+                    </p>
+                  </div>
+                </div>
               </article>
 
               {/* CTA Section */}

@@ -6,6 +6,7 @@ import { useCart } from "@/contexts/CartContext";
 import { ShoppingCart, Trash2, ArrowRight, ArrowLeft, Zap } from "lucide-react";
 import PromoCodeInput from "@/components/PromoCodeInput";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const CartPage = () => {
   const { items, removeItem, totalPrice, clearCart } = useCart();
@@ -17,6 +18,9 @@ const CartPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <link rel="canonical" href="https://www.myboost.top/cart" />
+      </Helmet>
       <Navbar />
 
       <section className="relative pt-24 pb-16">

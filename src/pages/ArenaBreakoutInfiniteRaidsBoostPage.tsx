@@ -132,6 +132,70 @@ const ArenaBreakoutInfiniteRaidsBoostPage = () => {
                 <p className="text-muted-foreground">
                   We offer raid boost packages from 1 to 20 raids, allowing you to choose exactly what you need. Need just one difficult raid completed? We've got you. Planning a marathon session to farm specific loot? We can handle that too. Our customer support team is available 24/7 to answer questions, provide updates, and ensure your complete satisfaction. Every order comes with real-time progress tracking and a satisfaction guarantee.
                 </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  When Do Players Need Raid Carries?
+                </h2>
+                <p className="text-muted-foreground">
+                  Arena Breakout: Infinite raid carries serve multiple purposes for different player types. New players use raid carries to experience high-tier content and obtain gear they couldn't acquire solo. Players stuck on difficult quests that require specific raid completions rely on our carries to progress. Busy professionals who lack time for lengthy raid attempts use our service to maintain progression. Players farming specific loot from Forbidden mode raids—like rare weapon blueprints or premium armor—order multiple carries for efficient farming. Groups missing a skilled player for their squad hire our boosters to fill the gap. Content creators preparing showcase videos need guaranteed successful raids without wasting hours on failed attempts. Whatever your reason for needing a raid carry, our expert team delivers consistent results.
+                </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Advantages of Professional Raid Boosting
+                </h2>
+                <p className="text-muted-foreground">
+                  Professional Arena Breakout: Infinite raid carries offer numerous benefits over attempting raids solo or with random teammates. You eliminate the frustration of failed extractions and wasted time on unsuccessful raids. Our boosters guarantee VIP extraction every time, ensuring you never lose your loot to last-second ambushes. You gain access to premium loot from Forbidden mode without the stress of intense PvP combat. Your time investment is predictable—30-60 minutes per raid instead of hours of failed attempts. You learn optimal strategies by observing how elite players navigate dangerous zones, handle PvP encounters, and maximize loot acquisition. Most importantly, you progress through the game at your desired pace without being held back by difficult content or skill gaps.
+                </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Raid Difficulty Tiers and Pricing
+                </h2>
+                <p className="text-muted-foreground">
+                  We offer raid carries for both difficulty tiers in Arena Breakout: Infinite. Lockdown mode raids ($4.50 per raid) feature moderate AI difficulty, lower player density, and consistent loot rewards—ideal for quest completions, farming specific common items, or learning map layouts with reduced risk. Forbidden mode raids ($8.99 per raid) represent the ultimate challenge with aggressive AI, high player density, and premium loot including rare weapons, high-tier armor, and valuable crafting materials. Forbidden mode is where the best gear in the game comes from, and our boosters have mastered the intense combat and strategic positioning required to extract successfully every time. Choose the difficulty tier that matches your goals and budget.
+                </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Map-Specific Raid Strategies
+                </h2>
+                <p className="text-muted-foreground">
+                  Each Arena Breakout: Infinite map requires unique strategies for successful raids. TV Station demands vertical awareness and close-quarters combat skills due to its multi-story layout and tight corridors. Armory features high-value loot rooms protected by dangerous chokepoints that require tactical clearing. Valley's open sightlines favor long-range engagements and careful positioning to avoid sniper fire. Farm's complex building layouts require extensive map knowledge to navigate efficiently. Airport's massive scale demands stamina management and knowledge of multiple extraction routes. Northridge's challenging terrain combines elevation changes with dense cover, requiring adaptability. Our boosters have mastered every map's unique challenges and adjust their strategies accordingly to guarantee successful extractions regardless of the location.
+                </p>
+
+                <h2 className="text-2xl font-black uppercase text-foreground mt-8">
+                  Frequently Asked Questions
+                </h2>
+                <div className="space-y-6 mt-6">
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">Is Arena Breakout: Infinite raid boosting safe?</h3>
+                    <p className="text-muted-foreground">
+                      Yes, our raid boosting service is completely safe. We use VPN protection matched to your region and our boosters play during your typical gaming hours. We never use cheats, exploits, or prohibited software—only skilled players with thousands of hours of experience. With 600+ completed orders and a perfect security record, your account is guaranteed safe throughout the entire raid carry process.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">How fast is raid carry delivery?</h3>
+                    <p className="text-muted-foreground">
+                      Each raid is completed in 30-60 minutes on average, depending on the map and mode. Lockdown mode raids tend toward the faster end (30-45 minutes), while Forbidden mode raids may take 45-60 minutes due to increased combat intensity. Multiple raid orders are completed sequentially, and we provide real-time progress updates for each raid.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">Is my account safe during raid carries?</h3>
+                    <p className="text-muted-foreground">
+                      Your account security is guaranteed. We use enterprise-grade VPN protection, secure login protocols, and our boosters are thoroughly vetted professionals. We've maintained a 100% account safety record across all raid carry services. Every raid is completed through legitimate gameplay with guaranteed VIP extraction—your account and loot are completely secure.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">What is your refund policy for raid carries?</h3>
+                    <p className="text-muted-foreground">
+                      We offer full refunds for raid carry orders that haven't started. Once boosting begins, we guarantee successful completion with VIP extraction. In the extremely rare case of a failed raid, we immediately retry at no additional cost. If you're unsatisfied with the service, contact our 24/7 support team and we'll resolve any concerns.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">How do I get started with raid carries?</h3>
+                    <p className="text-muted-foreground">
+                      Getting started is easy. Select your desired raid type (Lockdown or Forbidden mode), choose the number of raids (1-20), select your preferred maps if applicable, add to cart, and complete checkout using cryptocurrency (LTC, SOL, or USDT). Our team will contact you within minutes to coordinate account access and begin your raid carries immediately.
+                    </p>
+                  </div>
+                </div>
               </article>
 
               {/* CTA Section */}

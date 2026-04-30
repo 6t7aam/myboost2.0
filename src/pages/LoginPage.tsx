@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { LogIn, Loader2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import { Helmet } from "react-helmet-async";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -41,6 +42,9 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <link rel="canonical" href="https://www.myboost.top/login" />
+      </Helmet>
       <Navbar />
       <div className="flex items-center justify-center px-4 pt-24 pb-12">
         <Card className="w-full max-w-md border-primary/20 glow-border">

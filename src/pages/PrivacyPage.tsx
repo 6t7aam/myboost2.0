@@ -1,8 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const PrivacyPage = () => (
   <>
+    <Helmet>
+      <link rel="canonical" href="https://www.myboost.top/privacy" />
+    </Helmet>
     <Navbar />
     <main className="min-h-screen bg-background py-16">
       <div className="container mx-auto max-w-3xl px-4">
