@@ -7,8 +7,8 @@ export interface ServiceSEO {
 
 export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
   "koens-farming": {
-    metaTitle: "Arena Breakout Infinite Koens Farming - Fast & Safe Boosting Service",
-    metaDescription: "Buy Arena Breakout Infinite Koens farming service. Professional boosters deliver 1M-500M Koens in 1-2 hours. Secure, affordable, VPN protected. 600+ orders, 4.9★ rating.",
+    metaTitle: "Arena Breakout: Infinite Koens Farming - MyBoost",
+    metaDescription: "Buy Arena Breakout: Infinite Koens farming service. Professional boosters deliver 1M-500M Koens in 1-2 hours. Secure, affordable, VPN protected. 600+ orders, 4.9★ rating.",
     h1: "Arena Breakout: Infinite Koens Farming Service",
     content: `
       <p>Looking to buy Arena Breakout: Infinite Koens fast and safely? Our Arena Breakout boosting service provides the most efficient Koens farming solution on the market. Whether you need 1 million or 500 million Koens, our experienced looters deliver results in record time while keeping your account completely secure.</p>
@@ -27,8 +27,8 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "raids-boost": {
-    metaTitle: "Arena Breakout Infinite Raids Boost - Professional Raid Carry Service",
-    metaDescription: "Arena Breakout Infinite raids boost on all maps. Expert Lockdown & Forbidden mode carries with VIP extraction. 30-60 min per raid, guaranteed loot. Safe & professional service.",
+    metaTitle: "Arena Breakout: Infinite Raids Boost - MyBoost",
+    metaDescription: "Arena Breakout: Infinite raids boost on all maps. Expert Lockdown & Forbidden mode carries with VIP extraction. 30-60 min per raid, guaranteed loot. Safe & professional service.",
     h1: "Arena Breakout: Infinite Raids Boost Service",
     content: `
       <p>Struggling with high-tier raids in Arena Breakout: Infinite? Our Arena Breakout boosting service offers professional raid carries on every map, from TV Station to Northridge. Whether you're tackling Lockdown or Forbidden mode, our elite squad ensures successful extractions with maximum loot every single time.</p>
@@ -47,8 +47,8 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "titanium-case": {
-    metaTitle: "Arena Breakout Infinite Titanium 3x3 Case - Premium Loot Boost",
-    metaDescription: "Get Arena Breakout Infinite Titanium 3x3 Case with guaranteed top-tier loot. Premium weapons, rare attachments, high-tier armor. $99.99, delivered in 24-48 hours. Safe & secure.",
+    metaTitle: "Arena Breakout: Infinite Titanium 3x3 Case - MyBoost",
+    metaDescription: "Get Arena Breakout: Infinite Titanium 3x3 Case with guaranteed top-tier loot. Premium weapons, rare attachments, high-tier armor. $99.99, delivered in 24-48 hours. Safe & secure.",
     h1: "Arena Breakout: Infinite Titanium 3x3 Case Service",
     content: `
       <p>The Titanium 3x3 Case is one of the most coveted items in Arena Breakout: Infinite, and our Arena Breakout boosting service makes it accessible to everyone. For a fixed price of $99.99, you'll receive this premium case filled with guaranteed top-tier loot, delivered safely to your account within 24-48 hours.</p>
@@ -67,8 +67,8 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "coaching": {
-    metaTitle: "Arena Breakout Infinite Coaching - Learn From Pro Players",
-    metaDescription: "Arena Breakout Infinite coaching by top players. Learn maps, rotations, PvP tactics, loot routes. Personalized 1-on-1 sessions from $8.50/hour. Improve fast with expert guidance.",
+    metaTitle: "Arena Breakout: Infinite Coaching - MyBoost",
+    metaDescription: "Arena Breakout: Infinite coaching by top players. Learn maps, rotations, PvP tactics, loot routes. Personalized 1-on-1 sessions from $8.50/hour. Improve fast with expert guidance.",
     h1: "Arena Breakout: Infinite Coaching Service",
     content: `
       <p>Ready to elevate your Arena Breakout: Infinite skills? Our Arena Breakout boosting service includes personalized coaching from top-tier players who will teach you everything you need to dominate. From map knowledge to PvP tactics, our coaches provide 1-on-1 sessions tailored to your skill level and goals.</p>
@@ -87,9 +87,9 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "rent-a-booster": {
-    metaTitle: "Rent a Booster for Arena Breakout Infinite - Play With Pro Players",
-    metaDescription: "Rent a booster for Arena Breakout Infinite. Play alongside elite players in raids with real-time guidance. Instant start, $8.50/hour. Safe, fun, and effective boosting service.",
-    h1: "Rent a Booster for Arena Breakout: Infinite",
+    metaTitle: "Arena Breakout: Infinite Rent a Booster - MyBoost",
+    metaDescription: "Rent a booster for Arena Breakout: Infinite. Play alongside elite players in raids with real-time guidance. Instant start, $8.50/hour. Safe, fun, and effective boosting service.",
+    h1: "Arena Breakout: Infinite Rent a Booster",
     content: `
       <p>Want to experience Arena Breakout: Infinite with a pro by your side? Our Arena Breakout boosting service lets you rent a booster who will play alongside you in raids, providing real-time guidance, protection, and support. It's the perfect blend of coaching and carry—you stay in control while benefiting from elite-level gameplay.</p>
 
@@ -107,8 +107,8 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "warlord-tournament": {
-    metaTitle: "Arena Breakout Infinite Warlord Tournament Boost - MyBoost",
-    metaDescription: "New Arena Breakout: Infinite Warlord Tournament boost. Custom pricing based on your current rank, desired rank, and Warlord stars. Contact MyBoost.",
+    metaTitle: "Arena Breakout: Infinite Warlord Tournament Boost - MyBoost",
+    metaDescription: "Buy Arena Breakout: Infinite Warlord Tournament boost. Fast rank progression, custom star boosting, safe and secure service. Instant price calculator available.",
     h1: "Arena Breakout: Infinite Warlord Tournament Boost",
     content: `
       <p>The <strong>Warlord Tournament</strong> is a new limited-time competitive mode in Arena Breakout: Infinite. This exclusive event brings the most intense PvP action, where only the best players can climb the ranks and earn prestigious Warlord stars. Our professional boosting service is here to help you dominate this challenging mode and achieve your desired rank before the event ends.</p>
