@@ -105,5 +105,33 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
       <h2>Safe, Fun, and Effective</h2>
       <p>This is the safest form of Arena Breakout: Infinite boosting because you maintain full control of your account. There's no login sharing, no security risk—just pure cooperative gameplay. Whether you're farming Koens, completing quests, or tackling difficult raids, having a pro teammate makes everything easier and more enjoyable. Buy Arena Breakout boost today and never raid alone again.</p>
     `
+  },
+  "warlord-tournament": {
+    metaTitle: "Arena Breakout Infinite Warlord Tournament Boost - MyBoost",
+    metaDescription: "New Arena Breakout: Infinite Warlord Tournament boost. Custom pricing based on your current rank, desired rank, and Warlord stars. Contact MyBoost.",
+    h1: "Arena Breakout: Infinite Warlord Tournament Boost",
+    content: `
+      <p>The <strong>Warlord Tournament</strong> is a new limited-time competitive mode in Arena Breakout: Infinite. This exclusive event brings the most intense PvP action, where only the best players can climb the ranks and earn prestigious Warlord stars. Our professional boosting service is here to help you dominate this challenging mode and achieve your desired rank before the event ends.</p>
+
+      <h2>Limited-Time Competitive Mode</h2>
+      <p>Warlord Tournament is not a permanent feature—it's a special limited-time event that tests your skills against the best players in Arena Breakout: Infinite. Every match counts, and the competition is fierce. Don't miss your chance to earn exclusive rewards and recognition that will set you apart from other players long after the tournament ends.</p>
+
+      <h2>Individual Pricing Based on Your Goals</h2>
+      <p>Unlike our other services, Warlord Tournament boosting requires custom pricing because every player's situation is unique. Your price depends on three key factors:</p>
+      <ul>
+        <li><strong>Your Current Rank:</strong> Where you're starting from in the tournament ladder</li>
+        <li><strong>Your Desired Rank:</strong> The target rank you want to achieve</li>
+        <li><strong>Warlord Stars:</strong> The number of Warlord stars you want to earn</li>
+      </ul>
+      <p>The higher your target rank and the more stars you need, the more competitive matches are required. That's why we provide personalized quotes—contact us with your current rank and goals, and we'll give you a fair, transparent price.</p>
+
+      <h2>Professional Warlord Tournament Boosters</h2>
+      <p>Our Arena Breakout: Infinite boosting team includes players who have already proven themselves in Warlord Tournament. They understand the meta, know how to secure wins in high-pressure matches, and can navigate the unique challenges of tournament play. When you work with us, you're getting access to elite-level gameplay that will push you up the leaderboard efficiently and safely.</p>
+
+      <h2>Contact Us for Your Custom Quote</h2>
+      <p>Ready to dominate Warlord Tournament? Contact us on Discord to discuss your current rank, desired rank, and Warlord star goals. We'll provide a custom quote tailored to your needs. Don't wait—this is a limited-time mode, and every day counts.</p>
+      <p><strong>Discord: geroj2</strong></p>
+      <p><a href="/game/arena-breakout" style="color: #ffd700; text-decoration: underline;">← Back to all Arena Breakout: Infinite services</a></p>
+    `
   }
 };

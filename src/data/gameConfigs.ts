@@ -26,7 +26,7 @@ export interface ServiceOption {
   description: string;
   tag?: string;
   image?: string;
-  type: "slider" | "slider-input" | "fixed" | "raids" | "tiered" | "resources" | "contact";
+  type: "slider" | "slider-input" | "fixed" | "raids" | "tiered" | "resources" | "contact" | "warlord";
   unit?: string;
   min?: number;
   max?: number;
@@ -41,6 +41,7 @@ export interface ServiceOption {
   resources?: ResourceItem[];
   contactMessage?: string;
   startPrice?: string;
+  ranks?: string[];
 }
 
 export interface GameConfig {
@@ -134,6 +135,22 @@ export const gameConfigs: Record<string, GameConfig> = {
         defaultValue: 1,
         pricePerUnit: 8.5,
         estimatedTime: "Instant start",
+      },
+      {
+        id: "warlord-tournament",
+        name: "Warlord Tournament",
+        description: "New Warlord Tournament mode is live. Calculate your price instantly based on your current rank and desired Warlord stars.",
+        tag: "Hot",
+        image: "/service-images/arena-breakout/warlord-tournament.png",
+        startPrice: "From $8",
+        type: "warlord",
+        ranks: ["Recruit", "Vanguard", "Ranger", "Commander", "Warlord"],
+        min: 1,
+        max: 99,
+        step: 1,
+        defaultValue: 1,
+        contactMessage: "Warlord Tournament rank boosting is highly competitive. Prices depend on your current rank and desired Warlord stars.\n\n**Contact us in Discord: geroj2**",
+        estimatedTime: "Varies",
       },
     ],
   },

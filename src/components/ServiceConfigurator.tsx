@@ -38,6 +38,11 @@ const ServiceConfigurator = ({ service, gameSlug, gameTitle, onAddToCart }: Serv
   const [currentElo, setCurrentElo] = useState(service.min || 0);
   const [desiredElo, setDesiredElo] = useState((service.min || 0) + (service.step || 100) * 4);
   const [speed, setSpeed] = useState<SpeedOption>("normal");
+  const [currentRank, setCurrentRank] = useState(service.ranks?.[0] || "");
+  const [desiredRank, setDesiredRank] = useState(service.ranks?.[4] || "");
+  const [currentDivision, setCurrentDivision] = useState("IV");
+  const [desiredDivision, setDesiredDivision] = useState("IV");
+  const [warlordStars, setWarlordStars] = useState(service.defaultValue || 1);
   const [resourceQuantities, setResourceQuantities] = useState<Record<string, number>>(
     () => {
       const map: Record<string, number> = {};
@@ -75,9 +80,71 @@ const ServiceConfigurator = ({ service, gameSlug, gameTitle, onAddToCart }: Serv
     }, 0);
   };
 
+  const calculateWarlordPrice = (): number => {
+    if (!currentRank || !desiredRank) return 0;
+
+    const rankOrder = ["Recruit", "Vanguard", "Ranger", "Commander", "Warlord"];
+    const divisionOrder = ["IV", "III", "II", "I"];
+    const rankPrices: Record<string, number> = {
+      "Recruit": 8,
+      "Vanguard": 10,
+      "Ranger": 12,
+      "Commander": 14,
+      "Warlord": 2, // per star
+    };
+
+    // Convert ranks to absolute position numbers for easier calculation
+    const getAbsolutePosition = (rank: string, division: string, stars: number = 0): number => {
+      const rankIndex = rankOrder.indexOf(rank);
+      if (rank === "Warlord") {
+        // Warlord starts after Commander I (position 16)
+        // Position 16 = Warlord 1, Position 17 = Warlord 2, etc.
+        return 16 + stars - 1; // stars start at 1, so subtract 1
+      }
+      // Each rank has 4 divisions (IV=0, III=1, II=2, I=3)
+      const divIndex = divisionOrder.indexOf(division);
+      return rankIndex * 4 + divIndex;
+    };
+
+    const currentPos = getAbsolutePosition(currentRank, currentDivision, 0);
+    const desiredPos = getAbsolutePosition(desiredRank, desiredDivision, desiredRank === "Warlord" ? warlordStars : 0);
+
+    // If desired position is not higher than current, return 0
+    if (desiredPos <= currentPos) return 0;
+
+    let totalPrice = 0;
+    let position = currentPos;
+
+    // Calculate price step by step
+    // Each step moves from one position to the next
+    while (position < desiredPos) {
+      // Determine which rank we're progressing THROUGH (the rank we're leaving)
+      if (position < 4) {
+        // Progressing through Recruit (positions 0-3)
+        totalPrice += rankPrices["Recruit"];
+      } else if (position < 8) {
+        // Progressing through Vanguard (positions 4-7)
+        totalPrice += rankPrices["Vanguard"];
+      } else if (position < 12) {
+        // Progressing through Ranger (positions 8-11)
+        totalPrice += rankPrices["Ranger"];
+      } else if (position < 16) {
+        // Progressing through Commander (positions 12-15)
+        totalPrice += rankPrices["Commander"];
+      } else {
+        // Progressing through Warlord (positions 16+)
+        totalPrice += rankPrices["Warlord"];
+      }
+      position++;
+    }
+
+    return totalPrice;
+  };
+
   const calculateBasePrice = (): number => {
     if (service.type === "fixed") return service.fixedPrice || 0;
     if (service.type === "contact") return 0;
+    if (service.type === "warlord") return calculateWarlordPrice();
     if (service.type === "tiered") return calculateTieredPrice();
     if (service.type === "resources") return calculateResourcePrice();
     if (service.type === "raids") {
@@ -98,6 +165,21 @@ const ServiceConfigurator = ({ service, gameSlug, gameTitle, onAddToCart }: Serv
     if (service.type === "tiered") {
       options["Current"] = `${currentElo} ${service.unit}`;
       options["Desired"] = `${desiredElo} ${service.unit}`;
+    } else if (service.type === "warlord") {
+      // Warlord Tournament specific options
+      if (currentRank === "Warlord") {
+        options["Current Rank"] = "Warlord";
+      } else {
+        options["Current Rank"] = `${currentRank} ${currentDivision}`;
+      }
+      if (desiredRank === "Warlord") {
+        options["Desired Rank"] = `Warlord ${warlordStars} ★`;
+      } else {
+        options["Desired Rank"] = `${desiredRank} ${desiredDivision}`;
+      }
+      // Always include delivery speed for Warlord Tournament
+      const speedLabel = speedOptions.find((s) => s.value === speed)?.label || "Normal";
+      options["Delivery Speed"] = speedLabel;
     } else if (service.type === "resources" && service.resources) {
       service.resources.forEach((r) => {
         const qty = resourceQuantities[r.name] || 0;
@@ -110,7 +192,7 @@ const ServiceConfigurator = ({ service, gameSlug, gameTitle, onAddToCart }: Serv
       options["Map"] = selectedMap;
       options["Mode"] = selectedMode;
     }
-    if (speed !== "normal") {
+    if (speed !== "normal" && service.type !== "warlord") {
       options["Speed"] = speedOptions.find((s) => s.value === speed)?.label || "";
     }
     onAddToCart({
@@ -150,10 +232,264 @@ const ServiceConfigurator = ({ service, gameSlug, gameTitle, onAddToCart }: Serv
           <Button
             size="lg"
             className="mt-4 gap-2 rounded-xl font-bold uppercase tracking-wider glow-box-intense"
-            onClick={() => window.open("https://discord.gg", "_blank")}
+            onClick={() => {
+              const discordMatch = service.contactMessage?.match(/Discord:\s*(\S+)/);
+              const discordUser = discordMatch ? discordMatch[1] : "geroj2";
+              window.open(`https://discord.com/users/${discordUser}`, "_blank");
+            }}
           >
-            Contact on Discord
+            Contact in Discord
           </Button>
+        </div>
+      )}
+
+      {/* Warlord Tournament */}
+      {service.type === "warlord" && service.ranks && (
+        <div className="space-y-6">
+          {/* Current Rank */}
+          <div>
+            <label className="mb-3 block text-sm font-semibold uppercase tracking-wider text-foreground">Current Rank</label>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+              {service.ranks.map((rank) => (
+                <button
+                  key={rank}
+                  onClick={() => setCurrentRank(rank)}
+                  className={`group relative rounded-xl border-2 p-4 transition-all duration-300 flex flex-col items-center gap-3 ${
+                    currentRank === rank
+                      ? "border-primary bg-primary/10 shadow-[0_0_20px_hsl(48_100%_50%_/_0.3)] scale-105"
+                      : "border-border/50 bg-card hover:border-primary/50 hover:bg-card/80 hover:scale-102 hover:shadow-[0_0_15px_hsl(48_100%_50%_/_0.15)]"
+                  }`}
+                >
+                  <div className={`relative w-16 h-16 rounded-lg overflow-hidden ${
+                    currentRank === rank ? "ring-2 ring-primary ring-offset-2 ring-offset-background" : ""
+                  }`}>
+                    <img
+                      src={`/ranks/${rank.toLowerCase()}.png`}
+                      alt={rank}
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                      }}
+                    />
+                  </div>
+                  <span className={`text-sm font-bold uppercase tracking-wide ${
+                    currentRank === rank ? "text-primary" : "text-muted-foreground group-hover:text-foreground"
+                  }`}>
+                    {rank}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Current Division - only show if rank is not Warlord */}
+          {currentRank && currentRank !== "Warlord" && (
+            <div>
+              <label className="mb-3 block text-sm font-semibold uppercase tracking-wider text-foreground">Current Division</label>
+              <div className="grid grid-cols-4 gap-3">
+                {["IV", "III", "II", "I"].map((division) => (
+                  <button
+                    key={division}
+                    onClick={() => setCurrentDivision(division)}
+                    className={`rounded-lg border-2 px-4 py-4 text-base font-bold uppercase transition-all duration-300 ${
+                      currentDivision === division
+                        ? "border-primary bg-primary/10 text-primary shadow-[0_0_15px_hsl(48_100%_50%_/_0.25)] scale-105"
+                        : "border-border/50 bg-card text-muted-foreground hover:border-primary/50 hover:text-foreground hover:scale-102"
+                    }`}
+                  >
+                    {division}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Desired Rank */}
+          <div>
+            <label className="mb-3 block text-sm font-semibold uppercase tracking-wider text-foreground">Desired Rank</label>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+              {service.ranks.map((rank) => (
+                <button
+                  key={rank}
+                  onClick={() => setDesiredRank(rank)}
+                  className={`group relative rounded-xl border-2 p-4 transition-all duration-300 flex flex-col items-center gap-3 ${
+                    desiredRank === rank
+                      ? "border-primary bg-primary/10 shadow-[0_0_20px_hsl(48_100%_50%_/_0.3)] scale-105"
+                      : "border-border/50 bg-card hover:border-primary/50 hover:bg-card/80 hover:scale-102 hover:shadow-[0_0_15px_hsl(48_100%_50%_/_0.15)]"
+                  }`}
+                >
+                  <div className={`relative w-16 h-16 rounded-lg overflow-hidden ${
+                    desiredRank === rank ? "ring-2 ring-primary ring-offset-2 ring-offset-background" : ""
+                  }`}>
+                    <img
+                      src={`/ranks/${rank.toLowerCase()}.png`}
+                      alt={rank}
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                      }}
+                    />
+                  </div>
+                  <span className={`text-sm font-bold uppercase tracking-wide ${
+                    desiredRank === rank ? "text-primary" : "text-muted-foreground group-hover:text-foreground"
+                  }`}>
+                    {rank}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Desired Division - only show if rank is not Warlord */}
+          {desiredRank && desiredRank !== "Warlord" && (
+            <div>
+              <label className="mb-3 block text-sm font-semibold uppercase tracking-wider text-foreground">Desired Division</label>
+              <div className="grid grid-cols-4 gap-3">
+                {["IV", "III", "II", "I"].map((division) => (
+                  <button
+                    key={division}
+                    onClick={() => setDesiredDivision(division)}
+                    className={`rounded-lg border-2 px-4 py-4 text-base font-bold uppercase transition-all duration-300 ${
+                      desiredDivision === division
+                        ? "border-primary bg-primary/10 text-primary shadow-[0_0_15px_hsl(48_100%_50%_/_0.25)] scale-105"
+                        : "border-border/50 bg-card text-muted-foreground hover:border-primary/50 hover:text-foreground hover:scale-102"
+                    }`}
+                  >
+                    {division}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Warlord Stars Slider - only show if desired rank is Warlord */}
+          {desiredRank === "Warlord" && (
+            <div className="rounded-xl border-2 border-primary/30 bg-card p-5">
+              <div className="mb-3 flex items-center justify-between">
+                <label className="text-sm font-semibold uppercase tracking-wider text-foreground">Warlord Stars</label>
+                <div className="flex items-center gap-2">
+                  <Input
+                    type="number"
+                    value={warlordStars}
+                    onChange={(e) => {
+                      const n = parseInt(e.target.value);
+                      if (!isNaN(n)) setWarlordStars(Math.min(Math.max(n, service.min || 1), service.max || 99));
+                    }}
+                    min={service.min || 1}
+                    max={service.max || 99}
+                    className="h-10 w-24 border-2 border-primary/30 bg-secondary/50 text-center text-base font-bold text-primary"
+                  />
+                  <span className="text-sm font-medium text-primary">★</span>
+                </div>
+              </div>
+              <Slider
+                value={[warlordStars]}
+                onValueChange={([v]) => setWarlordStars(v)}
+                min={service.min || 1}
+                max={service.max || 99}
+                step={service.step || 1}
+                className="mt-4"
+              />
+              <div className="mt-2 flex justify-between text-xs font-medium text-muted-foreground">
+                <span>{service.min || 1} ★</span>
+                <span>{service.max || 99} ★</span>
+              </div>
+            </div>
+          )}
+
+          {/* Price Block for Warlord Tournament */}
+          <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-6">
+            {price === 0 && currentRank && desiredRank ? (
+              // Show error message when price is 0
+              <div className="text-center py-4">
+                <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-2">Invalid Selection</p>
+                <p className="text-base text-foreground">Desired rank must be higher than current rank</p>
+                <p className="mt-2 text-2xl font-black text-muted-foreground">$0.00</p>
+              </div>
+            ) : (
+              // Show normal price display
+              <>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Total Price</p>
+                    <p className="mt-1 text-3xl font-black text-primary">${price.toFixed(2)}</p>
+                    {speed !== "normal" && (
+                      <>
+                        <p className="text-xs text-muted-foreground line-through">${basePrice.toFixed(2)}</p>
+                        <p className="text-xs text-primary/80 mt-0.5">Includes delivery speed modifier</p>
+                      </>
+                    )}
+                  </div>
+                  <div className="text-right">
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <Clock className="h-3.5 w-3.5" />
+                      <span>{service.estimatedTime}</span>
+                    </div>
+                    <div className="mt-1 flex items-center gap-1.5 text-xs text-primary">
+                      <Zap className="h-3.5 w-3.5" />
+                      <span>15 min start</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Delivery Speed Options */}
+                <div className="mt-5 pt-5 border-t border-primary/20">
+                  <label className="mb-3 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Delivery Speed</label>
+                  <div className="space-y-2">
+                    {speedOptions.map((opt) => (
+                      <button
+                        key={opt.value}
+                        onClick={() => setSpeed(opt.value)}
+                        className={`w-full flex items-center gap-3 rounded-lg border-2 px-4 py-3 text-left transition-all ${
+                          speed === opt.value
+                            ? "border-primary bg-primary/10 shadow-[0_0_12px_hsl(48_100%_50%_/_0.2)]"
+                            : "border-border/50 bg-card/50 hover:border-primary/30"
+                        }`}
+                      >
+                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+                          speed === opt.value ? "border-primary" : "border-muted-foreground"
+                        }`}>
+                          {speed === opt.value && (
+                            <div className="w-2 h-2 rounded-full bg-primary"></div>
+                          )}
+                        </div>
+                        <span className={`text-sm font-semibold flex-1 ${
+                          speed === opt.value ? "text-primary" : "text-foreground"
+                        }`}>
+                          {opt.label}
+                        </span>
+                        {opt.multiplier > 1 && (
+                          <span className={`text-xs font-medium ${
+                            speed === opt.value ? "text-primary" : "text-muted-foreground"
+                          }`}>
+                            +{Math.round((opt.multiplier - 1) * 100)}%
+                          </span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <Button
+                  onClick={handleAddToCart}
+                  size="lg"
+                  disabled={price === 0}
+                  className="mt-5 w-full gap-2 rounded-xl font-bold uppercase tracking-wider glow-box-intense disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <ShoppingCart className="h-4 w-4" /> Add to Cart
+                </Button>
+              </>
+            )}
+          </div>
+
+          {/* Trust */}
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
+            <span className="flex items-center gap-1"><ShieldCheck className="h-3.5 w-3.5 text-primary" /> Secure</span>
+            <span className="flex items-center gap-1"><Zap className="h-3.5 w-3.5 text-primary" /> Fast</span>
+            <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5 text-primary" /> 24/7 Support</span>
+          </div>
         </div>
       )}
 
@@ -334,8 +670,8 @@ const ServiceConfigurator = ({ service, gameSlug, gameTitle, onAddToCart }: Serv
         />
       )}
 
-      {/* Express Options */}
-      {service.type !== "contact" && (
+      {/* Express Options - only for non-warlord services */}
+      {service.type !== "contact" && service.type !== "warlord" && (
         <div>
           <label className="mb-2 block text-sm font-medium text-foreground">Delivery Speed</label>
           <div className="grid grid-cols-3 gap-2">
@@ -364,7 +700,7 @@ const ServiceConfigurator = ({ service, gameSlug, gameTitle, onAddToCart }: Serv
       )}
 
       {/* Price block */}
-      {service.type !== "contact" && (
+      {service.type !== "contact" && service.type !== "warlord" && (
         <div className="rounded-xl border border-primary/30 bg-primary/5 p-5">
           <div className="flex items-center justify-between">
             <div>
