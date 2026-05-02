@@ -107,9 +107,9 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "warlord-tournament": {
-    metaTitle: "Arena Breakout: Infinite Warlord Tournament Boost - MyBoost",
-    metaDescription: "Buy Arena Breakout: Infinite Warlord Tournament boost. Fast rank progression, custom star boosting, safe and secure service. Instant price calculator available.",
-    h1: "Arena Breakout: Infinite Warlord Tournament Boost",
+    metaTitle: "Warlord Tournament Boost – Arena Breakout: Infinite | MyBoost",
+    metaDescription: "Buy Warlord Tournament boost in Arena Breakout: Infinite. Rank up fast from Recruit to Warlord, boost Warlord stars, and start instantly.",
+    h1: "Warlord Tournament Boost – Arena Breakout: Infinite",
     content: `
       <p>The <strong>Warlord Tournament</strong> is a new limited-time competitive mode in Arena Breakout: Infinite. This exclusive event brings the most intense PvP action, where only the best players can climb the ranks and earn prestigious Warlord stars. Our professional boosting service is here to help you dominate this challenging mode and achieve your desired rank before the event ends.</p>
 
