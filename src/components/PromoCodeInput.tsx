@@ -38,14 +38,14 @@ const PromoCodeInput = ({ appliedCode, onApply, onRemove, orderTotal }: PromoCod
       .maybeSingle();
 
     if (usageData) {
-      toast.error("You have already used this promo code");
+      toast.error("This promo code has already been used on this account.");
       setChecking(false);
       return;
     }
 
     const { data, error } = await supabase
       .from("promo_codes")
-      .select("code, discount_percent, is_active, usage_count, usage_limit, min_order_amount")
+      .select("code, discount_percent, is_active, usage_count, usage_limit, min_order_amount, max_order_amount")
       .eq("code", trimmed)
       .maybeSingle();
 
@@ -59,6 +59,9 @@ const PromoCodeInput = ({ appliedCode, onApply, onRemove, orderTotal }: PromoCod
       const minAmount = (data as any).min_order_amount;
       const diff = (minAmount - orderTotal).toFixed(2);
       toast.error(`Promo code cannot be applied. Minimum order amount is $${minAmount}. You need $${diff} more to use this code.`);
+    } else if ((data as any).max_order_amount && orderTotal > (data as any).max_order_amount) {
+      const maxAmount = (data as any).max_order_amount;
+      toast.error(`Promo code cannot be applied. Maximum order amount is $${maxAmount}.`);
     } else {
       onApply({ code: data.code, discount_percent: data.discount_percent });
       toast.success(`Promo code applied: ${data.discount_percent}% off!`);

@@ -10,7 +10,8 @@
       "Bash(git diff *)",
       "Bash(curl -s http://localhost:8080/game/arena-breakout)",
       "Bash(grep -v \"^--$\")",
-      "Bash(grep -E \"\\\\.\\(ico|png|svg\\)$\")"
+      "Bash(grep -E \"\\\\.\\(ico|png|svg\\)$\")",
+      "Bash(xargs grep *)"
     ]
   }
 }

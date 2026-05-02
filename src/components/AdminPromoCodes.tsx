@@ -18,6 +18,7 @@ interface PromoCode {
   usage_limit: number;
   usage_count: number;
   min_order_amount: number;
+  max_order_amount: number | null;
   created_at: string;
 }
 
@@ -36,6 +37,7 @@ const AdminPromoCodes = () => {
   const [newDiscount, setNewDiscount] = useState(10);
   const [newUsageLimit, setNewUsageLimit] = useState(10);
   const [newMinOrder, setNewMinOrder] = useState(0);
+  const [newMaxOrder, setNewMaxOrder] = useState<number | null>(null);
   const [creating, setCreating] = useState(false);
   const [expandedCode, setExpandedCode] = useState<string | null>(null);
   const [usageData, setUsageData] = useState<Record<string, PromoUsage[]>>({});
@@ -113,6 +115,7 @@ const AdminPromoCodes = () => {
       discount_percent: newDiscount,
       usage_limit: newUsageLimit,
       min_order_amount: newMinOrder,
+      max_order_amount: newMaxOrder,
     } as any);
     if (error) {
       if (error.code === "23505") {
@@ -126,6 +129,7 @@ const AdminPromoCodes = () => {
       setNewDiscount(10);
       setNewUsageLimit(10);
       setNewMinOrder(0);
+      setNewMaxOrder(null);
       fetchCodes();
     }
     setCreating(false);
@@ -218,6 +222,20 @@ const AdminPromoCodes = () => {
             />
             <span className="text-sm font-bold text-primary w-16 text-right">${newMinOrder}</span>
           </div>
+          <div className="flex items-center gap-3">
+            <span className="text-sm text-muted-foreground whitespace-nowrap">Max Order $:</span>
+            <Slider
+              value={[newMaxOrder ?? 0]}
+              onValueChange={(v) => setNewMaxOrder(v[0] === 0 ? null : v[0])}
+              min={0}
+              max={500}
+              step={10}
+              className="flex-1"
+            />
+            <span className="text-sm font-bold text-primary w-16 text-right">
+              {newMaxOrder ? `$${newMaxOrder}` : "No limit"}
+            </span>
+          </div>
           <Button
             onClick={createCode}
             disabled={creating || !newCode.trim()}
@@ -246,6 +264,7 @@ const AdminPromoCodes = () => {
                 <TableHead className="text-muted-foreground">Code</TableHead>
                 <TableHead className="text-muted-foreground text-center">Discount</TableHead>
                 <TableHead className="text-muted-foreground text-center">Min Order</TableHead>
+                <TableHead className="text-muted-foreground text-center">Max Order</TableHead>
                 <TableHead className="text-muted-foreground text-center">Usage</TableHead>
                 <TableHead className="text-muted-foreground text-center">Status</TableHead>
                 <TableHead className="text-muted-foreground text-center">Actions</TableHead>
@@ -276,6 +295,9 @@ const AdminPromoCodes = () => {
                     <TableCell className="text-center text-sm text-muted-foreground">
                       {code.min_order_amount > 0 ? `$${code.min_order_amount}` : "—"}
                     </TableCell>
+                    <TableCell className="text-center text-sm text-muted-foreground">
+                      {code.max_order_amount ? `$${code.max_order_amount}` : "—"}
+                    </TableCell>
                     <TableCell className="text-center">
                       <span className={`text-sm font-medium ${code.usage_count >= code.usage_limit ? "text-destructive" : "text-muted-foreground"}`}>
                         {code.usage_count} / {code.usage_limit}
@@ -305,7 +327,7 @@ const AdminPromoCodes = () => {
                   </TableRow>
                   {expandedCode === code.code && (
                     <TableRow key={`${code.id}-usage`} className="border-border/30 hover:bg-transparent">
-                      <TableCell colSpan={6} className="p-0">
+                      <TableCell colSpan={7} className="p-0">
                         <div className="bg-secondary/20 border-t border-border/30 px-6 py-4">
                           <div className="flex items-center gap-2 mb-3">
                             <Users className="h-4 w-4 text-primary" />

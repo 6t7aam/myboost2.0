@@ -1,17 +1,18 @@
 import { useEffect, useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, ShieldCheck, Trash2, Loader2, RefreshCw } from "lucide-react";
+import { Search, ShieldCheck, Trash2, Loader2, RefreshCw, ExternalLink, MessageSquare, Package } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useAdmin } from "@/hooks/useAdmin";
 import Navbar from "@/components/Navbar";
 import AdminPromoCodes from "@/components/AdminPromoCodes";
+import AdminChatPanel from "@/components/AdminChatPanel";
 
 type OrderStatus = "pending" | "in_progress" | "completed" | "paid";
 
@@ -48,6 +49,7 @@ const AdminPage = () => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
+  const [activeTab, setActiveTab] = useState<"orders" | "chat">("orders");
 
   useEffect(() => {
     if (!adminLoading && !isAdmin) {
@@ -178,7 +180,36 @@ const AdminPage = () => {
           <Card className="border-border/50"><CardHeader className="pb-2"><CardTitle className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Completed</CardTitle></CardHeader><CardContent><p className="text-2xl font-bold text-green-400">{completed}</p></CardContent></Card>
         </div>
 
-        {/* Filters */}
+        {/* Tab Navigation */}
+        <div className="flex gap-2 border-b border-border/50 mb-6">
+          <button
+            onClick={() => setActiveTab("orders")}
+            className={`flex items-center gap-2 px-6 py-3 font-bold uppercase tracking-wider text-sm transition-all ${
+              activeTab === "orders"
+                ? "border-b-2 border-primary text-primary"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            <Package className="h-4 w-4" />
+            Orders
+          </button>
+          <button
+            onClick={() => setActiveTab("chat")}
+            className={`flex items-center gap-2 px-6 py-3 font-bold uppercase tracking-wider text-sm transition-all ${
+              activeTab === "chat"
+                ? "border-b-2 border-primary text-primary"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            <MessageSquare className="h-4 w-4" />
+            Chat
+          </button>
+        </div>
+
+        {/* Orders Tab */}
+        {activeTab === "orders" && (
+          <>
+            {/* Filters */}
         <div className="flex flex-col sm:flex-row gap-3 mb-6">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -221,6 +252,7 @@ const AdminPage = () => {
                    <TableHead className="text-muted-foreground">Booster</TableHead>
                    <TableHead className="text-muted-foreground text-center">Status</TableHead>
                    <TableHead className="text-muted-foreground text-center">Actions</TableHead>
+                   <TableHead className="text-muted-foreground text-center">View</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -251,17 +283,31 @@ const AdminPage = () => {
                         </SelectContent>
                       </Select>
                     </TableCell>
+                    <TableCell className="text-center">
+                      <Link to={`/admin/order/${order.id}`}>
+                        <Button variant="outline" size="sm" className="border-primary/30 text-primary hover:bg-primary/10">
+                          <ExternalLink className="h-4 w-4" />
+                        </Button>
+                      </Link>
+                    </TableCell>
                   </TableRow>
                 ))}
                 {filtered.length === 0 && (
                   <TableRow>
-                    <TableCell colSpan={8} className="text-center py-8 text-muted-foreground">No orders found</TableCell>
+                    <TableCell colSpan={9} className="text-center py-8 text-muted-foreground">No orders found</TableCell>
                   </TableRow>
                 )}
               </TableBody>
             </Table>
           )}
         </Card>
+          </>
+        )}
+
+        {/* Chat Tab */}
+        {activeTab === "chat" && (
+          <AdminChatPanel />
+        )}
       </div>
     </div>
   );

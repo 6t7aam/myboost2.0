@@ -23,6 +23,7 @@ const OrderPage = () => {
   const location = useLocation();
   const [selectedCoin, setSelectedCoin] = useState<string>("ltc");
   const [processing, setProcessing] = useState(false);
+  const [cardPaymentProcessing, setCardPaymentProcessing] = useState(false);
 
   const promoCode = (location.state as any)?.promoCode as { code: string; discount_percent: number } | null;
   const boosterType = (location.state as any)?.boosterType as string | null;
@@ -31,6 +32,7 @@ const OrderPage = () => {
   const priceAfterDiscount = totalPrice - discountAmount;
   const boosterMarkup = boosterMultiplier && boosterMultiplier > 1 ? priceAfterDiscount * (boosterMultiplier - 1) : 0;
   const finalPrice = priceAfterDiscount + boosterMarkup;
+  const isFreeOrder = finalPrice <= 0;
 
   if (items.length === 0) {
     return (
@@ -48,6 +50,63 @@ const OrderPage = () => {
     );
   }
 
+  const handleCardPayment = async () => {
+    if (!user) {
+      toast.error("Please log in to place an order.");
+      navigate("/login");
+      return;
+    }
+
+    setCardPaymentProcessing(true);
+
+    try {
+      const serviceName = items.map((i) => `${i.game} — ${i.service}`).join(", ");
+      const orderInsert: any = {
+        user_id: user.id,
+        service: serviceName,
+        price: finalPrice,
+        status: "pending",
+        payment_method: isFreeOrder ? "promo" : "card",
+      };
+      if (boosterType) orderInsert.booster_type = boosterType;
+
+      const { data: order, error: insertErr } = await supabase
+        .from("orders")
+        .insert(orderInsert)
+        .select("id")
+        .single();
+
+      if (insertErr || !order) {
+        throw new Error(insertErr?.message || "Failed to create order");
+      }
+
+      // Increment promo code usage and record per-user usage
+      if (promoCode) {
+        await supabase.rpc("increment_promo_usage" as any, { _code: promoCode.code });
+        await supabase.from("promo_code_usage" as any).insert({
+          user_id: user.id,
+          promo_code: promoCode.code,
+        });
+      }
+
+      clearCart();
+
+      if (isFreeOrder) {
+        toast.success("Order created! Your order is fully covered by promo code.");
+      } else {
+        toast.success("Order created! Opening chat...");
+      }
+
+      // Navigate to order status page with chat tab open
+      navigate(`/order/status/${order.id}`, { state: { openChat: true } });
+    } catch (err: any) {
+      console.error(err);
+      toast.error(err.message || "Something went wrong");
+    } finally {
+      setCardPaymentProcessing(false);
+    }
+  };
+
   const handlePay = async () => {
     if (!user) {
       toast.error("Please log in to place an order.");
@@ -64,6 +123,7 @@ const OrderPage = () => {
         service: serviceName,
         price: finalPrice,
         status: "pending",
+        payment_method: "crypto",
       };
       if (boosterType) orderInsert.booster_type = boosterType;
 
@@ -181,81 +241,105 @@ const OrderPage = () => {
             </div>
           </div>
 
-          {/* Coin Selector */}
-          <div className="mt-8">
-            <h2 className="text-center text-2xl font-bold uppercase tracking-tight text-foreground">
-              Select <span className="text-primary">Crypto</span>
-            </h2>
-            <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
-              {COINS.map((coin) => (
-                <button
-                  key={coin.id}
-                  onClick={() => setSelectedCoin(coin.id)}
-                  className={`rounded-xl border p-4 text-center transition-all ${
-                    selectedCoin === coin.id
-                      ? "border-primary bg-primary/10 ring-2 ring-primary/30"
-                      : "border-border/50 bg-card hover:border-primary/30"
-                  }`}
+          {/* Payment Options */}
+          {isFreeOrder ? (
+            /* Free Order - No Payment Required */
+            <div className="mt-8">
+              <div className="rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center">
+                <h2 className="text-2xl font-bold uppercase tracking-tight text-foreground">
+                  Order Fully <span className="text-primary glow-text">Covered</span>
+                </h2>
+                <p className="mt-3 text-sm text-muted-foreground">
+                  Your order is fully covered by promo code. No payment required.
+                </p>
+              </div>
+              <div className="mt-4">
+                <Button
+                  onClick={handleCardPayment}
+                  disabled={cardPaymentProcessing}
+                  size="lg"
+                  className="w-full gap-2 rounded-xl font-bold uppercase tracking-wider glow-box-intense text-base"
                 >
-                  <span className="text-lg font-bold text-foreground">{coin.label}</span>
-                  <p className="mt-1 text-xs text-muted-foreground">{coin.name}</p>
-                </button>
-              ))}
+                  {cardPaymentProcessing ? (
+                    <>
+                      <Loader2 className="h-5 w-5 animate-spin" /> Creating Order…
+                    </>
+                  ) : (
+                    <>Complete Free Order</>
+                  )}
+                </Button>
+              </div>
             </div>
-          </div>
+          ) : (
+            <>
+              {/* Coin Selector */}
+              <div className="mt-8">
+                <h2 className="text-center text-2xl font-bold uppercase tracking-tight text-foreground">
+                  Select <span className="text-primary">Crypto</span>
+                </h2>
+                <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
+                  {COINS.map((coin) => (
+                    <button
+                      key={coin.id}
+                      onClick={() => setSelectedCoin(coin.id)}
+                      className={`rounded-xl border p-4 text-center transition-all ${
+                        selectedCoin === coin.id
+                          ? "border-primary bg-primary/10 ring-2 ring-primary/30"
+                          : "border-border/50 bg-card hover:border-primary/30"
+                      }`}
+                    >
+                      <span className="text-lg font-bold text-foreground">{coin.label}</span>
+                      <p className="mt-1 text-xs text-muted-foreground">{coin.name}</p>
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-          {/* Pay Buttons */}
-          <div className="mt-8 flex flex-col gap-3">
-            <Button
-              onClick={handlePay}
-              disabled={processing}
-              size="lg"
-              className="w-full gap-2 rounded-xl font-bold uppercase tracking-wider glow-box-intense text-base"
-            >
-              {processing ? (
-                <>
-                  <Loader2 className="h-5 w-5 animate-spin" /> Creating Payment…
-                </>
-              ) : (
-                <>Pay ${finalPrice.toFixed(2)} with {COINS.find((c) => c.id === selectedCoin)?.name}</>
-              )}
-            </Button>
+              {/* Pay Buttons */}
+              <div className="mt-8 flex flex-col gap-3">
+                <Button
+                  onClick={handlePay}
+                  disabled={processing}
+                  size="lg"
+                  className="w-full gap-2 rounded-xl font-bold uppercase tracking-wider glow-box-intense text-base"
+                >
+                  {processing ? (
+                    <>
+                      <Loader2 className="h-5 w-5 animate-spin" /> Creating Payment…
+                    </>
+                  ) : (
+                    <>Pay ${finalPrice.toFixed(2)} with {COINS.find((c) => c.id === selectedCoin)?.name}</>
+                  )}
+                </Button>
 
-            <div className="relative flex items-center gap-3 my-1">
-              <div className="h-px flex-1 bg-border/50" />
-              <span className="text-xs uppercase tracking-widest text-muted-foreground">or</span>
-              <div className="h-px flex-1 bg-border/50" />
-            </div>
+                <div className="relative flex items-center gap-3 my-1">
+                  <div className="h-px flex-1 bg-border/50" />
+                  <span className="text-xs uppercase tracking-widest text-muted-foreground">or</span>
+                  <div className="h-px flex-1 bg-border/50" />
+                </div>
 
-            <a
-              href="https://discord.com/users/geroj2"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full"
-            >
-              <Button
-                type="button"
-                size="lg"
-                variant="outline"
-                className="w-full gap-2.5 rounded-xl border-primary/40 bg-card font-bold uppercase tracking-wider text-base hover:bg-primary/10 hover:border-primary/60 transition-all"
-              >
-                <CreditCard className="h-5 w-5 text-primary" />
-                Pay with Card
-                <span className="ml-1 flex items-center gap-0.5 text-xs font-normal normal-case tracking-normal text-muted-foreground">
-                  💳
-                </span>
-              </Button>
-            </a>
-            <p className="text-center text-xs text-muted-foreground">
-              Contact us in Discord (<span className="font-semibold text-primary">geroj2</span>) to complete the payment
-            </p>
-          </div>
-
-          {/* Discord contact */}
-          <div className="mt-6 rounded-xl border border-primary/30 bg-primary/5 p-4 text-center">
-            <p className="text-sm text-muted-foreground">After payment contact us in Discord:</p>
-            <p className="mt-1 text-xl font-black text-primary glow-text">geroj2</p>
-          </div>
+                <Button
+                  onClick={handleCardPayment}
+                  disabled={cardPaymentProcessing}
+                  type="button"
+                  size="lg"
+                  variant="outline"
+                  className="w-full gap-2.5 rounded-xl border-primary/40 bg-card font-bold uppercase tracking-wider text-base hover:bg-primary/10 hover:border-primary/60 transition-all"
+                >
+                  {cardPaymentProcessing ? (
+                    <>
+                      <Loader2 className="h-5 w-5 animate-spin text-primary" /> Creating Order…
+                    </>
+                  ) : (
+                    <>
+                      <CreditCard className="h-5 w-5 text-primary" />
+                      Pay with Card
+                    </>
+                  )}
+                </Button>
+              </div>
+            </>
+          )}
 
           {/* Trust badges */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">

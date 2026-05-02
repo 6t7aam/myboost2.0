@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Gamepad2, Menu, X, ShoppingCart, ShieldCheck, User, LogIn, ClipboardList } from "lucide-react";
+import { Gamepad2, Menu, X, ShoppingCart, ShieldCheck, User, LogIn, ClipboardList, MessageSquare } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
@@ -73,6 +73,10 @@ const Navbar = () => {
           {!loading && (
             user ? (
               <>
+                <Link to="/chat" className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all hover:bg-primary/10">
+                  <MessageSquare className="h-3.5 w-3.5" />
+                  Chat
+                </Link>
                 <Link to="/my-orders" className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all hover:bg-primary/10">
                   <ClipboardList className="h-3.5 w-3.5" />
                   My Orders
@@ -123,6 +127,10 @@ const Navbar = () => {
           {!loading && (
             user ? (
               <>
+                <Link to="/chat" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 w-full py-3 text-left text-sm font-bold text-primary transition-colors hover:text-primary/80 border-b border-border/30">
+                  <MessageSquare className="h-4 w-4" />
+                  Chat
+                </Link>
                 <Link to="/my-orders" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 w-full py-3 text-left text-sm font-bold text-primary transition-colors hover:text-primary/80 border-b border-border/30">
                   <ClipboardList className="h-4 w-4" />
                   My Orders

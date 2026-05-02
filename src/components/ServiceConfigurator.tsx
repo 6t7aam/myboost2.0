@@ -701,42 +701,44 @@ const ServiceConfigurator = ({ service, gameSlug, gameTitle, onAddToCart }: Serv
 
       {/* Price block */}
       {service.type !== "contact" && service.type !== "warlord" && (
-        <div className="rounded-xl border border-primary/30 bg-primary/5 p-5">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Total Price</p>
-              <p className="mt-1 text-3xl font-black text-primary">${price.toFixed(2)}</p>
-              {speed !== "normal" && (
-                <p className="text-xs text-muted-foreground line-through">${basePrice.toFixed(2)}</p>
-              )}
-            </div>
-            <div className="text-right">
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                <Clock className="h-3.5 w-3.5" />
-                <span>{service.estimatedTime}</span>
+        <>
+          <div className="rounded-xl border border-primary/30 bg-primary/5 p-5">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Total Price</p>
+                <p className="mt-1 text-3xl font-black text-primary">${price.toFixed(2)}</p>
+                {speed !== "normal" && (
+                  <p className="text-xs text-muted-foreground line-through">${basePrice.toFixed(2)}</p>
+                )}
               </div>
-              <div className="mt-1 flex items-center gap-1.5 text-xs text-primary">
-                <Zap className="h-3.5 w-3.5" />
-                <span>15 min start</span>
+              <div className="text-right">
+                <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <Clock className="h-3.5 w-3.5" />
+                  <span>{service.estimatedTime}</span>
+                </div>
+                <div className="mt-1 flex items-center gap-1.5 text-xs text-primary">
+                  <Zap className="h-3.5 w-3.5" />
+                  <span>15 min start</span>
+                </div>
               </div>
             </div>
+            <Button
+              onClick={handleAddToCart}
+              size="lg"
+              className="mt-4 w-full gap-2 rounded-xl font-bold uppercase tracking-wider glow-box-intense"
+            >
+              <ShoppingCart className="h-4 w-4" /> Add to Cart
+            </Button>
           </div>
-          <Button
-            onClick={handleAddToCart}
-            size="lg"
-            className="mt-4 w-full gap-2 rounded-xl font-bold uppercase tracking-wider glow-box-intense"
-          >
-            <ShoppingCart className="h-4 w-4" /> Add to Cart
-          </Button>
-        </div>
-      )}
 
-      {/* Trust */}
-      <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
-        <span className="flex items-center gap-1"><ShieldCheck className="h-3.5 w-3.5 text-primary" /> Secure</span>
-        <span className="flex items-center gap-1"><Zap className="h-3.5 w-3.5 text-primary" /> Fast</span>
-        <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5 text-primary" /> 24/7 Support</span>
-      </div>
+          {/* Trust */}
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
+            <span className="flex items-center gap-1"><ShieldCheck className="h-3.5 w-3.5 text-primary" /> Secure</span>
+            <span className="flex items-center gap-1"><Zap className="h-3.5 w-3.5 text-primary" /> Fast</span>
+            <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5 text-primary" /> 24/7 Support</span>
+          </div>
+        </>
+      )}
     </div>
   );
 };

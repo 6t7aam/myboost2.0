@@ -17,10 +17,12 @@ import ArenaBreakoutInfiniteRaidsBoostPage from "./pages/ArenaBreakoutInfiniteRa
 import ArenaBreakoutInfiniteCoachingPage from "./pages/ArenaBreakoutInfiniteCoachingPage.tsx";
 import CartPage from "./pages/CartPage.tsx";
 import AdminPage from "./pages/AdminPage.tsx";
+import AdminOrderDetailsPage from "./pages/AdminOrderDetailsPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import SignupPage from "./pages/SignupPage.tsx";
 import AccountPage from "./pages/AccountPage.tsx";
 import MyOrdersPage from "./pages/MyOrdersPage.tsx";
+import ChatPage from "./pages/ChatPage.tsx";
 import TermsPage from "./pages/TermsPage.tsx";
 import RefundPage from "./pages/RefundPage.tsx";
 import PrivacyPage from "./pages/PrivacyPage.tsx";
@@ -49,10 +51,12 @@ const App = () => (
               <Route path="/choose-booster" element={<BoosterSelectionPage />} />
               <Route path="/order/status/:orderId" element={<OrderStatusPage />} />
               <Route path="/admin" element={<AdminPage />} />
+              <Route path="/admin/order/:orderId" element={<AdminOrderDetailsPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/account" element={<AccountPage />} />
               <Route path="/my-orders" element={<MyOrdersPage />} />
+              <Route path="/chat" element={<ChatPage />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/refund" element={<RefundPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />

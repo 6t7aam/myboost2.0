@@ -14,6 +14,40 @@ export type Database = {
   }
   public: {
     Tables: {
+      order_messages: {
+        Row: {
+          id: string
+          order_id: string
+          sender_type: "customer" | "admin"
+          sender_id: string | null
+          message: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          order_id: string
+          sender_type: "customer" | "admin"
+          sender_id?: string | null
+          message: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          order_id?: string
+          sender_type?: "customer" | "admin"
+          sender_id?: string | null
+          message?: string
+          created_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "order_messages_order_id_fkey"
+            columns: ["order_id"]
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       orders: {
         Row: {
           booster_type: string | null
