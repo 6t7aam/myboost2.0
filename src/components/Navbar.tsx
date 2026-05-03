@@ -46,24 +46,25 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/90 backdrop-blur-cyber">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2">
-          <Gamepad2 className="h-7 w-7 text-primary glow-text" />
+        <Link to="/" className="flex items-center gap-2 group transition-transform duration-300 hover:scale-105">
+          <Gamepad2 className="h-7 w-7 text-primary glow-text transition-transform duration-300 group-hover:rotate-12" />
           <span className="text-xl font-bold uppercase tracking-wider text-primary glow-text">MyBoost</span>
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((l) => (
-            <button key={l.href} onClick={() => handleNavClick(l.href)} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+            <button key={l.href} onClick={() => handleNavClick(l.href)} className="relative text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-105 group">
               {l.label}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full glow-box" />
             </button>
           ))}
         </div>
 
         <div className="flex items-center gap-3">
           {isAdmin && (
-            <Link to="/admin" className="hidden md:inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary-foreground transition-all hover:glow-box">
+            <Link to="/admin" className="hidden md:inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary-foreground transition-all duration-300 hover:glow-box hover:scale-105">
               <ShieldCheck className="h-3.5 w-3.5" />
               Admin
             </Link>
@@ -73,39 +74,39 @@ const Navbar = () => {
           {!loading && (
             user ? (
               <>
-                <Link to="/chat" className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all hover:bg-primary/10">
+                <Link to="/chat" className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:scale-105">
                   <MessageSquare className="h-3.5 w-3.5" />
                   Chat
                 </Link>
-                <Link to="/my-orders" className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all hover:bg-primary/10">
+                <Link to="/my-orders" className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:scale-105">
                   <ClipboardList className="h-3.5 w-3.5" />
                   My Orders
                 </Link>
-                <Link to="/account" className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all hover:bg-primary/10">
+                <Link to="/account" className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:scale-105">
                   <User className="h-3.5 w-3.5" />
                   Account
                 </Link>
               </>
             ) : (
-              <Link to="/login" className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all hover:bg-primary/10">
+              <Link to="/login" className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:scale-105">
                 <LogIn className="h-3.5 w-3.5" />
                 Login
               </Link>
             )
           )}
 
-          <Link to="/cart" className="relative rounded-lg p-2 text-muted-foreground transition-colors hover:text-primary">
+          <Link to="/cart" className="relative rounded-lg p-2 text-muted-foreground transition-all duration-300 hover:text-primary hover:bg-primary/10 hover:scale-110">
             <ShoppingCart className="h-5 w-5" />
             {itemCount > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
+              <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground animate-pulse-glow">
                 {itemCount}
               </span>
             )}
           </Link>
-          <Button onClick={handleGetBoosted} className="hidden md:inline-flex glow-box font-bold uppercase tracking-wider">
+          <Button onClick={handleGetBoosted} className="hidden md:inline-flex glow-box font-bold uppercase tracking-wider transition-all duration-300 hover:glow-box-intense hover:scale-105">
             Get Boosted
           </Button>
-          <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button className="md:hidden text-foreground transition-all duration-300 hover:text-primary hover:scale-110" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
@@ -113,13 +114,13 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl px-4 pb-4">
+        <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-cyber px-4 pb-4 animate-slide-up">
           {navLinks.map((l) => (
-            <button key={l.href} onClick={() => handleNavClick(l.href)} className="block w-full py-3 text-left text-sm font-medium text-muted-foreground transition-colors hover:text-primary border-b border-border/30">
+            <button key={l.href} onClick={() => handleNavClick(l.href)} className="block w-full py-3 text-left text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-primary hover:translate-x-2 border-b border-border/30">
               {l.label}
             </button>
           ))}
-          <Link to="/cart" onClick={() => setMobileOpen(false)} className="block w-full py-3 text-left text-sm font-medium text-muted-foreground transition-colors hover:text-primary border-b border-border/30">
+          <Link to="/cart" onClick={() => setMobileOpen(false)} className="block w-full py-3 text-left text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-primary hover:translate-x-2 border-b border-border/30">
             Cart {itemCount > 0 && `(${itemCount})`}
           </Link>
 
@@ -127,21 +128,21 @@ const Navbar = () => {
           {!loading && (
             user ? (
               <>
-                <Link to="/chat" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 w-full py-3 text-left text-sm font-bold text-primary transition-colors hover:text-primary/80 border-b border-border/30">
+                <Link to="/chat" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 w-full py-3 text-left text-sm font-bold text-primary transition-all duration-300 hover:text-primary/80 hover:translate-x-2 border-b border-border/30">
                   <MessageSquare className="h-4 w-4" />
                   Chat
                 </Link>
-                <Link to="/my-orders" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 w-full py-3 text-left text-sm font-bold text-primary transition-colors hover:text-primary/80 border-b border-border/30">
+                <Link to="/my-orders" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 w-full py-3 text-left text-sm font-bold text-primary transition-all duration-300 hover:text-primary/80 hover:translate-x-2 border-b border-border/30">
                   <ClipboardList className="h-4 w-4" />
                   My Orders
                 </Link>
-                <Link to="/account" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 w-full py-3 text-left text-sm font-bold text-primary transition-colors hover:text-primary/80 border-b border-border/30">
+                <Link to="/account" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 w-full py-3 text-left text-sm font-bold text-primary transition-all duration-300 hover:text-primary/80 hover:translate-x-2 border-b border-border/30">
                   <User className="h-4 w-4" />
                   My Account
                 </Link>
               </>
             ) : (
-              <Link to="/login" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 w-full py-3 text-left text-sm font-bold text-primary transition-colors hover:text-primary/80 border-b border-border/30">
+              <Link to="/login" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 w-full py-3 text-left text-sm font-bold text-primary transition-all duration-300 hover:text-primary/80 hover:translate-x-2 border-b border-border/30">
                 <LogIn className="h-4 w-4" />
                 Login / Sign Up
               </Link>
@@ -149,12 +150,12 @@ const Navbar = () => {
           )}
 
           {isAdmin && (
-            <Link to="/admin" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 w-full py-3 text-left text-sm font-bold text-primary transition-colors hover:text-primary/80 border-b border-border/30">
+            <Link to="/admin" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 w-full py-3 text-left text-sm font-bold text-primary transition-all duration-300 hover:text-primary/80 hover:translate-x-2 border-b border-border/30">
               <ShieldCheck className="h-4 w-4" />
               Admin Panel
             </Link>
           )}
-          <Button onClick={handleGetBoosted} className="mt-3 w-full glow-box font-bold uppercase tracking-wider">
+          <Button onClick={handleGetBoosted} className="mt-3 w-full glow-box font-bold uppercase tracking-wider transition-all duration-300 hover:glow-box-intense">
             Get Boosted
           </Button>
         </div>

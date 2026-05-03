@@ -14,30 +14,33 @@ const reviews = [
 
 const Reviews = () => {
   return (
-    <section id="reviews" className="border-t border-border/50 bg-secondary py-24">
-      <div className="container mx-auto px-4">
-        <h2 className="text-center text-3xl font-black uppercase tracking-tight text-foreground md:text-4xl">
+    <section id="reviews" className="border-t border-border/50 bg-secondary py-24 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_hsl(48_100%_50%_/_0.03)_0%,_transparent_50%)]" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <h2 className="text-center text-3xl font-black uppercase tracking-tight text-foreground md:text-4xl animate-slide-up">
           Player <span className="text-primary glow-text">Reviews</span>
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
+        <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground animate-slide-up" style={{ animationDelay: '0.1s' }}>
           Trusted by 10,000+ players worldwide.
         </p>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {reviews.map((r) => (
-            <Card key={r.name} className="group border-border/50 bg-card transition-all duration-300 hover:border-primary/30 hover:-translate-y-1">
+          {reviews.map((r, index) => (
+            <Card key={r.name} className="group border-border/50 bg-card transition-all duration-500 hover:border-primary/40 hover:-translate-y-2 hover:shadow-[0_0_25px_hsl(48_100%_50%_/_0.15)] animate-slide-up" style={{ animationDelay: `${0.05 * (index + 1)}s` }}>
               <CardContent className="p-5">
                 <div className="flex items-center justify-between">
                   <div className="flex gap-0.5">
                     {Array.from({ length: r.rating }).map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary transition-transform duration-300 group-hover:scale-110" style={{ transitionDelay: `${i * 50}ms` }} />
                     ))}
                   </div>
-                  <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">{r.game}</span>
+                  <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:glow-box">{r.game}</span>
                 </div>
-                <p className="mt-3 text-sm text-foreground leading-relaxed">"{r.quote}"</p>
+                <p className="mt-3 text-sm text-foreground leading-relaxed transition-colors duration-300 group-hover:text-foreground/90">"{r.quote}"</p>
                 <div className="mt-4 flex items-center gap-2.5">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/20 text-sm font-bold text-primary">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/20 text-sm font-bold text-primary transition-all duration-300 group-hover:bg-primary/30 group-hover:scale-110 group-hover:glow-box">
                     {r.name[0]}
                   </div>
                   <div>

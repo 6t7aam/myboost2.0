@@ -34,12 +34,15 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-24">
-      <div className="container mx-auto max-w-3xl px-4">
-        <h2 className="text-center text-3xl font-black uppercase tracking-tight text-foreground md:text-4xl">
+    <section id="faq" className="py-24 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-primary/5 blur-[150px]" />
+
+      <div className="container mx-auto max-w-3xl px-4 relative z-10">
+        <h2 className="text-center text-3xl font-black uppercase tracking-tight text-foreground md:text-4xl animate-slide-up">
           Frequently Asked <span className="text-primary glow-text">Questions</span>
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
+        <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground animate-slide-up" style={{ animationDelay: '0.1s' }}>
           Everything you need to know before ordering.
         </p>
 
@@ -48,12 +51,13 @@ const FAQ = () => {
             <AccordionItem
               key={i}
               value={`faq-${i}`}
-              className="rounded-xl border border-border/50 bg-card px-5 data-[state=open]:border-primary/30"
+              className="rounded-xl border border-border/50 bg-card px-5 transition-all duration-300 data-[state=open]:border-primary/40 data-[state=open]:shadow-[0_0_20px_hsl(48_100%_50%_/_0.1)] animate-slide-up"
+              style={{ animationDelay: `${0.05 * (i + 1)}s` }}
             >
-              <AccordionTrigger className="text-left text-sm font-semibold text-foreground hover:text-primary hover:no-underline py-4">
+              <AccordionTrigger className="text-left text-sm font-semibold text-foreground hover:text-primary hover:no-underline py-4 transition-colors duration-300">
                 {faq.q}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground pb-4">
+              <AccordionContent className="text-sm text-muted-foreground pb-4 leading-relaxed">
                 {faq.a}
               </AccordionContent>
             </AccordionItem>
