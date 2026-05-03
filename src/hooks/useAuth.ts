@@ -26,10 +26,14 @@ export const useAuth = () => {
   }, []);
 
   const signUp = async (email: string, password: string) => {
+    const redirectUrl = window.location.hostname === 'localhost'
+      ? window.location.origin
+      : 'https://www.myboost.top';
+
     const { error } = await supabase.auth.signUp({
       email,
       password,
-      options: { emailRedirectTo: window.location.origin },
+      options: { emailRedirectTo: redirectUrl },
     });
     return { error };
   };
