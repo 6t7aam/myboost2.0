@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, CheckCircle, Star, Zap } from "lucide-react";
@@ -55,6 +56,23 @@ const ArenaBreakoutServicePage = () => {
         description={seoData.metaDescription}
         keywords={`arena breakout ${service.name.toLowerCase()}, arena breakout infinite boosting, ${service.name.toLowerCase()} service, buy arena breakout boost`}
         canonicalUrl={`https://www.myboost.top/game/arena-breakout/${serviceId}`}
+      />
+      <StructuredData
+        type="Service"
+        data={{
+          name: service.name,
+          description: seoData.metaDescription,
+          url: `https://www.myboost.top/game/arena-breakout/${serviceId}`,
+          serviceType: 'Game Boosting Service',
+          areaServed: 'Worldwide',
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.9',
+            reviewCount: '600',
+            bestRating: '5',
+            worstRating: '1'
+          }
+        }}
       />
       <div className="min-h-screen bg-background">
         <Navbar />
