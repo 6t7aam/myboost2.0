@@ -61,7 +61,7 @@ git push origin main
 ```
 
 ### Step 2: Apply SQL Migration (2 minutes)
-1. Go to: https://supabase.com/dashboard/project/pgyykrhmvjqgwvqwqpum/sql
+1. Go to: https://supabase.com/dashboard/project/mujdvutnjxvaujzeoudn/sql
 2. Open file: `supabase/migrations/20260503093800_fix_admin_order_management.sql`
 3. Copy entire contents
 4. Paste in SQL Editor
@@ -112,7 +112,7 @@ USING (public.has_role(auth.uid(), 'admin'::public.app_role));
 
 ### Step 3: Configure Supabase URLs (3 minutes)
 
-**Location:** https://supabase.com/dashboard/project/pgyykrhmvjqgwvqwqpum/auth/url-configuration
+**Location:** https://supabase.com/dashboard/project/mujdvutnjxvaujzeoudn/auth/url-configuration
 
 **Set Site URL:**
 ```
@@ -227,7 +227,7 @@ As requested, these were left untouched:
 - **Can:** Delete orders, update status, view all orders
 
 ### Database
-- **Project ID:** pgyykrhmvjqgwvqwqpum
+- **Project ID:** mujdvutnjxvaujzeoudn
 - **Migration file:** 20260503093800_fix_admin_order_management.sql
 - **Tables affected:** orders, order_messages
 

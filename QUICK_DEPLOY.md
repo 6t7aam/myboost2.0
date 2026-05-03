@@ -3,12 +3,12 @@
 ## 🚀 3-Step Deployment
 
 ### Step 1: Run SQL Migration (2 minutes)
-1. Go to: https://supabase.com/dashboard/project/pgyykrhmvjqgwvqwqpum/sql
+1. Go to: https://supabase.com/dashboard/project/mujdvutnjxvaujzeoudn/sql
 2. Copy SQL from: `supabase/migrations/20260503093800_fix_admin_order_management.sql`
 3. Paste and click "Run"
 
 ### Step 2: Configure Supabase URLs (3 minutes)
-1. Go to: https://supabase.com/dashboard/project/pgyykrhmvjqgwvqwqpum/auth/url-configuration
+1. Go to: https://supabase.com/dashboard/project/mujdvutnjxvaujzeoudn/auth/url-configuration
 2. Set **Site URL**: `https://www.myboost.top`
 3. Add **Redirect URLs**:
    - `https://www.myboost.top`
@@ -86,7 +86,7 @@ After deployment:
 - **Build status:** ✅ Passing (3.32s, no errors)
 - **No changes to:** Checkout, pricing, promo codes, NowPayments, chat
 - **Admin email:** kfeldman800@gmail.com
-- **Project ID:** pgyykrhmvjqgwvqwqpum
+- **Project ID:** mujdvutnjxvaujzeoudn
 
 ---
 

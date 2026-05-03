@@ -122,7 +122,7 @@ USING (public.has_role(auth.uid(), 'admin'::public.app_role));
 ```
 
 **How to apply:**
-1. Go to: https://supabase.com/dashboard/project/pgyykrhmvjqgwvqwqpum/sql
+1. Go to: https://supabase.com/dashboard/project/mujdvutnjxvaujzeoudn/sql
 2. Paste the SQL above
 3. Click "Run"
 
@@ -132,7 +132,7 @@ USING (public.has_role(auth.uid(), 'admin'::public.app_role));
 
 ### URL Configuration
 
-**Location:** https://supabase.com/dashboard/project/pgyykrhmvjqgwvqwqpum/auth/url-configuration
+**Location:** https://supabase.com/dashboard/project/mujdvutnjxvaujzeoudn/auth/url-configuration
 
 **Settings:**
 
@@ -153,7 +153,7 @@ USING (public.has_role(auth.uid(), 'admin'::public.app_role));
 
 ### Email Templates (Optional but Recommended)
 
-**Location:** https://supabase.com/dashboard/project/pgyykrhmvjqgwvqwqpum/auth/templates
+**Location:** https://supabase.com/dashboard/project/mujdvutnjxvaujzeoudn/auth/templates
 
 **Confirm Signup Template:**
 

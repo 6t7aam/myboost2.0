@@ -40,7 +40,7 @@
 ### Step 1: Apply Database Migration
 
 Go to your Supabase Dashboard:
-1. Navigate to: https://supabase.com/dashboard/project/pgyykrhmvjqgwvqwqpum
+1. Navigate to: https://supabase.com/dashboard/project/mujdvutnjxvaujzeoudn
 2. Go to SQL Editor
 3. Create a new query
 4. Copy and paste the following SQL:

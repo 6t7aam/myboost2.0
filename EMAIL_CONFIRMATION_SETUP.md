@@ -56,7 +56,7 @@ const { error } = await supabase.auth.signUp({
    ```
 
 **Screenshot Reference:**
-- Go to: https://supabase.com/dashboard/project/pgyykrhmvjqgwvqwqpum/auth/url-configuration
+- Go to: https://supabase.com/dashboard/project/mujdvutnjxvaujzeoudn/auth/url-configuration
 - Update "Site URL" field
 - Add each redirect URL in the "Redirect URLs" section (click "+ Add URL" for each)
 
@@ -71,7 +71,7 @@ You can customize the following email templates:
 #### A. Confirm Signup Email
 
 **Default Template Location:**
-- Go to: https://supabase.com/dashboard/project/pgyykrhmvjqgwvqwqpum/auth/templates
+- Go to: https://supabase.com/dashboard/project/mujdvutnjxvaujzeoudn/auth/templates
 - Select "Confirm signup"
 
 **Customization Options:**
@@ -213,7 +213,7 @@ After making these changes:
 ## Exact Dashboard Steps Summary
 
 ### Step 1: URL Configuration
-1. Go to: https://supabase.com/dashboard/project/pgyykrhmvjqgwvqwqpum/auth/url-configuration
+1. Go to: https://supabase.com/dashboard/project/mujdvutnjxvaujzeoudn/auth/url-configuration
 2. Set **Site URL** to: `https://www.myboost.top`
 3. Click **"+ Add URL"** and add each of these redirect URLs:
    - `https://www.myboost.top`
@@ -225,7 +225,7 @@ After making these changes:
 4. Click **Save**
 
 ### Step 2: Email Templates
-1. Go to: https://supabase.com/dashboard/project/pgyykrhmvjqgwvqwqpum/auth/templates
+1. Go to: https://supabase.com/dashboard/project/mujdvutnjxvaujzeoudn/auth/templates
 2. Click **"Confirm signup"**
 3. Update **Subject** to: `Confirm your MyBoost account`
 4. Update **Message (Body)** with the HTML template provided above
@@ -233,7 +233,7 @@ After making these changes:
 6. Repeat for other templates (Magic Link, Reset Password) if needed
 
 ### Step 3: SMTP (Optional)
-1. Go to: https://supabase.com/dashboard/project/pgyykrhmvjqgwvqwqpum/settings/auth
+1. Go to: https://supabase.com/dashboard/project/mujdvutnjxvaujzeoudn/settings/auth
 2. Scroll to **SMTP Settings**
 3. Toggle **Enable Custom SMTP**
 4. Enter your SMTP provider details
@@ -298,7 +298,7 @@ If build fails, check for TypeScript errors in `useAuth.ts`.
 **Solution:**
 1. Check spam folder
 2. Verify email confirmation is enabled in Supabase Auth settings
-3. Check Supabase logs: https://supabase.com/dashboard/project/pgyykrhmvjqgwvqwqpum/logs/edge-logs
+3. Check Supabase logs: https://supabase.com/dashboard/project/mujdvutnjxvaujzeoudn/logs/edge-logs
 4. If using custom SMTP, verify credentials are correct
 
 ### Issue: Email has Supabase branding
