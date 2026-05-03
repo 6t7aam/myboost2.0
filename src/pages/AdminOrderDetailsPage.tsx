@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, Loader2, Calendar, DollarSign, Package, User, CreditCard } from "lucide-react";
+import { ArrowLeft, Loader2, Calendar, DollarSign, Package, User, CreditCard, Trash2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useAdmin } from "@/hooks/useAdmin";
@@ -104,10 +104,26 @@ const AdminOrderDetailsPage = () => {
       .eq("id", orderId);
 
     if (error) {
-      toast.error("Failed to update status");
+      console.error("Status update error:", error);
+      toast.error(`Failed to update status: ${error.message}`);
     } else {
       toast.success("Status updated");
       setOrder((prev) => (prev ? { ...prev, status: newStatus } : null));
+    }
+  };
+
+  const deleteOrder = async () => {
+    if (!orderId) return;
+    if (!window.confirm("Are you sure you want to delete this order? This cannot be undone.")) return;
+
+    const { error } = await supabase.from("orders").delete().eq("id", orderId);
+
+    if (error) {
+      console.error("Delete order error:", error);
+      toast.error(`Failed to delete order: ${error.message}`);
+    } else {
+      toast.success("Order deleted");
+      navigate("/admin");
     }
   };
 
@@ -252,6 +268,23 @@ const AdminOrderDetailsPage = () => {
                     </SelectContent>
                   </Select>
                 </div>
+              </CardContent>
+            </Card>
+
+            {/* Delete Order */}
+            <Card className="border-border/50">
+              <CardHeader>
+                <CardTitle className="text-lg">Danger Zone</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Button
+                  variant="destructive"
+                  onClick={deleteOrder}
+                  className="w-full gap-2"
+                >
+                  <Trash2 className="h-4 w-4" />
+                  Delete Order
+                </Button>
               </CardContent>
             </Card>
 

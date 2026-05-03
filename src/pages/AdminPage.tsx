@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, ShieldCheck, Trash2, Loader2, RefreshCw, ExternalLink, MessageSquare, Package } from "lucide-react";
+import { Search, ShieldCheck, Trash2, Loader2, RefreshCw, ExternalLink, MessageSquare, Package, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useAdmin } from "@/hooks/useAdmin";
@@ -112,20 +112,37 @@ const AdminPage = () => {
   const updateStatus = async (orderId: string, newStatus: string) => {
     const { error } = await supabase.from("orders").update({ status: newStatus }).eq("id", orderId);
     if (error) {
-      toast.error("Failed to update status");
+      console.error("Status update error:", error);
+      toast.error(`Failed to update status: ${error.message}`);
     } else {
       toast.success("Status updated");
+      fetchOrders();
+    }
+  };
+
+  const deleteOrder = async (orderId: string) => {
+    if (!window.confirm("Are you sure you want to delete this order? This cannot be undone.")) return;
+
+    const { error } = await supabase.from("orders").delete().eq("id", orderId);
+    if (error) {
+      console.error("Delete order error:", error);
+      toast.error(`Failed to delete order: ${error.message}`);
+    } else {
+      toast.success("Order deleted");
+      fetchOrders();
     }
   };
 
   const clearAllOrders = async () => {
     if (!window.confirm("Are you sure you want to delete ALL orders? This cannot be undone.")) return;
-    const { error } = await supabase.from("orders").delete().neq("id", "00000000-0000-0000-0000-000000000000");
+
+    const { error } = await supabase.from("orders").delete().gte("created_at", "2000-01-01");
     if (error) {
-      toast.error("Failed to clear orders");
+      console.error("Clear all orders error:", error);
+      toast.error(`Failed to clear orders: ${error.message}`);
     } else {
       toast.success("All orders cleared");
-      setOrders([]);
+      fetchOrders();
     }
   };
 
@@ -253,6 +270,7 @@ const AdminPage = () => {
                    <TableHead className="text-muted-foreground text-center">Status</TableHead>
                    <TableHead className="text-muted-foreground text-center">Actions</TableHead>
                    <TableHead className="text-muted-foreground text-center">View</TableHead>
+                   <TableHead className="text-muted-foreground text-center">Delete</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -290,11 +308,21 @@ const AdminPage = () => {
                         </Button>
                       </Link>
                     </TableCell>
+                    <TableCell className="text-center">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => deleteOrder(order.id)}
+                        className="border-red-500/30 text-red-400 hover:bg-red-500/10"
+                      >
+                        <X className="h-4 w-4" />
+                      </Button>
+                    </TableCell>
                   </TableRow>
                 ))}
                 {filtered.length === 0 && (
                   <TableRow>
-                    <TableCell colSpan={9} className="text-center py-8 text-muted-foreground">No orders found</TableCell>
+                    <TableCell colSpan={10} className="text-center py-8 text-muted-foreground">No orders found</TableCell>
                   </TableRow>
                 )}
               </TableBody>
