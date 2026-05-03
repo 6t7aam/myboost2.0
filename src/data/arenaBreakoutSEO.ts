@@ -7,8 +7,8 @@ export interface ServiceSEO {
 
 export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
   "koens-farming": {
-    metaTitle: "Arena Breakout: Infinite Koens Farming - MyBoost",
-    metaDescription: "Buy Arena Breakout: Infinite Koens farming service. Professional boosters deliver 1M-500M Koens in 1-2 hours. Secure, affordable, VPN protected. 600+ orders, 4.9★ rating.",
+    metaTitle: "Koens Farming – Arena Breakout: Infinite | MyBoost",
+    metaDescription: "Buy Koens farming in Arena Breakout: Infinite. Get rich fast with safe and efficient currency farming service.",
     h1: "Arena Breakout: Infinite Koens Farming Service",
     content: `
       <p>Looking to buy Arena Breakout: Infinite Koens fast and safely? Our Arena Breakout boosting service provides the most efficient Koens farming solution on the market. Whether you need 1 million or 500 million Koens, our experienced looters deliver results in record time while keeping your account completely secure.</p>
@@ -27,8 +27,8 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "raids-boost": {
-    metaTitle: "Arena Breakout: Infinite Raids Boost - MyBoost",
-    metaDescription: "Arena Breakout: Infinite raids boost on all maps. Expert Lockdown & Forbidden mode carries with VIP extraction. 30-60 min per raid, guaranteed loot. Safe & professional service.",
+    metaTitle: "Raids Boost – Arena Breakout: Infinite | MyBoost",
+    metaDescription: "Buy Raids boost in Arena Breakout: Infinite. Complete raids faster, get better loot and improve your gameplay.",
     h1: "Arena Breakout: Infinite Raids Boost Service",
     content: `
       <p>Struggling with high-tier raids in Arena Breakout: Infinite? Our Arena Breakout boosting service offers professional raid carries on every map, from TV Station to Northridge. Whether you're tackling Lockdown or Forbidden mode, our elite squad ensures successful extractions with maximum loot every single time.</p>

@@ -16,14 +16,14 @@ const pages = [
   },
   {
     path: 'game/arena-breakout/koens-farming',
-    title: 'Arena Breakout: Infinite Koens Farming - MyBoost',
-    description: 'Buy Arena Breakout: Infinite Koens farming service. Professional boosters deliver 1M-500M Koens in 1-2 hours. Secure, affordable, VPN protected. 600+ orders, 4.9★ rating.',
+    title: 'Koens Farming – Arena Breakout: Infinite | MyBoost',
+    description: 'Buy Koens farming in Arena Breakout: Infinite. Get rich fast with safe and efficient currency farming service.',
     canonical: 'https://www.myboost.top/game/arena-breakout/koens-farming'
   },
   {
     path: 'game/arena-breakout/raids-boost',
-    title: 'Arena Breakout: Infinite Raids Boost - MyBoost',
-    description: 'Arena Breakout: Infinite raids boost on all maps. Expert Lockdown & Forbidden mode carries with VIP extraction. 30-60 min per raid, guaranteed loot. Safe & professional service.',
+    title: 'Raids Boost – Arena Breakout: Infinite | MyBoost',
+    description: 'Buy Raids boost in Arena Breakout: Infinite. Complete raids faster, get better loot and improve your gameplay.',
     canonical: 'https://www.myboost.top/game/arena-breakout/raids-boost'
   },
   {
