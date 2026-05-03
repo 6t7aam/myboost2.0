@@ -28,20 +28,20 @@ const pages = [
   },
   {
     path: 'game/arena-breakout/titanium-case',
-    title: 'Arena Breakout: Infinite Titanium 3x3 Case - MyBoost',
-    description: 'Get Arena Breakout: Infinite Titanium 3x3 Case with guaranteed top-tier loot. Premium weapons, rare attachments, high-tier armor. $99.99, delivered in 24-48 hours. Safe & secure.',
+    title: 'Titanium Case – Arena Breakout: Infinite | MyBoost',
+    description: 'Get Titanium Case in Arena Breakout: Infinite quickly and safely. Secure your best loot with our service.',
     canonical: 'https://www.myboost.top/game/arena-breakout/titanium-case'
   },
   {
     path: 'game/arena-breakout/coaching',
-    title: 'Arena Breakout: Infinite Coaching - MyBoost',
-    description: 'Arena Breakout: Infinite coaching by top players. Learn maps, rotations, PvP tactics, loot routes. Personalized 1-on-1 sessions from $8.50/hour. Improve fast with expert guidance.',
+    title: 'Coaching – Arena Breakout: Infinite | MyBoost',
+    description: 'Improve your skills in Arena Breakout: Infinite with professional coaching. Learn strategies, positioning and tactics.',
     canonical: 'https://www.myboost.top/game/arena-breakout/coaching'
   },
   {
     path: 'game/arena-breakout/rent-a-booster',
-    title: 'Arena Breakout: Infinite Rent a Booster - MyBoost',
-    description: 'Rent a booster for Arena Breakout: Infinite. Play alongside elite players in raids with real-time guidance. Instant start, $8.50/hour. Safe, fun, and effective boosting service.',
+    title: 'Rent a Booster – Arena Breakout: Infinite | MyBoost',
+    description: 'Rent a professional booster for Arena Breakout: Infinite. Play together and win more raids with expert help.',
     canonical: 'https://www.myboost.top/game/arena-breakout/rent-a-booster'
   },
   {

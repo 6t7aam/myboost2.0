@@ -47,8 +47,8 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "titanium-case": {
-    metaTitle: "Arena Breakout: Infinite Titanium 3x3 Case - MyBoost",
-    metaDescription: "Get Arena Breakout: Infinite Titanium 3x3 Case with guaranteed top-tier loot. Premium weapons, rare attachments, high-tier armor. $99.99, delivered in 24-48 hours. Safe & secure.",
+    metaTitle: "Titanium Case – Arena Breakout: Infinite | MyBoost",
+    metaDescription: "Get Titanium Case in Arena Breakout: Infinite quickly and safely. Secure your best loot with our service.",
     h1: "Arena Breakout: Infinite Titanium 3x3 Case Service",
     content: `
       <p>The Titanium 3x3 Case is one of the most coveted items in Arena Breakout: Infinite, and our Arena Breakout boosting service makes it accessible to everyone. For a fixed price of $99.99, you'll receive this premium case filled with guaranteed top-tier loot, delivered safely to your account within 24-48 hours.</p>
@@ -67,8 +67,8 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "coaching": {
-    metaTitle: "Arena Breakout: Infinite Coaching - MyBoost",
-    metaDescription: "Arena Breakout: Infinite coaching by top players. Learn maps, rotations, PvP tactics, loot routes. Personalized 1-on-1 sessions from $8.50/hour. Improve fast with expert guidance.",
+    metaTitle: "Coaching – Arena Breakout: Infinite | MyBoost",
+    metaDescription: "Improve your skills in Arena Breakout: Infinite with professional coaching. Learn strategies, positioning and tactics.",
     h1: "Arena Breakout: Infinite Coaching Service",
     content: `
       <p>Ready to elevate your Arena Breakout: Infinite skills? Our Arena Breakout boosting service includes personalized coaching from top-tier players who will teach you everything you need to dominate. From map knowledge to PvP tactics, our coaches provide 1-on-1 sessions tailored to your skill level and goals.</p>
@@ -87,8 +87,8 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "rent-a-booster": {
-    metaTitle: "Arena Breakout: Infinite Rent a Booster - MyBoost",
-    metaDescription: "Rent a booster for Arena Breakout: Infinite. Play alongside elite players in raids with real-time guidance. Instant start, $8.50/hour. Safe, fun, and effective boosting service.",
+    metaTitle: "Rent a Booster – Arena Breakout: Infinite | MyBoost",
+    metaDescription: "Rent a professional booster for Arena Breakout: Infinite. Play together and win more raids with expert help.",
     h1: "Arena Breakout: Infinite Rent a Booster",
     content: `
       <p>Want to experience Arena Breakout: Infinite with a pro by your side? Our Arena Breakout boosting service lets you rent a booster who will play alongside you in raids, providing real-time guidance, protection, and support. It's the perfect blend of coaching and carry—you stay in control while benefiting from elite-level gameplay.</p>
