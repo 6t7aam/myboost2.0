@@ -19,6 +19,30 @@ interface OrderChatProps {
   isAdmin?: boolean;
 }
 
+// Function to play notification sound using Web Audio API
+const playNotificationSound = () => {
+  try {
+    const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+
+    // Create a pleasant notification sound (two-tone beep)
+    oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+    oscillator.frequency.setValueAtTime(600, audioContext.currentTime + 0.1);
+
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.3);
+  } catch (error) {
+    console.error("[OrderChat] Error playing notification sound:", error);
+  }
+};
+
 const OrderChat = ({ orderId, isAdmin = false }: OrderChatProps) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState("");
@@ -26,6 +50,7 @@ const OrderChat = ({ orderId, isAdmin = false }: OrderChatProps) => {
   const [sending, setSending] = useState(false);
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const isInitialLoad = useRef(true);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -68,6 +93,10 @@ const OrderChat = ({ orderId, isAdmin = false }: OrderChatProps) => {
         console.log("[OrderChat] Messages fetched successfully:", data?.length || 0, "messages");
         console.log("[OrderChat] Messages data:", data);
         setMessages(data || []);
+        // Mark initial load as complete after first fetch
+        setTimeout(() => {
+          isInitialLoad.current = false;
+        }, 1000);
       }
       setLoading(false);
     };
@@ -87,7 +116,23 @@ const OrderChat = ({ orderId, isAdmin = false }: OrderChatProps) => {
         },
         (payload) => {
           console.log("[OrderChat] Real-time message received:", payload.new);
-          setMessages((prev) => [...prev, payload.new as Message]);
+          const newMsg = payload.new as Message;
+
+          // Play notification sound if:
+          // 1. Not initial load
+          // 2. Message is from the other party (admin receives customer messages, customer receives admin messages)
+          if (!isInitialLoad.current) {
+            const isMessageFromOtherParty = isAdmin
+              ? newMsg.sender_type === "customer"
+              : newMsg.sender_type === "admin";
+
+            if (isMessageFromOtherParty) {
+              console.log("[OrderChat] Playing notification sound for new message");
+              playNotificationSound();
+            }
+          }
+
+          setMessages((prev) => [...prev, newMsg]);
           scrollToBottom();
         }
       )
@@ -98,8 +143,10 @@ const OrderChat = ({ orderId, isAdmin = false }: OrderChatProps) => {
     return () => {
       console.log("[OrderChat] Unsubscribing from channel:", `order-chat-${orderId}`);
       supabase.removeChannel(channel);
+      // Reset initial load flag when component unmounts
+      isInitialLoad.current = true;
     };
-  }, [orderId]);
+  }, [orderId, isAdmin]);
 
   useEffect(() => {
     scrollToBottom();
