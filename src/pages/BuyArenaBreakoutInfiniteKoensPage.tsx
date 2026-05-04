@@ -9,7 +9,7 @@ const BuyArenaBreakoutInfiniteKoensPage = () => {
   return (
     <>
       <SEO
-        title="Buy Arena Breakout: Infinite Koens - Fast & Safe Koens Farming Service"
+        title="ABI – Buy Arena Breakout: Infinite Koens - Fast & Safe Koens Farming Service"
         description="Buy Arena Breakout: Infinite Koens from professional farmers. 1M-500M Koens delivered in 1-2 hours. Secure, affordable, VPN protected. 600+ orders, 4.9★ rating. Get Koens now!"
         keywords="buy arena breakout infinite koens, arena breakout infinite koens farming, abi koens, buy koens abi, arena breakout infinite currency"
         canonicalUrl="https://www.myboost.top/buy-arena-breakout-infinite-koens"

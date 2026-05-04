@@ -10,37 +10,37 @@ const baseTemplate = fs.readFileSync(path.join(__dirname, '../dist/index.html'),
 const pages = [
   {
     path: 'game/arena-breakout/warlord-tournament',
-    title: 'Warlord Tournament Boost – Arena Breakout: Infinite | MyBoost',
+    title: 'ABI – Warlord Tournament Boost – Arena Breakout: Infinite | MyBoost',
     description: 'Buy Warlord Tournament boost in Arena Breakout: Infinite. Rank up fast from Recruit to Warlord, boost Warlord stars, and start instantly.',
     canonical: 'https://www.myboost.top/game/arena-breakout/warlord-tournament'
   },
   {
     path: 'game/arena-breakout/koens-farming',
-    title: 'Koens Farming – Arena Breakout: Infinite | MyBoost',
+    title: 'ABI – Koens Farming – Arena Breakout: Infinite | MyBoost',
     description: 'Buy Koens farming in Arena Breakout: Infinite. Get rich fast with safe and efficient currency farming service.',
     canonical: 'https://www.myboost.top/game/arena-breakout/koens-farming'
   },
   {
     path: 'game/arena-breakout/raids-boost',
-    title: 'Raids Boost – Arena Breakout: Infinite | MyBoost',
+    title: 'ABI – Raids Boost – Arena Breakout: Infinite | MyBoost',
     description: 'Buy Raids boost in Arena Breakout: Infinite. Complete raids faster, get better loot and improve your gameplay.',
     canonical: 'https://www.myboost.top/game/arena-breakout/raids-boost'
   },
   {
     path: 'game/arena-breakout/titanium-case',
-    title: 'Titanium Case – Arena Breakout: Infinite | MyBoost',
+    title: 'ABI – Titanium Case – Arena Breakout: Infinite | MyBoost',
     description: 'Get Titanium Case in Arena Breakout: Infinite quickly and safely. Secure your best loot with our service.',
     canonical: 'https://www.myboost.top/game/arena-breakout/titanium-case'
   },
   {
     path: 'game/arena-breakout/coaching',
-    title: 'Coaching – Arena Breakout: Infinite | MyBoost',
+    title: 'ABI – Coaching – Arena Breakout: Infinite | MyBoost',
     description: 'Improve your skills in Arena Breakout: Infinite with professional coaching. Learn strategies, positioning and tactics.',
     canonical: 'https://www.myboost.top/game/arena-breakout/coaching'
   },
   {
     path: 'game/arena-breakout/rent-a-booster',
-    title: 'Rent a Booster – Arena Breakout: Infinite | MyBoost',
+    title: 'ABI – Rent a Booster – Arena Breakout: Infinite | MyBoost',
     description: 'Rent a professional booster for Arena Breakout: Infinite. Play together and win more raids with expert help.',
     canonical: 'https://www.myboost.top/game/arena-breakout/rent-a-booster'
   },

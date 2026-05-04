@@ -9,7 +9,7 @@ const ArenaBreakoutInfiniteCoachingPage = () => {
   return (
     <>
       <SEO
-        title="Arena Breakout: Infinite Coaching - Learn From Pro Players"
+        title="ABI – Arena Breakout: Infinite Coaching - Learn From Pro Players"
         description="Arena Breakout: Infinite coaching by elite players. Learn maps, rotations, PvP tactics, loot routes. Personalized 1-on-1 sessions from $8.50/hour. Improve fast with expert ABI coaching."
         keywords="arena breakout infinite coaching, abi coaching, arena breakout infinite training, learn arena breakout infinite, abi lessons"
         canonicalUrl="https://www.myboost.top/arena-breakout-infinite-coaching"

@@ -13,7 +13,20 @@
       "Bash(grep -E \"\\\\.\\(ico|png|svg\\)$\")",
       "Bash(xargs grep *)",
       "Bash(npx supabase *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(curl -I https://myboost.top/favicon.ico)",
+      "Bash(curl -I https://www.myboost.top/favicon.ico)",
+      "Bash(curl -s https://www.myboost.top/)",
+      "Bash(curl -s \"https://www.myboost.top/game/warlord-tournament\")",
+      "Bash(curl -s \"https://www.myboost.top/game/arena-breakout/warlord-tournament\")",
+      "Bash(curl -s \"https://www.myboost.top/\")",
+      "Bash(curl -s \"https://www.myboost.top/game/cs2\")",
+      "Bash(npm list *)",
+      "Bash(node *)",
+      "Bash(git commit *)",
+      "Bash(tee build.log)",
+      "PowerShell(node scripts/generate-static-pages.js)",
+      "Bash(grep -E \"\\\\.\\(ts|tsx|js|jsx\\)$\")"
     ]
   }
 }

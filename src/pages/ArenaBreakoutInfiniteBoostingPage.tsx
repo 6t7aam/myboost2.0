@@ -9,7 +9,7 @@ const ArenaBreakoutInfiniteBoostingPage = () => {
   return (
     <>
       <SEO
-        title="Arena Breakout: Infinite Boosting - Professional ABI Boost Services"
+        title="ABI – Arena Breakout: Infinite Boosting - Professional ABI Boost Services"
         description="Professional Arena Breakout: Infinite boosting services. Expert Koens farming, raid carries, coaching, and more. 600+ orders, 4.9★ rating. Safe, fast, affordable ABI boost."
         keywords="arena breakout infinite boosting, abi boosting, arena breakout infinite boost, buy arena breakout infinite boost, professional abi services"
         canonicalUrl="https://www.myboost.top/arena-breakout-infinite-boosting"

@@ -7,7 +7,7 @@ export interface ServiceSEO {
 
 export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
   "koens-farming": {
-    metaTitle: "Koens Farming – Arena Breakout: Infinite | MyBoost",
+    metaTitle: "ABI – Koens Farming – Arena Breakout: Infinite | MyBoost",
     metaDescription: "Buy Koens farming in Arena Breakout: Infinite. Get rich fast with safe and efficient currency farming service.",
     h1: "Arena Breakout: Infinite Koens Farming Service",
     content: `
@@ -27,7 +27,7 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "raids-boost": {
-    metaTitle: "Raids Boost – Arena Breakout: Infinite | MyBoost",
+    metaTitle: "ABI – Raids Boost – Arena Breakout: Infinite | MyBoost",
     metaDescription: "Buy Raids boost in Arena Breakout: Infinite. Complete raids faster, get better loot and improve your gameplay.",
     h1: "Arena Breakout: Infinite Raids Boost Service",
     content: `
@@ -47,7 +47,7 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "titanium-case": {
-    metaTitle: "Titanium Case – Arena Breakout: Infinite | MyBoost",
+    metaTitle: "ABI – Titanium Case – Arena Breakout: Infinite | MyBoost",
     metaDescription: "Get Titanium Case in Arena Breakout: Infinite quickly and safely. Secure your best loot with our service.",
     h1: "Arena Breakout: Infinite Titanium 3x3 Case Service",
     content: `
@@ -67,7 +67,7 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "coaching": {
-    metaTitle: "Coaching – Arena Breakout: Infinite | MyBoost",
+    metaTitle: "ABI – Coaching – Arena Breakout: Infinite | MyBoost",
     metaDescription: "Improve your skills in Arena Breakout: Infinite with professional coaching. Learn strategies, positioning and tactics.",
     h1: "Arena Breakout: Infinite Coaching Service",
     content: `
@@ -87,7 +87,7 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "rent-a-booster": {
-    metaTitle: "Rent a Booster – Arena Breakout: Infinite | MyBoost",
+    metaTitle: "ABI – Rent a Booster – Arena Breakout: Infinite | MyBoost",
     metaDescription: "Rent a professional booster for Arena Breakout: Infinite. Play together and win more raids with expert help.",
     h1: "Arena Breakout: Infinite Rent a Booster",
     content: `
@@ -107,7 +107,7 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     `
   },
   "warlord-tournament": {
-    metaTitle: "Warlord Tournament Boost – Arena Breakout: Infinite | MyBoost",
+    metaTitle: "ABI – Warlord Tournament Boost – Arena Breakout: Infinite | MyBoost",
     metaDescription: "Buy Warlord Tournament boost in Arena Breakout: Infinite. Rank up fast from Recruit to Warlord, boost Warlord stars, and start instantly.",
     h1: "Warlord Tournament Boost – Arena Breakout: Infinite",
     content: `
