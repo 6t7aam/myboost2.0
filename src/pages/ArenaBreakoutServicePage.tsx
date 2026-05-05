@@ -62,8 +62,18 @@ const ArenaBreakoutServicePage = () => {
         data={{
           name: service.name,
           description: seoData.metaDescription,
-          url: `https://www.myboost.top/game/arena-breakout/${serviceId}`,
-          category: 'Game Boosting Service'
+          offers: {
+            '@type': 'Offer',
+            url: `https://www.myboost.top/game/arena-breakout/${serviceId}`,
+            areaServed: 'Worldwide'
+          },
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: 4.9,
+            reviewCount: 600,
+            bestRating: 5,
+            worstRating: 1
+          }
         }}
       />
       <div className="min-h-screen bg-background">
