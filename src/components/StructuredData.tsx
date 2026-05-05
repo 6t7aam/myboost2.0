@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 
 interface StructuredDataProps {
-  type: 'Organization' | 'Product' | 'Service' | 'WebPage';
+  type: 'Organization' | 'Product' | 'WebPage';
   data: any;
 }
 
@@ -32,11 +32,11 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
       };
     }
 
-    if (type === 'Service') {
+    if (type === 'Product') {
       return {
         '@context': 'https://schema.org',
-        '@type': 'Service',
-        provider: {
+        '@type': 'Product',
+        brand: {
           '@type': 'Organization',
           name: 'MyBoost',
           url: 'https://www.myboost.top'

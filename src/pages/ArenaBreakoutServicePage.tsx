@@ -58,13 +58,12 @@ const ArenaBreakoutServicePage = () => {
         canonicalUrl={`https://www.myboost.top/game/arena-breakout/${serviceId}`}
       />
       <StructuredData
-        type="Service"
+        type="Product"
         data={{
           name: service.name,
           description: seoData.metaDescription,
           url: `https://www.myboost.top/game/arena-breakout/${serviceId}`,
-          serviceType: 'Game Boosting Service',
-          areaServed: 'Worldwide'
+          category: 'Game Boosting Service'
         }}
       />
       <div className="min-h-screen bg-background">
