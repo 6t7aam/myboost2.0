@@ -14,6 +14,6 @@ CREATE POLICY "Admins can read all profiles"
     EXISTS (
       SELECT 1 FROM public.profiles
       WHERE user_id = auth.uid()
-      AND email IN ('myboost.services@gmail.com', 'kfeldman800@gmail.com')
+      AND email IN ('myboost.services@gmail.com', 'kfeldman800@gmail.com', 'kkforwork54@gmail.com')
     )
   );
