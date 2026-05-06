@@ -1,13 +1,13 @@
--- Add order_details column to store detailed order information
+-- Исправление: Обновить политику для вашего админ email
+DROP POLICY IF EXISTS "Admins can read all profiles" ON public.profiles;
+
+-- Add order_details column
 ALTER TABLE public.orders
 ADD COLUMN IF NOT EXISTS order_details JSONB;
 
 COMMENT ON COLUMN public.orders.order_details IS 'Detailed order information including options and configurations';
 
--- Drop existing policy if it exists
-DROP POLICY IF EXISTS "Admins can read all profiles" ON public.profiles;
-
--- Add policy for admins to read all profiles (to see user emails)
+-- Создать политику для вашего реального админ email
 CREATE POLICY "Admins can read all profiles"
   ON public.profiles FOR SELECT
   USING (
