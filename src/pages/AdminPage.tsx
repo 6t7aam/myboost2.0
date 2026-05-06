@@ -32,6 +32,20 @@ interface Order {
   user_id: string;
   user_email?: string;
   booster_type?: string;
+  order_details?: {
+    items?: Array<{
+      game: string;
+      service: string;
+      price: number;
+      options: Record<string, any>;
+    }>;
+    promo_code?: string;
+    discount_percent?: number;
+    booster_type?: string;
+    booster_multiplier?: number;
+    original_price?: number;
+    final_price?: number;
+  };
 }
 
 const statusColor: Record<string, string> = {
@@ -61,7 +75,7 @@ const AdminPage = () => {
     setLoading(true);
     const { data, error } = await supabase
       .from("orders")
-      .select("id, service, price, status, created_at, user_id, booster_type")
+      .select("id, service, price, status, created_at, user_id, booster_type, order_details")
       .order("created_at", { ascending: false });
 
     if (error) {
@@ -281,7 +295,22 @@ const AdminPage = () => {
                     <TableCell className="text-sm text-muted-foreground">
                       {order.user_email || <span className="italic text-muted-foreground/60">Guest</span>}
                     </TableCell>
-                    <TableCell className="text-sm max-w-[200px] truncate">{order.service}</TableCell>
+                    <TableCell className="text-sm max-w-[200px]">
+                      <div className="space-y-1">
+                        <div className="truncate font-medium">{order.service}</div>
+                        {order.order_details?.items && order.order_details.items.length > 0 && (
+                          <div className="text-xs text-muted-foreground space-y-0.5">
+                            {order.order_details.items.map((item, idx) => (
+                              <div key={idx}>
+                                {Object.entries(item.options).map(([key, value]) => (
+                                  <div key={key}>{key}: {String(value)}</div>
+                                ))}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </TableCell>
                     <TableCell className="text-right font-semibold">${order.price.toFixed(2)}</TableCell>
                     <TableCell className="text-sm text-muted-foreground">{order.booster_type || "—"}</TableCell>
                     <TableCell className="text-center">

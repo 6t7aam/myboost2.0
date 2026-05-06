@@ -67,6 +67,20 @@ const OrderPage = () => {
         price: finalPrice,
         status: "pending",
         payment_method: isFreeOrder ? "promo" : "card",
+        order_details: {
+          items: items.map((i) => ({
+            game: i.game,
+            service: i.service,
+            price: i.price,
+            options: i.options,
+          })),
+          promo_code: promoCode?.code,
+          discount_percent: promoCode?.discount_percent,
+          booster_type: boosterType,
+          booster_multiplier: boosterMultiplier,
+          original_price: totalPrice,
+          final_price: finalPrice,
+        },
       };
       if (boosterType) orderInsert.booster_type = boosterType;
 
@@ -124,6 +138,20 @@ const OrderPage = () => {
         price: finalPrice,
         status: "pending",
         payment_method: "crypto",
+        order_details: {
+          items: items.map((i) => ({
+            game: i.game,
+            service: i.service,
+            price: i.price,
+            options: i.options,
+          })),
+          promo_code: promoCode?.code,
+          discount_percent: promoCode?.discount_percent,
+          booster_type: boosterType,
+          booster_multiplier: boosterMultiplier,
+          original_price: totalPrice,
+          final_price: finalPrice,
+        },
       };
       if (boosterType) orderInsert.booster_type = boosterType;
 

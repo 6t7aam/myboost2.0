@@ -34,6 +34,20 @@ interface OrderDetails {
   pay_currency?: string;
   payment_id?: string;
   payment_method?: string;
+  order_details?: {
+    items?: Array<{
+      game: string;
+      service: string;
+      price: number;
+      options: Record<string, any>;
+    }>;
+    promo_code?: string;
+    discount_percent?: number;
+    booster_type?: string;
+    booster_multiplier?: number;
+    original_price?: number;
+    final_price?: number;
+  };
 }
 
 const statusColor: Record<string, string> = {
@@ -191,6 +205,23 @@ const AdminOrderDetailsPage = () => {
                   <div className="flex-1">
                     <p className="text-sm text-muted-foreground">Service</p>
                     <p className="font-semibold text-foreground">{order.service}</p>
+                    {order.order_details?.items && order.order_details.items.length > 0 && (
+                      <div className="mt-2 space-y-2">
+                        {order.order_details.items.map((item, idx) => (
+                          <div key={idx} className="rounded-lg bg-secondary/50 p-3 space-y-1">
+                            <p className="text-xs font-medium text-foreground">{item.game} — {item.service}</p>
+                            <div className="text-xs text-muted-foreground space-y-0.5">
+                              {Object.entries(item.options).map(([key, value]) => (
+                                <div key={key} className="flex justify-between">
+                                  <span>{key}:</span>
+                                  <span className="font-medium text-foreground">{String(value)}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
 
