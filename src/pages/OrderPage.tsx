@@ -368,7 +368,8 @@ const OrderPage = () => {
                       orderId={paypalOrderId}
                       onSuccess={() => {
                         clearCart();
-                        navigate(`/order/status/${paypalOrderId}`);
+                        toast.success("Order created! Opening chat...");
+                        navigate(`/order/status/${paypalOrderId}`, { state: { openChat: true } });
                       }}
                     />
                   ) : (
