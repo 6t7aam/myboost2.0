@@ -111,7 +111,7 @@ const PayPalButton = ({ amount, orderId, onSuccess, disabled }: PayPalButtonProp
       onClick={handlePayPalPayment}
       disabled={disabled || processing}
       size="lg"
-      className="w-full gap-2.5 rounded-xl bg-[#0070ba] hover:bg-[#005ea6] text-white font-bold uppercase tracking-wider text-base transition-all border-0"
+      className="w-full gap-2.5 rounded-xl font-bold uppercase tracking-wider text-base glow-box-intense"
     >
       {processing ? (
         <>
