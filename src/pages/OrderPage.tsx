@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
+import PayPalButton from "@/components/PayPalButton";
 
 const COINS = [
   { id: "ltc", label: "LTC", name: "Litecoin" },
@@ -24,6 +25,7 @@ const OrderPage = () => {
   const [selectedCoin, setSelectedCoin] = useState<string>("ltc");
   const [processing, setProcessing] = useState(false);
   const [cardPaymentProcessing, setCardPaymentProcessing] = useState(false);
+  const [paypalOrderId, setPaypalOrderId] = useState<string | null>(null);
 
   const promoCode = (location.state as any)?.promoCode as { code: string; discount_percent: number } | null;
   const boosterType = (location.state as any)?.boosterType as string | null;
@@ -339,6 +341,106 @@ const OrderPage = () => {
                     <>Pay ${finalPrice.toFixed(2)} with {COINS.find((c) => c.id === selectedCoin)?.name}</>
                   )}
                 </Button>
+
+                <div className="relative flex items-center gap-3 my-1">
+                  <div className="h-px flex-1 bg-border/50" />
+                  <span className="text-xs uppercase tracking-widest text-muted-foreground">or</span>
+                  <div className="h-px flex-1 bg-border/50" />
+                </div>
+
+                {/* PayPal Payment Method */}
+                <div className="rounded-xl border border-border/50 bg-card p-5 transition-all hover:border-primary/30">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#0070ba]/10">
+                      <svg className="h-7 w-7 text-[#0070ba]" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.905 9.5c.21-1.342.09-2.268-.451-3.105C19.625 5.205 18.29 4.5 16.36 4.5H8.49c-.555 0-1.03.405-1.12.96L4.5 19.5h4.17l1.05-6.645-.033.21c.09-.555.563-.96 1.118-.96h2.325c4.575 0 8.16-1.86 9.21-7.23.03-.165.06-.315.09-.465-.165-.075-.165-.075 0 0z"/>
+                        <path d="M9.615 9.435c.06-.36.345-.63.72-.63h4.65c.555 0 1.08.045 1.575.135.15.03.3.075.435.12.135.045.27.09.39.15.06.03.12.06.18.09.525.24.96.585 1.26 1.065.21-1.335.09-2.25-.45-3.075C17.55 6.105 16.215 5.4 14.285 5.4H6.415c-.555 0-1.03.405-1.12.96L2.43 20.4h4.17l1.17-7.425.845-3.54z" opacity=".7"/>
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-foreground">PayPal</h3>
+                      <p className="text-xs text-muted-foreground">Fast & secure payment</p>
+                    </div>
+                  </div>
+                  {paypalOrderId ? (
+                    <PayPalButton
+                      amount={finalPrice}
+                      orderId={paypalOrderId}
+                      onSuccess={() => {
+                        clearCart();
+                        navigate(`/order/status/${paypalOrderId}`);
+                      }}
+                    />
+                  ) : (
+                    <Button
+                      onClick={async () => {
+                        if (!user) {
+                          toast.error("Please log in to place an order.");
+                          navigate("/login");
+                          return;
+                        }
+
+                        try {
+                          const serviceName = items.map((i) => `${i.game} — ${i.service}`).join(", ");
+                          const orderInsert: any = {
+                            user_id: user.id,
+                            service: serviceName,
+                            price: finalPrice,
+                            status: "pending",
+                            payment_method: "paypal",
+                            order_details: {
+                              items: items.map((i) => ({
+                                game: i.game,
+                                service: i.service,
+                                price: i.price,
+                                options: i.options,
+                              })),
+                              promo_code: promoCode?.code,
+                              discount_percent: promoCode?.discount_percent,
+                              booster_type: boosterType,
+                              booster_multiplier: boosterMultiplier,
+                              original_price: totalPrice,
+                              final_price: finalPrice,
+                            },
+                          };
+                          if (boosterType) orderInsert.booster_type = boosterType;
+
+                          const { data: order, error: insertErr } = await supabase
+                            .from("orders")
+                            .insert(orderInsert)
+                            .select("id")
+                            .single();
+
+                          if (insertErr || !order) {
+                            throw new Error(insertErr?.message || "Failed to create order");
+                          }
+
+                          if (promoCode) {
+                            await supabase.rpc("increment_promo_usage" as any, { _code: promoCode.code });
+                            await supabase.from("promo_code_usage" as any).insert({
+                              user_id: user.id,
+                              promo_code: promoCode.code,
+                            });
+                          }
+
+                          setPaypalOrderId(order.id);
+                        } catch (err: any) {
+                          console.error(err);
+                          toast.error(err.message || "Something went wrong");
+                        }
+                      }}
+                      size="lg"
+                      variant="outline"
+                      className="w-full gap-2.5 rounded-xl border-[#0070ba]/40 bg-card font-bold uppercase tracking-wider text-base hover:bg-[#0070ba]/10 hover:border-[#0070ba]/60 transition-all"
+                    >
+                      <svg className="h-5 w-5 text-[#0070ba]" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.905 9.5c.21-1.342.09-2.268-.451-3.105C19.625 5.205 18.29 4.5 16.36 4.5H8.49c-.555 0-1.03.405-1.12.96L4.5 19.5h4.17l1.05-6.645-.033.21c.09-.555.563-.96 1.118-.96h2.325c4.575 0 8.16-1.86 9.21-7.23.03-.165.06-.315.09-.465-.165-.075-.165-.075 0 0z"/>
+                        <path d="M9.615 9.435c.06-.36.345-.63.72-.63h4.65c.555 0 1.08.045 1.575.135.15.03.3.075.435.12.135.045.27.09.39.15.06.03.12.06.18.09.525.24.96.585 1.26 1.065.21-1.335.09-2.25-.45-3.075C17.55 6.105 16.215 5.4 14.285 5.4H6.415c-.555 0-1.03.405-1.12.96L2.43 20.4h4.17l1.17-7.425.845-3.54z" opacity=".7"/>
+                      </svg>
+                      Continue with PayPal
+                    </Button>
+                  )}
+                </div>
 
                 <div className="relative flex items-center gap-3 my-1">
                   <div className="h-px flex-1 bg-border/50" />

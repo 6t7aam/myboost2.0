@@ -28,7 +28,11 @@
       "PowerShell(node scripts/generate-static-pages.js)",
       "Bash(grep -E \"\\\\.\\(ts|tsx|js|jsx\\)$\")",
       "PowerShell(Get-Content *)",
-      "Bash(xargs cat)"
+      "Bash(xargs cat)",
+      "Bash(git push *)",
+      "PowerShell(New-Item *)",
+      "Bash(grep -E \"^\\\\.env$\")",
+      "Bash(npm uninstall *)"
     ]
   }
 }
