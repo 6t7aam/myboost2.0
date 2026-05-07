@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { PayPalClient } from '@paypal/paypal-server-sdk';
+import { Client, Environment, OrdersController } from '@paypal/paypal-server-sdk';
 import { createClient } from '@supabase/supabase-js';
 
 // PayPal client setup
@@ -12,13 +12,15 @@ function getPayPalClient() {
     throw new Error('PayPal credentials not configured');
   }
 
-  return new PayPalClient({
-    clientCredentialsAuth: {
+  const client = new Client({
+    clientCredentialsAuthCredentials: {
       oAuthClientId: clientId,
       oAuthClientSecret: clientSecret,
     },
-    environment: env === 'live' ? 'production' : 'sandbox',
+    environment: env === 'live' ? Environment.Production : Environment.Sandbox,
   });
+
+  return new OrdersController(client);
 }
 
 // Supabase client
@@ -60,8 +62,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     // Capture the PayPal order
-    const client = getPayPalClient();
-    const capture = await client.orders.ordersCapture({
+    const ordersController = getPayPalClient();
+    const capture = await ordersController.captureOrder({
       id: orderID,
       prefer: 'return=representation',
     });

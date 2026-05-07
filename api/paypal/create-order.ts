@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { PayPalClient } from '@paypal/paypal-server-sdk';
+import { Client, Environment, OrdersController } from '@paypal/paypal-server-sdk';
 
 // PayPal client setup
 function getPayPalClient() {
@@ -11,13 +11,15 @@ function getPayPalClient() {
     throw new Error('PayPal credentials not configured');
   }
 
-  return new PayPalClient({
-    clientCredentialsAuth: {
+  const client = new Client({
+    clientCredentialsAuthCredentials: {
       oAuthClientId: clientId,
       oAuthClientSecret: clientSecret,
     },
-    environment: env === 'live' ? 'production' : 'sandbox',
+    environment: env === 'live' ? Environment.Production : Environment.Sandbox,
   });
+
+  return new OrdersController(client);
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -47,8 +49,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     // Create PayPal order
-    const client = getPayPalClient();
-    const response = await client.orders.ordersCreate({
+    const ordersController = getPayPalClient();
+    const response = await ordersController.createOrder({
       body: {
         intent: 'CAPTURE',
         purchaseUnits: [

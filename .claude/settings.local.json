@@ -32,7 +32,9 @@
       "Bash(git push *)",
       "PowerShell(New-Item *)",
       "Bash(grep -E \"^\\\\.env$\")",
-      "Bash(npm uninstall *)"
+      "Bash(npm uninstall *)",
+      "Bash(npm info *)",
+      "Bash(npm view *)"
     ]
   }
 }
