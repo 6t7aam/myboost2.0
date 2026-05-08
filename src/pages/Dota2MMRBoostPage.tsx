@@ -3,13 +3,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { Trophy, CheckCircle, Star, Zap, Shield, Clock, TrendingUp, Users, Target, Award, ShoppingCart } from "lucide-react";
+import { Trophy, CheckCircle, Star, Zap, Shield, Clock, TrendingUp, Users, Target, Award, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
 
 const Dota2MMRBoostPage = () => {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(10);
   const { addItem } = useCart();
   const pricePerGame = 3;
   const totalPrice = quantity * pricePerGame;
@@ -90,69 +90,67 @@ const Dota2MMRBoostPage = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-5xl">
-              <div className="grid gap-8 lg:grid-cols-[1fr_400px]">
-                {/* IMAGE: dota2-mmr-boost-service.jpg - Replace this div with <img> */}
-                <div className="service-image-placeholder rounded-2xl border border-border/50 bg-secondary/30 overflow-hidden" data-image="dota2-mmr-boost-service.jpg">
-                  <div className="aspect-video w-full bg-gradient-to-br from-primary/10 to-secondary/50 flex items-center justify-center">
-                    <Trophy className="h-24 w-24 text-primary/30" />
+              <div className="grid gap-8 lg:grid-cols-[40%_1fr]">
+                {/* IMAGE: dota2-mmr-boost.jpg - Replace this div with <img> */}
+                <div className="service-image-placeholder rounded-2xl border border-border/50 bg-secondary/30 overflow-hidden" data-image="dota2-mmr-boost.jpg">
+                  <div className="aspect-[4/3] w-full bg-gradient-to-br from-primary/10 to-secondary/50 flex items-center justify-center">
+                    <Trophy className="h-32 w-32 text-primary/30" />
                   </div>
                 </div>
 
                 {/* Calculator */}
-                <div className="rounded-2xl border-2 border-primary/30 bg-card p-6 shadow-[0_0_30px_hsl(48_100%_50%_/_0.15)]">
+                <div className="rounded-2xl border-2 border-primary/30 bg-card p-8 shadow-[0_0_30px_hsl(48_100%_50%_/_0.15)]">
                   <h3 className="text-2xl font-black uppercase text-foreground">
                     Order <span className="text-primary">MMR Boost</span>
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Select the number of games you want boosted
-                  </p>
 
-                  <div className="mt-6 space-y-4">
+                  <div className="mt-6 space-y-6">
                     <div>
-                      <label className="text-sm font-bold uppercase text-foreground">Number of Games</label>
-                      <div className="mt-2 flex items-center gap-3">
+                      <label className="text-sm font-bold uppercase text-foreground">How many games?</label>
+                      <div className="mt-3 flex items-center gap-4">
                         <Button
                           variant="outline"
                           size="icon"
                           onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                          className="h-10 w-10 border-primary/30"
+                          className="h-12 w-12 border-primary/30 text-lg"
                         >
-                          -
+                          −
                         </Button>
-                        <input
-                          type="number"
-                          min="1"
-                          max="50"
-                          value={quantity}
-                          onChange={(e) => setQuantity(Math.max(1, Math.min(50, parseInt(e.target.value) || 1)))}
-                          className="h-10 w-20 rounded-lg border border-border/50 bg-background text-center text-lg font-bold text-foreground"
-                        />
+                        <div className="flex-1 text-center">
+                          <input
+                            type="number"
+                            min="1"
+                            max="50"
+                            value={quantity}
+                            onChange={(e) => setQuantity(Math.max(1, Math.min(50, parseInt(e.target.value) || 1)))}
+                            className="w-full rounded-lg border border-border/50 bg-background px-4 py-3 text-center text-xl font-bold text-foreground"
+                          />
+                          <p className="mt-1 text-xs text-muted-foreground">{quantity} {quantity === 1 ? 'game' : 'games'}</p>
+                        </div>
                         <Button
                           variant="outline"
                           size="icon"
                           onClick={() => setQuantity(Math.min(50, quantity + 1))}
-                          className="h-10 w-10 border-primary/30"
+                          className="h-12 w-12 border-primary/30 text-lg"
                         >
                           +
                         </Button>
                       </div>
-                      <p className="mt-1 text-xs text-muted-foreground">1-50 games available</p>
                     </div>
 
-                    <div className="rounded-xl border border-border/50 bg-secondary/30 p-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-muted-foreground">Price per game:</span>
-                        <span className="font-bold text-foreground">${pricePerGame}</span>
-                      </div>
-                      <div className="mt-2 flex items-center justify-between border-t border-border/50 pt-2">
-                        <span className="text-lg font-bold uppercase text-foreground">Total:</span>
-                        <span className="text-2xl font-black text-primary">${totalPrice}</span>
+                    <div className="rounded-xl border-2 border-primary/30 bg-secondary/30 p-6">
+                      <div className="text-center">
+                        <div className="text-sm uppercase tracking-wide text-muted-foreground">Your Price</div>
+                        <div className="mt-2 text-4xl font-black text-primary">${totalPrice.toFixed(2)}</div>
+                        <div className="mt-2 text-sm text-muted-foreground">
+                          {quantity} {quantity === 1 ? 'game' : 'games'} × ${pricePerGame.toFixed(2)}
+                        </div>
                       </div>
                     </div>
 
                     <Button
                       size="lg"
-                      className="w-full gap-2 glow-box font-bold uppercase"
+                      className="w-full gap-2 glow-box font-bold uppercase text-lg py-6"
                       onClick={() => {
                         addItem({
                           id: "",
@@ -168,7 +166,7 @@ const Dota2MMRBoostPage = () => {
                         toast.success("MMR Boost added to cart!");
                       }}
                     >
-                      <ShoppingCart className="h-5 w-5" /> Add to Cart
+                      Order Now <ArrowRight className="h-5 w-5" />
                     </Button>
                   </div>
                 </div>
