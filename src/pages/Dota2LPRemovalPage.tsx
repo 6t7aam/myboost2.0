@@ -3,9 +3,16 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { Shield, CheckCircle, Star, Zap, Clock, Users, Ban, Award, Target, TrendingUp } from "lucide-react";
+import { Shield, CheckCircle, Star, Zap, Clock, Users, Ban, Award, Target, TrendingUp, ShoppingCart } from "lucide-react";
+import { useState } from "react";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "sonner";
 
 const Dota2LPRemovalPage = () => {
+  const [quantity, setQuantity] = useState(1);
+  const { addItem } = useCart();
+  const pricePerGame = 3;
+  const totalPrice = quantity * pricePerGame;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -74,6 +81,97 @@ const Dota2LPRemovalPage = () => {
                     View All Services
                   </Button>
                 </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Calculator Section */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-5xl">
+              <div className="grid gap-8 lg:grid-cols-[1fr_400px]">
+                {/* IMAGE: dota2-lp-removal-service.jpg - Replace this div with <img> */}
+                <div className="service-image-placeholder rounded-2xl border border-border/50 bg-secondary/30 overflow-hidden" data-image="dota2-lp-removal-service.jpg">
+                  <div className="aspect-video w-full bg-gradient-to-br from-primary/10 to-secondary/50 flex items-center justify-center">
+                    <Shield className="h-24 w-24 text-primary/30" />
+                  </div>
+                </div>
+
+                {/* Calculator */}
+                <div className="rounded-2xl border-2 border-primary/30 bg-card p-6 shadow-[0_0_30px_hsl(48_100%_50%_/_0.15)]">
+                  <h3 className="text-2xl font-black uppercase text-foreground">
+                    Order <span className="text-primary">LP Removal</span>
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Select the number of LP games you need completed
+                  </p>
+
+                  <div className="mt-6 space-y-4">
+                    <div>
+                      <label className="text-sm font-bold uppercase text-foreground">Number of Games</label>
+                      <div className="mt-2 flex items-center gap-3">
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                          className="h-10 w-10 border-primary/30"
+                        >
+                          -
+                        </Button>
+                        <input
+                          type="number"
+                          min="1"
+                          max="10"
+                          value={quantity}
+                          onChange={(e) => setQuantity(Math.max(1, Math.min(10, parseInt(e.target.value) || 1)))}
+                          className="h-10 w-20 rounded-lg border border-border/50 bg-background text-center text-lg font-bold text-foreground"
+                        />
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          onClick={() => setQuantity(Math.min(10, quantity + 1))}
+                          className="h-10 w-10 border-primary/30"
+                        >
+                          +
+                        </Button>
+                      </div>
+                      <p className="mt-1 text-xs text-muted-foreground">1-10 games available</p>
+                    </div>
+
+                    <div className="rounded-xl border border-border/50 bg-secondary/30 p-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-muted-foreground">Price per game:</span>
+                        <span className="font-bold text-foreground">${pricePerGame}</span>
+                      </div>
+                      <div className="mt-2 flex items-center justify-between border-t border-border/50 pt-2">
+                        <span className="text-lg font-bold uppercase text-foreground">Total:</span>
+                        <span className="text-2xl font-black text-primary">${totalPrice}</span>
+                      </div>
+                    </div>
+
+                    <Button
+                      size="lg"
+                      className="w-full gap-2 glow-box font-bold uppercase"
+                      onClick={() => {
+                        addItem({
+                          id: "",
+                          game: "Dota 2",
+                          gameSlug: "dota-2",
+                          service: "LP Removal",
+                          options: { games: quantity },
+                          speed: "normal",
+                          basePrice: totalPrice,
+                          price: totalPrice,
+                          estimatedTime: `${quantity * 2}-${quantity * 4} hours`,
+                        });
+                        toast.success("LP Removal added to cart!");
+                      }}
+                    >
+                      <ShoppingCart className="h-5 w-5" /> Add to Cart
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
