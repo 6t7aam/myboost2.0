@@ -95,9 +95,26 @@ const Dota2LPRemovalPage = () => {
             <div className="mx-auto max-w-5xl">
               <div className="grid gap-8 lg:grid-cols-[40%_1fr]">
                 {/* IMAGE: dota2-lp-removal.jpg - Replace this div with <img> */}
-                <div className="service-image-placeholder rounded-2xl border border-border/50 bg-secondary/30 overflow-hidden" data-image="dota2-lp-removal.jpg">
-                  <div className="aspect-[4/3] w-full bg-gradient-to-br from-primary/10 to-secondary/50 flex items-center justify-center">
-                    <Shield className="h-32 w-32 text-primary/30" />
+                <div
+                  className="service-image-placeholder"
+                  data-image="dota2-lp-removal.jpg"
+                  style={{
+                    background: 'linear-gradient(135deg, #1a1a1a 0%, #111 100%)',
+                    border: '2px dashed rgba(255, 215, 0, 0.3)',
+                    borderRadius: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    minHeight: '300px',
+                    width: '100%'
+                  }}
+                >
+                  <div style={{ textAlign: 'center', color: 'rgba(255,215,0,0.5)' }}>
+                    <div style={{ fontSize: '48px' }}>🖼️</div>
+                    <div style={{ fontSize: '14px', marginTop: '8px' }}>
+                      {/* REPLACE WITH: /public/images/dota2/dota2-lp-removal.jpg */}
+                      dota2-lp-removal.jpg
+                    </div>
                   </div>
                 </div>
 
