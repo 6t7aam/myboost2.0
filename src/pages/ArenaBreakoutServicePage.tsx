@@ -34,6 +34,19 @@ const ArenaBreakoutServicePage = () => {
     );
   }
 
+  const getStartingPrice = (s: typeof service): number => {
+    if (!s) return 0;
+    if (s.fixedPrice !== undefined) return s.fixedPrice;
+    if (s.pricePerUnit !== undefined) return s.pricePerUnit;
+    if (s.modes && s.modes.length > 0) return s.modes[0].pricePerUnit;
+    if (s.tiers && s.tiers.length > 0) return s.tiers[0].pricePer;
+    if (s.startPrice) {
+      const m = s.startPrice.match(/[\d.]+/);
+      if (m) return parseFloat(m[0]);
+    }
+    return 0;
+  };
+
   const handleAddToCart = (order: OrderSummary) => {
     addItem({
       id: "",
@@ -62,10 +75,50 @@ const ArenaBreakoutServicePage = () => {
         data={{
           name: service.name,
           description: seoData.metaDescription,
+          image: [`https://www.myboost.top${service.image}`],
+          sku: serviceId,
           offers: {
             '@type': 'Offer',
             url: `https://www.myboost.top/game/arena-breakout/${serviceId}`,
-            areaServed: 'Worldwide'
+            priceCurrency: 'USD',
+            price: getStartingPrice(service).toFixed(2),
+            availability: 'https://schema.org/InStock',
+            areaServed: 'Worldwide',
+            shippingDetails: {
+              '@type': 'OfferShippingDetails',
+              shippingRate: {
+                '@type': 'MonetaryAmount',
+                value: '0',
+                currency: 'USD'
+              },
+              shippingDestination: {
+                '@type': 'DefinedRegion',
+                addressCountry: ['US','GB','CA','AU','DE','FR','IT','ES','NL','SE','NO','FI','DK','PL','BR','MX','JP','KR','RU','UA','PT','IE','BE','AT','CH','CZ','RO','HU','GR','TR','ZA','AR','CL','NZ','SG','HK','TW','PH','MY','TH','ID','VN','IN','AE','SA','IL']
+              },
+              deliveryTime: {
+                '@type': 'ShippingDeliveryTime',
+                handlingTime: {
+                  '@type': 'QuantitativeValue',
+                  minValue: 0,
+                  maxValue: 0,
+                  unitCode: 'HUR'
+                },
+                transitTime: {
+                  '@type': 'QuantitativeValue',
+                  minValue: 0,
+                  maxValue: 1,
+                  unitCode: 'HUR'
+                }
+              }
+            },
+            hasMerchantReturnPolicy: {
+              '@type': 'MerchantReturnPolicy',
+              applicableCountry: ['US','GB','CA','AU','DE','FR','IT','ES','NL','SE','NO','FI','DK','PL','BR','MX','JP','KR','RU','UA','PT','IE','BE','AT','CH','CZ','RO','HU','GR','TR','ZA','AR','CL','NZ','SG','HK','TW','PH','MY','TH','ID','VN','IN','AE','SA','IL'],
+              returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+              merchantReturnDays: 14,
+              returnMethod: 'https://schema.org/ReturnByMail',
+              returnFees: 'https://schema.org/FreeReturn'
+            }
           },
           aggregateRating: {
             '@type': 'AggregateRating',

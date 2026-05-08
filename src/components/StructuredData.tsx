@@ -37,9 +37,8 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
         '@context': 'https://schema.org',
         '@type': 'Product',
         brand: {
-          '@type': 'Organization',
-          name: 'MyBoost',
-          url: 'https://www.myboost.top'
+          '@type': 'Brand',
+          name: 'MyBoost'
         },
         ...data
       };
