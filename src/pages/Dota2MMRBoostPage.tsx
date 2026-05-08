@@ -3,16 +3,67 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { Trophy, CheckCircle, Star, Zap, Shield, Clock, TrendingUp, Users, Target, Award, ArrowRight } from "lucide-react";
+import { Trophy, CheckCircle, Star, Zap, Shield, Clock, TrendingUp, Users, Target, Award, ArrowRight, ArrowLeft } from "lucide-react";
+
+const rangeFill = (value: number, min: number, max: number) => {
+  const pct = ((value - min) / (max - min)) * 100;
+  return {
+    background: `linear-gradient(to right, #FFD700 0%, #FFD700 ${pct}%, #1a1a1a ${pct}%, #1a1a1a 100%)`,
+  };
+};
 import { useState } from "react";
-import { useCart } from "@/contexts/CartContext";
+import { useCart, SpeedOption } from "@/contexts/CartContext";
 import { toast } from "sonner";
 
+const getDotaRank = (mmr: number): string => {
+  if (mmr >= 5420) return "Immortal ♾️";
+  if (mmr >= 4620) return "Divine 💫";
+  if (mmr >= 3850) return "Ancient 👑";
+  if (mmr >= 3080) return "Legend 🏆";
+  if (mmr >= 2310) return "Archon 🌟";
+  if (mmr >= 1540) return "Crusader ⚔️";
+  if (mmr >= 770) return "Guardian 🛡️";
+  return "Herald 🔰";
+};
+
+const calculateMMRPrice = (from: number, to: number): number => {
+  let price = 0;
+  const segments = [
+    { limit: 2000, rate: 3.33 },
+    { limit: 4000, rate: 5.33 },
+    { limit: 6000, rate: 6.67 },
+    { limit: 8000, rate: 7.33 },
+  ];
+  let current = from;
+  for (const seg of segments) {
+    if (current >= seg.limit) continue;
+    const segEnd = Math.min(to, seg.limit);
+    const mmrInSeg = segEnd - current;
+    if (mmrInSeg <= 0) break;
+    price += (mmrInSeg / 25) * seg.rate;
+    current = segEnd;
+    if (current >= to) break;
+  }
+  return price;
+};
+
+type Speed = "standard" | "express" | "super-express";
+const SPEED_OPTIONS: { id: Speed; label: string; multiplier: number; cart: SpeedOption }[] = [
+  { id: "standard", label: "Standard", multiplier: 1, cart: "normal" },
+  { id: "express", label: "Express +20%", multiplier: 1.2, cart: "express" },
+  { id: "super-express", label: "Super Express +30%", multiplier: 1.3, cart: "super-express" },
+];
+
 const Dota2MMRBoostPage = () => {
-  const [quantity, setQuantity] = useState(10);
+  const [currentMMR, setCurrentMMR] = useState(1000);
+  const [desiredMMR, setDesiredMMR] = useState(3000);
+  const [speed, setSpeed] = useState<Speed>("standard");
   const { addItem } = useCart();
-  const pricePerGame = 3;
-  const totalPrice = quantity * pricePerGame;
+  const mmrDiff = Math.max(0, desiredMMR - currentMMR);
+  const games = Math.ceil(mmrDiff / 25);
+  const speedMultiplier = SPEED_OPTIONS.find((s) => s.id === speed)!.multiplier;
+  const basePrice = calculateMMRPrice(currentMMR, desiredMMR);
+  const totalPrice = basePrice * speedMultiplier;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -52,8 +103,14 @@ const Dota2MMRBoostPage = () => {
       <div className="min-h-screen bg-background">
         <Navbar />
 
+        <div className="container mx-auto px-4 pt-20" style={{ marginTop: '24px' }}>
+          <Link to="/game/dota-2" className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-border/50 bg-card/50 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm transition-colors hover:border-primary/50 hover:text-primary">
+            <ArrowLeft className="h-3.5 w-3.5" /> Back to Dota 2 Services
+          </Link>
+        </div>
+
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-16">
+        <section className="relative overflow-hidden pt-6">
           {/* IMAGE: dota2-mmr-boost.jpg - Replace this div with <img> */}
           <div className="service-image-placeholder absolute inset-0" data-image="dota2-mmr-boost.jpg">
             <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
@@ -70,18 +127,6 @@ const Dota2MMRBoostPage = () => {
               <p className="mt-6 text-lg text-muted-foreground md:text-xl">
                 Climb the ranks with Immortal-tier players. Safe, fast, and guaranteed results. Our professional boosters deliver consistent MMR gains with VPN protection and 15-minute start guarantee.
               </p>
-              <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <Link to="/game/dota-2/mmr-boost">
-                  <Button size="lg" className="gap-2 glow-box font-bold uppercase">
-                    <Zap className="h-5 w-5" /> Order Now
-                  </Button>
-                </Link>
-                <Link to="/game/dota-2">
-                  <Button size="lg" variant="outline" className="gap-2 font-bold uppercase">
-                    View All Services
-                  </Button>
-                </Link>
-              </div>
             </div>
           </div>
         </section>
@@ -91,29 +136,19 @@ const Dota2MMRBoostPage = () => {
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-5xl">
               <div className="grid gap-8 lg:grid-cols-[40%_1fr]">
-                {/* IMAGE: dota2-mmr-boost.jpg - Replace this div with <img> */}
-                <div
-                  className="service-image-placeholder"
-                  data-image="dota2-mmr-boost.jpg"
+                <img
+                  src="/images/dota2/dota2-mmr-boost.jpg"
+                  alt="Dota 2 MMR Boost"
                   style={{
-                    background: 'linear-gradient(135deg, #1a1a1a 0%, #111 100%)',
-                    border: '2px dashed rgba(255, 215, 0, 0.3)',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    objectPosition: 'center',
+                    background: '#111',
+                    padding: '16px',
                     borderRadius: '12px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    minHeight: '300px',
-                    width: '100%'
                   }}
-                >
-                  <div style={{ textAlign: 'center', color: 'rgba(255,215,0,0.5)' }}>
-                    <div style={{ fontSize: '48px' }}>🖼️</div>
-                    <div style={{ fontSize: '14px', marginTop: '8px' }}>
-                      {/* REPLACE WITH: /public/images/dota2/dota2-mmr-boost.jpg */}
-                      dota2-mmr-boost.jpg
-                    </div>
-                  </div>
-                </div>
+                />
 
                 {/* Calculator */}
                 <div className="rounded-2xl border-2 border-primary/30 bg-card p-8 shadow-[0_0_30px_hsl(48_100%_50%_/_0.15)]">
@@ -123,44 +158,76 @@ const Dota2MMRBoostPage = () => {
 
                   <div className="mt-6 space-y-6">
                     <div>
-                      <label className="text-sm font-bold uppercase text-foreground">How many games?</label>
-                      <div className="mt-3 flex items-center gap-4">
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                          className="h-12 w-12 border-primary/30 text-lg"
-                        >
-                          −
-                        </Button>
-                        <div className="flex-1 text-center">
-                          <input
-                            type="number"
-                            min="1"
-                            max="50"
-                            value={quantity}
-                            onChange={(e) => setQuantity(Math.max(1, Math.min(50, parseInt(e.target.value) || 1)))}
-                            className="w-full rounded-lg border border-border/50 bg-background px-4 py-3 text-center text-xl font-bold text-foreground"
-                          />
-                          <p className="mt-1 text-xs text-muted-foreground">{quantity} {quantity === 1 ? 'game' : 'games'}</p>
+                      <div className="flex items-baseline justify-between">
+                        <label className="text-sm font-bold uppercase text-foreground">Current MMR</label>
+                        <div className="text-right">
+                          <div className="text-lg font-black text-primary">{currentMMR} MMR</div>
+                          <div className="text-xs font-bold uppercase text-muted-foreground">{getDotaRank(currentMMR)}</div>
                         </div>
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          onClick={() => setQuantity(Math.min(50, quantity + 1))}
-                          className="h-12 w-12 border-primary/30 text-lg"
-                        >
-                          +
-                        </Button>
                       </div>
+                      <input
+                        type="range"
+                        className="myboost-range mt-3"
+                        min={0}
+                        max={7975}
+                        step={25}
+                        value={currentMMR}
+                        style={rangeFill(currentMMR, 0, 7975)}
+                        onChange={(e) => {
+                          const next = Math.min(parseInt(e.target.value, 10), desiredMMR - 25);
+                          setCurrentMMR(next);
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <div className="flex items-baseline justify-between">
+                        <label className="text-sm font-bold uppercase text-foreground">Desired MMR</label>
+                        <div className="text-right">
+                          <div className="text-lg font-black text-primary">{desiredMMR} MMR</div>
+                          <div className="text-xs font-bold uppercase text-muted-foreground">{getDotaRank(desiredMMR)}</div>
+                        </div>
+                      </div>
+                      <input
+                        type="range"
+                        className="myboost-range mt-3"
+                        min={25}
+                        max={8000}
+                        step={25}
+                        value={desiredMMR}
+                        style={rangeFill(desiredMMR, 25, 8000)}
+                        onChange={(e) => {
+                          const next = Math.max(currentMMR + 25, parseInt(e.target.value, 10));
+                          setDesiredMMR(next);
+                        }}
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-2">
+                      {SPEED_OPTIONS.map((opt) => {
+                        const active = speed === opt.id;
+                        return (
+                          <button
+                            key={opt.id}
+                            onClick={() => setSpeed(opt.id)}
+                            className={`rounded-lg border py-3 px-2 text-xs font-bold uppercase transition-colors ${
+                              active
+                                ? "bg-[#FFD700] text-black border-[#FFD700]"
+                                : "bg-[#111] text-white border-[rgba(255,215,0,0.3)] hover:border-[rgba(255,215,0,0.8)]"
+                            }`}
+                          >
+                            {opt.label}
+                          </button>
+                        );
+                      })}
                     </div>
 
                     <div className="rounded-xl border-2 border-primary/30 bg-secondary/30 p-6">
                       <div className="text-center">
-                        <div className="text-sm uppercase tracking-wide text-muted-foreground">Your Price</div>
+                        <div className="text-sm uppercase tracking-wide text-muted-foreground">+{mmrDiff} MMR</div>
                         <div className="mt-2 text-4xl font-black text-primary">${totalPrice.toFixed(2)}</div>
                         <div className="mt-2 text-sm text-muted-foreground">
-                          {quantity} {quantity === 1 ? 'game' : 'games'} × ${pricePerGame.toFixed(2)}
+                          {currentMMR} → {desiredMMR} MMR · {SPEED_OPTIONS.find((s) => s.id === speed)!.label}
                         </div>
                       </div>
                     </div>
@@ -174,11 +241,17 @@ const Dota2MMRBoostPage = () => {
                           game: "Dota 2",
                           gameSlug: "dota-2",
                           service: "MMR Boost",
-                          options: { games: quantity },
-                          speed: "normal",
-                          basePrice: totalPrice,
+                          options: {
+                            currentMMR,
+                            desiredMMR,
+                            mmrGained: mmrDiff,
+                            games,
+                            speed,
+                          },
+                          speed: SPEED_OPTIONS.find((s) => s.id === speed)!.cart,
+                          basePrice,
                           price: totalPrice,
-                          estimatedTime: `${quantity * 1}-${quantity * 2} hours`,
+                          estimatedTime: `${games * 1}-${games * 2} hours`,
                         });
                         toast.success("MMR Boost added to cart!");
                       }}
@@ -210,30 +283,6 @@ const Dota2MMRBoostPage = () => {
                   <div className="mt-1 text-sm text-muted-foreground">{desc}</div>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-2xl">
-              <div className="rounded-2xl border-2 border-primary/30 bg-secondary/30 p-8 text-center shadow-[0_0_30px_hsl(48_100%_50%_/_0.15)]">
-                <Trophy className="mx-auto h-12 w-12 text-primary" />
-                <h2 className="mt-4 text-3xl font-black uppercase text-foreground">
-                  Ready to Climb?
-                </h2>
-                <p className="mt-3 text-lg text-muted-foreground">
-                  Professional MMR boosting starting from just $3 per game
-                </p>
-                <div className="mt-6">
-                  <Link to="/game/dota-2/mmr-boost">
-                    <Button size="lg" className="gap-2 glow-box font-bold uppercase">
-                      <Zap className="h-5 w-5" /> Order MMR Boost
-                    </Button>
-                  </Link>
-                </div>
-              </div>
             </div>
           </div>
         </section>

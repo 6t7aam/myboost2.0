@@ -19,6 +19,7 @@ import ArenaBreakoutInfiniteCoachingPage from "./pages/ArenaBreakoutInfiniteCoac
 import Dota2MMRBoostPage from "./pages/Dota2MMRBoostPage.tsx";
 import Dota2LPRemovalPage from "./pages/Dota2LPRemovalPage.tsx";
 import Dota2RankTokensPage from "./pages/Dota2RankTokensPage.tsx";
+import Dota2CoachingPage from "./pages/Dota2CoachingPage.tsx";
 import CartPage from "./pages/CartPage.tsx";
 import AdminPage from "./pages/AdminPage.tsx";
 import AdminOrderDetailsPage from "./pages/AdminOrderDetailsPage.tsx";
@@ -52,6 +53,7 @@ const App = () => (
               <Route path="/game/dota-2/mmr-boost" element={<Dota2MMRBoostPage />} />
               <Route path="/game/dota-2/lp-removal" element={<Dota2LPRemovalPage />} />
               <Route path="/game/dota-2/rank-tokens" element={<Dota2RankTokensPage />} />
+              <Route path="/game/dota-2/coaching" element={<Dota2CoachingPage />} />
               <Route path="/game/dota-2/:serviceId" element={<Dota2ServicePage />} />
               <Route path="/game/:gameSlug" element={<GamePage />} />
               <Route path="/cart" element={<CartPage />} />

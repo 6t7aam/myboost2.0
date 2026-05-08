@@ -3,19 +3,33 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { Shield, CheckCircle, Star, Zap, Clock, Users, Ban, Award, Target, TrendingUp, ShoppingCart, ArrowRight } from "lucide-react";
+import { Shield, CheckCircle, Star, Zap, Clock, Users, Ban, Award, Target, TrendingUp, ShoppingCart, ArrowRight, ArrowLeft } from "lucide-react";
+
+const rangeFill = (value: number, min: number, max: number) => {
+  const pct = ((value - min) / (max - min)) * 100;
+  return {
+    background: `linear-gradient(to right, #FFD700 0%, #FFD700 ${pct}%, #1a1a1a ${pct}%, #1a1a1a 100%)`,
+  };
+};
 import { useState } from "react";
-import { useCart } from "@/contexts/CartContext";
+import { useCart, SpeedOption } from "@/contexts/CartContext";
 import { toast } from "sonner";
+
+type Speed = "standard" | "express" | "super-express";
+const SPEED_OPTIONS: { id: Speed; label: string; multiplier: number; cart: SpeedOption }[] = [
+  { id: "standard", label: "Standard", multiplier: 1, cart: "normal" },
+  { id: "express", label: "Express +20%", multiplier: 1.2, cart: "express" },
+  { id: "super-express", label: "Super Express +30%", multiplier: 1.3, cart: "super-express" },
+];
 
 const Dota2LPRemovalPage = () => {
   const [quantity, setQuantity] = useState(5);
-  const [coachingMode, setCoachingMode] = useState(false);
+  const [speed, setSpeed] = useState<Speed>("standard");
   const { addItem } = useCart();
-  const basePricePerGame = 3;
-  const coachingModeFee = 1;
-  const pricePerGame = coachingMode ? basePricePerGame + coachingModeFee : basePricePerGame;
-  const totalPrice = quantity * pricePerGame;
+  const pricePerGame = 5;
+  const speedMultiplier = SPEED_OPTIONS.find((s) => s.id === speed)!.multiplier;
+  const basePrice = quantity * pricePerGame;
+  const totalPrice = basePrice * speedMultiplier;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -55,8 +69,14 @@ const Dota2LPRemovalPage = () => {
       <div className="min-h-screen bg-background">
         <Navbar />
 
+        <div className="container mx-auto px-4 pt-20" style={{ marginTop: '24px' }}>
+          <Link to="/game/dota-2" className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-border/50 bg-card/50 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm transition-colors hover:border-primary/50 hover:text-primary">
+            <ArrowLeft className="h-3.5 w-3.5" /> Back to Dota 2 Services
+          </Link>
+        </div>
+
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-16">
+        <section className="relative overflow-hidden pt-6">
           {/* IMAGE: dota2-lp-removal.jpg - Replace this div with <img> */}
           <div className="service-image-placeholder absolute inset-0" data-image="dota2-lp-removal.jpg">
             <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
@@ -73,18 +93,6 @@ const Dota2LPRemovalPage = () => {
               <p className="mt-6 text-lg text-muted-foreground md:text-xl">
                 Escape the Low Priority queue fast. Professional completion guaranteed. Our experienced LP specialists get you back to ranked matchmaking within 24 hours with ban-safe methods.
               </p>
-              <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <Link to="/game/dota-2/lp-removal">
-                  <Button size="lg" className="gap-2 glow-box font-bold uppercase">
-                    <Zap className="h-5 w-5" /> Order Now
-                  </Button>
-                </Link>
-                <Link to="/game/dota-2">
-                  <Button size="lg" variant="outline" className="gap-2 font-bold uppercase">
-                    View All Services
-                  </Button>
-                </Link>
-              </div>
             </div>
           </div>
         </section>
@@ -94,29 +102,19 @@ const Dota2LPRemovalPage = () => {
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-5xl">
               <div className="grid gap-8 lg:grid-cols-[40%_1fr]">
-                {/* IMAGE: dota2-lp-removal.jpg - Replace this div with <img> */}
-                <div
-                  className="service-image-placeholder"
-                  data-image="dota2-lp-removal.jpg"
+                <img
+                  src="/images/dota2/dota2-lp-removal.jpg"
+                  alt="Dota 2 LP Removal"
                   style={{
-                    background: 'linear-gradient(135deg, #1a1a1a 0%, #111 100%)',
-                    border: '2px dashed rgba(255, 215, 0, 0.3)',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    objectPosition: 'center',
+                    background: '#111',
+                    padding: '16px',
                     borderRadius: '12px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    minHeight: '300px',
-                    width: '100%'
                   }}
-                >
-                  <div style={{ textAlign: 'center', color: 'rgba(255,215,0,0.5)' }}>
-                    <div style={{ fontSize: '48px' }}>🖼️</div>
-                    <div style={{ fontSize: '14px', marginTop: '8px' }}>
-                      {/* REPLACE WITH: /public/images/dota2/dota2-lp-removal.jpg */}
-                      dota2-lp-removal.jpg
-                    </div>
-                  </div>
-                </div>
+                />
 
                 {/* Calculator */}
                 <div className="rounded-2xl border-2 border-primary/30 bg-card p-8 shadow-[0_0_30px_hsl(48_100%_50%_/_0.15)]">
@@ -126,90 +124,46 @@ const Dota2LPRemovalPage = () => {
 
                   <div className="mt-6 space-y-6">
                     <div>
-                      <label className="text-sm font-bold uppercase text-foreground">How many LP games?</label>
-                      <div className="mt-3 flex items-center gap-4">
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                          className="h-12 w-12 border-primary/30 text-lg"
-                        >
-                          −
-                        </Button>
-                        <div className="flex-1 text-center">
-                          <input
-                            type="number"
-                            min="1"
-                            max="50"
-                            value={quantity}
-                            onChange={(e) => setQuantity(Math.max(1, Math.min(50, parseInt(e.target.value) || 1)))}
-                            className="w-full rounded-lg border border-border/50 bg-background px-4 py-3 text-center text-xl font-bold text-foreground"
-                          />
-                          <p className="mt-1 text-xs text-muted-foreground">{quantity} {quantity === 1 ? 'game' : 'games'}</p>
-                        </div>
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          onClick={() => setQuantity(Math.min(50, quantity + 1))}
-                          className="h-12 w-12 border-primary/30 text-lg"
-                        >
-                          +
-                        </Button>
+                      <div className="flex items-baseline justify-between">
+                        <label className="text-sm font-bold uppercase text-foreground">Number of LP Games</label>
+                        <span className="text-lg font-black text-primary">{quantity} {quantity === 1 ? 'game' : 'games'}</span>
                       </div>
+                      <input
+                        type="range"
+                        className="myboost-range mt-3"
+                        min={1}
+                        max={50}
+                        step={1}
+                        value={quantity}
+                        style={rangeFill(quantity, 1, 50)}
+                        onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
+                      />
                     </div>
 
-                    <div className="space-y-3">
-                      <button
-                        onClick={() => setCoachingMode(false)}
-                        className={`w-full rounded-xl border p-4 text-left transition-all ${
-                          !coachingMode
-                            ? "border-primary bg-primary/10"
-                            : "border-border/50 bg-card hover:border-primary/30"
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className={`h-5 w-5 rounded-full border-2 flex items-center justify-center ${
-                            !coachingMode ? "border-primary" : "border-border"
-                          }`}>
-                            {!coachingMode && <div className="h-3 w-3 rounded-full bg-primary" />}
-                          </div>
-                          <div className="flex-1">
-                            <div className="font-bold text-foreground">Normal LP</div>
-                            <div className="text-sm text-muted-foreground">We play on your account</div>
-                          </div>
-                          <div className="text-sm font-bold text-primary">${basePricePerGame}/game</div>
-                        </div>
-                      </button>
-
-                      <button
-                        onClick={() => setCoachingMode(true)}
-                        className={`w-full rounded-xl border p-4 text-left transition-all ${
-                          coachingMode
-                            ? "border-primary bg-primary/10"
-                            : "border-border/50 bg-card hover:border-primary/30"
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className={`h-5 w-5 rounded-full border-2 flex items-center justify-center ${
-                            coachingMode ? "border-primary" : "border-border"
-                          }`}>
-                            {coachingMode && <div className="h-3 w-3 rounded-full bg-primary" />}
-                          </div>
-                          <div className="flex-1">
-                            <div className="font-bold text-foreground">Coaching Mode</div>
-                            <div className="text-sm text-muted-foreground">You play with our coach</div>
-                          </div>
-                          <div className="text-sm font-bold text-primary">${basePricePerGame + coachingModeFee}/game</div>
-                        </div>
-                      </button>
+                    <div className="grid grid-cols-3 gap-2">
+                      {SPEED_OPTIONS.map((opt) => {
+                        const active = speed === opt.id;
+                        return (
+                          <button
+                            key={opt.id}
+                            onClick={() => setSpeed(opt.id)}
+                            className={`rounded-lg border py-3 px-2 text-xs font-bold uppercase transition-colors ${
+                              active
+                                ? "bg-[#FFD700] text-black border-[#FFD700]"
+                                : "bg-[#111] text-white border-[rgba(255,215,0,0.3)] hover:border-[rgba(255,215,0,0.8)]"
+                            }`}
+                          >
+                            {opt.label}
+                          </button>
+                        );
+                      })}
                     </div>
 
                     <div className="rounded-xl border-2 border-primary/30 bg-secondary/30 p-6">
                       <div className="text-center">
-                        <div className="text-sm uppercase tracking-wide text-muted-foreground">Your Price</div>
-                        <div className="mt-2 text-4xl font-black text-primary">${totalPrice.toFixed(2)}</div>
+                        <div className="text-4xl font-black text-primary">${totalPrice.toFixed(2)}</div>
                         <div className="mt-2 text-sm text-muted-foreground">
-                          {quantity} {quantity === 1 ? 'game' : 'games'} × ${pricePerGame.toFixed(2)}
+                          {quantity} {quantity === 1 ? 'game' : 'games'} × ${pricePerGame.toFixed(2)} · {SPEED_OPTIONS.find((s) => s.id === speed)!.label}
                         </div>
                       </div>
                     </div>
@@ -223,12 +177,9 @@ const Dota2LPRemovalPage = () => {
                           game: "Dota 2",
                           gameSlug: "dota-2",
                           service: "LP Removal",
-                          options: {
-                            games: quantity,
-                            mode: coachingMode ? "Coaching Mode" : "Normal"
-                          },
-                          speed: "normal",
-                          basePrice: totalPrice,
+                          options: { games: quantity, speed },
+                          speed: SPEED_OPTIONS.find((s) => s.id === speed)!.cart,
+                          basePrice,
                           price: totalPrice,
                           estimatedTime: `${quantity * 2}-${quantity * 4} hours`,
                         });
@@ -262,30 +213,6 @@ const Dota2LPRemovalPage = () => {
                   <div className="mt-1 text-sm text-muted-foreground">{desc}</div>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-2xl">
-              <div className="rounded-2xl border-2 border-primary/30 bg-secondary/30 p-8 text-center shadow-[0_0_30px_hsl(48_100%_50%_/_0.15)]">
-                <Shield className="mx-auto h-12 w-12 text-primary" />
-                <h2 className="mt-4 text-3xl font-black uppercase text-foreground">
-                  Escape LP Hell
-                </h2>
-                <p className="mt-3 text-lg text-muted-foreground">
-                  Professional LP removal starting from just $3 per game
-                </p>
-                <div className="mt-6">
-                  <Link to="/game/dota-2/lp-removal">
-                    <Button size="lg" className="gap-2 glow-box font-bold uppercase">
-                      <Zap className="h-5 w-5" /> Order LP Removal
-                    </Button>
-                  </Link>
-                </div>
-              </div>
             </div>
           </div>
         </section>

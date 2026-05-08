@@ -62,20 +62,24 @@ const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
             Choose Your <span className="text-primary glow-text">Service</span>
           </h2>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
             {config.services.map((service) => (
               <Link key={service.id} to={`/game/dota-2/${service.id}`} className="group">
-                <Card className="relative h-full overflow-hidden border-border/50 bg-card transition-all duration-300 hover:border-primary/50 hover:glow-border hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_hsl(48_100%_50%_/_0.15)]">
+                <Card
+                  className="relative h-full overflow-hidden border-border/50 bg-card transition-all duration-300 hover:border-primary/50 hover:glow-border hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_hsl(48_100%_50%_/_0.15)]"
+                  style={{ minHeight: '380px' }}
+                >
                   {service.tag && (
                     <Badge className="absolute top-3 right-3 z-10 border-none bg-primary/20 text-sm font-bold uppercase text-primary backdrop-blur-sm px-3 py-1">
                       {service.tag}
                     </Badge>
                   )}
-                  <div className="relative aspect-[16/9] overflow-hidden bg-secondary/30">
+                  <div className="relative overflow-hidden bg-secondary/30" style={{ height: '220px' }}>
                     <img
                       src={service.image}
                       alt={service.name}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      style={{ objectPosition: 'top center' }}
                       loading="lazy"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
@@ -84,8 +88,8 @@ const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
                   </div>
-                  <CardContent className="p-4">
-                    <h3 className="text-lg font-bold uppercase text-foreground group-hover:text-primary transition-colors duration-200">
+                  <CardContent style={{ padding: '20px' }}>
+                    <h3 className="font-bold uppercase text-foreground group-hover:text-primary transition-colors duration-200" style={{ fontSize: '20px' }}>
                       {service.name}
                     </h3>
                     <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">{service.description}</p>
