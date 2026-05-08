@@ -11,6 +11,7 @@ import ServiceConfigurator, { OrderSummary } from "@/components/ServiceConfigura
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
 import ArenaBreakoutServiceGrid from "@/components/ArenaBreakoutServiceGrid";
+import Dota2ServiceGrid from "@/components/Dota2ServiceGrid";
 
 const GamePage = () => {
   const { gameSlug } = useParams<{ gameSlug: string }>();
@@ -42,6 +43,11 @@ const GamePage = () => {
   // Arena Breakout uses service grid hub page
   if (gameSlug === "arena-breakout") {
     return <ArenaBreakoutServiceGrid config={config} />;
+  }
+
+  // Dota 2 uses service grid hub page
+  if (gameSlug === "dota-2") {
+    return <Dota2ServiceGrid config={config} />;
   }
 
   const activeService = config.services.find((s) => s.id === activeServiceId) || config.services[0];

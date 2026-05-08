@@ -6,6 +6,31 @@ import { Button } from "@/components/ui/button";
 import { Trophy, CheckCircle, Star, Zap, Shield, Clock, TrendingUp, Users, Target, Award } from "lucide-react";
 
 const Dota2MMRBoostPage = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Dota 2 MMR Boost - Fast Rank Up by Immortal Players",
+    "description": "Buy Dota 2 MMR boost from top Immortal & Divine players. Safe, fast rank climbing with VPN protection. Solo or duo boosting available. Start in 15 minutes.",
+    "image": "https://www.myboost.top/images/dota2-mmr-boost.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "MyBoost"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://www.myboost.top/game/dota-2/mmr-boost",
+      "priceCurrency": "USD",
+      "price": "3",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": "3",
+        "priceCurrency": "USD"
+      },
+      "availability": "https://schema.org/InStock",
+      "areaServed": "Worldwide"
+    }
+  };
+
   return (
     <>
       <SEO
@@ -14,12 +39,18 @@ const Dota2MMRBoostPage = () => {
         keywords="dota 2 mmr boost, dota 2 boosting, buy dota 2 boost, dota 2 rank boost, mmr boosting service"
         canonicalUrl="https://www.myboost.top/game/dota-2/mmr-boost"
       />
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
       <div className="min-h-screen bg-background">
         <Navbar />
 
         {/* Hero Section */}
         <section className="relative overflow-hidden pt-16">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
+          {/* IMAGE: dota2-mmr-boost.jpg - Replace this div with <img> */}
+          <div className="service-image-placeholder absolute inset-0" data-image="dota2-mmr-boost.jpg">
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
+          </div>
           <div className="container relative z-10 mx-auto px-4 py-16 md:py-24">
             <div className="mx-auto max-w-4xl text-center">
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2">
