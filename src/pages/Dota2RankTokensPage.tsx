@@ -9,9 +9,12 @@ import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
 
 const Dota2RankTokensPage = () => {
-  const [quantity, setQuantity] = useState(10);
+  const [quantity, setQuantity] = useState(5);
+  const [expressDelivery, setExpressDelivery] = useState(false);
   const { addItem } = useCart();
-  const pricePerToken = 5;
+  const basePricePerToken = 5;
+  const expressFee = 0.2; // 20%
+  const pricePerToken = expressDelivery ? basePricePerToken * (1 + expressFee) : basePricePerToken;
   const totalPrice = quantity * pricePerToken;
   const structuredData = {
     "@context": "https://schema.org",
@@ -138,6 +141,52 @@ const Dota2RankTokensPage = () => {
                       </div>
                     </div>
 
+                    <div className="space-y-3">
+                      <button
+                        onClick={() => setExpressDelivery(false)}
+                        className={`w-full rounded-xl border p-4 text-left transition-all ${
+                          !expressDelivery
+                            ? "border-primary bg-primary/10"
+                            : "border-border/50 bg-card hover:border-primary/30"
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`h-5 w-5 rounded-full border-2 flex items-center justify-center ${
+                            !expressDelivery ? "border-primary" : "border-border"
+                          }`}>
+                            {!expressDelivery && <div className="h-3 w-3 rounded-full bg-primary" />}
+                          </div>
+                          <div className="flex-1">
+                            <div className="font-bold text-foreground">Standard Delivery</div>
+                            <div className="text-sm text-muted-foreground">24-48 hours</div>
+                          </div>
+                          <div className="text-sm font-bold text-primary">${basePricePerToken.toFixed(2)}/token</div>
+                        </div>
+                      </button>
+
+                      <button
+                        onClick={() => setExpressDelivery(true)}
+                        className={`w-full rounded-xl border p-4 text-left transition-all ${
+                          expressDelivery
+                            ? "border-primary bg-primary/10"
+                            : "border-border/50 bg-card hover:border-primary/30"
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`h-5 w-5 rounded-full border-2 flex items-center justify-center ${
+                            expressDelivery ? "border-primary" : "border-border"
+                          }`}>
+                            {expressDelivery && <div className="h-3 w-3 rounded-full bg-primary" />}
+                          </div>
+                          <div className="flex-1">
+                            <div className="font-bold text-foreground">Express</div>
+                            <div className="text-sm text-muted-foreground">12-24 hours (+20%)</div>
+                          </div>
+                          <div className="text-sm font-bold text-primary">${(basePricePerToken * (1 + expressFee)).toFixed(2)}/token</div>
+                        </div>
+                      </button>
+                    </div>
+
                     <div className="rounded-xl border-2 border-primary/30 bg-secondary/30 p-6">
                       <div className="text-center">
                         <div className="text-sm uppercase tracking-wide text-muted-foreground">Your Price</div>
@@ -157,11 +206,14 @@ const Dota2RankTokensPage = () => {
                           game: "Dota 2",
                           gameSlug: "dota-2",
                           service: "Rank Tokens Farming",
-                          options: { tokens: quantity },
-                          speed: "normal",
+                          options: {
+                            tokens: quantity,
+                            delivery: expressDelivery ? "Express" : "Standard"
+                          },
+                          speed: expressDelivery ? "express" : "normal",
                           basePrice: totalPrice,
                           price: totalPrice,
-                          estimatedTime: `${quantity * 2}-${quantity * 4} hours`,
+                          estimatedTime: expressDelivery ? `${quantity * 1}-${quantity * 2} hours` : `${quantity * 2}-${quantity * 4} hours`,
                         });
                         toast.success("Rank Tokens added to cart!");
                       }}
