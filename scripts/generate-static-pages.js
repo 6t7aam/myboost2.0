@@ -45,6 +45,24 @@ const pages = [
     canonical: 'https://www.myboost.top/game/arena-breakout/rent-a-booster'
   },
   {
+    path: 'game/dota-2/mmr-boost',
+    title: 'Dota 2 MMR Boost - Fast Rank Up by Immortal Players | MyBoost',
+    description: 'Buy Dota 2 MMR boost from top Immortal & Divine players. Safe, fast rank climbing with VPN protection. Solo or duo boosting available. Start in 15 minutes.',
+    canonical: 'https://www.myboost.top/game/dota-2/mmr-boost'
+  },
+  {
+    path: 'game/dota-2/lp-removal',
+    title: 'Dota 2 Low Priority Removal - Fast LP Queue Exit | MyBoost',
+    description: 'Remove Dota 2 Low Priority fast. Our boosters play your LP games professionally. Get out of LP queue in hours, not days. Safe method, no ban risk.',
+    canonical: 'https://www.myboost.top/game/dota-2/lp-removal'
+  },
+  {
+    path: 'game/dota-2/rank-tokens',
+    title: 'Dota 2 Rank Tokens Farming - Fast Token Collection | MyBoost',
+    description: 'Buy Dota 2 rank tokens farming service. Collect tokens fast with our Immortal players. Safe account handling, fast delivery, competitive prices. Start today.',
+    canonical: 'https://www.myboost.top/game/dota-2/rank-tokens'
+  },
+  {
     path: 'game/cs2',
     title: 'CS2 Boosting Services - ELO Boost, Premier Rank & Coaching',
     description: 'Professional CS2 boosting services. ELO boost, Premier rank boosting, coaching, and more. 2,400+ orders, 4.9★ rating. Fast, safe, and affordable CS2 boost.',

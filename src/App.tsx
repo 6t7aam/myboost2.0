@@ -11,10 +11,14 @@ import BoosterSelectionPage from "./pages/BoosterSelectionPage.tsx";
 import OrderStatusPage from "./pages/OrderStatusPage.tsx";
 import GamePage from "./pages/GamePage.tsx";
 import ArenaBreakoutServicePage from "./pages/ArenaBreakoutServicePage.tsx";
+import Dota2ServicePage from "./pages/Dota2ServicePage.tsx";
 import ArenaBreakoutInfiniteBoostingPage from "./pages/ArenaBreakoutInfiniteBoostingPage.tsx";
 import BuyArenaBreakoutInfiniteKoensPage from "./pages/BuyArenaBreakoutInfiniteKoensPage.tsx";
 import ArenaBreakoutInfiniteRaidsBoostPage from "./pages/ArenaBreakoutInfiniteRaidsBoostPage.tsx";
 import ArenaBreakoutInfiniteCoachingPage from "./pages/ArenaBreakoutInfiniteCoachingPage.tsx";
+import Dota2MMRBoostPage from "./pages/Dota2MMRBoostPage.tsx";
+import Dota2LPRemovalPage from "./pages/Dota2LPRemovalPage.tsx";
+import Dota2RankTokensPage from "./pages/Dota2RankTokensPage.tsx";
 import CartPage from "./pages/CartPage.tsx";
 import AdminPage from "./pages/AdminPage.tsx";
 import AdminOrderDetailsPage from "./pages/AdminOrderDetailsPage.tsx";
@@ -45,6 +49,10 @@ const App = () => (
               <Route path="/arena-breakout-infinite-raids-boost" element={<ArenaBreakoutInfiniteRaidsBoostPage />} />
               <Route path="/arena-breakout-infinite-coaching" element={<ArenaBreakoutInfiniteCoachingPage />} />
               <Route path="/game/arena-breakout/:serviceId" element={<ArenaBreakoutServicePage />} />
+              <Route path="/game/dota-2/mmr-boost" element={<Dota2MMRBoostPage />} />
+              <Route path="/game/dota-2/lp-removal" element={<Dota2LPRemovalPage />} />
+              <Route path="/game/dota-2/rank-tokens" element={<Dota2RankTokensPage />} />
+              <Route path="/game/dota-2/:serviceId" element={<Dota2ServicePage />} />
               <Route path="/game/:gameSlug" element={<GamePage />} />
               <Route path="/cart" element={<CartPage />} />
               <Route path="/order" element={<OrderPage />} />

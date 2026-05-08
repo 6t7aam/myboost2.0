@@ -7,16 +7,16 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, CheckCircle, Star, Zap } from "lucide-react";
 import { gameConfigs } from "@/data/gameConfigs";
-import { arenaBreakoutSEO } from "@/data/arenaBreakoutSEO";
+import { dota2SEO } from "@/data/dota2SEO";
 import ServiceConfigurator, { OrderSummary } from "@/components/ServiceConfigurator";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
 
-const ArenaBreakoutServicePage = () => {
+const Dota2ServicePage = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
-  const config = gameConfigs["arena-breakout"];
+  const config = gameConfigs["dota-2"];
   const service = config.services.find((s) => s.id === serviceId);
-  const seoData = serviceId ? arenaBreakoutSEO[serviceId] : null;
+  const seoData = serviceId ? dota2SEO[serviceId] : null;
   const { addItem } = useCart();
 
   if (!service || !seoData) {
@@ -26,7 +26,7 @@ const ArenaBreakoutServicePage = () => {
         <div className="flex flex-1 items-center justify-center pt-16">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-foreground">Service Not Found</h1>
-            <Link to="/game/arena-breakout"><Button className="mt-4">Back to Arena Breakout</Button></Link>
+            <Link to="/game/dota-2"><Button className="mt-4">Back to Dota 2</Button></Link>
           </div>
         </div>
         <Footer />
@@ -67,19 +67,19 @@ const ArenaBreakoutServicePage = () => {
       <SEO
         title={seoData.metaTitle}
         description={seoData.metaDescription}
-        keywords={`arena breakout ${service.name.toLowerCase()}, arena breakout infinite boosting, ${service.name.toLowerCase()} service, buy arena breakout boost`}
-        canonicalUrl={`https://www.myboost.top/game/arena-breakout/${serviceId}`}
+        keywords={`dota 2 ${service.name.toLowerCase()}, dota 2 boosting, ${service.name.toLowerCase()} service, buy dota 2 boost`}
+        canonicalUrl={`https://www.myboost.top/game/dota-2/${serviceId}`}
       />
       <StructuredData
         type="Product"
         data={{
           name: service.name,
           description: seoData.metaDescription,
-          image: [`https://www.myboost.top${service.image}`],
+          image: [`https://www.myboost.top${service.image || '/favicon.ico'}`],
           sku: serviceId,
           offers: {
             '@type': 'Offer',
-            url: `https://www.myboost.top/game/arena-breakout/${serviceId}`,
+            url: `https://www.myboost.top/game/dota-2/${serviceId}`,
             priceCurrency: 'USD',
             price: getStartingPrice(service).toFixed(2),
             availability: 'https://schema.org/InStock',
@@ -120,8 +120,8 @@ const ArenaBreakoutServicePage = () => {
           },
           aggregateRating: {
             '@type': 'AggregateRating',
-            ratingValue: 4.9,
-            reviewCount: 600,
+            ratingValue: 4.8,
+            reviewCount: 1800,
             bestRating: 5,
             worstRating: 1
           }
@@ -134,7 +134,7 @@ const ArenaBreakoutServicePage = () => {
       <section className="relative flex items-end overflow-hidden pt-16">
         <div className="absolute inset-0">
           <img
-            src={service.image}
+            src={service.image || config.image}
             alt={service.name}
             className="h-full w-full object-cover opacity-20"
             onError={(e) => {
@@ -145,8 +145,8 @@ const ArenaBreakoutServicePage = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/50" />
         </div>
         <div className="container relative z-10 mx-auto px-4 py-16 md:py-24">
-          <Link to="/game/arena-breakout" className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-border/50 bg-card/50 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm transition-colors hover:border-primary/50 hover:text-primary">
-            <ArrowLeft className="h-3.5 w-3.5" /> Back to Arena Breakout: Infinite
+          <Link to="/game/dota-2" className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-border/50 bg-card/50 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm transition-colors hover:border-primary/50 hover:text-primary">
+            <ArrowLeft className="h-3.5 w-3.5" /> Back to Dota 2
           </Link>
           <div className="flex items-center gap-3">
             <h1 className="text-3xl font-black uppercase tracking-tight text-foreground md:text-5xl">
@@ -183,7 +183,7 @@ const ArenaBreakoutServicePage = () => {
             <div className="relative overflow-hidden rounded-2xl border-2 border-primary/30 bg-secondary/30 shadow-[0_0_30px_hsl(48_100%_50%_/_0.15)]">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
-                  src={service.image}
+                  src={service.image || config.image}
                   alt={service.name}
                   className="h-full w-full object-cover"
                   onError={(e) => {
@@ -206,7 +206,7 @@ const ArenaBreakoutServicePage = () => {
             <div className="rounded-2xl border border-border/50 bg-card p-6 md:p-8">
               <ServiceConfigurator
                 service={service}
-                gameSlug="arena-breakout"
+                gameSlug="dota-2"
                 gameTitle={config.title}
                 onAddToCart={handleAddToCart}
               />
@@ -238,4 +238,4 @@ const ArenaBreakoutServicePage = () => {
   );
 };
 
-export default ArenaBreakoutServicePage;
+export default Dota2ServicePage;
