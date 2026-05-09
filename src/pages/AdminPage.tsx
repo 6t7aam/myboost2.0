@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, ShieldCheck, Trash2, Loader2, RefreshCw, ExternalLink, MessageSquare, Package, X } from "lucide-react";
+import { Search, ShieldCheck, Trash2, Loader2, RefreshCw, ExternalLink, MessageSquare, Package, X, AlertCircle, Check, ImageIcon } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useAdmin } from "@/hooks/useAdmin";
@@ -14,13 +14,15 @@ import Navbar from "@/components/Navbar";
 import AdminPromoCodes from "@/components/AdminPromoCodes";
 import AdminChatPanel from "@/components/AdminChatPanel";
 
-type OrderStatus = "pending" | "in_progress" | "completed" | "paid";
+type OrderStatus = "pending" | "pending_verification" | "in_progress" | "completed" | "paid" | "payment_rejected";
 
 const STATUS_OPTIONS: { value: OrderStatus; label: string }[] = [
   { value: "pending", label: "Pending" },
+  { value: "pending_verification", label: "Pending Verification" },
   { value: "in_progress", label: "In Progress" },
   { value: "completed", label: "Completed" },
   { value: "paid", label: "Paid" },
+  { value: "payment_rejected", label: "Payment Rejected" },
 ];
 
 interface Order {
@@ -32,6 +34,9 @@ interface Order {
   user_id: string;
   user_email?: string;
   booster_type?: string;
+  payment_method?: string;
+  manual_order_code?: string;
+  payment_screenshot_url?: string;
   order_details?: {
     items?: Array<{
       game: string;
@@ -50,9 +55,11 @@ interface Order {
 
 const statusColor: Record<string, string> = {
   pending: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
+  pending_verification: "bg-orange-500/20 text-orange-400 border-orange-500/30",
   in_progress: "bg-blue-500/20 text-blue-400 border-blue-500/30",
   completed: "bg-green-500/20 text-green-400 border-green-500/30",
   paid: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
+  payment_rejected: "bg-red-500/20 text-red-400 border-red-500/30",
 };
 
 const AdminPage = () => {
@@ -75,7 +82,7 @@ const AdminPage = () => {
     setLoading(true);
     const { data, error } = await supabase
       .from("orders")
-      .select("id, service, price, status, created_at, user_id, booster_type, order_details")
+      .select("id, service, price, status, created_at, user_id, booster_type, payment_method, manual_order_code, payment_screenshot_url, order_details")
       .order("created_at", { ascending: false });
 
     if (error) {
@@ -253,12 +260,90 @@ const AdminPage = () => {
             <SelectContent>
               <SelectItem value="all">All Statuses</SelectItem>
               <SelectItem value="pending">Pending</SelectItem>
+              <SelectItem value="pending_verification">Pending Verification</SelectItem>
               <SelectItem value="in_progress">In Progress</SelectItem>
               <SelectItem value="completed">Completed</SelectItem>
               <SelectItem value="paid">Paid</SelectItem>
+              <SelectItem value="payment_rejected">Payment Rejected</SelectItem>
             </SelectContent>
           </Select>
         </div>
+
+        {/* Pending Verification queue */}
+        {(() => {
+          const pendingVerify = orders.filter((o) => o.status === "pending_verification");
+          if (pendingVerify.length === 0) return null;
+          return (
+            <Card className="mb-6 border-orange-500/40 bg-orange-500/5">
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-2">
+                  <AlertCircle className="h-5 w-5 text-orange-400" />
+                  <CardTitle className="text-base">
+                    Pending Verification
+                    <Badge variant="outline" className="ml-3 border-orange-500/40 bg-orange-500/10 text-orange-400">
+                      {pendingVerify.length}
+                    </Badge>
+                  </CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                {pendingVerify.map((o) => (
+                  <div
+                    key={o.id}
+                    className="flex flex-col gap-3 rounded-lg border border-orange-500/30 bg-background/40 p-3 sm:flex-row sm:items-center"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center gap-2 text-sm">
+                        <span className="font-mono text-xs text-primary">
+                          {o.manual_order_code || o.id.slice(0, 8)}
+                        </span>
+                        <span className="font-semibold text-foreground truncate">{o.service}</span>
+                        <span className="text-primary font-bold">${o.price.toFixed(2)}</span>
+                      </div>
+                      <div className="mt-1 text-xs text-muted-foreground">
+                        {o.user_email || "Guest"} · {new Date(o.created_at).toLocaleString()}
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      {o.payment_screenshot_url ? (
+                        <a
+                          href={o.payment_screenshot_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary hover:bg-primary/20"
+                        >
+                          <ImageIcon className="h-3.5 w-3.5" /> Screenshot
+                        </a>
+                      ) : (
+                        <span className="text-xs italic text-muted-foreground">No screenshot</span>
+                      )}
+                      <Button
+                        size="sm"
+                        onClick={() => updateStatus(o.id, "in_progress")}
+                        className="h-8 gap-1.5 bg-green-500/90 text-white hover:bg-green-500"
+                      >
+                        <Check className="h-3.5 w-3.5" /> Confirm
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => updateStatus(o.id, "payment_rejected")}
+                        className="h-8 gap-1.5 border-red-500/40 text-red-400 hover:bg-red-500/10"
+                      >
+                        <X className="h-3.5 w-3.5" /> Reject
+                      </Button>
+                      <Link to={`/admin/order/${o.id}`}>
+                        <Button size="sm" variant="outline" className="h-8 border-primary/30 text-primary hover:bg-primary/10">
+                          <ExternalLink className="h-3.5 w-3.5" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+          );
+        })()}
 
         {/* Promo Codes */}
         <div className="mb-8">

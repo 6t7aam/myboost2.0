@@ -4,20 +4,22 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, Loader2, Calendar, DollarSign, Package, User, CreditCard, Trash2 } from "lucide-react";
+import { ArrowLeft, Loader2, Calendar, DollarSign, Package, User, CreditCard, Trash2, Check, X, ImageIcon } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useAdmin } from "@/hooks/useAdmin";
 import Navbar from "@/components/Navbar";
 import OrderChat from "@/components/OrderChat";
 
-type OrderStatus = "pending" | "in_progress" | "completed" | "paid";
+type OrderStatus = "pending" | "pending_verification" | "in_progress" | "completed" | "paid" | "payment_rejected";
 
 const STATUS_OPTIONS: { value: OrderStatus; label: string }[] = [
   { value: "pending", label: "Pending" },
+  { value: "pending_verification", label: "Pending Verification" },
   { value: "in_progress", label: "In Progress" },
   { value: "completed", label: "Completed" },
   { value: "paid", label: "Paid" },
+  { value: "payment_rejected", label: "Payment Rejected" },
 ];
 
 interface OrderDetails {
@@ -34,6 +36,8 @@ interface OrderDetails {
   pay_currency?: string;
   payment_id?: string;
   payment_method?: string;
+  manual_order_code?: string;
+  payment_screenshot_url?: string;
   order_details?: {
     items?: Array<{
       game: string;
@@ -52,9 +56,11 @@ interface OrderDetails {
 
 const statusColor: Record<string, string> = {
   pending: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
+  pending_verification: "bg-orange-500/20 text-orange-400 border-orange-500/30",
   in_progress: "bg-blue-500/20 text-blue-400 border-blue-500/30",
   completed: "bg-green-500/20 text-green-400 border-green-500/30",
   paid: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
+  payment_rejected: "bg-red-500/20 text-red-400 border-red-500/30",
 };
 
 const AdminOrderDetailsPage = () => {
@@ -240,9 +246,16 @@ const AdminOrderDetailsPage = () => {
                     <p className="font-semibold text-foreground">
                       {order.payment_method === "crypto" && "Crypto"}
                       {order.payment_method === "card" && "Card"}
+                      {order.payment_method === "manual_card" && "Card (manual verification)"}
+                      {order.payment_method === "paypal" && "PayPal"}
                       {order.payment_method === "promo" && "Promo / Free"}
                       {!order.payment_method && <span className="italic text-muted-foreground/60">Unknown</span>}
                     </p>
+                    {order.manual_order_code && (
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        Manual code: <span className="font-mono text-primary">{order.manual_order_code}</span>
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -301,6 +314,57 @@ const AdminOrderDetailsPage = () => {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Manual payment verification */}
+            {(order.payment_method === "manual_card" || order.payment_screenshot_url) && (
+              <Card className="border-orange-500/40 bg-orange-500/5">
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    <ImageIcon className="h-5 w-5 text-orange-400" />
+                    Manual Payment Verification
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {order.payment_screenshot_url ? (
+                    <a
+                      href={order.payment_screenshot_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block overflow-hidden rounded-lg border border-primary/30 bg-background/40 hover:border-primary/60"
+                    >
+                      <img
+                        src={order.payment_screenshot_url}
+                        alt="Payment screenshot"
+                        className="w-full max-h-80 object-contain bg-black"
+                      />
+                      <div className="px-3 py-2 text-xs text-muted-foreground">
+                        Click to open full size in new tab
+                      </div>
+                    </a>
+                  ) : (
+                    <p className="text-sm italic text-muted-foreground">No screenshot uploaded.</p>
+                  )}
+
+                  {order.status === "pending_verification" && (
+                    <div className="flex flex-wrap gap-2">
+                      <Button
+                        onClick={() => updateStatus("in_progress")}
+                        className="gap-1.5 bg-green-500/90 text-white hover:bg-green-500"
+                      >
+                        <Check className="h-4 w-4" /> Confirm Payment
+                      </Button>
+                      <Button
+                        variant="outline"
+                        onClick={() => updateStatus("payment_rejected")}
+                        className="gap-1.5 border-red-500/40 text-red-400 hover:bg-red-500/10"
+                      >
+                        <X className="h-4 w-4" /> Reject
+                      </Button>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            )}
 
             {/* Delete Order */}
             <Card className="border-border/50">

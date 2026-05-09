@@ -9,6 +9,7 @@ import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import PayPalButton from "@/components/PayPalButton";
+import ManualPaymentDialog from "@/components/ManualPaymentDialog";
 
 const COINS = [
   { id: "ltc", label: "LTC", name: "Litecoin" },
@@ -30,6 +31,7 @@ const OrderPage = () => {
   const [cardPaymentProcessing, setCardPaymentProcessing] = useState(false);
   const [paypalOrderId, setPaypalOrderId] = useState<string | null>(null);
   const [paypalLoading, setPaypalLoading] = useState(false);
+  const [manualOpen, setManualOpen] = useState(false);
 
   const promoCode = (location.state as any)?.promoCode as { code: string; discount_percent: number } | null;
   const boosterType = (location.state as any)?.boosterType as string | null;
@@ -527,7 +529,7 @@ const OrderPage = () => {
                         </div>
                       </div>
 
-                      {/* CARD */}
+                      {/* CARD (manual verification) */}
                       <div
                         className={`flex h-full flex-col transition-opacity duration-200 ${
                           activeTab === "card" ? "opacity-100" : "hidden opacity-0"
@@ -539,18 +541,18 @@ const OrderPage = () => {
                               <CreditCard className="h-7 w-7 text-primary" />
                             </div>
                             <div className="flex-1">
-                              <h3 className="font-bold text-foreground">Pay with Card</h3>
-                              <p className="text-xs text-muted-foreground">Visa, Mastercard, Amex & more</p>
+                              <h3 className="font-bold text-foreground">Pay by Card — Manual Verification</h3>
+                              <p className="text-xs text-muted-foreground">Bank transfer · upload screenshot</p>
                             </div>
                           </div>
                           <p className="mt-4 text-sm text-muted-foreground">
-                            Click below to complete your order with credit or debit card. Our team will reach out via chat to finalize the secure card payment.
+                            Send the payment to the card details shown in the next step, upload your payment screenshot,
+                            and we'll verify it within 15 minutes.
                           </p>
                         </div>
                         <div className="mt-5">
                           <Button
-                            onClick={handleCardPayment}
-                            disabled={cardPaymentProcessing}
+                            onClick={() => setManualOpen(true)}
                             type="button"
                             className="btn-yellow cta-pulse w-full gap-2 rounded-lg font-bold uppercase tracking-wider"
                             style={{
@@ -561,16 +563,8 @@ const OrderPage = () => {
                               fontWeight: 700,
                             }}
                           >
-                            {cardPaymentProcessing ? (
-                              <>
-                                <Loader2 className="h-5 w-5 animate-spin" /> Creating Order…
-                              </>
-                            ) : (
-                              <>
-                                <CreditCard className="h-5 w-5" />
-                                Pay with Card
-                              </>
-                            )}
+                            <CreditCard className="h-5 w-5" />
+                            Pay by Card
                           </Button>
                         </div>
                       </div>
@@ -599,6 +593,23 @@ const OrderPage = () => {
           </div>
         </div>
       </section>
+
+      <ManualPaymentDialog
+        open={manualOpen}
+        onOpenChange={setManualOpen}
+        items={items.map((i) => ({
+          game: i.game,
+          service: i.service,
+          price: i.price,
+          options: i.options as Record<string, string | number>,
+        }))}
+        totalPrice={totalPrice}
+        finalPrice={finalPrice}
+        promoCode={promoCode}
+        boosterType={boosterType}
+        boosterMultiplier={boosterMultiplier}
+        onCleanup={clearCart}
+      />
 
       <Footer />
     </div>
