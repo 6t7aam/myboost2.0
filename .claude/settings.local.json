@@ -41,7 +41,9 @@
       "PowerShell(git rm *)",
       "PowerShell(git reset *)",
       "Bash(npx tsc *)",
-      "Bash(git reset *)"
+      "Bash(git reset *)",
+      "Bash(bun run *)",
+      "Bash(git restore *)"
     ]
   }
 }
