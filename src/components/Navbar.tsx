@@ -8,6 +8,7 @@ import { useAdmin } from "@/hooks/useAdmin";
 import { useScrolled } from "@/hooks/useScrolled";
 import { useUnreadOrderMessages } from "@/hooks/useUnreadOrderMessages";
 import { useSoundPreference } from "@/hooks/useSoundPreference";
+import { playMessageSound, getAudioContextState } from "@/lib/notificationSounds";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -117,10 +118,15 @@ const Navbar = () => {
 
           <button
             type="button"
-            onClick={() => setSoundPref(!soundEnabled)}
+            onClick={() => {
+              const next = !soundEnabled;
+              setSoundPref(next);
+              console.log("[Navbar] sound toggle ->", next, "audio state:", getAudioContextState());
+              if (next) void playMessageSound();
+            }}
             className="rounded-lg p-2 text-muted-foreground transition-all duration-300 hover:text-primary hover:bg-primary/10 hover:scale-110"
-            aria-label={soundEnabled ? "Mute notification sounds" : "Enable notification sounds"}
-            title={soundEnabled ? "Mute notification sounds" : "Enable notification sounds"}
+            aria-label={soundEnabled ? "Mute notification sounds" : "Enable notification sounds (and play test)"}
+            title={soundEnabled ? "Mute notification sounds" : "Enable notification sounds (and play test)"}
           >
             {soundEnabled ? <Bell className="h-5 w-5" /> : <BellOff className="h-5 w-5" />}
           </button>

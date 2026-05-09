@@ -73,8 +73,15 @@ export function useUnreadOrderMessages(user: User | null | undefined) {
             typeof window !== "undefined" &&
             row.order_id &&
             window.location.pathname.startsWith(`/order/status/${row.order_id}`);
+          const enabled = isSoundEnabled();
+          console.log(
+            "[useUnreadOrderMessages] inbound message: sender=%s onThisOrder=%s soundEnabled=%s",
+            row.sender_type,
+            onThisOrder,
+            enabled
+          );
           if (isInbound && !onThisOrder) {
-            if (isSoundEnabled()) void playMessageSound();
+            if (enabled) void playMessageSound();
             setTitleAlert("🔔 New Message — MyBoost");
           }
           refreshCount();

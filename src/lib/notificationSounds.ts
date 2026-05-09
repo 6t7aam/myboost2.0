@@ -27,9 +27,17 @@ function getOrCreateCtx(): AudioContext | null {
 export function installAudioGesture() {
   if (gestureInstalled || typeof document === "undefined") return;
   gestureInstalled = true;
-  const handler = () => {
+  const handler = async () => {
     const ctx = getOrCreateCtx();
-    if (ctx && ctx.state === "suspended") void ctx.resume();
+    if (!ctx) return;
+    if (ctx.state === "suspended") {
+      try {
+        await ctx.resume();
+        console.log("[notificationSounds] AudioContext resumed after gesture, state:", ctx.state);
+      } catch (e) {
+        console.warn("[notificationSounds] AudioContext resume failed:", e);
+      }
+    }
   };
   const opts: AddEventListenerOptions = { passive: true };
   document.addEventListener("click", handler, opts);
@@ -39,15 +47,27 @@ export function installAudioGesture() {
 
 export async function ensureAudioReady(): Promise<boolean> {
   const ctx = getOrCreateCtx();
-  if (!ctx) return false;
+  if (!ctx) {
+    console.warn("[notificationSounds] No AudioContext available (browser unsupported?)");
+    return false;
+  }
   if (ctx.state === "suspended") {
     try {
       await ctx.resume();
-    } catch {
+    } catch (e) {
+      console.warn("[notificationSounds] resume failed:", e);
       return false;
     }
   }
-  return ctx.state === "running";
+  if (ctx.state !== "running") {
+    console.warn("[notificationSounds] AudioContext not running, state:", ctx.state);
+    return false;
+  }
+  return true;
+}
+
+export function getAudioContextState(): string {
+  return audioCtx ? audioCtx.state : "not-created";
 }
 
 export async function playMessageSound() {
