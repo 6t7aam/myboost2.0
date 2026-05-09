@@ -77,7 +77,14 @@ const Navbar = () => {
           {!loading && (
             user ? (
               <>
-                <Link to="/chat" className="relative hidden md:inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:scale-105">
+                <Link
+                  to="/chat"
+                  className={`relative hidden md:inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:scale-105 ${
+                    unreadCount > 0
+                      ? "chat-has-unread"
+                      : "border-primary/30 text-primary"
+                  }`}
+                >
                   <MessageSquare className="h-3.5 w-3.5" />
                   Chat
                   {unreadCount > 0 && (

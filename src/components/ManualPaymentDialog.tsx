@@ -4,7 +4,6 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import {
   AlertTriangle,
-  CheckCircle2,
   Copy,
   CreditCard,
   Loader2,
@@ -34,7 +33,7 @@ interface ManualPaymentDialogProps {
   promoCode?: { code: string; discount_percent: number } | null;
   boosterType?: string | null;
   boosterMultiplier?: number | null;
-  onCleanup?: () => void;
+  onSuccess?: (info: { orderId: string; code: string }) => void;
 }
 
 interface PaymentDetails {
@@ -55,7 +54,7 @@ const ManualPaymentDialog = ({
   promoCode,
   boosterType,
   boosterMultiplier,
-  onCleanup,
+  onSuccess,
 }: ManualPaymentDialogProps) => {
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -69,13 +68,11 @@ const ManualPaymentDialog = ({
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const [submitting, setSubmitting] = useState(false);
-  const [success, setSuccess] = useState<{ orderId: string; code: string } | null>(null);
 
   const orderCode = useMemo(generateOrderCode, [open]);
 
   useEffect(() => {
     if (!open) return;
-    setSuccess(null);
     setFile(null);
     if (previewUrl) URL.revokeObjectURL(previewUrl);
     setPreviewUrl(null);
@@ -225,8 +222,8 @@ const ManualPaymentDialog = ({
       });
       if (msgErr) console.warn("Failed to post chat message:", msgErr);
 
-      setSuccess({ orderId: order.id, code: orderCode });
-      onCleanup?.();
+      onOpenChange(false);
+      onSuccess?.({ orderId: order.id, code: orderCode });
     } catch (err) {
       const message = err instanceof Error ? err.message : "Something went wrong";
       console.error(err);
@@ -241,49 +238,10 @@ const ManualPaymentDialog = ({
     onOpenChange(false);
   };
 
-  const goToOrder = () => {
-    if (!success) return;
-    onOpenChange(false);
-    navigate(`/order/status/${success.orderId}`, { state: { openChat: true } });
-  };
-
   return (
     <Dialog open={open} onOpenChange={close}>
       <DialogContent className="border-primary/40 bg-background max-w-lg p-0 overflow-hidden max-h-[90vh] flex flex-col">
-        {success ? (
-          <div className="p-6 text-center">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/15 text-primary">
-              <CheckCircle2 className="h-8 w-8" />
-            </div>
-            <h2 className="mt-4 text-xl font-black uppercase tracking-tight text-foreground">
-              Order Submitted
-            </h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Your Order ID: <span className="font-mono font-bold text-primary">{success.code}</span>
-            </p>
-            <p className="mt-3 text-sm text-muted-foreground">
-              We'll verify your payment within 15 minutes and start your order immediately.
-              Track progress in <span className="font-semibold text-foreground">My Orders</span>.
-            </p>
-            <div className="mt-6 flex flex-col gap-2">
-              <Button
-                onClick={goToOrder}
-                className="btn-yellow w-full font-bold uppercase tracking-wider"
-                style={{ backgroundColor: "#FFD700", color: "#000", height: "48px" }}
-              >
-                View Order Status
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => onOpenChange(false)}
-                className="w-full border-primary/40 text-primary hover:bg-primary/10"
-              >
-                Close
-              </Button>
-            </div>
-          </div>
-        ) : (
-          <>
+        <>
             <div className="flex items-center justify-between border-b border-border/50 bg-primary/5 px-6 py-4">
               <div className="flex items-center gap-2">
                 <CreditCard className="h-5 w-5 text-primary" />
@@ -457,7 +415,6 @@ const ManualPaymentDialog = ({
               </Button>
             </div>
           </>
-        )}
       </DialogContent>
     </Dialog>
   );

@@ -33,6 +33,13 @@ const OrderPage = () => {
   const [paypalLoading, setPaypalLoading] = useState(false);
   const [manualOpen, setManualOpen] = useState(false);
 
+  const successAndRedirect = (orderId: string) => {
+    toast.success("✅ Order placed! Redirecting to your chat...");
+    setTimeout(() => {
+      navigate(`/order/status/${orderId}`, { state: { openChat: true } });
+    }, 1500);
+  };
+
   const promoCode = (location.state as any)?.promoCode as { code: string; discount_percent: number } | null;
   const boosterType = (location.state as any)?.boosterType as string | null;
   const boosterMultiplier = (location.state as any)?.boosterMultiplier as number | null;
@@ -112,13 +119,7 @@ const OrderPage = () => {
 
       clearCart();
 
-      if (isFreeOrder) {
-        toast.success("Order created! Your order is fully covered by promo code.");
-      } else {
-        toast.success("Order created! Opening chat...");
-      }
-
-      navigate(`/order/status/${order.id}`, { state: { openChat: true } });
+      successAndRedirect(order.id);
     } catch (err: any) {
       console.error(err);
       toast.error(err.message || "Something went wrong");
@@ -199,10 +200,10 @@ const OrderPage = () => {
 
       const paymentData = data?.data || data;
       if (paymentData?.pay_address) {
-        toast.success(`Send ${paymentData.pay_amount} ${paymentData.pay_currency?.toUpperCase()} to the address shown.`);
+        toast.message(`Send ${paymentData.pay_amount} ${paymentData.pay_currency?.toUpperCase()} to the address shown.`);
       }
 
-      navigate(`/order/status/${order.id}`);
+      successAndRedirect(order.id);
     } catch (err: any) {
       console.error(err);
       toast.error(err.message || "Something went wrong");
@@ -502,8 +503,7 @@ const OrderPage = () => {
                               orderId={paypalOrderId}
                               onSuccess={() => {
                                 clearCart();
-                                toast.success("Order created! Opening chat...");
-                                navigate(`/order/status/${paypalOrderId}`, { state: { openChat: true } });
+                                successAndRedirect(paypalOrderId);
                               }}
                             />
                           ) : (
@@ -608,7 +608,10 @@ const OrderPage = () => {
         promoCode={promoCode}
         boosterType={boosterType}
         boosterMultiplier={boosterMultiplier}
-        onCleanup={clearCart}
+        onSuccess={({ orderId }) => {
+          clearCart();
+          successAndRedirect(orderId);
+        }}
       />
 
       <Footer />
