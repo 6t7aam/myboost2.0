@@ -16,10 +16,13 @@ export function useUnreadOrderMessages(user: User | null | undefined) {
     let channel: ReturnType<typeof supabase.channel> | null = null;
 
     const refreshOrderIds = async () => {
-      const { data: orders } = await supabase
+      const { data: orders, error } = await supabase
         .from("orders")
         .select("id")
         .eq("user_id", user.id);
+      if (error) {
+        console.error("[useUnreadOrderMessages] orders fetch failed:", error.message);
+      }
       orderIdsRef.current = (orders || []).map((o) => o.id);
       return orderIdsRef.current;
     };
@@ -32,12 +35,21 @@ export function useUnreadOrderMessages(user: User | null | undefined) {
         if (!cancelled) setCount(0);
         return;
       }
-      const { count: unread } = await supabase
+      const { count: unread, error } = await supabase
         .from("order_messages")
         .select("id", { count: "exact", head: true })
         .in("order_id", ids)
         .in("sender_type", ["admin", "system"])
         .is("read_at", null);
+      if (error) {
+        console.error(
+          "[useUnreadOrderMessages] unread query failed:",
+          error.message,
+          "— is the read_at column migration applied?"
+        );
+        if (!cancelled) setCount(0);
+        return;
+      }
       if (!cancelled) setCount(unread || 0);
     };
 
@@ -48,7 +60,10 @@ export function useUnreadOrderMessages(user: User | null | undefined) {
       .on(
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "order_messages" },
-        () => refreshCount()
+        (payload) => {
+          console.log("[useUnreadOrderMessages] order_messages INSERT", payload.new);
+          refreshCount();
+        }
       )
       .on(
         "postgres_changes",
@@ -60,7 +75,9 @@ export function useUnreadOrderMessages(user: User | null | undefined) {
         { event: "*", schema: "public", table: "orders", filter: `user_id=eq.${user.id}` },
         () => refreshOrderIds().then(refreshCount)
       )
-      .subscribe();
+      .subscribe((status) => {
+        console.log("[useUnreadOrderMessages] subscription status:", status);
+      });
 
     const interval = setInterval(refreshCount, 30000);
 
