@@ -56,9 +56,9 @@ const GameCards = () => {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {games.map((game, index) => (
             <Link key={game.name} to={`/game/${game.slug}`} className="group animate-slide-up" style={{ animationDelay: `${0.1 * (index + 1)}s` }}>
-              <Card className="relative h-full overflow-hidden border-border/50 bg-card transition-all duration-500 hover:border-primary/60 hover:shadow-[0_0_30px_hsl(48_100%_50%_/_0.2),0_20px_40px_-15px_hsl(48_100%_50%_/_0.15)] hover:-translate-y-3 perspective-card">
+              <Card className="service-card-hover relative h-full overflow-hidden border-border/50 bg-card perspective-card">
                 {game.tag && (
-                  <Badge className="absolute top-3 right-3 z-10 border-none bg-primary/20 text-xs font-bold uppercase text-primary backdrop-blur-sm glow-box">
+                  <Badge className="badge-shimmer absolute top-3 right-3 z-10 border-none text-xs font-bold uppercase backdrop-blur-sm glow-box">
                     {game.tag}
                   </Badge>
                 )}
@@ -66,7 +66,7 @@ const GameCards = () => {
                   <img
                     src={game.image}
                     alt={game.name}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-115"
+                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
@@ -83,10 +83,10 @@ const GameCards = () => {
                   <p className="mt-1 text-sm text-muted-foreground">{game.description}</p>
                   <p className="mt-2 text-sm font-bold text-primary glow-text">{game.startPrice}</p>
                   <Button
-                    className="mt-4 w-full gap-2 rounded-lg glow-box font-bold uppercase tracking-wider transition-all duration-300 group-hover:glow-box-intense group-hover:shadow-[0_0_30px_hsl(48_100%_50%_/_0.3)]"
+                    className="btn-yellow mt-4 w-full gap-2 rounded-lg glow-box font-bold uppercase tracking-wider transition-all duration-300 group-hover:glow-box-intense group-hover:shadow-[0_0_30px_hsl(48_100%_50%_/_0.3)]"
                     size="sm"
                   >
-                    Order Now <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                    Order Now <ArrowRight className="view-service-arrow h-3.5 w-3.5" />
                   </Button>
                 </CardContent>
               </Card>

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/hooks/useAuth";
 import { useAdmin } from "@/hooks/useAdmin";
+import { useScrolled } from "@/hooks/useScrolled";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -13,6 +14,7 @@ const Navbar = () => {
   const { itemCount } = useCart();
   const { user, loading } = useAuth();
   const { isAdmin } = useAdmin();
+  const scrolled = useScrolled(50);
 
   const handleGetBoosted = () => {
     setMobileOpen(false);
@@ -46,7 +48,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/90 backdrop-blur-cyber">
+    <nav className={`navbar-base fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/90 backdrop-blur-cyber ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2 group transition-transform duration-300 hover:scale-105">
           <Gamepad2 className="h-7 w-7 text-primary glow-text transition-transform duration-300 group-hover:rotate-12" />
@@ -55,9 +57,8 @@ const Navbar = () => {
 
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((l) => (
-            <button key={l.href} onClick={() => handleNavClick(l.href)} className="relative text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-105 group">
+            <button key={l.href} onClick={() => handleNavClick(l.href)} className="nav-link relative text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-primary">
               {l.label}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full glow-box" />
             </button>
           ))}
         </div>
@@ -103,7 +104,7 @@ const Navbar = () => {
               </span>
             )}
           </Link>
-          <Button onClick={handleGetBoosted} className="hidden md:inline-flex glow-box font-bold uppercase tracking-wider transition-all duration-300 hover:glow-box-intense hover:scale-105">
+          <Button onClick={handleGetBoosted} className="hidden md:inline-flex btn-yellow cta-pulse glow-box font-bold uppercase tracking-wider transition-all duration-300 hover:glow-box-intense hover:scale-[1.02]">
             Get Boosted
           </Button>
           <button className="md:hidden text-foreground transition-all duration-300 hover:text-primary hover:scale-110" onClick={() => setMobileOpen(!mobileOpen)}>
@@ -155,7 +156,7 @@ const Navbar = () => {
               Admin Panel
             </Link>
           )}
-          <Button onClick={handleGetBoosted} className="mt-3 w-full glow-box font-bold uppercase tracking-wider transition-all duration-300 hover:glow-box-intense">
+          <Button onClick={handleGetBoosted} className="mt-3 w-full btn-yellow glow-box font-bold uppercase tracking-wider transition-all duration-300 hover:glow-box-intense">
             Get Boosted
           </Button>
         </div>

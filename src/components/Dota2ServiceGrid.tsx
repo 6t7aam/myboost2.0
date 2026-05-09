@@ -7,10 +7,29 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight, CheckCircle, Star, Zap } from "lucide-react";
 import { GameConfig } from "@/data/gameConfigs";
+import { useCountUp } from "@/hooks/useCountUp";
 
 interface Dota2ServiceGridProps {
   config: GameConfig;
 }
+
+interface StatBadgeProps {
+  Icon: typeof CheckCircle;
+  value: string;
+  label: string;
+  fill?: boolean;
+}
+
+const StatBadge = ({ Icon, value, label, fill }: StatBadgeProps) => {
+  const animated = useCountUp(value, 1500);
+  return (
+    <div className="stat-badge flex items-center gap-2 rounded-lg border border-border/50 bg-card/50 px-3 py-1.5 text-sm backdrop-blur-sm">
+      <Icon className={`h-4 w-4 text-primary ${fill ? "fill-primary" : ""}`} />
+      <span className="font-semibold text-foreground tabular-nums">{animated}</span>
+      <span className="text-muted-foreground">{label}</span>
+    </div>
+  );
+};
 
 const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
   return (
@@ -21,7 +40,8 @@ const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
         keywords="dota 2 boosting, dota 2 mmr boost, dota 2 lp removal, dota 2 rank tokens, immortal boosting"
         canonicalUrl="https://www.myboost.top/game/dota-2"
       />
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background page-enter relative">
+        <div className="dota-bg-overlay absolute inset-0 pointer-events-none" />
         <Navbar />
 
       {/* Hero */}
@@ -40,23 +60,15 @@ const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
           </h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">{config.subtitle}</p>
           <div className="mt-6 flex flex-wrap gap-4">
-            {[
-              { icon: CheckCircle, value: config.stats.orders, label: "orders" },
-              { icon: Star, value: config.stats.rating, label: "rating", fill: true },
-              { icon: Zap, value: config.stats.speed, label: "avg. delivery" },
-            ].map(({ icon: Icon, value, label, fill }) => (
-              <div key={label} className="flex items-center gap-2 rounded-lg border border-border/50 bg-card/50 px-3 py-1.5 text-sm backdrop-blur-sm">
-                <Icon className={`h-4 w-4 text-primary ${fill ? "fill-primary" : ""}`} />
-                <span className="font-semibold text-foreground">{value}</span>
-                <span className="text-muted-foreground">{label}</span>
-              </div>
-            ))}
+            <StatBadge Icon={CheckCircle} value={config.stats.orders} label="orders" />
+            <StatBadge Icon={Star} value={config.stats.rating} label="rating" fill />
+            <StatBadge Icon={Zap} value={config.stats.speed} label="avg. delivery" />
           </div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-12">
+      <section className="py-12 relative z-10">
         <div className="container mx-auto px-4">
           <h2 className="mb-8 text-center text-2xl font-black uppercase tracking-tight text-foreground md:text-3xl">
             Choose Your <span className="text-primary glow-text">Service</span>
@@ -66,11 +78,11 @@ const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
             {config.services.map((service) => (
               <Link key={service.id} to={`/game/dota-2/${service.id}`} className="group">
                 <Card
-                  className="relative h-full overflow-hidden border-border/50 bg-card transition-all duration-300 hover:border-primary/50 hover:glow-border hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_hsl(48_100%_50%_/_0.15)]"
+                  className="service-card-hover relative h-full overflow-hidden border-border/50 bg-card hover:glow-border"
                   style={{ minHeight: '380px' }}
                 >
                   {service.tag && (
-                    <Badge className="absolute top-3 right-3 z-10 border-none bg-primary/20 text-sm font-bold uppercase text-primary backdrop-blur-sm px-3 py-1">
+                    <Badge className="badge-shimmer absolute top-3 right-3 z-10 border-none text-sm font-bold uppercase backdrop-blur-sm px-3 py-1">
                       {service.tag}
                     </Badge>
                   )}
@@ -78,7 +90,7 @@ const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
                     <img
                       src={service.image}
                       alt={service.name}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                       style={{ objectPosition: 'top center' }}
                       loading="lazy"
                       onError={(e) => {
@@ -95,10 +107,10 @@ const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
                     <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">{service.description}</p>
                     <p className="mt-2 text-base font-bold text-primary">{service.startPrice}</p>
                     <Button
-                      className="mt-3 w-full gap-2 rounded-lg glow-box font-bold uppercase tracking-wider transition-all duration-200 group-hover:glow-box-intense"
+                      className="btn-yellow view-service-btn mt-3 w-full gap-2 rounded-lg glow-box font-bold uppercase tracking-wider transition-all duration-200 group-hover:glow-box-intense"
                       size="default"
                     >
-                      View Service <ArrowRight className="h-4 w-4" />
+                      View Service <ArrowRight className="view-service-arrow h-4 w-4" />
                     </Button>
                   </CardContent>
                 </Card>

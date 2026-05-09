@@ -21,7 +21,7 @@ const ArenaBreakoutServiceGrid = ({ config }: ArenaBreakoutServiceGridProps) => 
         keywords="arena breakout infinite boosting, arena breakout koens farming, arena breakout raids boost, arena breakout coaching, abi boosting service, arena breakout infinite services"
         canonicalUrl="https://www.myboost.top/game/arena-breakout"
       />
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background page-enter">
         <Navbar />
 
       {/* Hero */}
@@ -65,9 +65,9 @@ const ArenaBreakoutServiceGrid = ({ config }: ArenaBreakoutServiceGridProps) => 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
             {config.services.map((service) => (
               <Link key={service.id} to={`/game/arena-breakout/${service.id}`} className="group">
-                <Card className="relative h-full overflow-hidden border-border/50 bg-card transition-all duration-300 hover:border-primary/50 hover:glow-border hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_hsl(48_100%_50%_/_0.15)]">
+                <Card className="service-card-hover relative h-full overflow-hidden border-border/50 bg-card hover:glow-border">
                   {service.tag && (
-                    <Badge className="absolute top-3 right-3 z-10 border-none bg-primary/20 text-sm font-bold uppercase text-primary backdrop-blur-sm px-3 py-1">
+                    <Badge className="badge-shimmer absolute top-3 right-3 z-10 border-none text-sm font-bold uppercase backdrop-blur-sm px-3 py-1">
                       {service.tag}
                     </Badge>
                   )}
@@ -75,7 +75,7 @@ const ArenaBreakoutServiceGrid = ({ config }: ArenaBreakoutServiceGridProps) => 
                     <img
                       src={service.image}
                       alt={service.name}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                       loading="lazy"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
@@ -91,10 +91,10 @@ const ArenaBreakoutServiceGrid = ({ config }: ArenaBreakoutServiceGridProps) => 
                     <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">{service.description}</p>
                     <p className="mt-2 text-base font-bold text-primary">{service.startPrice}</p>
                     <Button
-                      className="mt-3 w-full gap-2 rounded-lg glow-box font-bold uppercase tracking-wider transition-all duration-200 group-hover:glow-box-intense"
+                      className="btn-yellow view-service-btn mt-3 w-full gap-2 rounded-lg glow-box font-bold uppercase tracking-wider transition-all duration-200 group-hover:glow-box-intense"
                       size="default"
                     >
-                      View Service <ArrowRight className="h-4 w-4" />
+                      View Service <ArrowRight className="view-service-arrow h-4 w-4" />
                     </Button>
                   </CardContent>
                 </Card>

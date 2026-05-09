@@ -9,6 +9,7 @@ import ArenaBreakoutGuides from "@/components/ArenaBreakoutGuides";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import StructuredData from "@/components/StructuredData";
+import Reveal from "@/components/Reveal";
 
 const Index = () => {
   return (
@@ -40,15 +41,15 @@ const Index = () => {
           }
         }}
       />
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background page-enter">
         <Navbar />
         <Hero />
-        <GameCards />
-        <HowItWorks />
-        <WhyChooseUs />
-        <Reviews />
-        <FAQ />
-        <ArenaBreakoutGuides />
+        <Reveal><GameCards /></Reveal>
+        <Reveal><HowItWorks /></Reveal>
+        <Reveal><WhyChooseUs /></Reveal>
+        <Reveal><Reviews /></Reveal>
+        <Reveal><FAQ /></Reveal>
+        <Reveal><ArenaBreakoutGuides /></Reveal>
         <Footer />
       </div>
     </>

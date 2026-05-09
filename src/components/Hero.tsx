@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Zap, ShieldCheck, Trophy, Users } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import Particles from "@/components/Particles";
 
 const Hero = () => {
-  const navigate = useNavigate();
-
   const scrollToGames = () => {
     document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -17,6 +15,9 @@ const Hero = () => {
       <div className="absolute top-1/4 right-1/4 h-[300px] w-[300px] rounded-full bg-primary/3 blur-[120px] animate-float" />
       <div className="absolute bottom-1/4 left-1/4 h-[250px] w-[250px] rounded-full bg-primary/3 blur-[100px] animate-float" style={{ animationDelay: '2s' }} />
 
+      {/* Animated particles */}
+      <Particles count={50} />
+
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,215,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,215,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_80%)]" />
 
@@ -28,17 +29,17 @@ const Hero = () => {
           <span className="font-semibold">Trusted by 10,000+ Players</span>
         </div>
 
-        <h1 className="mx-auto max-w-5xl text-5xl font-black uppercase leading-tight tracking-tight text-foreground md:text-7xl lg:text-8xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
+        <h1 className="mx-auto max-w-5xl text-5xl font-black uppercase leading-tight tracking-tight text-foreground md:text-7xl lg:text-8xl hero-anim-title">
           Level Up Your Game{" "}
-          <span className="text-primary glow-text-intense inline-block">Instantly</span>
+          <span className="text-primary instantly-glow hero-anim-instantly">Instantly</span>
         </h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
+        <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl hero-anim-subtitle">
           Professional boosting services for competitive games. Fast, safe, and powered by top-tier verified players.
         </p>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row animate-slide-up" style={{ animationDelay: '0.3s' }}>
-          <Button onClick={scrollToGames} size="lg" className="group rounded-xl glow-box-intense px-8 text-base font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_hsl(48_100%_50%_/_0.4)]">
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row hero-anim-buttons">
+          <Button onClick={scrollToGames} size="lg" className="group rounded-xl glow-box-intense btn-yellow cta-pulse px-8 text-base font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_hsl(48_100%_50%_/_0.4)]">
             Get Boosted
             <ChevronRight className="ml-1 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
           </Button>
@@ -48,18 +49,18 @@ const Hero = () => {
         </div>
 
         {/* Enhanced trust strip */}
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-6 md:gap-8 text-sm text-muted-foreground animate-fade-in" style={{ animationDelay: '0.4s' }}>
+        <div className="mt-16 flex flex-wrap items-center justify-center gap-6 md:gap-8 text-sm text-muted-foreground hero-anim-stats">
           <span className="flex items-center gap-2 transition-all duration-300 hover:text-primary hover:scale-110">
-            <ShieldCheck className="h-5 w-5 text-primary" /> 100% Safe
+            <ShieldCheck className="h-5 w-5 text-primary drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]" /> 100% Safe
           </span>
           <span className="flex items-center gap-2 transition-all duration-300 hover:text-primary hover:scale-110">
-            <Zap className="h-5 w-5 text-primary" /> 15 min start
+            <Zap className="h-5 w-5 text-primary drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]" /> 15 min start
           </span>
           <span className="flex items-center gap-2 transition-all duration-300 hover:text-primary hover:scale-110">
-            <Trophy className="h-5 w-5 text-primary" /> Professional Boosters
+            <Trophy className="h-5 w-5 text-primary drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]" /> Professional Boosters
           </span>
           <span className="flex items-center gap-2 transition-all duration-300 hover:text-primary hover:scale-110">
-            <Users className="h-5 w-5 text-primary" /> 10,000+ orders
+            <Users className="h-5 w-5 text-primary drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]" /> 10,000+ orders
           </span>
         </div>
       </div>
