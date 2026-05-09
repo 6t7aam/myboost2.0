@@ -14,6 +14,9 @@ import Navbar from "@/components/Navbar";
 import AdminPromoCodes from "@/components/AdminPromoCodes";
 import AdminChatPanel from "@/components/AdminChatPanel";
 import { formatOrderId } from "@/lib/orderId";
+import { installAudioGesture, playNewOrderSound } from "@/lib/notificationSounds";
+import { setTitleAlert } from "@/lib/titleAlert";
+import { isSoundEnabled } from "@/hooks/useSoundPreference";
 
 type OrderStatus = "pending" | "pending_verification" | "in_progress" | "completed" | "paid" | "payment_rejected";
 
@@ -122,9 +125,18 @@ const AdminPage = () => {
 
   useEffect(() => {
     if (!isAdmin) return;
+    installAudioGesture();
     const channel = supabase
       .channel("admin-orders")
-      .on("postgres_changes", { event: "*", schema: "public", table: "orders" }, () => {
+      .on("postgres_changes", { event: "INSERT", schema: "public", table: "orders" }, () => {
+        if (isSoundEnabled()) void playNewOrderSound();
+        setTitleAlert("💰 New Order — MyBoost Admin");
+        fetchOrders();
+      })
+      .on("postgres_changes", { event: "UPDATE", schema: "public", table: "orders" }, () => {
+        fetchOrders();
+      })
+      .on("postgres_changes", { event: "DELETE", schema: "public", table: "orders" }, () => {
         fetchOrders();
       })
       .subscribe();

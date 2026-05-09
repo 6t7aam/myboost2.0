@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import type { User } from "@supabase/supabase-js";
+import { installAudioGesture, playMessageSound } from "@/lib/notificationSounds";
+import { setTitleAlert } from "@/lib/titleAlert";
+import { isSoundEnabled } from "@/hooks/useSoundPreference";
 
 export function useUnreadOrderMessages(user: User | null | undefined) {
   const [count, setCount] = useState(0);
@@ -55,6 +58,8 @@ export function useUnreadOrderMessages(user: User | null | undefined) {
 
     refreshOrderIds().then(refreshCount);
 
+    installAudioGesture();
+
     channel = supabase
       .channel(`unread-${user.id}`)
       .on(
@@ -62,6 +67,16 @@ export function useUnreadOrderMessages(user: User | null | undefined) {
         { event: "INSERT", schema: "public", table: "order_messages" },
         (payload) => {
           console.log("[useUnreadOrderMessages] order_messages INSERT", payload.new);
+          const row = payload.new as { sender_type?: string; order_id?: string };
+          const isInbound = row.sender_type === "admin" || row.sender_type === "system";
+          const onThisOrder =
+            typeof window !== "undefined" &&
+            row.order_id &&
+            window.location.pathname.startsWith(`/order/status/${row.order_id}`);
+          if (isInbound && !onThisOrder) {
+            if (isSoundEnabled()) void playMessageSound();
+            setTitleAlert("🔔 New Message — MyBoost");
+          }
           refreshCount();
         }
       )

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Gamepad2, Menu, X, ShoppingCart, ShieldCheck, User, LogIn, ClipboardList, MessageSquare } from "lucide-react";
+import { Gamepad2, Menu, X, ShoppingCart, ShieldCheck, User, LogIn, ClipboardList, MessageSquare, Bell, BellOff } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
@@ -7,6 +7,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useScrolled } from "@/hooks/useScrolled";
 import { useUnreadOrderMessages } from "@/hooks/useUnreadOrderMessages";
+import { useSoundPreference } from "@/hooks/useSoundPreference";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -17,6 +18,7 @@ const Navbar = () => {
   const { isAdmin } = useAdmin();
   const scrolled = useScrolled(50);
   const unreadCount = useUnreadOrderMessages(user);
+  const [soundEnabled, setSoundPref] = useSoundPreference();
 
   const handleGetBoosted = () => {
     setMobileOpen(false);
@@ -112,6 +114,16 @@ const Navbar = () => {
               </Link>
             )
           )}
+
+          <button
+            type="button"
+            onClick={() => setSoundPref(!soundEnabled)}
+            className="rounded-lg p-2 text-muted-foreground transition-all duration-300 hover:text-primary hover:bg-primary/10 hover:scale-110"
+            aria-label={soundEnabled ? "Mute notification sounds" : "Enable notification sounds"}
+            title={soundEnabled ? "Mute notification sounds" : "Enable notification sounds"}
+          >
+            {soundEnabled ? <Bell className="h-5 w-5" /> : <BellOff className="h-5 w-5" />}
+          </button>
 
           <Link to="/cart" className="relative rounded-lg p-2 text-muted-foreground transition-all duration-300 hover:text-primary hover:bg-primary/10 hover:scale-110">
             <ShoppingCart className="h-5 w-5" />
