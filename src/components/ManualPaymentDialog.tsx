@@ -155,6 +155,23 @@ const ManualPaymentDialog = ({
     setSubmitting(true);
     try {
       const serviceName = items.map((i) => `${i.game} — ${i.service}`).join(", ");
+
+      // Upload screenshot FIRST so we can include the URL in the order INSERT.
+      // RLS policy "Admins can update orders" blocks customer-side UPDATE on
+      // orders, so we must set payment_screenshot_url at insert time.
+      const ext = file.name.split(".").pop()?.toLowerCase() || "bin";
+      const path = `${user.id}/${orderCode}-${Date.now()}.${ext}`;
+      const { error: uploadErr } = await supabase.storage
+        .from("payment-screenshots")
+        .upload(path, file, { contentType: file.type, upsert: false });
+      if (uploadErr) throw new Error(uploadErr.message || "Failed to upload screenshot");
+
+      const { data: pub } = supabase.storage
+        .from("payment-screenshots")
+        .getPublicUrl(path);
+      const screenshotUrl = pub?.publicUrl;
+      if (!screenshotUrl) throw new Error("Could not get screenshot URL");
+
       const orderInsert: Record<string, unknown> = {
         user_id: user.id,
         service: serviceName,
@@ -162,6 +179,7 @@ const ManualPaymentDialog = ({
         status: "pending_verification",
         payment_method: "manual_card",
         manual_order_code: orderCode,
+        payment_screenshot_url: screenshotUrl,
         order_details: {
           items,
           promo_code: promoCode?.code,
@@ -181,27 +199,10 @@ const ManualPaymentDialog = ({
         .single();
 
       if (insertErr || !order) {
+        // Best-effort cleanup of the orphaned screenshot
+        await supabase.storage.from("payment-screenshots").remove([path]);
         throw new Error(insertErr?.message || "Failed to create order");
       }
-
-      const ext = file.name.split(".").pop()?.toLowerCase() || "bin";
-      const path = `${user.id}/${order.id}-${Date.now()}.${ext}`;
-      const { error: uploadErr } = await supabase.storage
-        .from("payment-screenshots")
-        .upload(path, file, { contentType: file.type, upsert: false });
-      if (uploadErr) throw new Error(uploadErr.message || "Failed to upload screenshot");
-
-      const { data: pub } = supabase.storage
-        .from("payment-screenshots")
-        .getPublicUrl(path);
-      const screenshotUrl = pub?.publicUrl;
-
-      if (!screenshotUrl) throw new Error("Could not get screenshot URL");
-
-      await supabase
-        .from("orders")
-        .update({ payment_screenshot_url: screenshotUrl } as never)
-        .eq("id", order.id);
 
       if (promoCode) {
         await supabase.rpc("increment_promo_usage" as never, { _code: promoCode.code });
