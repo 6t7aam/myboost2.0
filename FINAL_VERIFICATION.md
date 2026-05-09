@@ -128,13 +128,13 @@ Here's the complete structured data for **Koens Farming** ($1.50):
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 0,
-          "unitCode": "HUR"
+          "unitCode": "h"
         },
         "transitTime": {
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 1,
-          "unitCode": "HUR"
+          "unitCode": "h"
         }
       }
     },

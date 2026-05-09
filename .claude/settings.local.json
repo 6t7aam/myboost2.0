@@ -34,7 +34,14 @@
       "Bash(grep -E \"^\\\\.env$\")",
       "Bash(npm uninstall *)",
       "Bash(npm info *)",
-      "Bash(npm view *)"
+      "Bash(npm view *)",
+      "PowerShell(curl *)",
+      "PowerShell(node verify-structured-data.js)",
+      "PowerShell(git add *)",
+      "PowerShell(git rm *)",
+      "PowerShell(git reset *)",
+      "Bash(npx tsc *)",
+      "Bash(git reset *)"
     ]
   }
 }

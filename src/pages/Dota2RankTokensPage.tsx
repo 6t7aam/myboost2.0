@@ -35,7 +35,7 @@ const Dota2RankTokensPage = () => {
     "@type": "Product",
     "name": "Dota 2 Rank Tokens Farming - Fast Token Collection",
     "description": "Buy Dota 2 rank tokens farming service. Collect tokens fast with our Immortal players. Safe account handling, fast delivery, competitive prices. Start today.",
-    "image": "https://www.myboost.top/images/dota2-rank-tokens.jpg",
+    "image": "https://www.myboost.top/images/dota2/dota2-rank-tokens.jpg",
     "brand": {
       "@type": "Brand",
       "name": "MyBoost"

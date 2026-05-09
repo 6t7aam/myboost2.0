@@ -192,13 +192,13 @@ Here's what the final structured data looks like for each product:
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 0,
-          "unitCode": "HUR"
+          "unitCode": "h"
         },
         "transitTime": {
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 1,
-          "unitCode": "HUR"
+          "unitCode": "h"
         }
       }
     },

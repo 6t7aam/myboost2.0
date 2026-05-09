@@ -46,13 +46,13 @@ This document shows the exact structured data (JSON-LD) that will be generated f
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 0,
-          "unitCode": "HUR"
+          "unitCode": "h"
         },
         "transitTime": {
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 1,
-          "unitCode": "HUR"
+          "unitCode": "h"
         }
       }
     },
@@ -115,13 +115,13 @@ This document shows the exact structured data (JSON-LD) that will be generated f
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 0,
-          "unitCode": "HUR"
+          "unitCode": "h"
         },
         "transitTime": {
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 1,
-          "unitCode": "HUR"
+          "unitCode": "h"
         }
       }
     },
@@ -184,13 +184,13 @@ This document shows the exact structured data (JSON-LD) that will be generated f
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 0,
-          "unitCode": "HUR"
+          "unitCode": "h"
         },
         "transitTime": {
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 1,
-          "unitCode": "HUR"
+          "unitCode": "h"
         }
       }
     },
@@ -253,13 +253,13 @@ This document shows the exact structured data (JSON-LD) that will be generated f
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 0,
-          "unitCode": "HUR"
+          "unitCode": "h"
         },
         "transitTime": {
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 1,
-          "unitCode": "HUR"
+          "unitCode": "h"
         }
       }
     },
@@ -322,13 +322,13 @@ This document shows the exact structured data (JSON-LD) that will be generated f
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 0,
-          "unitCode": "HUR"
+          "unitCode": "h"
         },
         "transitTime": {
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 1,
-          "unitCode": "HUR"
+          "unitCode": "h"
         }
       }
     },
@@ -391,13 +391,13 @@ This document shows the exact structured data (JSON-LD) that will be generated f
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 0,
-          "unitCode": "HUR"
+          "unitCode": "h"
         },
         "transitTime": {
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 1,
-          "unitCode": "HUR"
+          "unitCode": "h"
         }
       }
     },

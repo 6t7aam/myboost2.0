@@ -69,7 +69,7 @@ const Dota2MMRBoostPage = () => {
     "@type": "Product",
     "name": "Dota 2 MMR Boost - Fast Rank Up by Immortal Players",
     "description": "Buy Dota 2 MMR boost from top Immortal & Divine players. Safe, fast rank climbing with VPN protection. Solo or duo boosting available. Start in 15 minutes.",
-    "image": "https://www.myboost.top/images/dota2-mmr-boost.jpg",
+    "image": "https://www.myboost.top/images/dota2/dota2-mmr-boost.jpg",
     "brand": {
       "@type": "Brand",
       "name": "MyBoost"
