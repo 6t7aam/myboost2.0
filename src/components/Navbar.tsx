@@ -6,6 +6,7 @@ import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/hooks/useAuth";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useScrolled } from "@/hooks/useScrolled";
+import { useUnreadOrderMessages } from "@/hooks/useUnreadOrderMessages";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -15,6 +16,7 @@ const Navbar = () => {
   const { user, loading } = useAuth();
   const { isAdmin } = useAdmin();
   const scrolled = useScrolled(50);
+  const unreadCount = useUnreadOrderMessages(user);
 
   const handleGetBoosted = () => {
     setMobileOpen(false);
@@ -75,9 +77,17 @@ const Navbar = () => {
           {!loading && (
             user ? (
               <>
-                <Link to="/chat" className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:scale-105">
+                <Link to="/chat" className="relative hidden md:inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:scale-105">
                   <MessageSquare className="h-3.5 w-3.5" />
                   Chat
+                  {unreadCount > 0 && (
+                    <span
+                      className="absolute -top-1.5 -right-1.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-primary px-1 text-[11px] font-bold text-black shadow-[0_0_8px_rgba(255,215,0,0.6)]"
+                      aria-label={`${unreadCount} unread messages`}
+                    >
+                      {unreadCount > 99 ? "99+" : unreadCount}
+                    </span>
+                  )}
                 </Link>
                 <Link to="/my-orders" className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-primary/30 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:scale-105">
                   <ClipboardList className="h-3.5 w-3.5" />
@@ -132,6 +142,11 @@ const Navbar = () => {
                 <Link to="/chat" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 w-full py-3 text-left text-sm font-bold text-primary transition-all duration-300 hover:text-primary/80 hover:translate-x-2 border-b border-border/30">
                   <MessageSquare className="h-4 w-4" />
                   Chat
+                  {unreadCount > 0 && (
+                    <span className="ml-auto inline-flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-primary px-1 text-[11px] font-bold text-black">
+                      {unreadCount > 99 ? "99+" : unreadCount}
+                    </span>
+                  )}
                 </Link>
                 <Link to="/my-orders" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 w-full py-3 text-left text-sm font-bold text-primary transition-all duration-300 hover:text-primary/80 hover:translate-x-2 border-b border-border/30">
                   <ClipboardList className="h-4 w-4" />

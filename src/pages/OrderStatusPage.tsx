@@ -7,13 +7,16 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, Clock, Loader2, Copy, MessageSquare, Package } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { formatOrderId } from "@/lib/orderId";
 
 interface OrderData {
+  id: string;
   status: string;
   pay_address: string | null;
   pay_amount: number | null;
   pay_currency: string | null;
   valid_until: string | null;
+  manual_order_code?: string | null;
 }
 
 const OrderStatusPage = () => {
@@ -36,7 +39,7 @@ const OrderStatusPage = () => {
     const fetch_ = async () => {
       const { data } = await supabase
         .from("orders")
-        .select("status, pay_address, pay_amount, pay_currency, valid_until")
+        .select("id, status, pay_address, pay_amount, pay_currency, valid_until, manual_order_code")
         .eq("id", orderId)
         .single();
       if (data) setOrder(data as OrderData);
@@ -69,6 +72,16 @@ const OrderStatusPage = () => {
             </div>
           ) : (
             <div className="space-y-6">
+              {/* Order header */}
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Order</p>
+                  <p className="font-mono text-lg font-bold text-primary">
+                    {formatOrderId(order || { id: orderId })}
+                  </p>
+                </div>
+              </div>
+
               {/* Tab Navigation */}
               <div className="flex gap-2 border-b border-border/50">
                 <button

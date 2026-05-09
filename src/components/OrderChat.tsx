@@ -8,10 +8,11 @@ import { toast } from "sonner";
 interface Message {
   id: string;
   order_id: string;
-  sender_type: "customer" | "admin";
+  sender_type: "customer" | "admin" | "system";
   sender_id: string | null;
   message: string;
   created_at: string;
+  read_at?: string | null;
 }
 
 interface OrderChatProps {
@@ -103,6 +104,14 @@ const OrderChat = ({ orderId, isAdmin = false }: OrderChatProps) => {
 
     fetchMessages();
 
+    // Mark unread admin/system messages as read for the customer when opening
+    if (!isAdmin) {
+      supabase.rpc("mark_order_messages_read" as never, { _order_id: orderId } as never)
+        .then(({ error }) => {
+          if (error) console.warn("[OrderChat] mark_read failed:", error.message);
+        });
+    }
+
     // Subscribe to new messages
     const channel = supabase
       .channel(`order-chat-${orderId}`)
@@ -134,6 +143,13 @@ const OrderChat = ({ orderId, isAdmin = false }: OrderChatProps) => {
 
           setMessages((prev) => [...prev, newMsg]);
           scrollToBottom();
+
+          // Auto-mark as read if customer is currently viewing
+          if (!isAdmin && (newMsg.sender_type === "admin" || newMsg.sender_type === "system")) {
+            supabase
+              .rpc("mark_order_messages_read" as never, { _order_id: orderId } as never)
+              .then(() => undefined);
+          }
         }
       )
       .subscribe();
@@ -256,6 +272,24 @@ const OrderChat = ({ orderId, isAdmin = false }: OrderChatProps) => {
               ) : (
                 <div className="space-y-3">
                   {messages.map((msg) => {
+                    if (msg.sender_type === "system") {
+                      return (
+                        <div key={msg.id} className="flex justify-center">
+                          <div className="max-w-[85%] rounded-md border border-border/40 bg-muted/40 px-3 py-2 text-center">
+                            <p className="text-xs text-muted-foreground whitespace-pre-wrap break-words">
+                              {msg.message}
+                            </p>
+                            <span className="mt-1 block text-[10px] text-muted-foreground/70">
+                              {new Date(msg.created_at).toLocaleTimeString([], {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              })}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    }
+
                     const isOwnMessage = msg.sender_id === currentUserId;
                     const isAdminMessage = msg.sender_type === "admin";
 

@@ -13,6 +13,7 @@ import { useAdmin } from "@/hooks/useAdmin";
 import Navbar from "@/components/Navbar";
 import AdminPromoCodes from "@/components/AdminPromoCodes";
 import AdminChatPanel from "@/components/AdminChatPanel";
+import { formatOrderId } from "@/lib/orderId";
 
 type OrderStatus = "pending" | "pending_verification" | "in_progress" | "completed" | "paid" | "payment_rejected";
 
@@ -295,13 +296,13 @@ const AdminPage = () => {
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center gap-2 text-sm">
                         <span className="font-mono text-xs text-primary">
-                          {o.manual_order_code || o.id.slice(0, 8)}
+                          {formatOrderId(o)}
                         </span>
                         <span className="font-semibold text-foreground truncate">{o.service}</span>
                         <span className="text-primary font-bold">${o.price.toFixed(2)}</span>
                       </div>
                       <div className="mt-1 text-xs text-muted-foreground">
-                        {o.user_email || "Guest"} · {new Date(o.created_at).toLocaleString()}
+                        {o.user_email || "Unknown user"} · {new Date(o.created_at).toLocaleString()}
                       </div>
                     </div>
                     <div className="flex flex-wrap items-center gap-2">
@@ -375,10 +376,10 @@ const AdminPage = () => {
               <TableBody>
                 {filtered.map((order) => (
                   <TableRow key={order.id} className="border-border/30 hover:bg-secondary/50 transition-colors">
-                    <TableCell className="font-mono text-xs text-primary">{order.id.slice(0, 8)}</TableCell>
+                    <TableCell className="font-mono text-xs text-primary">{formatOrderId(order)}</TableCell>
                     <TableCell className="text-sm text-muted-foreground">{new Date(order.created_at).toLocaleDateString()}</TableCell>
                     <TableCell className="text-sm text-muted-foreground">
-                      {order.user_email || <span className="italic text-muted-foreground/60">Guest</span>}
+                      {order.user_email || <span className="italic text-muted-foreground/60">Unknown user</span>}
                     </TableCell>
                     <TableCell className="text-sm max-w-[200px]">
                       <div className="space-y-1">

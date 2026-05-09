@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { useAdmin } from "@/hooks/useAdmin";
 import Navbar from "@/components/Navbar";
 import OrderChat from "@/components/OrderChat";
+import { formatOrderId } from "@/lib/orderId";
 
 type OrderStatus = "pending" | "pending_verification" | "in_progress" | "completed" | "paid" | "payment_rejected";
 
@@ -189,7 +190,10 @@ const AdminOrderDetailsPage = () => {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-foreground">Order Details</h1>
-              <p className="text-sm text-muted-foreground mt-1">Order ID: {order.id}</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Order ID: <span className="font-mono text-primary">{formatOrderId(order)}</span>
+              </p>
+              <p className="text-xs text-muted-foreground/70 mt-0.5">UUID: {order.id}</p>
             </div>
             <Badge variant="outline" className={`${statusColor[order.status] || statusColor.pending} text-sm px-4 py-2`}>
               {order.status.toUpperCase()}
@@ -274,7 +278,7 @@ const AdminOrderDetailsPage = () => {
                   <div className="flex-1">
                     <p className="text-sm text-muted-foreground">Customer</p>
                     <p className="font-semibold text-foreground">
-                      {order.user_email || <span className="italic text-muted-foreground/60">Guest</span>}
+                      {order.user_email || <span className="italic text-muted-foreground/60">Unknown user</span>}
                     </p>
                   </div>
                 </div>

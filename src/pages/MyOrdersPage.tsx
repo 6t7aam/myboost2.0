@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import Navbar from "@/components/Navbar";
@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Package, Loader2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+import { formatOrderId } from "@/lib/orderId";
 
 interface Order {
   id: string;
@@ -15,6 +16,7 @@ interface Order {
   price: number;
   status: string;
   created_at: string;
+  manual_order_code?: string | null;
 }
 
 const MyOrdersPage = () => {
@@ -80,22 +82,25 @@ const MyOrdersPage = () => {
         ) : (
           <div className="space-y-3">
             {orders.map((order) => (
-              <Card key={order.id} className="border-border/40 hover:border-primary/30 transition-all">
-                <CardContent className="p-4 flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-foreground font-semibold">{order.service}</p>
-                    <p className="text-lg font-black text-primary">${Number(order.price).toFixed(2)}</p>
-                    <p className="text-xs text-muted-foreground">
-                      {new Date(order.created_at).toLocaleDateString("en-US", {
-                        year: "numeric", month: "short", day: "numeric",
-                      })}
-                    </p>
-                  </div>
-                  <Badge variant="outline" className={statusColor(order.status)}>
-                    {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
-                  </Badge>
-                </CardContent>
-              </Card>
+              <Link key={order.id} to={`/order/status/${order.id}`} state={{ openChat: true }}>
+                <Card className="border-border/40 hover:border-primary/40 transition-all cursor-pointer">
+                  <CardContent className="p-4 flex items-center justify-between">
+                    <div className="min-w-0 flex-1">
+                      <p className="font-mono text-xs text-primary">{formatOrderId(order)}</p>
+                      <p className="mt-1 text-sm text-foreground font-semibold truncate">{order.service}</p>
+                      <p className="text-lg font-black text-primary">${Number(order.price).toFixed(2)}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {new Date(order.created_at).toLocaleDateString("en-US", {
+                          year: "numeric", month: "short", day: "numeric",
+                        })}
+                      </p>
+                    </div>
+                    <Badge variant="outline" className={statusColor(order.status)}>
+                      {order.status.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+                    </Badge>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         )}

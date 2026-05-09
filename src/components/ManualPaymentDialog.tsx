@@ -212,17 +212,14 @@ const ManualPaymentDialog = ({
       }
 
       const message = [
-        "🔔 New manual payment order",
-        `Order ID: ${orderCode}`,
-        `Service: ${serviceName}`,
-        `Amount: $${finalPrice.toFixed(2)}`,
-        `Status: Awaiting verification`,
+        `✅ Payment submitted — awaiting verification`,
+        `Order: ${orderCode} | Amount: $${finalPrice.toFixed(2)}`,
         `Screenshot: ${screenshotUrl}`,
       ].join("\n");
 
       const { error: msgErr } = await supabase.from("order_messages").insert({
         order_id: order.id,
-        sender_type: "customer",
+        sender_type: "system",
         sender_id: user.id,
         message,
       });
