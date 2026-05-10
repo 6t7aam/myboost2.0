@@ -32,20 +32,6 @@ const Hero = () => {
     animate: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } },
   };
 
-  const instantlyVariant = {
-    initial: {
-      opacity: 0,
-      scale: 1.4,
-      textShadow: "0 0 60px rgba(255,215,0,0.9)",
-    },
-    animate: {
-      opacity: 1,
-      scale: 1,
-      textShadow: "0 0 20px rgba(255,215,0,0.6)",
-      transition: { duration: 0.4, ease: "easeOut" },
-    },
-  };
-
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-16">
       {/* Enhanced background effects */}
@@ -80,22 +66,51 @@ const Hero = () => {
               variants={reduced ? undefined : wordVariant}
               initial="initial"
               animate="animate"
-              transition={{ delay: 0.1 + i * 0.08 }}
+              transition={{ delay: i * 0.08 }}
               className="inline-block mr-[0.25em]"
             >
               {w}
             </motion.span>
-          ))}{" "}
-          <motion.span
-            variants={reduced ? undefined : instantlyVariant}
-            initial="initial"
-            animate="animate"
-            transition={{ delay: 0.45 }}
-            className="text-primary instantly-glow inline-block"
-          >
-            Instantly
-          </motion.span>
+          ))}
         </h1>
+        <motion.div
+          initial={reduced ? false : { scale: 1.4, opacity: 0 }}
+          animate={
+            reduced
+              ? { opacity: 1 }
+              : {
+                  scale: 1,
+                  opacity: 1,
+                  textShadow: [
+                    "0 0 80px #FFD700, 0 0 40px #FFD700",
+                    "0 0 80px #FFD700, 0 0 40px #FFD700",
+                    "0 0 20px rgba(255,215,0,0.4)",
+                  ],
+                }
+          }
+          transition={
+            reduced
+              ? { duration: 0 }
+              : {
+                  scale: { duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
+                  opacity: { duration: 0.5, delay: 0.3 },
+                  textShadow: {
+                    duration: 0.6,
+                    delay: 0.5,
+                    times: [0, 0.5, 1],
+                    ease: "easeOut",
+                  },
+                }
+          }
+          className="mt-2 mx-auto block uppercase tracking-tight text-primary"
+          style={{
+            fontSize: "clamp(80px, 12vw, 160px)",
+            fontWeight: 900,
+            lineHeight: 1,
+          }}
+        >
+          Instantly
+        </motion.div>
 
         <motion.p
           variants={reduced ? undefined : subtitleVariant}

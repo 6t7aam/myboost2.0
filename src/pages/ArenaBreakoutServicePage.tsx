@@ -204,7 +204,7 @@ const ArenaBreakoutServicePage = () => {
             </div>
 
             {/* Configurator */}
-            <div className="rounded-2xl border border-border/50 bg-card p-6 md:p-8">
+            <div id="order-card" className="rounded-2xl border border-border/50 bg-card p-6 md:p-8">
               <ServiceConfigurator
                 service={service}
                 gameSlug="arena-breakout"

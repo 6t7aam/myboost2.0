@@ -101,7 +101,7 @@ const Dota2CoachingPage = () => {
                 />
 
                 {/* Calculator */}
-                <div className="rounded-2xl border-2 border-primary/30 bg-card p-8 shadow-[0_0_30px_hsl(48_100%_50%_/_0.15)]">
+                <div id="order-card" className="rounded-2xl border-2 border-primary/30 bg-card p-8 shadow-[0_0_30px_hsl(48_100%_50%_/_0.15)]">
                   <h3 className="text-2xl font-black uppercase text-foreground">
                     Book <span className="text-primary">Coaching</span>
                   </h3>
