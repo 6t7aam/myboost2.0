@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 
 const games = [
   {
@@ -40,22 +41,59 @@ const games = [
 ];
 
 const GameCards = () => {
+  const reduced = useReducedMotion();
+
+  const titleVariant = {
+    initial: { opacity: 0, y: -40 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] } },
+  };
+
+  const cardVariant = {
+    initial: { opacity: 0, rotateY: 90 },
+    animate: { opacity: 1, rotateY: 0, transition: { duration: 0.35, ease: "easeOut" } },
+  };
+
   return (
     <section id="services" className="py-24 relative">
       {/* Background accent */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(48_100%_50%_/_0.03)_0%,_transparent_50%)]" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-center text-3xl font-black uppercase tracking-tight text-foreground md:text-4xl animate-slide-up">
+        <motion.h2
+          variants={reduced ? undefined : titleVariant}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-50px" }}
+          className="text-center text-3xl font-black uppercase tracking-tight text-foreground md:text-4xl"
+        >
           Choose Your <span className="text-primary glow-text">Game</span>
-        </h2>
-        <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground animate-slide-up" style={{ animationDelay: '0.1s' }}>
+        </motion.h2>
+        <motion.p
+          variants={reduced ? undefined : titleVariant}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ delay: 0.1 }}
+          className="mx-auto mt-4 max-w-xl text-center text-muted-foreground"
+        >
           Select from our most popular titles and start climbing today.
-        </p>
+        </motion.p>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {games.map((game, index) => (
-            <Link key={game.name} to={`/game/${game.slug}`} className="group animate-slide-up" style={{ animationDelay: `${0.1 * (index + 1)}s` }}>
+        <motion.div
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={reduced ? undefined : { animate: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } } }}
+          style={{ perspective: "1000px" }}
+          className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {games.map((game) => (
+            <motion.div
+              key={game.name}
+              variants={reduced ? undefined : cardVariant}
+              style={{ transformStyle: "preserve-3d" }}
+            >
+              <Link to={`/game/${game.slug}`} className="group block">
               <Card className="service-card-hover relative h-full overflow-hidden border-border/50 bg-card perspective-card">
                 {game.tag && (
                   <Badge className="badge-shimmer absolute top-3 right-3 z-10 border-none text-xs font-bold uppercase backdrop-blur-sm glow-box">
@@ -90,9 +128,10 @@ const GameCards = () => {
                   </Button>
                 </CardContent>
               </Card>
-            </Link>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -10,6 +10,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import PayPalButton from "@/components/PayPalButton";
 import ManualPaymentDialog from "@/components/ManualPaymentDialog";
+import { motion, useReducedMotion } from "framer-motion";
 
 const COINS = [
   { id: "ltc", label: "LTC", name: "Litecoin" },
@@ -32,6 +33,7 @@ const OrderPage = () => {
   const [paypalOrderId, setPaypalOrderId] = useState<string | null>(null);
   const [paypalLoading, setPaypalLoading] = useState(false);
   const [manualOpen, setManualOpen] = useState(false);
+  const reducedMotion = useReducedMotion();
 
   const successAndRedirect = (orderId: string) => {
     toast.success("✅ Order placed! Redirecting to your chat...");
@@ -315,7 +317,12 @@ const OrderPage = () => {
           `}</style>
           <div className="mt-8 order-grid">
               {/* LEFT COLUMN — Order Summary */}
-              <div className="flex flex-col gap-4">
+              <motion.div
+                initial={reducedMotion ? false : { opacity: 0, x: -60 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="flex flex-col gap-4"
+              >
                 <div
                   className="flex-1 rounded-2xl border border-primary/30 bg-primary/5 p-6"
                   style={{ borderLeft: "3px solid #FFD700" }}
@@ -371,10 +378,15 @@ const OrderPage = () => {
                     <Zap className="h-3.5 w-3.5 text-primary" /> Instant Start
                   </span>
                 </div>
-              </div>
+              </motion.div>
 
               {/* RIGHT COLUMN — Payment Methods */}
-              <div className="flex flex-col">
+              <motion.div
+                initial={reducedMotion ? false : { opacity: 0, x: 60 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="flex flex-col"
+              >
                 {isFreeOrder ? (
                   <div className="flex flex-1 flex-col rounded-2xl border border-primary/30 bg-primary/5 p-6">
                     <div className="flex-1 text-center flex flex-col items-center justify-center">
@@ -571,7 +583,7 @@ const OrderPage = () => {
                     </div>
                   </>
                 )}
-              </div>
+              </motion.div>
           </div>
 
           {/* Trust strip below payment area */}

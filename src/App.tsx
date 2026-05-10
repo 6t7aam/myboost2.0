@@ -8,6 +8,7 @@ import { CartProvider } from "@/contexts/CartContext";
 import RouteProgressBar from "@/components/RouteProgressBar";
 import ScrollToTop from "@/components/ScrollToTop";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { getVariants, reducedVariants } from "@/lib/pageTransitions";
 import Index from "./pages/Index.tsx";
 import OrderPage from "./pages/OrderPage.tsx";
 import BoosterSelectionPage from "./pages/BoosterSelectionPage.tsx";
@@ -38,32 +39,16 @@ import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
 
-const pageVariants = {
-  initial: { opacity: 0, y: 30, filter: "blur(8px)" },
-  animate: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] },
-  },
-  exit: {
-    opacity: 0,
-    y: -20,
-    filter: "blur(4px)",
-    transition: { duration: 0.25, ease: "easeIn" },
-  },
-};
-
-const reducedVariants = {
-  initial: { opacity: 1 },
-  animate: { opacity: 1, transition: { duration: 0 } },
-  exit: { opacity: 1, transition: { duration: 0 } },
+const useMobileSpeedMultiplier = () => {
+  if (typeof window === "undefined") return 1;
+  return window.matchMedia("(max-width: 768px)").matches ? 0.7 : 1;
 };
 
 const AnimatedRoutes = () => {
   const location = useLocation();
   const reduced = useReducedMotion();
-  const variants = reduced ? reducedVariants : pageVariants;
+  const speed = useMobileSpeedMultiplier();
+  const variants = reduced ? reducedVariants : getVariants(location.pathname, speed);
 
   return (
     <AnimatePresence mode="wait" initial={false}>

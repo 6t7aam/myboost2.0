@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Shuffle } from "lucide-react";
 import boosterAvatar from "@/assets/booster-keitarochka.png";
 import { useCart } from "@/contexts/CartContext";
+import { motion, useReducedMotion } from "framer-motion";
 
 interface Booster {
   id: string;
@@ -40,6 +41,20 @@ const BoosterSelectionPage = () => {
   const location = useLocation();
   const { totalPrice } = useCart();
   const [selected, setSelected] = useState<string | null>(null);
+  const reduced = useReducedMotion();
+
+  const titleVariant = {
+    initial: { opacity: 0, scale: 0.8 },
+    animate: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] } },
+  };
+  const sideVariant = (dir: "left" | "right") => ({
+    initial: { opacity: 0, x: dir === "left" ? -80 : 80 },
+    animate: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  });
+  const ctaVariant = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0, transition: { delay: 0.4, duration: 0.35, ease: "easeOut" } },
+  };
 
   const promoCode = (location.state as any)?.promoCode ?? null;
 
@@ -75,16 +90,24 @@ const BoosterSelectionPage = () => {
             <ArrowLeft className="h-3.5 w-3.5" /> Back to Cart
           </Link>
 
-          <h1 className="text-3xl font-black uppercase tracking-tight text-foreground md:text-4xl text-center">
+          <motion.h1
+            variants={reduced ? undefined : titleVariant}
+            initial="initial"
+            animate="animate"
+            className="text-3xl font-black uppercase tracking-tight text-foreground md:text-4xl text-center"
+          >
             Choose Your <span className="text-primary glow-text">Booster</span>
-          </h1>
+          </motion.h1>
           <p className="mt-2 text-center text-sm text-muted-foreground">
             Select who will complete your Arena Breakout: Infinite order
           </p>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {BOOSTERS.map((booster) => (
-              <button
+            {BOOSTERS.map((booster, idx) => (
+              <motion.button
+                variants={reduced ? undefined : sideVariant(idx === 0 ? "left" : "right")}
+                initial="initial"
+                animate="animate"
                 key={booster.id}
                 onClick={() => setSelected(booster.id)}
                 className={`group relative flex flex-col items-center rounded-2xl border p-6 text-center transition-all duration-200 ${
@@ -136,7 +159,7 @@ const BoosterSelectionPage = () => {
                     ✓
                   </div>
                 )}
-              </button>
+              </motion.button>
             ))}
           </div>
 
@@ -160,14 +183,20 @@ const BoosterSelectionPage = () => {
             </div>
           )}
 
-          <Button
-            onClick={handleContinue}
-            disabled={!selected}
-            size="lg"
-            className="mt-6 w-full gap-2 rounded-xl font-bold uppercase tracking-wider glow-box-intense text-base"
+          <motion.div
+            variants={reduced ? undefined : ctaVariant}
+            initial="initial"
+            animate="animate"
           >
-            Continue to Payment <ArrowRight className="h-4 w-4" />
-          </Button>
+            <Button
+              onClick={handleContinue}
+              disabled={!selected}
+              size="lg"
+              className="mt-6 w-full gap-2 rounded-xl font-bold uppercase tracking-wider glow-box-intense text-base"
+            >
+              Continue to Payment <ArrowRight className="h-4 w-4" />
+            </Button>
+          </motion.div>
         </div>
       </section>
 
