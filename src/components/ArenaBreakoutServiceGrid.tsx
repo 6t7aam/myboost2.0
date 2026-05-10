@@ -21,7 +21,7 @@ const ArenaBreakoutServiceGrid = ({ config }: ArenaBreakoutServiceGridProps) => 
         keywords="arena breakout infinite boosting, arena breakout koens farming, arena breakout raids boost, arena breakout coaching, abi boosting service, arena breakout infinite services"
         canonicalUrl="https://www.myboost.top/game/arena-breakout"
       />
-      <div className="min-h-screen bg-background page-enter">
+      <div className="min-h-screen bg-background">
         <Navbar />
 
       {/* Hero */}

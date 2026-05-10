@@ -40,7 +40,7 @@ const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
         keywords="dota 2 boosting, dota 2 mmr boost, dota 2 lp removal, dota 2 rank tokens, immortal boosting"
         canonicalUrl="https://www.myboost.top/game/dota-2"
       />
-      <div className="min-h-screen bg-background page-enter relative">
+      <div className="min-h-screen bg-background relative">
         <div className="dota-bg-overlay absolute inset-0 pointer-events-none" />
         <Navbar />
 

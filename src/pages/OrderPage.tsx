@@ -285,7 +285,7 @@ const OrderPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background page-enter">
+    <div className="min-h-screen bg-background">
       <Navbar />
 
       <section className="relative pt-24 pb-16">

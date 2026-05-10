@@ -41,7 +41,7 @@ const Index = () => {
           }
         }}
       />
-      <div className="min-h-screen bg-background page-enter">
+      <div className="min-h-screen bg-background">
         <Navbar />
         <Hero />
         <Reveal><GameCards /></Reveal>
