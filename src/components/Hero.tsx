@@ -3,33 +3,11 @@ import { ChevronRight, Zap, ShieldCheck, Trophy, Users } from "lucide-react";
 import Particles from "@/components/Particles";
 import { motion, useReducedMotion } from "framer-motion";
 
-const TITLE_WORDS = ["Level", "Up", "Your", "Game"];
-
 const Hero = () => {
   const reduced = useReducedMotion();
 
   const scrollToGames = () => {
     document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const wordVariant = {
-    initial: { opacity: 0, x: -60 },
-    animate: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] } },
-  };
-
-  const subtitleVariant = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
-  };
-
-  const ctaVariant = {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 20 } },
-  };
-
-  const statsItemVariant = {
-    initial: { opacity: 0, y: 12 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } },
   };
 
   return (
@@ -48,6 +26,21 @@ const Hero = () => {
 
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
+      {/* Screen flash on INSTANTLY slam */}
+      {!reduced && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.15, 0] }}
+          transition={{ duration: 0.15, delay: 0.5, times: [0, 0.5, 1], ease: "easeOut" }}
+          className="pointer-events-none fixed inset-0 z-50"
+          style={{
+            background: "linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,215,0,1))",
+            mixBlendMode: "screen",
+          }}
+          aria-hidden
+        />
+      )}
+
       <div className="container relative z-10 mx-auto px-4 text-center">
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 10 }}
@@ -59,32 +52,28 @@ const Hero = () => {
           <span className="font-semibold">Trusted by 10,000+ Players</span>
         </motion.div>
 
-        <h1 className="mx-auto max-w-5xl text-5xl font-black uppercase leading-tight tracking-tight text-foreground md:text-7xl lg:text-8xl">
-          {TITLE_WORDS.map((w, i) => (
-            <motion.span
-              key={w + i}
-              variants={reduced ? undefined : wordVariant}
-              initial="initial"
-              animate="animate"
-              transition={{ delay: i * 0.08 }}
-              className="inline-block mr-[0.25em]"
-            >
-              {w}
-            </motion.span>
-          ))}
-        </h1>
+        <motion.h1
+          initial={reduced ? false : { opacity: 0, y: 20, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="mx-auto max-w-5xl uppercase leading-[1.05] tracking-tight text-foreground text-center"
+          style={{ fontSize: "clamp(36px, 6vw, 80px)", fontWeight: 900 }}
+        >
+          Level Up Your Game
+        </motion.h1>
+
         <motion.div
-          initial={reduced ? false : { scale: 1.4, opacity: 0 }}
+          initial={reduced ? false : { scale: 0.3, opacity: 0 }}
           animate={
             reduced
-              ? { opacity: 1 }
+              ? { scale: 1, opacity: 1 }
               : {
                   scale: 1,
                   opacity: 1,
                   textShadow: [
+                    "0 0 0px rgba(255,215,0,0)",
                     "0 0 80px #FFD700, 0 0 40px #FFD700",
-                    "0 0 80px #FFD700, 0 0 40px #FFD700",
-                    "0 0 20px rgba(255,215,0,0.4)",
+                    "0 0 15px rgba(255,215,0,0.3)",
                   ],
                 }
           }
@@ -92,51 +81,47 @@ const Hero = () => {
             reduced
               ? { duration: 0 }
               : {
-                  scale: { duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
-                  opacity: { duration: 0.5, delay: 0.3 },
-                  textShadow: {
-                    duration: 0.6,
-                    delay: 0.5,
-                    times: [0, 0.5, 1],
-                    ease: "easeOut",
-                  },
+                  scale: { type: "spring", stiffness: 400, damping: 15, delay: 0.35 },
+                  opacity: { duration: 0.4, delay: 0.35, ease: "easeOut" },
+                  textShadow: { duration: 0.6, delay: 0.35, times: [0, 0.5, 1], ease: "easeOut" },
                 }
           }
-          className="mt-2 mx-auto block uppercase tracking-tight text-primary"
-          style={{
-            fontSize: "clamp(80px, 12vw, 160px)",
-            fontWeight: 900,
-            lineHeight: 1,
-          }}
+          className="mt-1 mx-auto block uppercase tracking-tight text-primary text-center"
+          style={{ fontSize: "clamp(52px, 8vw, 110px)", fontWeight: 900, lineHeight: 1 }}
         >
           Instantly
         </motion.div>
 
         <motion.p
-          variants={reduced ? undefined : subtitleVariant}
-          initial="initial"
-          animate="animate"
-          transition={{ delay: 0.7 }}
+          initial={reduced ? false : { opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.7, ease: "easeOut" }}
           className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl"
         >
           Professional boosting services for competitive games. Fast, safe, and powered by top-tier verified players.
         </motion.p>
 
-        <motion.div
-          variants={reduced ? undefined : ctaVariant}
-          initial="initial"
-          animate="animate"
-          transition={{ delay: 0.85, type: "spring", stiffness: 300, damping: 20 }}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
-        >
-          <Button onClick={scrollToGames} size="lg" className="group rounded-xl glow-box-intense btn-yellow cta-pulse px-8 text-base font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_hsl(48_100%_50%_/_0.4)]">
-            Get Boosted
-            <ChevronRight className="ml-1 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-          </Button>
-          <Button onClick={scrollToGames} size="lg" variant="outline" className="group rounded-xl border-primary/40 px-8 text-base font-bold uppercase tracking-wider text-primary hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-105 hover:border-primary/60">
-            View Services
-          </Button>
-        </motion.div>
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <motion.div
+            initial={reduced ? false : { opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.35, delay: 0.85, ease: "easeOut" }}
+          >
+            <Button onClick={scrollToGames} size="lg" className="group rounded-xl glow-box-intense btn-yellow cta-pulse px-8 text-base font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_hsl(48_100%_50%_/_0.4)]">
+              Get Boosted
+              <ChevronRight className="ml-1 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Button>
+          </motion.div>
+          <motion.div
+            initial={reduced ? false : { opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.35, delay: 0.95, ease: "easeOut" }}
+          >
+            <Button onClick={scrollToGames} size="lg" variant="outline" className="group rounded-xl border-primary/40 px-8 text-base font-bold uppercase tracking-wider text-primary hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-105 hover:border-primary/60">
+              View Services
+            </Button>
+          </motion.div>
+        </div>
 
         {/* Enhanced trust strip */}
         <div className="mt-16 flex flex-wrap items-center justify-center gap-6 md:gap-8 text-sm text-muted-foreground">
@@ -148,10 +133,9 @@ const Hero = () => {
           ].map(({ Icon, label }, i) => (
             <motion.span
               key={label}
-              variants={reduced ? undefined : statsItemVariant}
-              initial="initial"
-              animate="animate"
-              transition={{ delay: 1.0 + i * 0.1 }}
+              initial={reduced ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, delay: 1.1 + i * 0.08, ease: "easeOut" }}
               className="flex items-center gap-2 transition-all duration-300 hover:text-primary hover:scale-110"
             >
               <Icon className="h-5 w-5 text-primary drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]" /> {label}
