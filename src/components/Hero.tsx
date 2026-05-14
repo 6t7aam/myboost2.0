@@ -2,9 +2,17 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight, Zap, ShieldCheck, Trophy, Users } from "lucide-react";
 import Particles from "@/components/Particles";
 import { motion, useReducedMotion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
   const reduced = useReducedMotion();
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    // Delay heavy animations until after initial render
+    const timer = setTimeout(() => setIsReady(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   const scrollToGames = () => {
     document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
@@ -18,23 +26,23 @@ const Hero = () => {
       <div className="absolute top-1/4 right-1/4 h-[300px] w-[300px] rounded-full bg-primary/3 blur-[120px] animate-float" />
       <div className="absolute bottom-1/4 left-1/4 h-[250px] w-[250px] rounded-full bg-primary/3 blur-[100px] animate-float" style={{ animationDelay: '2s' }} />
 
-      {/* Animated particles */}
-      <Particles count={50} />
+      {/* Animated particles - load after initial render */}
+      {isReady && <Particles count={50} />}
 
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,215,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,215,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_80%)]" />
 
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-      {/* Screen flash on INSTANTLY slam */}
+      {/* Subtle glow on INSTANTLY slam - no white flash */}
       {!reduced && (
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.15, 0] }}
-          transition={{ duration: 0.15, delay: 0.5, times: [0, 0.5, 1], ease: "easeOut" }}
+          animate={{ opacity: [0, 0.03, 0] }}
+          transition={{ duration: 0.2, delay: 0.5, times: [0, 0.5, 1], ease: "easeOut" }}
           className="pointer-events-none fixed inset-0 z-50"
           style={{
-            background: "linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,215,0,1))",
+            background: "radial-gradient(ellipse at center, rgba(255,215,0,0.4), transparent 70%)",
             mixBlendMode: "screen",
           }}
           aria-hidden
@@ -63,7 +71,7 @@ const Hero = () => {
         </motion.h1>
 
         <motion.div
-          initial={reduced ? false : { scale: 0.3, opacity: 0 }}
+          initial={{ scale: 0.5, opacity: 0 }}
           animate={
             reduced
               ? { scale: 1, opacity: 1 }
@@ -72,7 +80,7 @@ const Hero = () => {
                   opacity: 1,
                   textShadow: [
                     "0 0 0px rgba(255,215,0,0)",
-                    "0 0 80px #FFD700, 0 0 40px #FFD700",
+                    "0 0 60px #FFD700, 0 0 30px #FFD700",
                     "0 0 15px rgba(255,215,0,0.3)",
                   ],
                 }
@@ -81,13 +89,19 @@ const Hero = () => {
             reduced
               ? { duration: 0 }
               : {
-                  scale: { type: "spring", stiffness: 400, damping: 15, delay: 0.35 },
+                  scale: { duration: 0.5, delay: 0.35, ease: [0.34, 1.56, 0.64, 1] },
                   opacity: { duration: 0.4, delay: 0.35, ease: "easeOut" },
-                  textShadow: { duration: 0.6, delay: 0.35, times: [0, 0.5, 1], ease: "easeOut" },
+                  textShadow: { duration: 0.5, delay: 0.35, times: [0, 0.5, 1], ease: "easeOut" },
                 }
           }
           className="mt-1 mx-auto block uppercase tracking-tight text-primary text-center"
-          style={{ fontSize: "clamp(52px, 8vw, 110px)", fontWeight: 900, lineHeight: 1 }}
+          style={{
+            fontSize: "clamp(52px, 8vw, 110px)",
+            fontWeight: 900,
+            lineHeight: 1,
+            willChange: "transform, opacity",
+            opacity: 0
+          }}
         >
           Instantly
         </motion.div>

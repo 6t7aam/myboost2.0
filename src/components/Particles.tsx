@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 
 interface ParticlesProps {
   count?: number;
@@ -6,8 +6,30 @@ interface ParticlesProps {
 }
 
 const Particles = ({ count = 50, className = "" }: ParticlesProps) => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    // Detect mobile devices
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent));
+    };
+
+    // Check for reduced motion preference
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(motionQuery.matches);
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Reduce particle count on mobile
+  const effectiveCount = isMobile ? Math.floor(count / 3) : count;
+
   const particles = useMemo(() => {
-    return Array.from({ length: count }).map((_, i) => {
+    return Array.from({ length: effectiveCount }).map((_, i) => {
       const size = 2 + Math.random() * 2;
       const left = Math.random() * 100;
       const top = Math.random() * 100;
@@ -18,7 +40,12 @@ const Particles = ({ count = 50, className = "" }: ParticlesProps) => {
       const opacity = 0.15 + Math.random() * 0.25;
       return { i, size, left, top, dx, dy, duration, delay, opacity };
     });
-  }, [count]);
+  }, [effectiveCount]);
+
+  // Don't render particles if user prefers reduced motion
+  if (prefersReducedMotion) {
+    return null;
+  }
 
   return (
     <div className={`particles ${className}`} aria-hidden="true">
