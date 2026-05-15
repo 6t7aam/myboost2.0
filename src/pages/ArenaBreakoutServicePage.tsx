@@ -128,7 +128,6 @@ const ArenaBreakoutServicePage = () => {
         }}
       />
       <div className="min-h-screen bg-background">
-        {serviceId === "warlord-tournament" && <div key={serviceId} className="warlord-shimmer" aria-hidden />}
         <Navbar />
 
       {/* Hero */}

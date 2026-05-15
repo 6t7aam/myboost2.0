@@ -9,12 +9,6 @@ const baseTemplate = fs.readFileSync(path.join(__dirname, '../dist/index.html'),
 
 const pages = [
   {
-    path: 'game/arena-breakout/warlord-tournament',
-    title: 'ABI – Warlord Tournament Boost – Arena Breakout: Infinite | MyBoost',
-    description: 'Buy Warlord Tournament boost in Arena Breakout: Infinite. Rank up fast from Recruit to Warlord, boost Warlord stars, and start instantly.',
-    canonical: 'https://www.myboost.top/game/arena-breakout/warlord-tournament'
-  },
-  {
     path: 'game/arena-breakout/koens-farming',
     title: 'ABI – Koens Farming – Arena Breakout: Infinite | MyBoost',
     description: 'Buy Koens farming in Arena Breakout: Infinite. Get rich fast with safe and efficient currency farming service.',

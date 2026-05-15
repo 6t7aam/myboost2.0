@@ -8,7 +8,6 @@ const scrollTargets: Record<string, string> = {
   "/game/arena-breakout/coaching": "#order-card",
   "/game/arena-breakout/rent-a-booster": "#order-card",
   "/game/arena-breakout/titanium-case": "#order-card",
-  "/game/arena-breakout/warlord-tournament": "#order-card",
   "/game/dota-2/mmr-boost": "#order-card",
   "/game/dota-2/lp-removal": "#order-card",
   "/game/dota-2/rank-tokens": "#order-card",
