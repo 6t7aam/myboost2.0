@@ -8,6 +8,7 @@ export interface CartItem {
   gameSlug: string;
   service: string;
   options: Record<string, string>;
+  currency?: string;
   speed: SpeedOption;
   basePrice: number;
   price: number;
@@ -35,7 +36,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useState<CartItem[]>([]);
 
   const addItem = (item: CartItem) => {
-    setItems((prev) => [...prev, { ...item, id: crypto.randomUUID() }]);
+    setItems((prev) => [...prev, { ...item, id: crypto.randomUUID(), currency: item.currency ?? "USD" }]);
   };
 
   const removeItem = (id: string) => {

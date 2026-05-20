@@ -34,21 +34,6 @@ const Hero = () => {
 
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-      {/* Subtle glow on INSTANTLY slam - no white flash */}
-      {!reduced && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.03, 0] }}
-          transition={{ duration: 0.2, delay: 0.5, times: [0, 0.5, 1], ease: "easeOut" }}
-          className="pointer-events-none fixed inset-0 z-50"
-          style={{
-            background: "radial-gradient(ellipse at center, rgba(255,215,0,0.4), transparent 70%)",
-            mixBlendMode: "screen",
-          }}
-          aria-hidden
-        />
-      )}
-
       <div className="container relative z-10 mx-auto px-4 text-center">
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 10 }}
@@ -61,8 +46,8 @@ const Hero = () => {
         </motion.div>
 
         <motion.h1
-          initial={reduced ? false : { opacity: 0, y: 20, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={reduced ? false : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mx-auto max-w-5xl uppercase leading-[1.05] tracking-tight text-foreground text-center"
           style={{ fontSize: "clamp(36px, 6vw, 80px)", fontWeight: 900 }}
@@ -71,17 +56,17 @@ const Hero = () => {
         </motion.h1>
 
         <motion.div
-          initial={{ scale: 0.5, opacity: 0 }}
+          initial={reduced ? false : { y: 16, opacity: 0 }}
           animate={
             reduced
-              ? { scale: 1, opacity: 1 }
+              ? { y: 0, opacity: 1 }
               : {
-                  scale: 1,
+                  y: 0,
                   opacity: 1,
                   textShadow: [
                     "0 0 0px rgba(255,215,0,0)",
-                    "0 0 60px #FFD700, 0 0 30px #FFD700",
-                    "0 0 15px rgba(255,215,0,0.3)",
+                    "0 0 18px rgba(255,215,0,0.18)",
+                    "0 0 8px rgba(255,215,0,0.12)",
                   ],
                 }
           }
@@ -89,7 +74,7 @@ const Hero = () => {
             reduced
               ? { duration: 0 }
               : {
-                  scale: { duration: 0.5, delay: 0.35, ease: [0.34, 1.56, 0.64, 1] },
+                  y: { duration: 0.5, delay: 0.35, ease: [0.34, 1.56, 0.64, 1] },
                   opacity: { duration: 0.4, delay: 0.35, ease: "easeOut" },
                   textShadow: { duration: 0.5, delay: 0.35, times: [0, 0.5, 1], ease: "easeOut" },
                 }
@@ -99,7 +84,6 @@ const Hero = () => {
             fontSize: "clamp(52px, 8vw, 110px)",
             fontWeight: 900,
             lineHeight: 1,
-            willChange: "transform, opacity",
             opacity: 0
           }}
         >

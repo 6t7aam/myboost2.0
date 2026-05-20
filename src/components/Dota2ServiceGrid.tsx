@@ -5,7 +5,7 @@ import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, ArrowRight, CheckCircle, Star, Zap } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, Check, Star, Zap } from "lucide-react";
 import { GameConfig } from "@/data/gameConfigs";
 import { useCountUp } from "@/hooks/useCountUp";
 
@@ -79,7 +79,7 @@ const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
               <Link key={service.id} to={`/game/dota-2/${service.id}`} className="group">
                 <Card
                   className="service-card-hover relative h-full overflow-hidden border-border/50 bg-card hover:glow-border"
-                  style={{ minHeight: '380px' }}
+                  style={{ minHeight: '460px' }}
                 >
                   {service.tag && (
                     <Badge className="badge-shimmer absolute top-3 right-3 z-10 border-none text-sm font-bold uppercase backdrop-blur-sm px-3 py-1">
@@ -105,7 +105,17 @@ const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
                       {service.name}
                     </h3>
                     <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">{service.description}</p>
-                    <p className="mt-2 text-base font-bold text-primary">{service.startPrice}</p>
+                    {service.bullets && service.bullets.length > 0 && (
+                      <ul className="mt-3 space-y-1.5">
+                        {service.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-start gap-2 text-xs text-muted-foreground">
+                            <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    <p className="mt-3 text-base font-bold text-primary">{service.startPrice}</p>
                     <Button
                       className="btn-yellow view-service-btn mt-3 w-full gap-2 rounded-lg glow-box font-bold uppercase tracking-wider transition-all duration-200 group-hover:glow-box-intense"
                       size="default"

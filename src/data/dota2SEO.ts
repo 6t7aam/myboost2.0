@@ -159,5 +159,112 @@ export const dota2SEO: Record<string, ServiceSEO> = {
       <h2>Start Your Token Farming Today</h2>
       <p>Don't waste another day grinding for rank tokens manually. Our Dota 2 rank tokens farming service delivers fast, safe, and guaranteed token collection at competitive prices. With Immortal players, real-time progress updates, and custom token amounts, you can trust us to handle your token farming efficiently. Order now and unlock your desired rank today.</p>
     `
+  },
+  "calibration-boost": {
+    metaTitle: "Dota 2 Calibration Boost - Secure Top MMR Placement | MyBoost",
+    metaDescription: "Buy Dota 2 calibration boost from Immortal players. Complete all calibration matches and lock in the highest possible MMR placement. Safe, fast, guaranteed.",
+    h1: "Dota 2 Calibration Boost - Top MMR Placement Service",
+    content: `
+      <p>Make every Dota 2 calibration match count. Our professional calibration boost service is powered by Immortal-ranked players who specialize in maximizing initial MMR placement. Whether you're starting a fresh account or returning to ranked after a long break, our boosters secure the best possible calibrated rank so you don't waste months climbing the ladder.</p>
+
+      <h2>Why Calibration Matters in Dota 2</h2>
+      <p>Calibration matches determine your starting MMR for an entire season. A poor calibration can leave you stuck hundreds of MMR below your true skill level, forcing you to grind extra games to recover. Our Dota 2 calibration boost ensures you start the season at the highest realistic MMR for your account, giving you a competitive edge from day one.</p>
+
+      <h2>Immortal Boosters for Every Calibration Game</h2>
+      <p>Each calibration match is handled by an Immortal-ranked player with thousands of ranked games of experience. They know which heroes to pick to maximize MVP impact, how to read the matchmaking system, and how to consistently win calibration games against unpredictable opponents. This expertise translates directly into a higher calibrated MMR for you.</p>
+
+      <h2>Up to 30 Calibration Matches Available</h2>
+      <p>Our service covers the full set of calibration games required by Dota 2's ranked system. You choose how many matches you need completed — from a single placement game all the way up to 30 matches for full role calibration. Pricing scales linearly so you pay only for what you need.</p>
+
+      <h2>Safe Account Handling</h2>
+      <p>Every Dota 2 calibration boost order includes enterprise-grade VPN protection matched to your region. We never use scripts, bots, or any prohibited software — just pure skill. With thousands of completed boosts and zero account bans, your account security is guaranteed throughout the entire calibration process.</p>
+
+      <h2>Affordable Pricing - From $3 Per Match</h2>
+      <p>Our calibration boost starts at just $3 per match — the most competitive rate in the industry for Immortal-tier play. No hidden fees, no surprises. Use our calculator to get an instant quote for your specific calibration goals.</p>
+
+      <h2>Fast Start, Steady Delivery</h2>
+      <p>Your calibration boost begins within 15 minutes of order confirmation. Most orders complete within 24-72 hours depending on the number of matches selected. You'll receive real-time updates after each game and can track every match from your dashboard.</p>
+
+      <h2>24/7 Customer Support</h2>
+      <p>Questions about your Dota 2 calibration boost? Our support team is available around the clock via live chat. Every order comes with a satisfaction guarantee — if you're not happy with the placement, we'll make it right.</p>
+    `
+  },
+  "behavior-score-boost": {
+    metaTitle: "Dota 2 Behavior Score Boost - Reach 12k Score Fast | MyBoost",
+    metaDescription: "Buy Dota 2 behavior score boost. Recover from low behavior, reach 12,000 score, and unlock full matchmaking access. Safe, reliable, ban-free service.",
+    h1: "Dota 2 Behavior Score Boost - Fast Recovery Service",
+    content: `
+      <p>Stuck with a low Dota 2 behavior score? Long queue times, toxic matchmaking pools, and locked features can ruin your experience. Our professional behavior score boost service quickly raises your score back to 12,000 — restoring full matchmaking access and unlocking the normal Dota 2 experience again.</p>
+
+      <h2>Why Behavior Score Matters</h2>
+      <p>Behavior score affects almost every part of Dota 2 ranked play. A low score means longer queues, worse teammates, restricted voice chat, and reduced ranked rewards. Climbing back to 12k behavior score manually can take dozens of clean games — often hundreds of hours of play. Our service skips that grind safely.</p>
+
+      <h2>Any Starting Score Supported</h2>
+      <p>Whether your behavior score is at 9,000 or all the way down at 1,000, our boosters can recover it. We handle even the lowest-score accounts where matchmaking is nearly unplayable, using a careful approach that consistently raises your score every game.</p>
+
+      <h2>Reach 12,000 Behavior Score</h2>
+      <p>We aim for the maximum 12,000 behavior score — the threshold that unlocks all matchmaking features. Once complete, you'll be paired with normal-behavior teammates, queue times return to normal, and your overall Dota 2 experience improves dramatically.</p>
+
+      <h2>Safe, Ban-Free Method</h2>
+      <p>Our behavior score boost uses 100% legitimate play — no exploits, no scripts, no risky third-party tools. Boosters connect through VPN protection in your region, play during your typical hours, and maintain natural account behavior. Thousands of completed boosts, zero bans.</p>
+
+      <h2>Affordable Pricing - From $5</h2>
+      <p>Pricing scales with how much score you need to recover. The further from 12,000 you start, the more games are needed — but our per-step pricing keeps it affordable. Use the calculator to get an instant quote.</p>
+
+      <h2>24/7 Customer Support</h2>
+      <p>Questions about your Dota 2 behavior score boost? Our support team is available around the clock. Every order comes with a satisfaction guarantee — if anything goes wrong, we make it right.</p>
+    `
+  },
+  "win-rate-boost": {
+    metaTitle: "Dota 2 Win Rate Boost - Buy Wins from Immortal Players | MyBoost",
+    metaDescription: "Boost your Dota 2 win rate fast. Choose the number of wins, play or spectate, and let Immortal players carry you. Safe, reliable, professional service.",
+    h1: "Dota 2 Win Rate Boost - Professional Wins Service",
+    content: `
+      <p>Improve your Dota 2 win rate without endless grinding. Our professional win rate boost service is powered by Immortal-ranked players who consistently dominate ranked matches. Choose the exact number of wins you want, pick whether you play or spectate, and watch your win rate climb fast.</p>
+
+      <h2>Why Choose Our Win Rate Boost?</h2>
+      <p>Your win rate affects how matchmaking sees you, how teammates respect you, and how fast you progress in ranked. Building a healthy win rate manually can take hundreds of games. Our Dota 2 win rate boost gives you guaranteed wins from elite players — turning a losing streak into a winning record in days, not months.</p>
+
+      <h2>Play or Spectate - Your Choice</h2>
+      <p>We support both solo boosting (booster plays on your account) and duo boosting (you play alongside an Immortal carry). The duo option is perfect if you want to keep your hands on the keyboard and learn from a top-tier teammate while still securing wins. Solo is the fastest method for pure win rate gains.</p>
+
+      <h2>Choose the Exact Number of Wins</h2>
+      <p>Our calculator lets you pick from a single win all the way up to 50+ wins. Need 5 quick wins to recover from a losing streak? Done. Want to push for 25 wins to dramatically improve your overall record? We handle that too. Pricing is per win, so you pay only for what you need.</p>
+
+      <h2>Elite Immortal Boosters Only</h2>
+      <p>Every win is delivered by an Immortal-ranked player. These boosters maintain exceptional personal win rates across all brackets and have the mechanical skill and game sense to carry matches consistently. You're not getting just any wins — you're getting wins from the best players in the game.</p>
+
+      <h2>Safe & Secure - From $3 Per Win</h2>
+      <p>Our service starts at just $3 per win with full VPN protection, secure login protocols, and a zero-ban track record across thousands of completed orders. Transparent pricing, no hidden fees, fast start within 15 minutes of order.</p>
+
+      <h2>24/7 Customer Support</h2>
+      <p>Questions about your Dota 2 win rate boost? Our support team is available around the clock via live chat. Every order comes with a satisfaction guarantee.</p>
+    `
+  },
+  "battle-cup": {
+    metaTitle: "Dota 2 Battle Cup Boost - Win the Weekend Tournament | MyBoost",
+    metaDescription: "Win your Dota 2 Battle Cup with Immortal players. Trophies, effigies, and tier rewards guaranteed. Skip random groups and dominate the weekend tournament.",
+    h1: "Dota 2 Battle Cup Boost - Weekend Tournament Win Service",
+    content: `
+      <p>Want to win Dota 2's Battle Cup but tired of getting stuck with random groups that bow out in the first round? Our Battle Cup boost service stacks your team with experienced Immortal players who know exactly how to navigate the weekend tournament bracket and bring home the trophy.</p>
+
+      <h2>Win the Weekend Battle Cup</h2>
+      <p>Battle Cup is Dota 2's weekend tournament mode — single-elimination, party-based, with real rewards on the line. Winning earns you the trophy, the effigy, and tier-based cosmetic upgrades. Our Dota 2 Battle Cup boost guarantees you the win so you walk away with all the rewards every weekend.</p>
+
+      <h2>Skip Random Groups</h2>
+      <p>The hardest part of Battle Cup is finding a coordinated team. Random pickup groups often abandon the tournament after a single loss, leaving you with nothing. Our boost service replaces that frustration with a full team of Immortal players who communicate, coordinate, and play to win every round.</p>
+
+      <h2>Trophy, Effigy, and Tier Rewards</h2>
+      <p>Winning the Battle Cup unlocks the seasonal trophy, an effigy you can plant on the map, and tier rewards that scale based on consecutive wins. With our boost, every reward is locked in. Plus, with each consecutive cup win, your tier progresses for even bigger cosmetic upgrades.</p>
+
+      <h2>Experienced Tournament Players</h2>
+      <p>Battle Cup play is different from regular ranked. Drafts matter more, early game decisions are critical, and tournament pressure punishes mistakes. Our boosters are specifically chosen for their Battle Cup experience and tournament-style play. They've won dozens of cups and know every meta cheese pick.</p>
+
+      <h2>Safe, Fast, Affordable - From $3</h2>
+      <p>Our Battle Cup boost starts at just $3 per cup. Full VPN protection, secure login, and a zero-ban track record. Most boosts complete during the next available Battle Cup weekend.</p>
+
+      <h2>24/7 Customer Support</h2>
+      <p>Questions about your Dota 2 Battle Cup boost? Our support team is available around the clock. Every order comes with a satisfaction guarantee — no win, no charge.</p>
+    `
   }
 };

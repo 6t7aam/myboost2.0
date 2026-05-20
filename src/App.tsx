@@ -58,7 +58,7 @@ const AnimatedRoutes = () => {
         initial="initial"
         animate="animate"
         exit="exit"
-        style={{ willChange: "transform, opacity, filter" }}
+        style={{ willChange: "transform, opacity" }}
       >
         <Routes location={location}>
           <Route path="/" element={<Index />} />

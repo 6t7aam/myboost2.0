@@ -8,14 +8,14 @@
 .logo {
   height: 6em;
   padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  will-change: auto;
+  transition: box-shadow 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  box-shadow: 0 0 0.75rem #646cff66;
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  box-shadow: 0 0 0.75rem #61dafb66;
 }
 
 @keyframes logo-spin {

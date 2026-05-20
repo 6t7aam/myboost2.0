@@ -1,32 +1,197 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import StructuredData from "@/components/StructuredData";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, CheckCircle, Star, Zap } from "lucide-react";
 import { gameConfigs } from "@/data/gameConfigs";
 import { dota2SEO } from "@/data/dota2SEO";
-import ServiceConfigurator, { OrderSummary } from "@/components/ServiceConfigurator";
-import { useCart } from "@/contexts/CartContext";
-import { toast } from "sonner";
+import Dota2ServiceLayout from "@/components/dota2/Dota2ServiceLayout";
+import Dota2SimpleOrderForm from "@/components/dota2/Dota2SimpleOrderForm";
+import Dota2DualRangeOrderForm from "@/components/dota2/Dota2DualRangeOrderForm";
+import { BATTLE_CUP_TIERS, BATTLE_CUP_ROLES } from "@/data/dota2ServicePricing";
+
+interface ExtrasDropdownProps {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  options: { id: string; label: string }[];
+  tooltip?: string;
+}
+
+const ExtrasDropdown = ({ label, value, onChange, options }: ExtrasDropdownProps) => (
+  <div>
+    <label className="text-xs font-bold uppercase text-foreground">{label}</label>
+    <select
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className="mt-2 w-full rounded-lg border border-[rgba(255,215,0,0.3)] bg-[#111] px-3 py-2.5 text-sm text-white transition-colors hover:border-[rgba(255,215,0,0.8)] focus:border-primary focus:outline-none"
+    >
+      {options.map((o) => (
+        <option key={o.id} value={o.id} className="bg-[#111] text-white">
+          {o.label}
+        </option>
+      ))}
+    </select>
+  </div>
+);
+
+/* -------------------------------------------------------------------------- */
+/*  Battle Cup form — tier + role + region in extras, flatAdder = tier price  */
+/* -------------------------------------------------------------------------- */
+const BattleCupOrderForm = () => {
+  const [tier, setTier] = useState(BATTLE_CUP_TIERS[0].id);
+  const [role, setRole] = useState("hard-support");
+  const [region, setRegion] = useState<"EU" | "NA">("EU");
+
+  const tierConfig = BATTLE_CUP_TIERS.find((t) => t.id === tier) ?? BATTLE_CUP_TIERS[0];
+
+  return (
+    <Dota2SimpleOrderForm
+      serviceId="battle-cup"
+      serviceName="Battle Cup"
+      orderTitle="Order Battle Cup"
+      sliderLabel="Amount"
+      unitSingular="cup"
+      unitPlural="cups"
+      min={1}
+      max={5}
+      step={1}
+      defaultValue={1}
+      pricePerUnit={3}
+      estimatedTimeFor={() => "Next weekend tournament window"}
+      flatAdder={(quantity) => quantity * tierConfig.adder}
+      extraCartFields={{ tier, role, region }}
+      extrasAbove={
+        <>
+          <div>
+            <label className="text-xs font-bold uppercase text-foreground">Region</label>
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              {(["EU", "NA"] as const).map((r) => (
+                <button
+                  key={r}
+                  onClick={() => setRegion(r)}
+                  className={`rounded-lg border py-2.5 px-2 text-sm font-bold uppercase transition-colors ${
+                    region === r
+                      ? "bg-[#FFD700] text-black border-[#FFD700]"
+                      : "bg-[#111] text-white border-[rgba(255,215,0,0.3)] hover:border-[rgba(255,215,0,0.8)]"
+                  }`}
+                >
+                  {r}
+                </button>
+              ))}
+            </div>
+          </div>
+          <ExtrasDropdown
+            label="Tier option"
+            value={tier}
+            onChange={setTier}
+            options={BATTLE_CUP_TIERS.map((t) => ({
+              id: t.id,
+              label: `${t.label}  (+$${t.adder.toFixed(2)})`,
+            }))}
+          />
+          <ExtrasDropdown
+            label="Role option"
+            value={role}
+            onChange={setRole}
+            options={BATTLE_CUP_ROLES}
+          />
+        </>
+      }
+    />
+  );
+};
+
+/* -------------------------------------------------------------------------- */
+/*  Service router                                                             */
+/* -------------------------------------------------------------------------- */
+const renderOrderForm = (serviceId: string) => {
+  switch (serviceId) {
+    case "calibration-boost":
+      return (
+        <Dota2SimpleOrderForm
+          serviceId="calibration-boost"
+          serviceName="Calibration Boost"
+          orderTitle="Order Calibration"
+          sliderLabel="Amount"
+          unitSingular="match"
+          unitPlural="matches"
+          min={1}
+          max={30}
+          step={1}
+          defaultValue={10}
+          pricePerUnit={3}
+          estimatedTimeFor={(q) => `${q * 2}-${q * 3} hours`}
+        />
+      );
+    case "behavior-score-boost":
+      return (
+        <Dota2DualRangeOrderForm
+          serviceId="behavior-score-boost"
+          serviceName="Behavior Score Boost"
+          orderTitle="Order Behavior Boost"
+          chooserLabel="Choose your current and desired score"
+          currentLabel="Current Score"
+          desiredLabel="Desired Score"
+          unitLabel="score"
+          min={0}
+          max={12000}
+          step={100}
+          defaultCurrent={6500}
+          defaultDesired={7400}
+          calculateBasePrice={(current, desired) => ((desired - current) / 1000) * 5}
+          differenceSummary={(difference) => `+${difference.toLocaleString("en-US")} score`}
+          selectionSummary={(current, desired) =>
+            `${current.toLocaleString("en-US")} -> ${desired.toLocaleString("en-US")} score`
+          }
+          rateDescription="$5.00 per 1,000 behavior score with live calculator updates"
+          estimatedTimeFor={() => "24-72 hours"}
+        />
+      );
+    case "win-rate-boost":
+      return (
+        <Dota2SimpleOrderForm
+          serviceId="win-rate-boost"
+          serviceName="Win Rate Boost"
+          orderTitle="Order Win Rate"
+          sliderLabel="Amount"
+          unitSingular="win"
+          unitPlural="wins"
+          min={1}
+          max={50}
+          step={1}
+          defaultValue={5}
+          pricePerUnit={3}
+          estimatedTimeFor={(q) => `${q}-${q * 24} hours`}
+        />
+      );
+    case "battle-cup":
+      return <BattleCupOrderForm />;
+    default:
+      return null;
+  }
+};
 
 const Dota2ServicePage = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
   const config = gameConfigs["dota-2"];
   const service = config.services.find((s) => s.id === serviceId);
   const seoData = serviceId ? dota2SEO[serviceId] : null;
-  const { addItem } = useCart();
 
-  if (!service || !seoData) {
+  const orderForm = serviceId ? renderOrderForm(serviceId) : null;
+
+  if (!service || !seoData || !serviceId || !orderForm) {
     return (
       <div className="flex min-h-screen flex-col bg-background">
         <Navbar />
         <div className="flex flex-1 items-center justify-center pt-16">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-foreground">Service Not Found</h1>
-            <Link to="/game/dota-2"><Button className="mt-4">Back to Dota 2</Button></Link>
+            <Link to="/game/dota-2">
+              <Button className="mt-4">Back to Dota 2</Button>
+            </Link>
           </div>
         </div>
         <Footer />
@@ -45,21 +210,6 @@ const Dota2ServicePage = () => {
       if (m) return parseFloat(m[0]);
     }
     return 0;
-  };
-
-  const handleAddToCart = (order: OrderSummary) => {
-    addItem({
-      id: "",
-      game: order.game,
-      gameSlug: order.gameSlug,
-      service: order.service,
-      options: order.options,
-      speed: order.speed,
-      basePrice: order.basePrice,
-      price: order.price,
-      estimatedTime: order.estimatedTime,
-    });
-    toast.success(`${order.service} added to cart!`);
   };
 
   return (
@@ -86,154 +236,58 @@ const Dota2ServicePage = () => {
             areaServed: 'Worldwide',
             shippingDetails: {
               '@type': 'OfferShippingDetails',
-              shippingRate: {
-                '@type': 'MonetaryAmount',
-                value: '0',
-                currency: 'USD'
-              },
+              shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'USD' },
               shippingDestination: {
                 '@type': 'DefinedRegion',
-                addressCountry: ['US','GB','CA','AU','DE','FR','IT','ES','NL','SE','NO','FI','DK','PL','BR','MX','JP','KR','RU','UA','PT','IE','BE','AT','CH','CZ','RO','HU','GR','TR','ZA','AR','CL','NZ','SG','HK','TW','PH','MY','TH','ID','VN','IN','AE','SA','IL']
+                addressCountry: ['US','GB','CA','AU','DE','FR','IT','ES','NL','SE','NO','FI','DK','PL','BR','MX','JP','KR','RU','UA','PT','IE','BE','AT','CH','CZ','RO','HU','GR','TR','ZA','AR','CL','NZ','SG','HK','TW','PH','MY','TH','ID','VN','IN','AE','SA','IL'],
               },
               deliveryTime: {
                 '@type': 'ShippingDeliveryTime',
-                handlingTime: {
-                  '@type': 'QuantitativeValue',
-                  minValue: 0,
-                  maxValue: 0,
-                  unitCode: 'h'
-                },
-                transitTime: {
-                  '@type': 'QuantitativeValue',
-                  minValue: 0,
-                  maxValue: 1,
-                  unitCode: 'h'
-                }
-              }
+                handlingTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 0, unitCode: 'h' },
+                transitTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 1, unitCode: 'h' },
+              },
             },
             hasMerchantReturnPolicy: {
               '@type': 'MerchantReturnPolicy',
               applicableCountry: ['US','GB','CA','AU','DE','FR','IT','ES','NL','SE','NO','FI','DK','PL','BR','MX','JP','KR','RU','UA','PT','IE','BE','AT','CH','CZ','RO','HU','GR','TR','ZA','AR','CL','NZ','SG','HK','TW','PH','MY','TH','ID','VN','IN','AE','SA','IL'],
               returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
-              returnMethod: 'https://schema.org/ReturnByMail'
-            }
+              returnMethod: 'https://schema.org/ReturnByMail',
+            },
           },
           aggregateRating: {
             '@type': 'AggregateRating',
             ratingValue: 4.8,
             reviewCount: 1800,
             bestRating: 5,
-            worstRating: 1
-          }
+            worstRating: 1,
+          },
         }}
       />
-      <div className="min-h-screen bg-background">
-        <Navbar />
 
-      {/* Hero */}
-      <section className="relative flex items-end overflow-hidden pt-16">
-        <div className="absolute inset-0">
-          <img
-            src={service.image || config.image}
-            alt={service.name}
-            className="h-full w-full object-cover opacity-20"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.src = config.image;
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/50" />
-        </div>
-        <div className="container relative z-10 mx-auto px-4 py-16 md:py-24">
-          <Link to="/game/dota-2" className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-border/50 bg-card/50 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm transition-colors hover:border-primary/50 hover:text-primary">
-            <ArrowLeft className="h-3.5 w-3.5" /> Back to Dota 2
-          </Link>
-          <div className="flex items-center gap-3">
-            <h1 className="text-3xl font-black uppercase tracking-tight text-foreground md:text-5xl">
-              {service.name}
-            </h1>
-            {service.tag && (
-              <Badge className="border-none bg-primary/20 text-xs font-bold uppercase text-primary">
-                {service.tag}
-              </Badge>
-            )}
-          </div>
-          <p className="mt-3 max-w-2xl text-muted-foreground">{service.description}</p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            {[
-              { icon: CheckCircle, value: config.stats.orders, label: "orders" },
-              { icon: Star, value: config.stats.rating, label: "rating", fill: true },
-              { icon: Zap, value: service.estimatedTime, label: "delivery" },
-            ].map(({ icon: Icon, value, label, fill }) => (
-              <div key={label} className="flex items-center gap-2 rounded-lg border border-border/50 bg-card/50 px-3 py-1.5 text-sm backdrop-blur-sm">
-                <Icon className={`h-4 w-4 text-primary ${fill ? "fill-primary" : ""}`} />
-                <span className="font-semibold text-foreground">{value}</span>
-                <span className="text-muted-foreground">{label}</span>
+      <Dota2ServiceLayout
+        serviceId={serviceId}
+        imageSrc={service.image || config.image}
+        intro={service.description}
+        belowLayout={
+          <section className="py-12 bg-secondary/30">
+            <div className="container mx-auto px-4">
+              <div className="mx-auto max-w-4xl">
+                <article className="prose prose-invert max-w-none">
+                  <h2 className="text-2xl font-black uppercase tracking-tight text-foreground md:text-3xl mb-6">
+                    {seoData.h1}
+                  </h2>
+                  <div
+                    className="text-muted-foreground space-y-4"
+                    dangerouslySetInnerHTML={{ __html: seoData.content }}
+                  />
+                </article>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Configurator */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start">
-            {/* Service Image */}
-            <div className="relative overflow-hidden rounded-2xl border-2 border-primary/30 bg-secondary/30 shadow-[0_0_30px_hsl(48_100%_50%_/_0.15)]">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={service.image || config.image}
-                  alt={service.name}
-                  className="h-full w-full object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%23111'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='32' fill='%23ffd700'%3E" + service.name + "%3C/text%3E%3C/svg%3E";
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
-              </div>
-              {service.tag && (
-                <div className="absolute top-4 right-4">
-                  <Badge className="border-none bg-primary/90 text-sm font-bold uppercase text-background px-3 py-1.5 shadow-lg">
-                    {service.tag}
-                  </Badge>
-                </div>
-              )}
             </div>
-
-            {/* Configurator */}
-            <div className="rounded-2xl border border-border/50 bg-card p-6 md:p-8">
-              <ServiceConfigurator
-                service={service}
-                gameSlug="dota-2"
-                gameTitle={config.title}
-                onAddToCart={handleAddToCart}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SEO Content */}
-      <section className="py-12 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl">
-            <article className="prose prose-invert max-w-none">
-              <h1 className="text-3xl font-black uppercase tracking-tight text-foreground mb-6">
-                {seoData.h1}
-              </h1>
-              <div
-                className="text-muted-foreground space-y-4"
-                dangerouslySetInnerHTML={{ __html: seoData.content }}
-              />
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-      </div>
+          </section>
+        }
+      >
+        {orderForm}
+      </Dota2ServiceLayout>
     </>
   );
 };

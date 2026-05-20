@@ -43,7 +43,16 @@
       "Bash(npx tsc *)",
       "Bash(git reset *)",
       "Bash(bun run *)",
-      "Bash(git restore *)"
+      "Bash(git restore *)",
+      "Bash(curl -s https://www.myboost.top)",
+      "PowerShell(Get-ChildItem -Path \"games\" -Recurse -Directory | Where-Object { $_.Name -eq \"warlord-tournament\" } | Select-Object FullName)",
+      "PowerShell(Get-ChildItem -Recurse -Directory | Where-Object { $_.Name -match \"arena\" } | Select-Object FullName)",
+      "PowerShell(Select-String *)",
+      "PowerShell(Stop-Process *)",
+      "PowerShell(git push *)",
+      "Bash(npx eslint *)",
+      "Bash(npx vite *)",
+      "Bash(echo \"EXIT=$?\")"
     ]
   }
 }

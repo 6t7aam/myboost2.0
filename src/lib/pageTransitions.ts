@@ -5,34 +5,30 @@ const ease = [0.25, 0.46, 0.45, 0.94] as const;
 const make = (s: number): Record<string, Variants> => ({
   // Generic: subtle slide up + unblur. Used as fallback.
   generic: {
-    initial: { opacity: 0, y: 30, filter: "blur(8px)" },
+    initial: { opacity: 0, y: 30 },
     animate: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
       transition: { duration: 0.4 * s, ease },
     },
     exit: {
       opacity: 0,
       y: -20,
-      filter: "blur(4px)",
       transition: { duration: 0.25 * s, ease: "easeIn" },
     },
   },
 
   // Home: confident vertical entry; scale down + blur on exit.
   home: {
-    initial: { opacity: 0, y: 30, filter: "blur(8px)" },
+    initial: { opacity: 0, y: 30 },
     animate: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
       transition: { duration: 0.4 * s, ease, when: "beforeChildren", staggerChildren: 0.04 },
     },
     exit: {
       opacity: 0,
-      scale: 0.95,
-      filter: "blur(6px)",
+      y: -12,
       transition: { duration: 0.25 * s, ease: "easeIn" },
     },
   },
@@ -54,11 +50,10 @@ const make = (s: number): Record<string, Variants> => ({
 
   // ABI grid: tactical lift + slide left on exit.
   abiGrid: {
-    initial: { opacity: 0, y: 30, filter: "blur(6px)" },
+    initial: { opacity: 0, y: 30 },
     animate: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
       transition: { duration: 0.4 * s, ease },
     },
     exit: {
@@ -79,7 +74,7 @@ const make = (s: number): Record<string, Variants> => ({
     },
     exit: {
       opacity: 0,
-      scale: 0.97,
+      y: -8,
       transition: { duration: 0.3 * s, ease: "easeIn" },
     },
   },

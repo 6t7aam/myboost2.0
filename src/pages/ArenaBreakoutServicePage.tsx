@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, CheckCircle, Star, Zap } from "lucide-react";
 import { gameConfigs } from "@/data/gameConfigs";
 import { arenaBreakoutSEO } from "@/data/arenaBreakoutSEO";
+import ServiceCategorySidebar from "@/components/ServiceCategorySidebar";
 import ServiceConfigurator, { OrderSummary } from "@/components/ServiceConfigurator";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
@@ -178,7 +179,9 @@ const ArenaBreakoutServicePage = () => {
       {/* Configurator */}
       <section className="py-12">
         <div className="container mx-auto px-4">
-          <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start">
+          <div className="grid gap-10 min-[900px]:grid-cols-[260px_minmax(0,1fr)_minmax(0,1.2fr)] min-[900px]:items-start">
+            <ServiceCategorySidebar />
+
             {/* Service Image */}
             <div className="relative overflow-hidden rounded-2xl border-2 border-primary/30 bg-secondary/30 shadow-[0_0_30px_hsl(48_100%_50%_/_0.15)]">
               <div className="relative aspect-[4/3] overflow-hidden">
