@@ -12,6 +12,7 @@ interface ServiceConfiguratorProps {
   gameSlug: string;
   gameTitle: string;
   onAddToCart: (order: OrderSummary) => void;
+  hideHeader?: boolean;
 }
 
 export interface OrderSummary {
@@ -19,11 +20,22 @@ export interface OrderSummary {
   gameSlug: string;
   service: string;
   options: Record<string, string>;
+  currency?: string;
+  boostMethod?: string;
+  additionalFeatures?: {
+    liveStream: boolean;
+  };
+  modifiers?: {
+    boostMethodModifier: number;
+    liveStreamModifier: number;
+  };
   basePrice: number;
   price: number;
   speed: SpeedOption;
   estimatedTime: string;
 }
+
+type ArenaBoostMethod = "piloted" | "self-play-party";
 
 const speedOptions: { value: SpeedOption; label: string; multiplier: number }[] = [
   { value: "normal", label: "Normal", multiplier: 1 },
@@ -31,13 +43,21 @@ const speedOptions: { value: SpeedOption; label: string; multiplier: number }[] 
   { value: "super-express", label: "⚡ Super Express", multiplier: 1.3 },
 ];
 
-const ServiceConfigurator = ({ service, gameSlug, gameTitle, onAddToCart }: ServiceConfiguratorProps) => {
+const ServiceConfigurator = ({
+  service,
+  gameSlug,
+  gameTitle,
+  onAddToCart,
+  hideHeader = false,
+}: ServiceConfiguratorProps) => {
   const [quantity, setQuantity] = useState(service.defaultValue || 1);
   const [selectedMap, setSelectedMap] = useState(service.maps?.[0] || "");
   const [selectedMode, setSelectedMode] = useState(service.modes?.[0]?.name || "");
   const [currentElo, setCurrentElo] = useState(service.min || 0);
   const [desiredElo, setDesiredElo] = useState((service.min || 0) + (service.step || 100) * 4);
   const [speed, setSpeed] = useState<SpeedOption>("normal");
+  const [boostMethod, setBoostMethod] = useState<ArenaBoostMethod>("piloted");
+  const [liveStream, setLiveStream] = useState(false);
   const [resourceQuantities, setResourceQuantities] = useState<Record<string, number>>(
     () => {
       const map: Record<string, number> = {};
@@ -89,7 +109,19 @@ const ServiceConfigurator = ({ service, gameSlug, gameTitle, onAddToCart }: Serv
 
   const basePrice = calculateBasePrice();
   const speedMultiplier = speedOptions.find((s) => s.value === speed)?.multiplier || 1;
-  const price = basePrice * speedMultiplier;
+  const showArenaBoostOptions =
+    gameSlug === "arena-breakout" &&
+    service.id !== "coaching" &&
+    ["koens-farming", "raids-boost", "titanium-case", "rent-a-booster"].includes(service.id);
+  const boostMethodModifier =
+    showArenaBoostOptions && boostMethod === "self-play-party"
+      ? service.id === "titanium-case"
+        ? 1
+        : 0.3
+      : 0;
+  const liveStreamModifier = showArenaBoostOptions && liveStream ? 0.3 : 0;
+  const priceAfterSpeed = basePrice * speedMultiplier;
+  const price = priceAfterSpeed * (1 + boostMethodModifier + liveStreamModifier);
 
   const clamp = (val: number, min: number, max: number) => Math.min(Math.max(val, min), max);
 
@@ -113,11 +145,30 @@ const ServiceConfigurator = ({ service, gameSlug, gameTitle, onAddToCart }: Serv
     if (speed !== "normal") {
       options["Speed"] = speedOptions.find((s) => s.value === speed)?.label || "";
     }
+    if (showArenaBoostOptions) {
+      options["Boost method"] = boostMethod === "piloted" ? "Piloted" : "Self-play / Party";
+      options["Live stream"] = liveStream ? "Enabled" : "Disabled";
+      options["Boost method modifier"] = `+${Math.round(boostMethodModifier * 100)}%`;
+      options["Live stream modifier"] = `+${Math.round(liveStreamModifier * 100)}%`;
+    }
     onAddToCart({
       game: gameTitle,
       gameSlug,
       service: service.name,
       options,
+      currency: "USD",
+      boostMethod: showArenaBoostOptions
+        ? boostMethod === "piloted"
+          ? "Piloted"
+          : "Self-play / Party"
+        : undefined,
+      additionalFeatures: showArenaBoostOptions ? { liveStream } : undefined,
+      modifiers: showArenaBoostOptions
+        ? {
+            boostMethodModifier,
+            liveStreamModifier,
+          }
+        : undefined,
       basePrice,
       price,
       speed,
@@ -128,15 +179,17 @@ const ServiceConfigurator = ({ service, gameSlug, gameTitle, onAddToCart }: Serv
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <div className="flex items-center gap-3">
-          <h3 className="text-xl font-bold text-foreground">{service.name}</h3>
-          {service.tag && (
-            <Badge className="border-none bg-primary/20 text-xs font-bold uppercase text-primary">{service.tag}</Badge>
-          )}
+      {!hideHeader ? (
+        <div>
+          <div className="flex items-center gap-3">
+            <h3 className="text-xl font-bold text-foreground">{service.name}</h3>
+            {service.tag && (
+              <Badge className="border-none bg-primary/20 text-xs font-bold uppercase text-primary">{service.tag}</Badge>
+            )}
+          </div>
+          <p className="mt-1 text-sm text-muted-foreground">{service.description}</p>
         </div>
-        <p className="mt-1 text-sm text-muted-foreground">{service.description}</p>
-      </div>
+      ) : null}
 
       {/* Contact-only */}
       {service.type === "contact" && (
@@ -338,6 +391,63 @@ const ServiceConfigurator = ({ service, gameSlug, gameTitle, onAddToCart }: Serv
         />
       )}
 
+      {showArenaBoostOptions && (
+        <>
+          <div>
+            <label className="mb-2 block text-sm font-medium uppercase tracking-[0.14em] text-foreground">
+              Boost Method
+            </label>
+            <div className="grid grid-cols-2 gap-2">
+              {[
+                { id: "piloted" as const, label: "Piloted", accent: "No extra charge" },
+                {
+                  id: "self-play-party" as const,
+                  label: "Self-play / Party",
+                  accent: `+${Math.round((service.id === "titanium-case" ? 1 : 0.3) * 100)}%`,
+                },
+              ].map((option) => {
+                const active = boostMethod === option.id;
+                return (
+                  <button
+                    key={option.id}
+                    type="button"
+                    onClick={() => setBoostMethod(option.id)}
+                    className={`rounded-lg border px-4 py-3 text-left transition-all ${
+                      active
+                        ? "border-primary bg-primary text-black shadow-[0_0_12px_hsl(48_100%_50%_/_0.25)]"
+                        : "border-primary/35 bg-secondary/50 text-white hover:border-primary"
+                    }`}
+                  >
+                    <div className="text-sm font-bold uppercase tracking-wide">{option.label}</div>
+                    <div className={`mt-1 text-[11px] uppercase tracking-[0.16em] ${active ? "text-black/80" : "text-muted-foreground"}`}>
+                      {option.accent}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div>
+            <label className="mb-2 block text-sm font-medium uppercase tracking-[0.14em] text-foreground">
+              Additional Features
+            </label>
+            <label className="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-border/50 bg-secondary/30 px-4 py-3 transition-all hover:border-primary/30">
+              <div className="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  checked={liveStream}
+                  onChange={(event) => setLiveStream(event.target.checked)}
+                  className="h-4 w-4 rounded border-primary/40 accent-[hsl(48_100%_50%)]"
+                />
+                <span className="text-sm font-medium text-foreground">Live stream</span>
+              </div>
+              <span className="text-sm font-bold text-primary">+30%</span>
+            </label>
+          </div>
+        </>
+      )}
+
       {/* Express Options */}
       {service.type !== "contact" && (
         <div>
@@ -375,7 +485,7 @@ const ServiceConfigurator = ({ service, gameSlug, gameTitle, onAddToCart }: Serv
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Total Price</p>
                 <p className="mt-1 text-3xl font-black text-primary">${price.toFixed(2)}</p>
-                {speed !== "normal" && (
+                {(speed !== "normal" || boostMethodModifier > 0 || liveStreamModifier > 0) && (
                   <p className="text-xs text-muted-foreground line-through">${basePrice.toFixed(2)}</p>
                 )}
               </div>

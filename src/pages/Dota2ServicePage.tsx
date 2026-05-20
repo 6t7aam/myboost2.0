@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { gameConfigs } from "@/data/gameConfigs";
 import { dota2SEO } from "@/data/dota2SEO";
+import { dota2PageSEO } from "@/data/dota2PageSEO";
 import Dota2ServiceLayout from "@/components/dota2/Dota2ServiceLayout";
 import Dota2SimpleOrderForm from "@/components/dota2/Dota2SimpleOrderForm";
 import Dota2DualRangeOrderForm from "@/components/dota2/Dota2DualRangeOrderForm";
@@ -214,12 +215,32 @@ const Dota2ServicePage = () => {
 
   return (
     <>
-      <SEO
-        title={seoData.metaTitle}
-        description={seoData.metaDescription}
-        keywords={`dota 2 ${service.name.toLowerCase()}, dota 2 boosting, ${service.name.toLowerCase()} service, buy dota 2 boost`}
-        canonicalUrl={`https://www.myboost.top/game/dota-2/${serviceId}`}
-      />
+      {(() => {
+        const pageSEO = dota2PageSEO[serviceId];
+        if (pageSEO) {
+          return (
+            <SEO
+              title={pageSEO.title}
+              description={pageSEO.description}
+              keywords={pageSEO.keywords}
+              canonicalUrl={pageSEO.canonicalUrl}
+              ogImage={pageSEO.ogImage}
+              ogTitle={pageSEO.ogTitle}
+              ogDescription={pageSEO.ogDescription}
+              twitterTitle={pageSEO.twitterTitle}
+              twitterDescription={pageSEO.twitterDescription}
+            />
+          );
+        }
+        return (
+          <SEO
+            title={seoData.metaTitle}
+            description={seoData.metaDescription}
+            keywords={`dota 2 ${service.name.toLowerCase()}, dota 2 boosting, ${service.name.toLowerCase()} service, buy dota 2 boost`}
+            canonicalUrl={`https://www.myboost.top/game/dota-2/${serviceId}`}
+          />
+        );
+      })()}
       <StructuredData
         type="Product"
         data={{

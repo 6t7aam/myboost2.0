@@ -3,6 +3,9 @@ import SEO from "@/components/SEO";
 import { Shield, Award } from "lucide-react";
 import Dota2ServiceLayout from "@/components/dota2/Dota2ServiceLayout";
 import Dota2MmrBoostCalculator from "@/components/dota2/Dota2MmrBoostCalculator";
+import { dota2PageSEO } from "@/data/dota2PageSEO";
+
+const SEO_DATA = dota2PageSEO["mmr-boost"];
 
 const INTRO =
   "Climb the ranks with Immortal-tier players. Safe, fast, and guaranteed results. Our professional boosters deliver consistent MMR gains with VPN protection and a 15-minute start guarantee.";
@@ -34,10 +37,15 @@ const Dota2MMRBoostPage = () => {
   return (
     <>
       <SEO
-        title="Dota 2 MMR Boost - Fast Rank Up by Immortal Players | MyBoost"
-        description="Buy Dota 2 MMR boost from top Immortal & Divine players. Safe, fast rank climbing with VPN protection. Solo or duo boosting available. Start in 15 minutes."
-        keywords="dota 2 mmr boost, dota 2 boosting, buy dota 2 boost, dota 2 rank boost, mmr boosting service"
-        canonicalUrl="https://www.myboost.top/game/dota-2/mmr-boost"
+        title={SEO_DATA.title}
+        description={SEO_DATA.description}
+        keywords={SEO_DATA.keywords}
+        canonicalUrl={SEO_DATA.canonicalUrl}
+        ogImage={SEO_DATA.ogImage}
+        ogTitle={SEO_DATA.ogTitle}
+        ogDescription={SEO_DATA.ogDescription}
+        twitterTitle={SEO_DATA.twitterTitle}
+        twitterDescription={SEO_DATA.twitterDescription}
       />
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
 

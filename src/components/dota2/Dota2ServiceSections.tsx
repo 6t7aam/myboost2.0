@@ -135,8 +135,6 @@ export const Dota2PaymentRow = () => (
       <span className="opacity-40">•</span>
       <span>Mastercard</span>
       <span className="opacity-40">•</span>
-      <span>PayPal</span>
-      <span className="opacity-40">•</span>
       <span>Apple Pay</span>
       <span className="opacity-40">•</span>
       <span>Google Pay</span>

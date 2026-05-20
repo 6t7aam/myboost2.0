@@ -6,6 +6,9 @@ import { Trophy, Shield, Award, ArrowRight } from "lucide-react";
 import Dota2ServiceLayout from "@/components/dota2/Dota2ServiceLayout";
 import { useCart, SpeedOption } from "@/contexts/CartContext";
 import { toast } from "sonner";
+import { dota2PageSEO } from "@/data/dota2PageSEO";
+
+const SEO_DATA = dota2PageSEO["coaching"];
 
 const rangeFill = (value: number, min: number, max: number) => {
   const pct = ((value - min) / (max - min)) * 100;
@@ -55,10 +58,15 @@ const Dota2CoachingPage = () => {
   return (
     <>
       <SEO
-        title="Dota 2 Coaching - Learn from Immortal Players | MyBoost"
-        description="Improve your Dota 2 skills with 1-on-1 coaching from Immortal-ranked players. Learn map control, draft, mechanics and macro. Book your session today."
-        keywords="dota 2 coaching, dota 2 lessons, immortal coach, learn dota 2, dota 2 improvement, dota 2 1-on-1"
-        canonicalUrl="https://www.myboost.top/game/dota-2/coaching"
+        title={SEO_DATA.title}
+        description={SEO_DATA.description}
+        keywords={SEO_DATA.keywords}
+        canonicalUrl={SEO_DATA.canonicalUrl}
+        ogImage={SEO_DATA.ogImage}
+        ogTitle={SEO_DATA.ogTitle}
+        ogDescription={SEO_DATA.ogDescription}
+        twitterTitle={SEO_DATA.twitterTitle}
+        twitterDescription={SEO_DATA.twitterDescription}
       />
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
 

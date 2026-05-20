@@ -7,10 +7,29 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight, CheckCircle, Star, Zap } from "lucide-react";
 import { GameConfig } from "@/data/gameConfigs";
+import { useCountUp } from "@/hooks/useCountUp";
 
 interface ArenaBreakoutServiceGridProps {
   config: GameConfig;
 }
+
+interface StatBadgeProps {
+  Icon: typeof CheckCircle;
+  value: string;
+  label: string;
+  fill?: boolean;
+}
+
+const StatBadge = ({ Icon, value, label, fill }: StatBadgeProps) => {
+  const animated = useCountUp(value, 1500);
+  return (
+    <div className="stat-badge flex items-center gap-2 rounded-lg border border-border/50 bg-card/50 px-3 py-1.5 text-sm backdrop-blur-sm">
+      <Icon className={`h-4 w-4 text-primary ${fill ? "fill-primary" : ""}`} />
+      <span className="font-semibold text-foreground tabular-nums">{animated}</span>
+      <span className="text-muted-foreground">{label}</span>
+    </div>
+  );
+};
 
 const ArenaBreakoutServiceGrid = ({ config }: ArenaBreakoutServiceGridProps) => {
   return (
@@ -21,7 +40,8 @@ const ArenaBreakoutServiceGrid = ({ config }: ArenaBreakoutServiceGridProps) => 
         keywords="arena breakout infinite boosting, arena breakout koens farming, arena breakout raids boost, arena breakout coaching, abi boosting service, arena breakout infinite services"
         canonicalUrl="https://www.myboost.top/game/arena-breakout"
       />
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background relative">
+        <div className="dota-bg-overlay absolute inset-0 pointer-events-none" />
         <Navbar />
 
       {/* Hero */}
@@ -40,42 +60,38 @@ const ArenaBreakoutServiceGrid = ({ config }: ArenaBreakoutServiceGridProps) => 
           </h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">{config.subtitle}</p>
           <div className="mt-6 flex flex-wrap gap-4">
-            {[
-              { icon: CheckCircle, value: config.stats.orders, label: "orders" },
-              { icon: Star, value: config.stats.rating, label: "rating", fill: true },
-              { icon: Zap, value: config.stats.speed, label: "avg. delivery" },
-            ].map(({ icon: Icon, value, label, fill }) => (
-              <div key={label} className="flex items-center gap-2 rounded-lg border border-border/50 bg-card/50 px-3 py-1.5 text-sm backdrop-blur-sm">
-                <Icon className={`h-4 w-4 text-primary ${fill ? "fill-primary" : ""}`} />
-                <span className="font-semibold text-foreground">{value}</span>
-                <span className="text-muted-foreground">{label}</span>
-              </div>
-            ))}
+            <StatBadge Icon={CheckCircle} value={config.stats.orders} label="orders" />
+            <StatBadge Icon={Star} value={config.stats.rating} label="rating" fill />
+            <StatBadge Icon={Zap} value={config.stats.speed} label="avg. delivery" />
           </div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-12">
+      <section className="py-12 relative z-10">
         <div className="container mx-auto px-4">
           <h2 className="mb-8 text-center text-2xl font-black uppercase tracking-tight text-foreground md:text-3xl">
             Choose Your <span className="text-primary glow-text">Service</span>
           </h2>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+          <div className="grid gap-6" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
             {config.services.map((service) => (
               <Link key={service.id} to={`/game/arena-breakout/${service.id}`} className="group">
-                <Card className="service-card-hover relative h-full overflow-hidden border-border/50 bg-card hover:glow-border">
+                <Card
+                  className="service-card-hover relative h-full overflow-hidden border-border/50 bg-card hover:glow-border"
+                  style={{ minHeight: "460px" }}
+                >
                   {service.tag && (
                     <Badge className="badge-shimmer absolute top-3 right-3 z-10 border-none text-sm font-bold uppercase backdrop-blur-sm px-3 py-1">
                       {service.tag}
                     </Badge>
                   )}
-                  <div className="relative aspect-[16/9] overflow-hidden bg-secondary/30">
+                  <div className="relative overflow-hidden bg-secondary/30" style={{ height: "220px" }}>
                     <img
                       src={service.image}
                       alt={service.name}
                       className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                      style={{ objectPosition: "top center" }}
                       loading="lazy"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
@@ -84,12 +100,12 @@ const ArenaBreakoutServiceGrid = ({ config }: ArenaBreakoutServiceGridProps) => 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
                   </div>
-                  <CardContent className="p-4">
-                    <h3 className="text-lg font-bold uppercase text-foreground group-hover:text-primary transition-colors duration-200">
+                  <CardContent style={{ padding: "20px" }}>
+                    <h3 className="font-bold uppercase text-foreground group-hover:text-primary transition-colors duration-200" style={{ fontSize: "20px" }}>
                       {service.name}
                     </h3>
                     <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">{service.description}</p>
-                    <p className="mt-2 text-base font-bold text-primary">{service.startPrice}</p>
+                    <p className="mt-3 text-base font-bold text-primary">{service.startPrice}</p>
                     <Button
                       className="btn-yellow view-service-btn mt-3 w-full gap-2 rounded-lg glow-box font-bold uppercase tracking-wider transition-all duration-200 group-hover:glow-box-intense"
                       size="default"

@@ -54,8 +54,10 @@
   }
 
   img {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    /* Default to high-quality bilinear scaling — `crisp-edges` is for pixel
+       art and causes photographic images (service banners, hero shots) to
+       look blocky/blurred in Chromium and Firefox. */
+    image-rendering: auto;
   }
 }
 

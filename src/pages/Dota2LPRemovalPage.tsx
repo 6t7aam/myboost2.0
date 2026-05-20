@@ -11,7 +11,10 @@ import {
   dota2ServicePricing,
   type BoostMethod,
 } from "@/data/dota2ServicePricing";
+import { dota2PageSEO } from "@/data/dota2PageSEO";
 import { toast } from "sonner";
+
+const SEO_DATA = dota2PageSEO["lp-removal"];
 
 const rangeFill = (value: number, min: number, max: number) => {
   const pct = ((value - min) / (max - min)) * 100;
@@ -90,10 +93,15 @@ const Dota2LPRemovalPage = () => {
   return (
     <>
       <SEO
-        title="Dota 2 Low Priority Removal - Fast LP Queue Exit | MyBoost"
-        description="Remove Dota 2 Low Priority fast. Our boosters play your LP games professionally. Get out of LP queue in hours, not days. Safe method, no ban risk."
-        keywords="dota 2 lp removal, dota 2 low priority, remove low priority dota 2, lp queue exit, dota 2 lp boost"
-        canonicalUrl="https://www.myboost.top/game/dota-2/lp-removal"
+        title={SEO_DATA.title}
+        description={SEO_DATA.description}
+        keywords={SEO_DATA.keywords}
+        canonicalUrl={SEO_DATA.canonicalUrl}
+        ogImage={SEO_DATA.ogImage}
+        ogTitle={SEO_DATA.ogTitle}
+        ogDescription={SEO_DATA.ogDescription}
+        twitterTitle={SEO_DATA.twitterTitle}
+        twitterDescription={SEO_DATA.twitterDescription}
       />
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
 

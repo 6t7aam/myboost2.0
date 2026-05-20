@@ -251,7 +251,6 @@ const AdminOrderDetailsPage = () => {
                       {order.payment_method === "crypto" && "Crypto"}
                       {order.payment_method === "card" && "Card"}
                       {order.payment_method === "manual_card" && "Card (manual verification)"}
-                      {order.payment_method === "paypal" && "PayPal"}
                       {order.payment_method === "promo" && "Promo / Free"}
                       {!order.payment_method && <span className="italic text-muted-foreground/60">Unknown</span>}
                     </p>

@@ -12,6 +12,9 @@ import {
   type BoostMethod,
 } from "@/data/dota2ServicePricing";
 import { toast } from "sonner";
+import { dota2PageSEO } from "@/data/dota2PageSEO";
+
+const SEO_DATA = dota2PageSEO["rank-tokens"];
 
 const rangeFill = (value: number, min: number, max: number) => {
   const pct = ((value - min) / (max - min)) * 100;
@@ -102,10 +105,15 @@ const Dota2RankTokensPage = () => {
   return (
     <>
       <SEO
-        title="Dota 2 Rank Tokens Farming - Fast Token Collection | MyBoost"
-        description="Buy Dota 2 rank tokens farming service. Collect tokens fast with our Immortal players. Safe account handling, fast delivery, competitive prices. Start today."
-        keywords="dota 2 rank tokens, dota 2 tokens farming, buy dota 2 tokens, rank tokens boost, dota 2 token service"
-        canonicalUrl="https://www.myboost.top/game/dota-2/rank-tokens"
+        title={SEO_DATA.title}
+        description={SEO_DATA.description}
+        keywords={SEO_DATA.keywords}
+        canonicalUrl={SEO_DATA.canonicalUrl}
+        ogImage={SEO_DATA.ogImage}
+        ogTitle={SEO_DATA.ogTitle}
+        ogDescription={SEO_DATA.ogDescription}
+        twitterTitle={SEO_DATA.twitterTitle}
+        twitterDescription={SEO_DATA.twitterDescription}
       />
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
 

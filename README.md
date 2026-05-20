@@ -1,7 +1,7 @@
 # MyBoost
 
 Web frontend for the MyBoost gaming-services platform (Dota 2, Arena Breakout, and more).
-Built with Vite + React 18 + TypeScript, shadcn/ui, Tailwind, Supabase, and PayPal.
+Built with Vite + React 18 + TypeScript, shadcn/ui, Tailwind, and Supabase.
 
 ## Prerequisites
 

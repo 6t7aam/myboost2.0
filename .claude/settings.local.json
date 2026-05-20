@@ -52,7 +52,12 @@
       "PowerShell(git push *)",
       "Bash(npx eslint *)",
       "Bash(npx vite *)",
-      "Bash(echo \"EXIT=$?\")"
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(rm -f src/components/PayPalButton.tsx api/paypal/create-order.ts api/paypal/capture-order.ts api/paypal/webhook.ts PAYPAL_DEPLOYMENT_CHECKLIST.md PAYPAL_COMPLETE.md PAYPAL_SETUP.md PAYPAL_INTEGRATION.md)",
+      "Bash(rmdir api/paypal)",
+      "Bash(ls api/)",
+      "Bash(ls PAYPAL*)",
+      "Bash(git stash *)"
     ]
   }
 }

@@ -8,7 +8,6 @@ import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import PayPalButton from "@/components/PayPalButton";
 import ManualPaymentDialog from "@/components/ManualPaymentDialog";
 import { motion, useReducedMotion } from "framer-motion";
 
@@ -19,7 +18,7 @@ const COINS = [
   { id: "usdtbsc", label: "USDT", name: "USDT (BSC)" },
 ] as const;
 
-type PaymentTab = "crypto" | "paypal" | "card";
+type PaymentTab = "crypto" | "card";
 
 const OrderPage = () => {
   const { items, totalPrice, clearCart } = useCart();
@@ -30,8 +29,6 @@ const OrderPage = () => {
   const [activeTab, setActiveTab] = useState<PaymentTab>("crypto");
   const [processing, setProcessing] = useState(false);
   const [cardPaymentProcessing, setCardPaymentProcessing] = useState(false);
-  const [paypalOrderId, setPaypalOrderId] = useState<string | null>(null);
-  const [paypalLoading, setPaypalLoading] = useState(false);
   const [manualOpen, setManualOpen] = useState(false);
   const reducedMotion = useReducedMotion();
 
@@ -214,75 +211,8 @@ const OrderPage = () => {
     }
   };
 
-  const handlePaypalInit = async () => {
-    if (!user) {
-      toast.error("Please log in to place an order.");
-      navigate("/login");
-      return;
-    }
-    setPaypalLoading(true);
-    try {
-      const serviceName = items.map((i) => `${i.game} — ${i.service}`).join(", ");
-      const orderInsert: any = {
-        user_id: user.id,
-        service: serviceName,
-        price: finalPrice,
-        status: "pending",
-        payment_method: "paypal",
-        order_details: {
-          items: items.map((i) => ({
-            game: i.game,
-            service: i.service,
-            price: i.price,
-            options: i.options,
-          })),
-          promo_code: promoCode?.code,
-          discount_percent: promoCode?.discount_percent,
-          booster_type: boosterType,
-          booster_multiplier: boosterMultiplier,
-          original_price: totalPrice,
-          final_price: finalPrice,
-        },
-      };
-      if (boosterType) orderInsert.booster_type = boosterType;
-
-      const { data: order, error: insertErr } = await supabase
-        .from("orders")
-        .insert(orderInsert)
-        .select("id")
-        .single();
-
-      if (insertErr || !order) {
-        throw new Error(insertErr?.message || "Failed to create order");
-      }
-
-      if (promoCode) {
-        await supabase.rpc("increment_promo_usage" as any, { _code: promoCode.code });
-        await supabase.from("promo_code_usage" as any).insert({
-          user_id: user.id,
-          promo_code: promoCode.code,
-        });
-      }
-
-      setPaypalOrderId(order.id);
-    } catch (err: any) {
-      console.error(err);
-      toast.error(err.message || "Something went wrong");
-    } finally {
-      setPaypalLoading(false);
-    }
-  };
-
-  const PayPalLogo = () => (
-    <svg className="h-7 w-7 text-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M20.905 9.5c.21-1.342.09-2.268-.451-3.105C19.625 5.205 18.29 4.5 16.36 4.5H8.49c-.555 0-1.03.405-1.12.96L4.5 19.5h4.17l1.05-6.645-.033.21c.09-.555.563-.96 1.118-.96h2.325c4.575 0 8.16-1.86 9.21-7.23.03-.165.06-.315.09-.465-.165-.075-.165-.075 0 0z" />
-      <path d="M9.615 9.435c.06-.36.345-.63.72-.63h4.65c.555 0 1.08.045 1.575.135.15.03.3.075.435.12.135.045.27.09.39.15.06.03.12.06.18.09.525.24.96.585 1.26 1.065.21-1.335.09-2.25-.45-3.075C17.55 6.105 16.215 5.4 14.285 5.4H6.415c-.555 0-1.03.405-1.12.96L2.43 20.4h4.17l1.17-7.425.845-3.54z" opacity=".7" />
-    </svg>
-  );
-
   const tabs: { id: PaymentTab; label: string; icon: React.ReactNode }[] = [
     { id: "crypto", label: "Crypto", icon: <Bitcoin className="h-4 w-4" /> },
-    { id: "paypal", label: "PayPal", icon: <PayPalLogo /> },
     { id: "card", label: "Card", icon: <CreditCard className="h-4 w-4" /> },
   ];
 
@@ -420,7 +350,7 @@ const OrderPage = () => {
 
                     {/* Tabs */}
                     <div
-                      className="mt-3 grid grid-cols-3 gap-2 rounded-[10px] border border-border/50 bg-card p-1.5"
+                      className="mt-3 grid grid-cols-2 gap-2 rounded-[10px] border border-border/50 bg-card p-1.5"
                     >
                       {tabs.map((tab) => {
                         const active = activeTab === tab.id;
@@ -485,59 +415,6 @@ const OrderPage = () => {
                               <>Pay ${finalPrice.toFixed(2)} with {COINS.find((c) => c.id === selectedCoin)?.label}</>
                             )}
                           </Button>
-                        </div>
-                      </div>
-
-                      {/* PAYPAL */}
-                      <div
-                        className={`flex h-full flex-col transition-opacity duration-200 ${
-                          activeTab === "paypal" ? "opacity-100" : "hidden opacity-0"
-                        }`}
-                      >
-                        <div className="flex-1 rounded-xl border border-primary/30 bg-primary/5 p-5">
-                          <div className="flex items-center gap-3">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                              <PayPalLogo />
-                            </div>
-                            <div className="flex-1">
-                              <h3 className="font-bold text-foreground">PayPal</h3>
-                              <p className="text-xs text-muted-foreground">Fast & secure payment</p>
-                            </div>
-                          </div>
-                          <p className="mt-4 text-sm text-muted-foreground">
-                            Pay with your PayPal account or any major card via PayPal Checkout. You'll be redirected to complete the payment securely.
-                          </p>
-                        </div>
-                        <div className="mt-5">
-                          {paypalOrderId ? (
-                            <PayPalButton
-                              amount={finalPrice}
-                              orderId={paypalOrderId}
-                              onSuccess={() => {
-                                clearCart();
-                                successAndRedirect(paypalOrderId);
-                              }}
-                            />
-                          ) : (
-                            <Button
-                              onClick={handlePaypalInit}
-                              disabled={paypalLoading}
-                              variant="outline"
-                              className="w-full gap-2.5 rounded-lg border-primary/40 bg-card font-bold uppercase tracking-wider hover:bg-primary/10 hover:border-primary/60 transition-all"
-                              style={{ height: "54px", fontSize: "16px" }}
-                            >
-                              {paypalLoading ? (
-                                <>
-                                  <Loader2 className="h-5 w-5 animate-spin text-primary" /> Preparing PayPal…
-                                </>
-                              ) : (
-                                <>
-                                  <PayPalLogo />
-                                  Continue with PayPal
-                                </>
-                              )}
-                            </Button>
-                          )}
                         </div>
                       </div>
 

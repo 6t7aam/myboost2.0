@@ -9,6 +9,14 @@ export interface CartItem {
   service: string;
   options: Record<string, string>;
   currency?: string;
+  boostMethod?: string;
+  additionalFeatures?: {
+    liveStream: boolean;
+  };
+  modifiers?: {
+    boostMethodModifier: number;
+    liveStreamModifier: number;
+  };
   speed: SpeedOption;
   basePrice: number;
   price: number;
