@@ -88,7 +88,7 @@ const ArenaBreakoutInfiniteRaidsBoostPage = () => {
                   Lockdown and Forbidden Mode Specialists
                 </h2>
                 <p className="text-muted-foreground">
-                  We offer professional carries for both Lockdown and Forbidden modes. Lockdown mode raids ($4.50 per raid) provide consistent, reliable rewards with moderate difficulty—perfect for farming specific items or completing quests. Forbidden mode raids ($8.99 per raid) offer the ultimate challenge with premium loot rewards, including rare weapons, high-tier armor, and valuable crafting materials. Our boosters have completed thousands of Forbidden mode raids and know exactly how to handle the increased AI aggression and player density.
+                  We offer professional carries for both Lockdown and Forbidden modes — now on sale. Lockdown mode raids ($2.50 per raid, down from $4.50) provide consistent, reliable rewards with moderate difficulty—perfect for farming specific items or completing quests. Forbidden mode raids ($4.99 per raid, down from $8.99) offer the ultimate challenge with premium loot rewards, including rare weapons, high-tier armor, and valuable crafting materials. Our boosters have completed thousands of Forbidden mode raids and know exactly how to handle the increased AI aggression and player density.
                 </p>
 
                 <h2 className="text-2xl font-black uppercase text-foreground mt-8">
@@ -151,7 +151,7 @@ const ArenaBreakoutInfiniteRaidsBoostPage = () => {
                   Raid Difficulty Tiers and Pricing
                 </h2>
                 <p className="text-muted-foreground">
-                  We offer raid carries for both difficulty tiers in Arena Breakout: Infinite. Lockdown mode raids ($4.50 per raid) feature moderate AI difficulty, lower player density, and consistent loot rewards—ideal for quest completions, farming specific common items, or learning map layouts with reduced risk. Forbidden mode raids ($8.99 per raid) represent the ultimate challenge with aggressive AI, high player density, and premium loot including rare weapons, high-tier armor, and valuable crafting materials. Forbidden mode is where the best gear in the game comes from, and our boosters have mastered the intense combat and strategic positioning required to extract successfully every time. Choose the difficulty tier that matches your goals and budget.
+                  We offer raid carries for both difficulty tiers in Arena Breakout: Infinite, all on sale. Lockdown mode raids ($2.50 per raid, was $4.50) feature moderate AI difficulty, lower player density, and consistent loot rewards—ideal for quest completions, farming specific common items, or learning map layouts with reduced risk. Forbidden mode raids ($4.99 per raid, was $8.99) represent the ultimate challenge with aggressive AI, high player density, and premium loot including rare weapons, high-tier armor, and valuable crafting materials. Forbidden mode is where the best gear in the game comes from, and our boosters have mastered the intense combat and strategic positioning required to extract successfully every time. Choose the difficulty tier that matches your goals and budget.
                 </p>
 
                 <h2 className="text-2xl font-black uppercase text-foreground mt-8">

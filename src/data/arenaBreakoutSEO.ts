@@ -37,7 +37,7 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
       <p>Our Arena Breakout boost team knows every corner of every map. TV Station, Armory, Valley, Farm, Airport, and Northridge—we've mastered them all. When you buy Arena Breakout: Infinite boost from us, you're paired with players who have completed thousands of successful raids and know exactly how to navigate PvP encounters, loot efficiently, and extract safely.</p>
 
       <h2>Lockdown & Forbidden Mode Specialists</h2>
-      <p>Forbidden mode too challenging? Our Arena Breakout: Infinite boosting service specializes in high-difficulty content. We offer both Lockdown ($4.50 per raid) and Forbidden ($8.99 per raid) carries with guaranteed VIP extraction. You'll get premium loot, valuable experience, and the satisfaction of completing content that would otherwise take hours of frustration.</p>
+      <p>Forbidden mode too challenging? Our Arena Breakout: Infinite boosting service specializes in high-difficulty content. We now offer both Lockdown ($2.50 per raid, was $4.50) and Forbidden ($4.99 per raid, was $8.99) carries with guaranteed VIP extraction. You'll get premium loot, valuable experience, and the satisfaction of completing content that would otherwise take hours of frustration.</p>
 
       <h2>Safe & Efficient Raid Carries</h2>
       <p>Every Arena Breakout boost is performed with account security as the top priority. We use VPN protection, match your typical play schedule, and communicate throughout the entire process. Our boosters are professional, discreet, and focused on delivering results without any risk to your account.</p>
@@ -51,7 +51,7 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
     metaDescription: "Get Titanium Case in Arena Breakout: Infinite quickly and safely. Secure your best loot with our service.",
     h1: "Arena Breakout: Infinite Titanium 3x3 Case Service",
     content: `
-      <p>The Titanium 3x3 Case is one of the most coveted items in Arena Breakout: Infinite, and our Arena Breakout boosting service makes it accessible to everyone. For a fixed price of $99.99, you'll receive this premium case filled with guaranteed top-tier loot, delivered safely to your account within 24-48 hours.</p>
+      <p>The Titanium 3x3 Case is one of the most coveted items in Arena Breakout: Infinite, and our Arena Breakout boosting service makes it accessible to everyone. On sale now for $69.99 (was $99.99), you'll receive this premium case filled with guaranteed top-tier loot, delivered safely to your account within 24-48 hours.</p>
 
       <h2>What Makes the Titanium Case Special?</h2>
       <p>This isn't just any container—the Titanium 3x3 Case offers maximum storage capacity and comes pre-loaded with high-value items that would take dozens of hours to farm manually. When you buy Arena Breakout: Infinite boost for this service, you're investing in immediate progression and access to gear that gives you a competitive edge in every raid.</p>
@@ -83,7 +83,7 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
       <p>Our Arena Breakout boost coaching covers everything: map callouts and landmarks, high-value loot locations, safe extraction routes, PvP engagement strategies, loadout optimization, economy management, and situational awareness. You'll receive real-time feedback, VOD reviews, and actionable tips you can apply immediately.</p>
 
       <h2>Improve Faster, Play Smarter</h2>
-      <p>Why spend months learning through trial and error when you can buy Arena Breakout: Infinite boost coaching and accelerate your progress? Our students consistently report dramatic improvements in survival rate, Koens earned per raid, and overall confidence. At just $8.50 per hour, it's an investment that pays for itself in better gameplay and more enjoyment.</p>
+      <p>Why spend months learning through trial and error when you can buy Arena Breakout: Infinite boost coaching and accelerate your progress? Our students consistently report dramatic improvements in survival rate, Koens earned per raid, and overall confidence. At just $4.99 per hour (was $8.50), it's an investment that pays for itself in better gameplay and more enjoyment.</p>
     `
   },
   "rent-a-booster": {
@@ -97,7 +97,7 @@ export const arenaBreakoutSEO: Record<string, ServiceSEO> = {
       <p>When you buy Arena Breakout: Infinite boost through our rent-a-booster service, you're matched with experienced players who excel in teamwork and communication. They'll watch your back in PvP encounters, guide you to high-value loot, and ensure successful extractions. It's like having a personal bodyguard and mentor in one.</p>
 
       <h2>Instant Start, Flexible Hours</h2>
-      <p>Our Arena Breakout: Infinite boosting service offers instant availability with flexible scheduling. Need help for just one hour? Planning a longer session? We offer packages from 1 to 10 hours at $8.50 per hour. Your booster will be ready to join you within minutes of your order, and you can play as long as you need.</p>
+      <p>Our Arena Breakout: Infinite boosting service offers instant availability with flexible scheduling. Need help for just one hour? Planning a longer session? We offer packages from 1 to 10 hours at $4.99 per hour (down from $8.50). Your booster will be ready to join you within minutes of your order, and you can play as long as you need.</p>
 
       <h2>Learn While You Play</h2>
       <p>Unlike traditional carries where you hand over your account, renting a booster means you're actively playing and learning. Your Arena Breakout boost partner will share strategies, call out threats, suggest optimal plays, and answer questions in real-time. It's the most engaging way to improve while still making progress on your account.</p>

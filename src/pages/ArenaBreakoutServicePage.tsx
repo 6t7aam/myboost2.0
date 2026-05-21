@@ -66,6 +66,7 @@ const ArenaBreakoutServicePage = () => {
       speed: order.speed,
       basePrice: order.basePrice,
       price: order.price,
+      oldPrice: order.oldPrice,
       estimatedTime: order.estimatedTime,
     });
     toast.success(`${order.service} added to cart!`);

@@ -10,7 +10,7 @@ const ArenaBreakoutInfiniteCoachingPage = () => {
     <>
       <SEO
         title="ABI – Arena Breakout: Infinite Coaching - Learn From Pro Players"
-        description="Arena Breakout: Infinite coaching by elite players. Learn maps, rotations, PvP tactics, loot routes. Personalized 1-on-1 sessions from $8.50/hour. Improve fast with expert ABI coaching."
+        description="Arena Breakout: Infinite coaching by elite players. Learn maps, rotations, PvP tactics, loot routes. Personalized 1-on-1 sessions from $4.99/hour. Improve fast with expert ABI coaching."
         keywords="arena breakout infinite coaching, abi coaching, arena breakout infinite training, learn arena breakout infinite, abi lessons"
         canonicalUrl="https://www.myboost.top/arena-breakout-infinite-coaching"
       />
@@ -131,7 +131,7 @@ const ArenaBreakoutInfiniteCoachingPage = () => {
                   Flexible Scheduling and Affordable Pricing
                 </h2>
                 <p className="text-muted-foreground">
-                  Our Arena Breakout: Infinite coaching is available in flexible packages from 1 to 10 hours at just $8.50 per hour. Sessions are scheduled at your convenience, and you can book as many or as few hours as you need. Whether you want a single session to address a specific issue or a comprehensive 10-hour training program to transform your gameplay, we offer the flexibility to match your needs and budget.
+                  Our Arena Breakout: Infinite coaching is available in flexible packages from 1 to 10 hours at just $4.99 per hour (was $8.50). Sessions are scheduled at your convenience, and you can book as many or as few hours as you need. Whether you want a single session to address a specific issue or a comprehensive 10-hour training program to transform your gameplay, we offer the flexibility to match your needs and budget.
                 </p>
 
                 <h2 className="text-2xl font-black uppercase text-foreground mt-8">
@@ -145,7 +145,7 @@ const ArenaBreakoutInfiniteCoachingPage = () => {
                   Start Your Journey to Mastery Today
                 </h2>
                 <p className="text-muted-foreground">
-                  Why spend months learning through trial and error when you can accelerate your progress with professional coaching? Our students consistently report dramatic improvements in survival rate, Koens earned per raid, PvP win rate, and overall confidence. At just $8.50 per hour, Arena Breakout: Infinite coaching is an investment that pays for itself in better gameplay and more enjoyment. Book your first session today and start your journey to becoming an elite ABI operator.
+                  Why spend months learning through trial and error when you can accelerate your progress with professional coaching? Our students consistently report dramatic improvements in survival rate, Koens earned per raid, PvP win rate, and overall confidence. At just $4.99 per hour (was $8.50), Arena Breakout: Infinite coaching is an investment that pays for itself in better gameplay and more enjoyment. Book your first session today and start your journey to becoming an elite ABI operator.
                 </p>
 
                 <h2 className="text-2xl font-black uppercase text-foreground mt-8">
@@ -227,7 +227,7 @@ const ArenaBreakoutInfiniteCoachingPage = () => {
                   Ready to Master Arena Breakout: Infinite?
                 </h3>
                 <p className="mt-3 text-muted-foreground">
-                  Book personalized coaching from elite players. $8.50/hour, flexible scheduling, proven results.
+                  Book personalized coaching from elite players. $4.99/hour, flexible scheduling, proven results.
                 </p>
                 <div className="mt-6 flex flex-wrap justify-center gap-4">
                   <Link to="/game/arena-breakout/coaching">

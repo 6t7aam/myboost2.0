@@ -57,7 +57,8 @@
       "Bash(rmdir api/paypal)",
       "Bash(ls api/)",
       "Bash(ls PAYPAL*)",
-      "Bash(git stash *)"
+      "Bash(git stash *)",
+      "Bash(echo \"EXIT: $?\")"
     ]
   }
 }

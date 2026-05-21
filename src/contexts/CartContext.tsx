@@ -20,6 +20,7 @@ export interface CartItem {
   speed: SpeedOption;
   basePrice: number;
   price: number;
+  oldPrice?: number;
   estimatedTime: string;
 }
 
@@ -29,6 +30,7 @@ interface CartContextType {
   removeItem: (id: string) => void;
   clearCart: () => void;
   totalPrice: number;
+  totalOldPrice: number;
   itemCount: number;
 }
 
@@ -54,10 +56,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const clearCart = () => setItems([]);
 
   const totalPrice = items.reduce((sum, i) => sum + i.price, 0);
+  const totalOldPrice = items.reduce(
+    (sum, i) => sum + (i.oldPrice && i.oldPrice > i.price ? i.oldPrice : i.price),
+    0,
+  );
   const itemCount = items.length;
 
   return (
-    <CartContext.Provider value={{ items, addItem, removeItem, clearCart, totalPrice, itemCount }}>
+    <CartContext.Provider value={{ items, addItem, removeItem, clearCart, totalPrice, totalOldPrice, itemCount }}>
       {children}
     </CartContext.Provider>
   );

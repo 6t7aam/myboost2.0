@@ -10,6 +10,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import ManualPaymentDialog from "@/components/ManualPaymentDialog";
 import { motion, useReducedMotion } from "framer-motion";
+import { SALE_BADGE_LABEL } from "@/config/pricing";
 
 const COINS = [
   { id: "ltc", label: "LTC", name: "Litecoin" },
@@ -21,7 +22,7 @@ const COINS = [
 type PaymentTab = "crypto" | "card";
 
 const OrderPage = () => {
-  const { items, totalPrice, clearCart } = useCart();
+  const { items, totalPrice, totalOldPrice, clearCart } = useCart();
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -47,6 +48,8 @@ const OrderPage = () => {
   const boosterMarkup = boosterMultiplier && boosterMultiplier > 1 ? priceAfterDiscount * (boosterMultiplier - 1) : 0;
   const finalPrice = priceAfterDiscount + boosterMarkup;
   const isFreeOrder = finalPrice <= 0;
+  const hasSale = totalOldPrice > totalPrice;
+  const saleSavings = hasSale ? totalOldPrice - totalPrice : 0;
 
   if (items.length === 0) {
     return (
@@ -257,13 +260,25 @@ const OrderPage = () => {
                   className="flex-1 rounded-2xl border border-primary/30 bg-primary/5 p-6"
                   style={{ borderLeft: "3px solid #FFD700" }}
                 >
-                  <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Order Summary</h2>
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Order Summary</h2>
+                    {hasSale && (
+                      <span className="inline-flex items-center rounded-full border border-primary/60 bg-primary/15 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-primary">
+                        {SALE_BADGE_LABEL}
+                      </span>
+                    )}
+                  </div>
                   <div className="mt-4 space-y-4">
                     {items.map((item) => (
                       <div key={item.id} className="border-b border-border/30 pb-3 last:border-0 last:pb-0">
                         <div className="flex justify-between text-sm">
                           <span className="font-medium text-foreground">{item.service}</span>
-                          <span className="font-bold text-primary">${item.price.toFixed(2)}</span>
+                          <span className="text-right">
+                            {item.oldPrice && item.oldPrice > item.price ? (
+                              <span className="mr-2 text-xs text-muted-foreground/70 line-through">${item.oldPrice.toFixed(2)}</span>
+                            ) : null}
+                            <span className="font-bold text-primary">${item.price.toFixed(2)}</span>
+                          </span>
                         </div>
                         <p className="text-xs text-muted-foreground">{item.game}</p>
                         {Object.entries(item.options).map(([key, value]) => (
@@ -275,10 +290,22 @@ const OrderPage = () => {
                       </div>
                     ))}
                     <div className="border-t border-border/50 pt-3 space-y-1">
+                      {hasSale && (
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs text-muted-foreground/70">Subtotal (before sale)</span>
+                          <span className="text-xs text-muted-foreground/70 line-through">${totalOldPrice.toFixed(2)}</span>
+                        </div>
+                      )}
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-muted-foreground">Subtotal</span>
                         <span className="text-sm text-muted-foreground">${totalPrice.toFixed(2)}</span>
                       </div>
+                      {hasSale && (
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-semibold text-primary">Sale savings</span>
+                          <span className="text-sm font-semibold text-primary">-${saleSavings.toFixed(2)}</span>
+                        </div>
+                      )}
                       {promoCode && (
                         <div className="flex items-center justify-between">
                           <span className="text-sm text-primary/70">Discount ({promoCode.discount_percent}%)</span>
@@ -293,7 +320,12 @@ const OrderPage = () => {
                       )}
                       <div className="flex justify-between pt-2 border-t border-border/30">
                         <span className="font-semibold text-foreground">Total</span>
-                        <span className="text-3xl font-black text-primary">${finalPrice.toFixed(2)}</span>
+                        <div className="text-right">
+                          {hasSale && (
+                            <span className="block text-xs text-muted-foreground/70 line-through">${totalOldPrice.toFixed(2)}</span>
+                          )}
+                          <span className="text-3xl font-black text-primary drop-shadow-[0_0_10px_hsl(48_100%_50%_/_0.45)]">${finalPrice.toFixed(2)}</span>
+                        </div>
                       </div>
                     </div>
                   </div>

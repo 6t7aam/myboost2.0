@@ -58,7 +58,7 @@ const BuyArenaBreakoutInfiniteKoensPage = () => {
                 { icon: Star, title: "4.9★ Rating", desc: "600+ Orders" },
                 { icon: TrendingUp, title: "1M-500M Koens", desc: "Scalable Service" },
                 { icon: CheckCircle, title: "No Cheats", desc: "Pure Skill" },
-                { icon: Coins, title: "$1.50 per 1M", desc: "Affordable Pricing" },
+                { icon: Coins, title: "$0.99 per 1M", desc: "Sale Pricing (was $1.50)" },
               ].map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="rounded-xl border border-border/50 bg-card p-6">
                   <Icon className="h-8 w-8 text-primary" />
@@ -104,10 +104,10 @@ const BuyArenaBreakoutInfiniteKoensPage = () => {
                 </p>
 
                 <h2 className="text-2xl font-black uppercase text-foreground mt-8">
-                  Affordable Pricing - From $1.50 per Million
+                  Limited Sale Pricing - Now From $0.99 per Million
                 </h2>
                 <p className="text-muted-foreground">
-                  We believe premium service shouldn't come with premium prices. Our Koens farming starts at just $1.50 per million, making it one of the most affordable options on the market. Whether you need a quick 1M boost to buy that weapon you've been eyeing, or a massive 500M order to fully stock your stash, we offer competitive pricing with no hidden fees. Check out our <Link to="/game/arena-breakout/koens-farming" className="text-primary hover:underline">Koens farming calculator</Link> to see exactly what you'll pay.
+                  We believe premium service shouldn't come with premium prices. Our Koens farming is now on sale at just $0.99 per million (down from $1.50), making it the most affordable option on the market. Whether you need a quick 1M boost to buy that weapon you've been eyeing, or a massive 500M order to fully stock your stash, we offer competitive pricing with no hidden fees. Check out our <Link to="/game/arena-breakout/koens-farming" className="text-primary hover:underline">Koens farming calculator</Link> to see exactly what you'll pay.
                 </p>
 
                 <h2 className="text-2xl font-black uppercase text-foreground mt-8">

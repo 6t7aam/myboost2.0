@@ -74,8 +74,9 @@ const Dota2ServiceLayout = ({
         <div className="grid gap-10 py-8 min-[900px]:grid-cols-[260px_minmax(0,1fr)_400px]">
           <ServiceCategorySidebar />
 
-          {/* Sidebar — first on mobile, sticky right on desktop */}
-          <aside className="order-1 self-start min-[900px]:order-3 lg:sticky lg:top-24">
+          {/* Sidebar — first on mobile, right column on desktop. Scrolls
+              naturally with the page; no sticky positioning. */}
+          <aside className="order-1 self-start min-[900px]:order-3">
             <div className="overflow-hidden rounded-2xl border-2 border-primary/30 bg-card shadow-[0_0_30px_hsl(48_100%_50%_/_0.15)]">
               {/* Sidebar image header */}
               <div className="relative h-[180px] w-full overflow-hidden bg-gradient-to-br from-[#1a1a1a] via-[#0f0f0f] to-[#1a1a1a]">

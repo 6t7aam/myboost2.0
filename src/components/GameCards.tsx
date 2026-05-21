@@ -4,15 +4,27 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import { SALE_BADGE_LABEL } from "@/config/pricing";
 
-const games = [
+interface GameCardEntry {
+  name: string;
+  slug: string;
+  image: string;
+  description: string;
+  tag: string | null;
+  startPrice: string;
+  startOldPrice?: string;
+}
+
+const games: GameCardEntry[] = [
   {
     name: "Arena Breakout: Infinite",
     slug: "arena-breakout",
     image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2073620/header.jpg",
     description: "Koens, Raids, Cases, Coaching",
     tag: "New",
-    startPrice: "From $1.50",
+    startPrice: "From $0.99",
+    startOldPrice: "$1.50",
   },
   {
     name: "CS2",
@@ -119,7 +131,17 @@ const GameCards = () => {
                     {game.name}
                   </h3>
                   <p className="mt-1 text-sm text-muted-foreground">{game.description}</p>
-                  <p className="mt-2 text-sm font-bold text-primary glow-text">{game.startPrice}</p>
+                  {game.startOldPrice ? (
+                    <div className="mt-2 flex items-baseline gap-2">
+                      <span className="text-xs text-muted-foreground/70 line-through">{game.startOldPrice}</span>
+                      <span className="text-sm font-bold text-primary glow-text">{game.startPrice}</span>
+                      <span className="inline-flex items-center rounded-full border border-primary/60 bg-primary/15 px-1.5 py-0 text-[9px] font-black uppercase tracking-wider text-primary">
+                        {SALE_BADGE_LABEL}
+                      </span>
+                    </div>
+                  ) : (
+                    <p className="mt-2 text-sm font-bold text-primary glow-text">{game.startPrice}</p>
+                  )}
                   <Button
                     className="btn-yellow mt-4 w-full gap-2 rounded-lg glow-box font-bold uppercase tracking-wider transition-all duration-300 group-hover:glow-box-intense group-hover:shadow-[0_0_30px_hsl(48_100%_50%_/_0.3)]"
                     size="sm"

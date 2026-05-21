@@ -7,14 +7,17 @@ import { ShoppingCart, Trash2, ArrowRight, ArrowLeft, Zap } from "lucide-react";
 import PromoCodeInput from "@/components/PromoCodeInput";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { SALE_BADGE_LABEL } from "@/config/pricing";
 
 const CartPage = () => {
-  const { items, removeItem, totalPrice, clearCart } = useCart();
+  const { items, removeItem, totalPrice, totalOldPrice, clearCart } = useCart();
   const navigate = useNavigate();
   const [appliedCode, setAppliedCode] = useState<{ code: string; discount_percent: number } | null>(null);
 
   const discountAmount = appliedCode ? totalPrice * (appliedCode.discount_percent / 100) : 0;
   const finalPrice = totalPrice - discountAmount;
+  const hasSale = totalOldPrice > totalPrice;
+  const saleSavings = hasSale ? totalOldPrice - totalPrice : 0;
 
   return (
     <div className="min-h-screen bg-background">
@@ -76,8 +79,11 @@ const CartPage = () => {
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="text-right">
-                          <p className="text-lg font-black text-primary">${item.price.toFixed(2)}</p>
-                          {item.speed !== "normal" && (
+                          {item.oldPrice && item.oldPrice > item.price ? (
+                            <p className="text-xs text-muted-foreground/70 line-through">${item.oldPrice.toFixed(2)}</p>
+                          ) : null}
+                          <p className="text-lg font-black text-primary drop-shadow-[0_0_8px_hsl(48_100%_50%_/_0.35)]">${item.price.toFixed(2)}</p>
+                          {!item.oldPrice && item.speed !== "normal" && (
                             <p className="text-xs text-muted-foreground line-through">${item.basePrice.toFixed(2)}</p>
                           )}
                         </div>
@@ -104,7 +110,23 @@ const CartPage = () => {
               </div>
 
               {/* Total */}
-              <div className="mt-6 rounded-2xl border border-primary/30 bg-primary/5 p-6">
+              <div className={`mt-6 rounded-2xl border ${hasSale ? "border-primary/60 shadow-[0_0_28px_hsl(48_100%_50%_/_0.18)]" : "border-primary/30"} bg-primary/5 p-6`}>
+                {hasSale && (
+                  <div className="mb-3 flex items-center justify-between">
+                    <span className="inline-flex items-center rounded-full border border-primary/60 bg-primary/15 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-primary">
+                      {SALE_BADGE_LABEL}
+                    </span>
+                    <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                      You save ${saleSavings.toFixed(2)}
+                    </span>
+                  </div>
+                )}
+                {hasSale && (
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-muted-foreground/70">Subtotal (before sale)</span>
+                    <span className="text-xs text-muted-foreground/70 line-through">${totalOldPrice.toFixed(2)}</span>
+                  </div>
+                )}
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Subtotal</span>
                   <span className="text-sm text-muted-foreground">${totalPrice.toFixed(2)}</span>
@@ -117,7 +139,12 @@ const CartPage = () => {
                 )}
                 <div className="flex items-center justify-between mt-3 pt-3 border-t border-primary/20">
                   <span className="text-lg font-semibold text-foreground">Total</span>
-                  <span className="text-3xl font-black text-primary">${finalPrice.toFixed(2)}</span>
+                  <div className="text-right">
+                    {hasSale && (
+                      <span className="block text-xs text-muted-foreground/70 line-through">${totalOldPrice.toFixed(2)}</span>
+                    )}
+                    <span className="text-3xl font-black text-primary drop-shadow-[0_0_10px_hsl(48_100%_50%_/_0.45)]">${finalPrice.toFixed(2)}</span>
+                  </div>
                 </div>
                 <Button
                   onClick={() => {

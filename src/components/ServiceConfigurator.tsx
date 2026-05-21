@@ -6,6 +6,11 @@ import { Badge } from "@/components/ui/badge";
 import { ShieldCheck, Zap, Clock, ShoppingCart, MessageCircle } from "lucide-react";
 import { ServiceOption } from "@/data/gameConfigs";
 import { SpeedOption } from "@/contexts/CartContext";
+import {
+  getArenaServiceSaleRatio,
+  getArenaRaidSale,
+  SALE_BADGE_LABEL,
+} from "@/config/pricing";
 
 interface ServiceConfiguratorProps {
   service: ServiceOption;
@@ -31,6 +36,7 @@ export interface OrderSummary {
   };
   basePrice: number;
   price: number;
+  oldPrice?: number;
   speed: SpeedOption;
   estimatedTime: string;
 }
@@ -123,6 +129,13 @@ const ServiceConfigurator = ({
   const priceAfterSpeed = basePrice * speedMultiplier;
   const price = priceAfterSpeed * (1 + boostMethodModifier + liveStreamModifier);
 
+  const saleRatio =
+    gameSlug === "arena-breakout"
+      ? getArenaServiceSaleRatio(service.id, selectedMode)
+      : 1;
+  const saleActive = saleRatio > 0 && saleRatio < 1;
+  const oldPrice = saleActive ? price / saleRatio : price;
+
   const clamp = (val: number, min: number, max: number) => Math.min(Math.max(val, min), max);
 
   const handleAddToCart = () => {
@@ -171,6 +184,7 @@ const ServiceConfigurator = ({
         : undefined,
       basePrice,
       price,
+      oldPrice: saleActive ? oldPrice : undefined,
       speed,
       estimatedTime: service.estimatedTime || "TBD",
     });
@@ -348,22 +362,36 @@ const ServiceConfigurator = ({
             <div>
               <label className="mb-2 block text-sm font-medium text-foreground">Select Mode</label>
               <div className="grid grid-cols-2 gap-2">
-                {service.modes.map((mode) => (
-                  <button
-                    key={mode.name}
-                    onClick={() => setSelectedMode(mode.name)}
-                    className={`rounded-lg border px-4 py-3 text-left transition-all ${
-                      selectedMode === mode.name
-                        ? "border-primary bg-primary/10"
-                        : "border-border/50 bg-secondary/50 hover:border-primary/30"
-                    }`}
-                  >
-                    <span className={`text-sm font-semibold ${selectedMode === mode.name ? "text-primary" : "text-foreground"}`}>
-                      {mode.name}
-                    </span>
-                    <span className="block text-xs text-muted-foreground">${mode.pricePerUnit.toFixed(2)} / raid</span>
-                  </button>
-                ))}
+                {service.modes.map((mode) => {
+                  const modeSale =
+                    gameSlug === "arena-breakout" && service.id === "raids-boost"
+                      ? getArenaRaidSale(mode.name)
+                      : null;
+                  return (
+                    <button
+                      key={mode.name}
+                      onClick={() => setSelectedMode(mode.name)}
+                      className={`rounded-lg border px-4 py-3 text-left transition-all ${
+                        selectedMode === mode.name
+                          ? "border-primary bg-primary/10"
+                          : "border-border/50 bg-secondary/50 hover:border-primary/30"
+                      }`}
+                    >
+                      <span className={`text-sm font-semibold ${selectedMode === mode.name ? "text-primary" : "text-foreground"}`}>
+                        {mode.name}
+                      </span>
+                      {modeSale ? (
+                        <span className="block text-xs">
+                          <span className="text-muted-foreground/70 line-through">${modeSale.oldPrice.toFixed(2)}</span>
+                          <span className="ml-1.5 font-bold text-primary">${modeSale.newPrice.toFixed(2)}</span>
+                          <span className="text-muted-foreground"> / raid</span>
+                        </span>
+                      ) : (
+                        <span className="block text-xs text-muted-foreground">${mode.pricePerUnit.toFixed(2)} / raid</span>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -480,12 +508,26 @@ const ServiceConfigurator = ({
       {/* Price block */}
       {service.type !== "contact" && (
         <>
-          <div className="rounded-xl border border-primary/30 bg-primary/5 p-5">
+          <div className={`rounded-xl border ${saleActive ? "border-primary/60 shadow-[0_0_24px_hsl(48_100%_50%_/_0.18)]" : "border-primary/30"} bg-primary/5 p-5`}>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Total Price</p>
-                <p className="mt-1 text-3xl font-black text-primary">${price.toFixed(2)}</p>
-                {(speed !== "normal" || boostMethodModifier > 0 || liveStreamModifier > 0) && (
+                <div className="flex items-center gap-2">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Total Price</p>
+                  {saleActive && (
+                    <span className="inline-flex items-center rounded-full border border-primary/60 bg-primary/15 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-primary">
+                      {SALE_BADGE_LABEL}
+                    </span>
+                  )}
+                </div>
+                {saleActive && (
+                  <p className="mt-1 text-sm text-muted-foreground/70 line-through">
+                    ${oldPrice.toFixed(2)}
+                  </p>
+                )}
+                <p className={`${saleActive ? "mt-0.5" : "mt-1"} text-3xl font-black text-primary drop-shadow-[0_0_10px_hsl(48_100%_50%_/_0.45)]`}>
+                  ${price.toFixed(2)}
+                </p>
+                {!saleActive && (speed !== "normal" || boostMethodModifier > 0 || liveStreamModifier > 0) && (
                   <p className="text-xs text-muted-foreground line-through">${basePrice.toFixed(2)}</p>
                 )}
               </div>
