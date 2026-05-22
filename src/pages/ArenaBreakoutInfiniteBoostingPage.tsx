@@ -36,7 +36,7 @@ const ArenaBreakoutInfiniteBoostingPage = () => {
                 </Link>
                 <Link to="/game/arena-breakout/raids-boost">
                   <Button size="lg" variant="outline" className="gap-2 font-bold uppercase">
-                    Raid Sessions
+                    Raids
                   </Button>
                 </Link>
               </div>
@@ -178,7 +178,7 @@ const ArenaBreakoutInfiniteBoostingPage = () => {
                   </Link>
                   <Link to="/game/arena-breakout/raids-boost">
                     <Button size="lg" variant="outline" className="gap-2 font-bold uppercase">
-                      Order Raid Session
+                      Order Raids
                     </Button>
                   </Link>
                   <Link to="/game/arena-breakout/coaching">

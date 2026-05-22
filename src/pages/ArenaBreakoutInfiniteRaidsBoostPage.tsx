@@ -24,10 +24,10 @@ const ArenaBreakoutInfiniteRaidsBoostPage = () => {
             <div className="mx-auto max-w-4xl text-center">
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2">
                 <Trophy className="h-5 w-5 text-primary" />
-                <span className="text-sm font-bold uppercase text-primary">Expert Raid Sessions</span>
+                <span className="text-sm font-bold uppercase text-primary">Expert Raids</span>
               </div>
               <h1 className="text-4xl font-black uppercase tracking-tight text-foreground md:text-6xl">
-                Arena Breakout: Infinite <span className="text-primary glow-text">Raid Sessions</span>
+                Arena Breakout: Infinite <span className="text-primary glow-text">Raids</span>
               </h1>
               <p className="mt-6 text-lg text-muted-foreground md:text-xl">
                 Premium Arena Breakout: Infinite raid sessions on all maps. Our elite PRO squad delivers Lockdown and Forbidden modes with guaranteed VIP extraction and maximum loot. Every raid completed in 30-60 minutes by players who have mastered PvP combat and know every dangerous zone inside out.
@@ -35,7 +35,7 @@ const ArenaBreakoutInfiniteRaidsBoostPage = () => {
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Link to="/game/arena-breakout/raids-boost">
                   <Button size="lg" className="gap-2 glow-box font-bold uppercase">
-                    <Swords className="h-5 w-5" /> Order Raid Session
+                    <Swords className="h-5 w-5" /> Order Raids
                   </Button>
                 </Link>
                 <Link to="/arena-breakout-infinite-boosting">
@@ -210,7 +210,7 @@ const ArenaBreakoutInfiniteRaidsBoostPage = () => {
                 <div className="mt-6 flex flex-wrap justify-center gap-4">
                   <Link to="/game/arena-breakout/raids-boost">
                     <Button size="lg" className="gap-2 glow-box font-bold uppercase">
-                      <Zap className="h-5 w-5" /> Order Raid Session
+                      <Zap className="h-5 w-5" /> Order Raids
                     </Button>
                   </Link>
                   <Link to="/buy-arena-breakout-infinite-koens">

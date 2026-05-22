@@ -82,8 +82,8 @@ export const RUST_CATEGORIES: RustCategory[] = [
   },
   {
     id: "raiding",
-    title: "Raid Sessions",
-    shortTitle: "Raid Sessions",
+    title: "Raids",
+    shortTitle: "Raids",
     description:
       "Full Rust raid sessions — base raids, monument runs, and hourly PvP assistance fulfilled by veteran PROs.",
   },
@@ -514,7 +514,7 @@ export const rustServices: RustService[] = [
     id: "base-raiding-boost",
     slug: "base-raiding-boost",
     category: "raiding",
-    title: "Base Raid Session",
+    title: "Base Raid",
     description:
       "Premium Rust base raid session — secure enemy bases and deliver the loot back to your stash safely.",
     bullets: ["Enemy base cleared", "Loot delivered to you", "Veteran PRO raiders"],

@@ -62,7 +62,7 @@ export const gameConfigs: Record<string, GameConfig> = {
     services: [
       {
         id: "koens-farming",
-        name: "Koens Delivery",
+        name: "Koens",
         description: "Efficient Koens delivery by experienced PRO looters.",
         tag: "Popular",
         image: "/service-images/arena-breakout/koens-farming.png",
@@ -78,7 +78,7 @@ export const gameConfigs: Record<string, GameConfig> = {
       },
       {
         id: "raids-boost",
-        name: "Raid Sessions",
+        name: "Raids",
         description: "Full PRO raid sessions on all maps with VIP extraction.",
         tag: "Best Value",
         image: "/service-images/arena-breakout/raids-boost.png",

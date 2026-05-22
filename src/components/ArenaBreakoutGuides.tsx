@@ -16,7 +16,7 @@ const ArenaBreakoutGuides = () => {
       link: "/buy-arena-breakout-infinite-koens",
     },
     {
-      title: "Raid Sessions",
+      title: "Raids",
       description: "Expert PRO raid sessions on all maps",
       icon: Swords,
       link: "/arena-breakout-infinite-raids-boost",

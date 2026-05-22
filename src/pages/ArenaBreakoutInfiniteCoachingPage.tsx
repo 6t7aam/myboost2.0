@@ -242,7 +242,7 @@ const ArenaBreakoutInfiniteCoachingPage = () => {
                   </Link>
                   <Link to="/arena-breakout-infinite-raids-boost">
                     <Button size="lg" variant="outline" className="gap-2 font-bold uppercase">
-                      Order Raid Session
+                      Order Raids
                     </Button>
                   </Link>
                 </div>
