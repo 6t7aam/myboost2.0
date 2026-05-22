@@ -249,7 +249,7 @@ const PILLARS = [
   {
     icon: Shield,
     title: "Zero-Ban Protocol",
-    desc: "Manual boosting only. Smart VPN routes. No bots or cheats.",
+    desc: "Manual service only. Smart VPN routes. No bots or cheats.",
   },
   {
     icon: Wallet,

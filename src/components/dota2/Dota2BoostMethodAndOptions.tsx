@@ -42,7 +42,7 @@ const Dota2BoostMethodAndOptions = ({
   return (
     <TooltipProvider delayDuration={200}>
       <div>
-        <label className="text-xs font-bold uppercase text-foreground">Boost method</label>
+        <label className="text-xs font-bold uppercase text-foreground">Service method</label>
         <div className="mt-2 grid grid-cols-2 gap-2">
           <button
             type="button"

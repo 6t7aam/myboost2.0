@@ -30,7 +30,7 @@ const BuyArenaBreakoutInfiniteKoensPage = () => {
                 Buy Arena Breakout: Infinite <span className="text-primary glow-text">Koens</span>
               </h1>
               <p className="mt-6 text-lg text-muted-foreground md:text-xl">
-                Get Arena Breakout: Infinite Koens fast with our professional farming service. Our expert looters deliver 1M to 500M Koens in just 1-2 hours per million, using optimal routes and safe extraction strategies. No bots, no cheats—just skilled players who know every high-value spawn location across all maps.
+                Get Arena Breakout: Infinite Koens fast with our verified PRO delivery service. Our expert PRO looters deliver 1M to 500M Koens in just 1-2 hours per million, using optimal routes and safe extraction strategies. No bots, no cheats — just skilled players who know every high-value spawn location across all maps.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Link to="/game/arena-breakout/koens-farming">

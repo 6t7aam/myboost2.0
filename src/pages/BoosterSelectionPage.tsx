@@ -21,15 +21,15 @@ interface Booster {
 const BOOSTERS: Booster[] = [
   {
     id: "random",
-    title: "Random Booster",
-    description: "We will assign the best available booster for your order",
+    title: "Random PRO",
+    description: "We will assign the best available PRO for your order",
     icon: <Shuffle className="h-10 w-10 text-primary" />,
     priceMultiplier: 1,
   },
   {
     id: "keitarochka",
     title: "keitarochka",
-    description: "Play with a specific booster",
+    description: "Play with a specific PRO",
     link: "https://www.tiktok.com/@keitar0chka",
     avatar: boosterAvatar,
     priceMultiplier: 1.3,
@@ -96,7 +96,7 @@ const BoosterSelectionPage = () => {
             animate="animate"
             className="text-3xl font-black uppercase tracking-tight text-foreground md:text-4xl text-center"
           >
-            Choose Your <span className="text-primary glow-text">Booster</span>
+            Choose Your <span className="text-primary glow-text">PRO</span>
           </motion.h1>
           <p className="mt-2 text-center text-sm text-muted-foreground">
             Select who will complete your Arena Breakout: Infinite order
@@ -172,7 +172,7 @@ const BoosterSelectionPage = () => {
               </div>
               {markup > 0 && (
                 <div className="flex justify-between text-sm text-primary">
-                  <span>+30% for selected booster</span>
+                  <span>+30% for selected PRO</span>
                   <span>+${markup.toFixed(2)}</span>
                 </div>
               )}

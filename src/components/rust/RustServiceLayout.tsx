@@ -42,7 +42,7 @@ const RustServiceLayout = ({ service, children, mainContent }: RustServiceLayout
 
           <main className="order-2 min-w-0 min-[900px]:order-2">
             <h1 className="text-3xl font-black uppercase tracking-tight text-foreground md:text-5xl">
-              Rust {service.title} <span className="text-primary glow-text">Boost</span>
+              Rust {service.title} <span className="text-primary glow-text">Service</span>
             </h1>
 
             <div className="mt-4 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:flex-wrap">

@@ -7,20 +7,20 @@ import {
 
 const faqs = [
   {
-    q: "Is boosting safe? Will I get banned?",
-    a: "Absolutely. We use VPN protection, appear-offline mode, and professional techniques to ensure your account stays safe. We have a 0% ban rate across thousands of completed orders.",
+    q: "Is this marketplace safe? Will I get banned?",
+    a: "Absolutely. Every order is fulfilled manually by verified PRO players with VPN routing, appear-offline mode, and account-safe practices. We have a 0% ban rate across thousands of completed orders.",
   },
   {
     q: "How fast will my order be completed?",
-    a: "Most orders start within 15 minutes of payment confirmation. Completion times vary by service — ELO boosts typically take 2-8 hours, while larger orders may take 1-3 days.",
+    a: "Most orders start within 15 minutes of payment confirmation. Completion times vary by service — rank services typically take 2-8 hours, while larger orders may take 1-3 days.",
   },
   {
     q: "What payment methods do you accept?",
     a: "We accept cryptocurrency (USDT TRC20, LTC) for instant, anonymous payments. Card payments (Visa/Mastercard) are also available through our operator.",
   },
   {
-    q: "Can I play on my account during the boost?",
-    a: "For account-sharing services, we recommend staying offline while the booster works. For play-with-booster and coaching services, you'll be playing together!",
+    q: "Can I play on my account during a service?",
+    a: "For account-share orders, we recommend staying offline while the PRO is working. For Live Assistance and Coaching sessions, you'll be playing together!",
   },
   {
     q: "What if I'm not satisfied with the service?",

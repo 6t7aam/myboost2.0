@@ -131,7 +131,7 @@ const Dota2MmrBoostCalculator = () => {
 
   const orderPayload = useMemo(
     () => ({
-      service: "Dota 2 MMR Boost",
+      service: "Dota 2 MMR Service",
       currency: "USD",
       currentMMR,
       desiredMMR,
@@ -161,7 +161,7 @@ const Dota2MmrBoostCalculator = () => {
   return (
     <div className="space-y-5">
       <div>
-        <h3 className="text-2xl font-black uppercase tracking-tight text-foreground">Order MMR Boost</h3>
+        <h3 className="text-2xl font-black uppercase tracking-tight text-foreground">Order MMR Service</h3>
         <p className="mt-1 text-sm text-muted-foreground">
           Dynamic segmented pricing, instant rank updates, and live delivery estimates.
         </p>
@@ -279,7 +279,7 @@ const Dota2MmrBoostCalculator = () => {
       </section>
 
       <section className={sectionClassName}>
-        <div className="text-sm font-bold text-foreground">Boost method</div>
+        <div className="text-sm font-bold text-foreground">Service method</div>
         <div className="mt-3 grid gap-2 sm:grid-cols-2">
           {mmrBoostMethodOptions.map((option) => {
             const active = boostMethod === option.id;
@@ -423,7 +423,7 @@ const Dota2MmrBoostCalculator = () => {
               price: orderPayload.finalPrice,
               estimatedTime: orderPayload.completionTime,
             });
-            toast.success("Dota 2 MMR Boost added to cart!");
+            toast.success("Dota 2 MMR Service added to cart!");
           }}
         >
           <ShoppingCart className="h-5 w-5" />

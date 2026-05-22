@@ -78,77 +78,77 @@ export const RUST_CATEGORIES: RustCategory[] = [
     title: "Base Building",
     shortTitle: "Base Building",
     description:
-      "Professional Rust base building — secure layouts, raid-resistant designs, and clean wipe-start progression.",
+      "Premium Rust base building — secure layouts, raid-resistant designs, and clean wipe-start progression.",
   },
   {
     id: "raiding",
-    title: "Raiding",
-    shortTitle: "Raiding",
+    title: "Raid Sessions",
+    shortTitle: "Raid Sessions",
     description:
-      "Full Rust raiding services — base raids, monument runs, and hourly raid support backed by veteran players.",
+      "Full Rust raid sessions — base raids, monument runs, and hourly PvP assistance fulfilled by veteran PROs.",
   },
   {
     id: "resources",
-    title: "Resources",
+    title: "Resource Delivery",
     shortTitle: "Resources",
     description:
       "Pick your resource and order in bundles — stone, wood, metal fragments, sulfur, HQM, scrap, and cloth.",
   },
   {
     id: "components",
-    title: "Components",
+    title: "Components Delivery",
     shortTitle: "Components",
     description:
       "All Rust components in one calculator — metal springs, rifle bodies, road signs, rope, sewing kits, sheet metal.",
   },
   {
     id: "electronics",
-    title: "Electronics",
+    title: "Electronics Supply",
     shortTitle: "Electronics",
     description:
       "All Rust electronics in one calculator — generators, solar panels, batteries, computer stations, traps, and switches.",
   },
   {
     id: "key-cards",
-    title: "Key Cards",
+    title: "Key Cards Delivery",
     shortTitle: "Key Cards",
     description:
-      "Pick green, blue, or red Rust keycards from one calculator — manual farming, same-day delivery.",
+      "Pick green, blue, or red Rust keycards from one calculator — manual delivery, same-day completion.",
   },
   {
     id: "oil-barrel",
-    title: "Oil Barrel",
+    title: "Oil Barrel Delivery",
     shortTitle: "Oil Barrel",
     description:
-      "Rust oil barrel farming for crude oil, low grade fuel, and side scrap — the cheapest farm in the catalog.",
+      "Rust oil barrel delivery for crude oil, low grade fuel, and side scrap — the most affordable in the catalog.",
   },
   {
     id: "weapons",
-    title: "Weapons",
+    title: "Weapons Delivery",
     shortTitle: "Weapons",
     description:
-      "Combat-ready Rust weapons farmed and crafted by veteran players, delivered straight to your stash.",
+      "Combat-ready Rust weapons crafted by verified PRO players and delivered straight to your stash.",
   },
   {
     id: "ammo",
-    title: "Ammo",
+    title: "Ammo Supply",
     shortTitle: "Ammo",
     description:
-      "Bulk Rust ammo for raids, PvP, and roam loadouts. Bullets and explosives prep covered for every caliber.",
+      "Bulk Rust ammo for raid sessions, PvP, and roam loadouts. Bullets and explosives prep covered for every caliber.",
   },
   {
     id: "coaching",
     title: "Coaching",
     shortTitle: "Coaching",
     description:
-      "1-on-1 Rust coaching with veteran players — base design, raiding, PvP mechanics, and game sense.",
+      "1-on-1 Rust coaching with PRO players — base design, raid mechanics, PvP, and game sense.",
   },
   {
     id: "rent-a-booster",
-    title: "Rent A Booster",
-    shortTitle: "Rent A Booster",
+    title: "Hire A PRO",
+    shortTitle: "Hire A PRO",
     description:
-      "Hire a verified Rust booster by the hour for any task — farming, building, scouting, roaming, or raids.",
+      "Hire a verified Rust PRO by the hour for any task — resource delivery, building, scouting, roaming, or raids.",
   },
 ];
 
@@ -438,7 +438,7 @@ export const rustServices: RustService[] = [
     category: "base-building",
     title: "Advanced Base",
     description:
-      "Professional Rust advanced base design and building service for maximum raid cost and stronger defense.",
+      "Premium Rust advanced base design and build for maximum raid cost and stronger defense.",
     bullets: ["Advanced defensive layout", "High raid cost design", "Manual build only"],
     price: 22.49,
     badge: "POPULAR",
@@ -481,10 +481,10 @@ export const rustServices: RustService[] = [
     id: "hourly-driving",
     slug: "hourly-driving",
     category: "base-building",
-    title: "Hourly Driving",
+    title: "Hourly PRO Session",
     description:
-      "Hire a Rust booster by the hour for building, farming, progression, and roaming with any task allowed.",
-    bullets: ["Any task allowed", "Pay per hour", "Instant booster start"],
+      "Hire a Rust PRO by the hour for building, resource delivery, progression, and roaming with any task allowed.",
+    bullets: ["Any task allowed", "Pay per hour", "Instant PRO start"],
     price: 7.99,
     unit: "hour",
     badge: "FLEXIBLE",
@@ -499,8 +499,8 @@ export const rustServices: RustService[] = [
     category: "base-building",
     title: "Workbench Boost",
     description:
-      "Fast Rust workbench boost to unlock crafting progression and reach higher tier items faster.",
-    bullets: ["Up to Tier 3", "Crafting unlocked", "Same-day boost"],
+      "Fast Rust workbench progression service — unlock higher-tier crafting without the scrap grind.",
+    bullets: ["Up to Tier 3", "Crafting unlocked", "Same-day delivery"],
     price: 5.99,
     badge: "FAST DELIVERY",
     image: "/images/rust/workbench-boost.webp",
@@ -514,10 +514,10 @@ export const rustServices: RustService[] = [
     id: "base-raiding-boost",
     slug: "base-raiding-boost",
     category: "raiding",
-    title: "Base Raiding Boost",
+    title: "Base Raid Session",
     description:
-      "Professional Rust base raiding service to destroy enemy bases and secure valuable loot safely.",
-    bullets: ["Enemy base destroyed", "Loot delivered to you", "Veteran raiders"],
+      "Premium Rust base raid session — secure enemy bases and deliver the loot back to your stash safely.",
+    bullets: ["Enemy base cleared", "Loot delivered to you", "Veteran PRO raiders"],
     price: 59.99,
     badge: "POPULAR",
     image: "/images/rust/base-raiding-boost.webp",
@@ -531,7 +531,7 @@ export const rustServices: RustService[] = [
     category: "raiding",
     title: "Cargo Ship Raid",
     description:
-      "Rust Cargo Ship raid carry with professional support for loot, crates, PvP pressure, and extraction.",
+      "Rust Cargo Ship raid session with PRO support for loot, crates, PvP pressure, and extraction.",
     bullets: ["Full cargo cleared", "Locked crate handled", "1-3 hr completion"],
     price: 14.99,
     badge: "HOT",
@@ -546,7 +546,7 @@ export const rustServices: RustService[] = [
     category: "raiding",
     title: "Oil Rig Raid",
     description:
-      "Rust Oil Rig raid boost for high-value loot, locked crates, PvP control, and safe completion.",
+      "Rust Oil Rig raid session for high-value loot, locked crates, PvP control, and secure completion.",
     bullets: ["Locked crate looted", "Scientists handled", "PvP control"],
     price: 34.99,
     badge: "BEST VALUE",
@@ -576,7 +576,7 @@ export const rustServices: RustService[] = [
     category: "raiding",
     title: "Hourly PvP Assistance",
     description:
-      "Hourly Rust PvP support for roams, online raid defense, base hits, and raid prep scouting.",
+      "Hourly Rust PvP assistance for roams, online raid defense, base hits, and raid prep scouting.",
     bullets: ["Roam + raid support", "Any task allowed", "Pay per hour"],
     price: 7.99,
     unit: "hour",
@@ -592,10 +592,10 @@ export const rustServices: RustService[] = [
     id: "resource-farm",
     slug: "resource-farm",
     category: "resources",
-    title: "Resource Farm",
+    title: "Resource Delivery",
     description:
       "Pick stone, wood, metal fragments, sulfur, HQM, scrap or cloth — order any resource type from one calculator.",
-    bullets: ["7 resource types", "Manual farming only", "Delivered to your base"],
+    bullets: ["7 resource types", "Manual delivery only", "Delivered to your base"],
     price: cheapestVariantPrice(RESOURCE_FARM_VARIANTS),
     badge: "POPULAR",
     image: "/images/rust/resources.webp",
@@ -610,8 +610,8 @@ export const rustServices: RustService[] = [
     category: "resources",
     title: "Tea Farm",
     description:
-      "Complete Rust tea farm setup and farming support with resources included for efficient production.",
-    bullets: ["Full tea + fabric farm", "All resources included", "Long-wipe income"],
+      "Complete Rust tea farm setup and resource delivery for efficient long-wipe production.",
+    bullets: ["Full tea + fabric setup", "All resources included", "Long-wipe income"],
     price: 29.99,
     badge: "BEST VALUE",
     image: "/images/rust/tea-farm.webp",
@@ -625,10 +625,10 @@ export const rustServices: RustService[] = [
     id: "components",
     slug: "components",
     category: "components",
-    title: "Components",
+    title: "Components Delivery",
     description:
       "Pick metal spring, rifle body, road signs, rope, sewing kit, or sheet metal — all 6 components in one calculator.",
-    bullets: ["6 component types", "Manual scrap farming", "Same-day delivery"],
+    bullets: ["6 component types", "Manual delivery only", "Same-day completion"],
     price: cheapestVariantPrice(COMPONENT_VARIANTS),
     badge: "POPULAR",
     image: "/images/rust/components.webp",
@@ -643,7 +643,7 @@ export const rustServices: RustService[] = [
     id: "electronics",
     slug: "electronics",
     category: "electronics",
-    title: "Electronics",
+    title: "Electronics Supply",
     description:
       "Pick wind turbines, generators, solar panels, batteries, computer stations, guntraps, switches, or sprinklers — all in one calculator.",
     bullets: ["9 electronics types", "Pre-crafted delivery", "Manual crafting only"],
@@ -661,10 +661,10 @@ export const rustServices: RustService[] = [
     id: "key-cards",
     slug: "key-cards",
     category: "key-cards",
-    title: "Key Cards",
+    title: "Key Cards Delivery",
     description:
       "Pick green, blue, or red Rust keycards — all monument access tiers in one calculator with dynamic pricing.",
-    bullets: ["Green / blue / red", "Monument access", "Same-day farming"],
+    bullets: ["Green / blue / red", "Monument access", "Same-day delivery"],
     price: cheapestVariantPrice(KEY_CARD_VARIANTS),
     badge: "POPULAR",
     image: "/images/rust/key-cards-farm.webp",
@@ -679,10 +679,10 @@ export const rustServices: RustService[] = [
     id: "oil-barrel",
     slug: "oil-barrel",
     category: "oil-barrel",
-    title: "Oil Barrel",
+    title: "Oil Barrel Delivery",
     description:
-      "Crude oil and low grade fuel farmed from roadside barrels — the cheapest farm in the Rust catalog.",
-    bullets: ["5 oil barrels per pack", "Crude + low grade", "Manual road farming"],
+      "Crude oil and low grade fuel delivered from roadside barrel routes — the most affordable in the Rust catalog.",
+    bullets: ["5 oil barrels per pack", "Crude + low grade", "Manual road delivery"],
     price: 1.09,
     badge: "POPULAR",
     image: "/images/rust/oil-barrel-farm.webp",
@@ -703,9 +703,9 @@ export const rustServices: RustService[] = [
     id: "weapons-farm",
     slug: "weapons-farm",
     category: "weapons",
-    title: "Weapons",
+    title: "Weapons Delivery",
     description:
-      "Combat-ready Rust weapons farmed, crafted, and delivered to your base — any weapon, any loadout.",
+      "Combat-ready Rust weapons crafted and delivered to your base — any weapon, any loadout.",
     bullets: ["Any weapon", "Combat-ready gear", "Manual delivery"],
     price: 7.99,
     badge: "POPULAR",
@@ -727,9 +727,9 @@ export const rustServices: RustService[] = [
     id: "ammo",
     slug: "ammo",
     category: "ammo",
-    title: "Ammo",
+    title: "Ammo Supply",
     description:
-      "Bulk Rust ammo farmed and crafted for every caliber — bullets, explosives prep, and raid supplies.",
+      "Bulk Rust ammo crafted for every caliber — bullets, explosives prep, and raid supplies.",
     bullets: ["All calibers", "Raid supply prep", "Manual crafting"],
     price: 3.99,
     badge: "FAST DELIVERY",
@@ -753,8 +753,8 @@ export const rustServices: RustService[] = [
     category: "coaching",
     title: "Coaching",
     description:
-      "1-on-1 Rust coaching with veteran players — base design, raiding, PvP mechanics, and wipe planning.",
-    bullets: ["1-on-1 voice session", "Veteran coach", "Custom learning plan"],
+      "1-on-1 Rust coaching with PRO players — base design, raid mechanics, PvP, and wipe planning.",
+    bullets: ["1-on-1 voice session", "PRO coach", "Custom learning plan"],
     price: 14.99,
     unit: "hour",
     badge: "SAFE",
@@ -769,10 +769,10 @@ export const rustServices: RustService[] = [
     id: "rent-a-booster",
     slug: "rent-a-booster",
     category: "rent-a-booster",
-    title: "Rent A Booster",
+    title: "Hire A PRO",
     description:
-      "Hire a verified Rust booster by the hour for any task — farming, building, scouting, roaming, or raids.",
-    bullets: ["Any task allowed", "Pay per hour", "Veteran Rust pros"],
+      "Hire a verified Rust PRO by the hour for any task — resource delivery, building, scouting, roaming, or raids.",
+    bullets: ["Any task allowed", "Pay per hour", "Veteran Rust PROs"],
     price: 7.99,
     unit: "hour",
     badge: "FLEXIBLE",

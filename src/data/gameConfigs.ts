@@ -56,14 +56,14 @@ export interface GameConfig {
 export const gameConfigs: Record<string, GameConfig> = {
   "arena-breakout": {
     title: "Arena Breakout: Infinite",
-    subtitle: "Gear up, loot up, and rank up with our elite ABI boosters.",
+    subtitle: "Gear up, loot up, and rank up with our elite ABI PROs.",
     image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2073620/ss_a54ef098f4b4c81e6e09ed50f20e3e7c1f83c4c3.1920x1080.jpg",
     stats: { orders: "600+", rating: "4.9", speed: "1-4 hrs" },
     services: [
       {
         id: "koens-farming",
-        name: "Koens Farming",
-        description: "Efficient Koens farming by experienced looters.",
+        name: "Koens Delivery",
+        description: "Efficient Koens delivery by experienced PRO looters.",
         tag: "Popular",
         image: "/service-images/arena-breakout/koens-farming.png",
         startPrice: "From $0.99",
@@ -78,8 +78,8 @@ export const gameConfigs: Record<string, GameConfig> = {
       },
       {
         id: "raids-boost",
-        name: "Raids Boost",
-        description: "Full raid carry on all maps with VIP extraction.",
+        name: "Raid Sessions",
+        description: "Full PRO raid sessions on all maps with VIP extraction.",
         tag: "Best Value",
         image: "/service-images/arena-breakout/raids-boost.png",
         startPrice: "From $2.50",
@@ -123,8 +123,8 @@ export const gameConfigs: Record<string, GameConfig> = {
       },
       {
         id: "rent-a-booster",
-        name: "Rent a Booster",
-        description: "Hire a pro to play alongside you in raids.",
+        name: "Hire A PRO",
+        description: "Hire a verified PRO to play alongside you in raid sessions.",
         tag: "Hot",
         image: "/service-images/arena-breakout/rent-a-booster.png",
         startPrice: "From $4.99",
@@ -140,15 +140,15 @@ export const gameConfigs: Record<string, GameConfig> = {
     ],
   },
   cs2: {
-    title: "CS2 Boosting",
-    subtitle: "Dominate with our professional boosters. Verified top-tier players only.",
+    title: "CS2 Marketplace",
+    subtitle: "Dominate with our verified PRO players. Top-tier talent only.",
     image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/730/ss_d830cfd0550fbb64d80e803e93c929c3abb02056.1920x1080.jpg",
     stats: { orders: "2,400+", rating: "4.9", speed: "2-6 hrs" },
     services: [
       {
         id: "cs2-elo",
-        name: "ELO Boost",
-        description: "ELO boosting with tiered pricing. The higher the ELO, the more skilled the booster.",
+        name: "ELO Service",
+        description: "ELO climbing with tiered pricing. The higher the ELO, the more skilled the PRO.",
         tag: "Popular",
         type: "tiered",
         unit: "ELO",
@@ -166,8 +166,8 @@ export const gameConfigs: Record<string, GameConfig> = {
       },
       {
         id: "cs2-premier",
-        name: "Premier Boost",
-        description: "Premier rating boosting. Climb the ranks with our elite players.",
+        name: "Premier Service",
+        description: "Premier rating climbing. Climb the ranks with our elite PRO players.",
         tag: "New",
         type: "tiered",
         unit: "Rating",
@@ -198,8 +198,8 @@ export const gameConfigs: Record<string, GameConfig> = {
       },
       {
         id: "cs2-rent-booster",
-        name: "Rent a Booster",
-        description: "Hire a pro to play alongside you in competitive matches.",
+        name: "Hire A PRO",
+        description: "Hire a verified PRO to play alongside you in competitive matches.",
         tag: "Hot",
         type: "slider",
         unit: "hours",
@@ -213,18 +213,18 @@ export const gameConfigs: Record<string, GameConfig> = {
     ],
   },
   "dota-2": {
-    title: "Dota 2 Boosting",
-    subtitle: "Reach your dream MMR with Immortal-ranked boosters. Fast, safe, and efficient.",
+    title: "Dota 2 Marketplace",
+    subtitle: "Reach your dream MMR with Immortal-ranked PROs. Fast, safe, and efficient.",
     image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/570/ss_86d675fdc73ba10462abb8f5ece7791c5571584c.1920x1080.jpg",
     stats: { orders: "1,800+", rating: "4.8", speed: "4-12 hrs" },
     services: [
       {
         id: "mmr-boost",
-        name: "MMR Boost",
-        description: "Climb the ranks with Immortal-tier players. Safe, fast, and guaranteed results.",
+        name: "MMR Service",
+        description: "Climb the ranks with Immortal-tier PROs. Safe, fast, and guaranteed results.",
         bullets: [
           "Any rank tier handled",
-          "Play with pros",
+          "Play with PROs",
           "Low behavior covered",
         ],
         tag: "Popular",
@@ -248,8 +248,8 @@ export const gameConfigs: Record<string, GameConfig> = {
       },
       {
         id: "calibration-boost",
-        name: "Calibration Boost",
-        description: "Complete your Dota 2 calibration matches with skilled Immortal players and secure the best possible rank placement.",
+        name: "Calibration Service",
+        description: "Complete your Dota 2 calibration matches with skilled Immortal PROs and secure the best possible rank placement.",
         bullets: [
           "Full calibration completed",
           "High MMR placement secured",
@@ -270,11 +270,11 @@ export const gameConfigs: Record<string, GameConfig> = {
       {
         id: "lp-removal",
         name: "Low Priority Removal",
-        description: "Escape the Low Priority queue fast. Professional completion guaranteed.",
+        description: "Escape the Low Priority queue fast. PRO completion guaranteed.",
         bullets: [
           "Skip endless LP games",
           "Ranked games unlock",
-          "Fast queue recovery",
+          "Fast queue restore",
         ],
         tag: "Quick",
         image: "/images/dota2/dota2-lp-removal.jpg",
@@ -290,7 +290,7 @@ export const gameConfigs: Record<string, GameConfig> = {
       },
       {
         id: "behavior-score-boost",
-        name: "Behavior Score Boost",
+        name: "Behavior Score Service",
         description: "Improve your Dota 2 behavior score quickly and unlock full matchmaking access with reliable, safe service.",
         bullets: [
           "Reach 12k behavior score",
@@ -311,11 +311,11 @@ export const gameConfigs: Record<string, GameConfig> = {
       },
       {
         id: "win-rate-boost",
-        name: "Win Rate Boost",
-        description: "Increase your Dota 2 win rate with professional players. Choose your target number of wins and climb faster.",
+        name: "Win Rate Service",
+        description: "Increase your Dota 2 win rate with verified PRO players. Choose your target number of wins and climb faster.",
         bullets: [
           "Play or spectate",
-          "Elite boosters",
+          "Elite PRO players",
           "Choose the amount of wins",
         ],
         tag: "POPULAR",
@@ -333,7 +333,7 @@ export const gameConfigs: Record<string, GameConfig> = {
       {
         id: "battle-cup",
         name: "Battle Cup",
-        description: "Win your Dota 2 Battle Cup with experienced players and get trophies, rewards, and a smooth tournament run.",
+        description: "Win your Dota 2 Battle Cup with experienced PRO players and get trophies, rewards, and a smooth tournament run.",
         bullets: [
           "Weekend tournament win",
           "Trophy, effigy, and tier rewards",
@@ -353,8 +353,8 @@ export const gameConfigs: Record<string, GameConfig> = {
       },
       {
         id: "rank-tokens",
-        name: "Rank Tokens Farming",
-        description: "Collect Dota 2 rank tokens fast with our professional farming service.",
+        name: "Rank Tokens Delivery",
+        description: "Collect Dota 2 rank tokens fast with our verified PRO delivery service.",
         bullets: [
           "Tokens credited per match",
           "Skip the long wait",

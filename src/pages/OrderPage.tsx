@@ -314,7 +314,7 @@ const OrderPage = () => {
                       )}
                       {boosterMarkup > 0 && (
                         <div className="flex items-center justify-between">
-                          <span className="text-sm text-primary">+30% for selected booster</span>
+                          <span className="text-sm text-primary">+30% for selected PRO</span>
                           <span className="text-sm text-primary">+${boosterMarkup.toFixed(2)}</span>
                         </div>
                       )}

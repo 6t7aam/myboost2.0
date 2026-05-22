@@ -145,7 +145,7 @@ const PILLARS = [
   },
   {
     icon: BadgeCheck,
-    title: "Verified Boosters",
+    title: "Verified PROs",
     desc: "Experienced ABI players who know routes, loot value, and PvP pressure.",
   },
   {

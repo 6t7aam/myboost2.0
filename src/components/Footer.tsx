@@ -16,7 +16,7 @@ const Footer = () => {
               <span className="text-lg font-bold uppercase tracking-wider text-primary glow-text">MyBoost</span>
             </Link>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-              Premium game boosting marketplace trusted by 10,000+ players worldwide. Fast, safe, affordable.
+              Premium gaming marketplace trusted by 10,000+ players worldwide. Fast, secure, affordable.
             </p>
           </div>
 

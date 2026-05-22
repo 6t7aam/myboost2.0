@@ -96,7 +96,7 @@ const Hero = () => {
           transition={{ duration: 0.4, delay: 0.7, ease: "easeOut" }}
           className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl"
         >
-          Professional boosting services for competitive games. Fast, safe, and powered by top-tier verified players.
+          Premium gaming marketplace for competitive titles. Fast, secure, and fulfilled by verified PRO players.
         </motion.p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -106,7 +106,7 @@ const Hero = () => {
             transition={{ duration: 0.35, delay: 0.85, ease: "easeOut" }}
           >
             <Button onClick={scrollToGames} size="lg" className="group rounded-xl glow-box-intense btn-yellow cta-pulse px-8 text-base font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_hsl(48_100%_50%_/_0.4)]">
-              Get Boosted
+              Browse Marketplace
               <ChevronRight className="ml-1 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
           </motion.div>
@@ -126,7 +126,7 @@ const Hero = () => {
           {[
             { Icon: ShieldCheck, label: "100% Safe" },
             { Icon: Zap, label: "15 min start" },
-            { Icon: Trophy, label: "Professional Boosters" },
+            { Icon: Trophy, label: "Verified PRO Players" },
             { Icon: Users, label: "10,000+ orders" },
           ].map(({ Icon, label }, i) => (
             <motion.span

@@ -2,8 +2,8 @@ import { Gamepad2, Settings, Rocket } from "lucide-react";
 
 const steps = [
   { icon: Gamepad2, title: "Choose Your Game", description: "Pick from our roster of supported competitive titles." },
-  { icon: Settings, title: "Select Your Boost", description: "Configure your desired rank, level, or service package." },
-  { icon: Rocket, title: "Get Boosted", description: "Our pro players complete your order fast and safely." },
+  { icon: Settings, title: "Configure Your Service", description: "Pick the rank, package, or delivery you need from the calculator." },
+  { icon: Rocket, title: "Receive Your Order", description: "Verified PRO players fulfill your order quickly and securely." },
 ];
 
 const HowItWorks = () => {

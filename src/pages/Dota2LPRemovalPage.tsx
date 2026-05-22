@@ -159,18 +159,18 @@ const Dota2LPRemovalPage = () => {
                     <Link to="/game/dota-2/mmr-boost" className="group">
                       <div className="rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-primary/50 hover:shadow-[0_0_20px_hsl(48_100%_50%_/_0.1)]">
                         <TrendingUp className="h-10 w-10 text-primary" />
-                        <h3 className="mt-4 text-xl font-bold text-foreground group-hover:text-primary">MMR Boost</h3>
+                        <h3 className="mt-4 text-xl font-bold text-foreground group-hover:text-primary">MMR Service</h3>
                         <p className="mt-2 text-muted-foreground">
-                          Climb ranks with Immortal players. Fast, safe boosting from $3 per game.
+                          Climb ranks with Immortal PROs. Fast, safe rank service from $3 per game.
                         </p>
                       </div>
                     </Link>
                     <Link to="/game/dota-2/rank-tokens" className="group">
                       <div className="rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-primary/50 hover:shadow-[0_0_20px_hsl(48_100%_50%_/_0.1)]">
                         <Award className="h-10 w-10 text-primary" />
-                        <h3 className="mt-4 text-xl font-bold text-foreground group-hover:text-primary">Rank Tokens Farming</h3>
+                        <h3 className="mt-4 text-xl font-bold text-foreground group-hover:text-primary">Rank Tokens Delivery</h3>
                         <p className="mt-2 text-muted-foreground">
-                          Collect rank tokens fast with Immortal players. From $3 per token.
+                          Collect rank tokens fast with Immortal PROs. From $3 per token.
                         </p>
                       </div>
                     </Link>

@@ -4,20 +4,20 @@ import { BookOpen, Coins, Swords, GraduationCap, ArrowRight } from "lucide-react
 const ArenaBreakoutGuides = () => {
   const guides = [
     {
-      title: "Complete Boosting Guide",
-      description: "Professional ABI boosting services overview",
+      title: "Complete Marketplace Guide",
+      description: "Premium ABI marketplace services overview",
       icon: BookOpen,
       link: "/arena-breakout-infinite-boosting",
     },
     {
       title: "Buy Koens",
-      description: "Fast Koens farming service",
+      description: "Fast Koens delivery service",
       icon: Coins,
       link: "/buy-arena-breakout-infinite-koens",
     },
     {
-      title: "Raids Boost",
-      description: "Expert raid carries on all maps",
+      title: "Raid Sessions",
+      description: "Expert PRO raid sessions on all maps",
       icon: Swords,
       link: "/arena-breakout-infinite-raids-boost",
     },
@@ -37,7 +37,7 @@ const ArenaBreakoutGuides = () => {
             Arena Breakout: Infinite <span className="text-primary">Guides</span>
           </h2>
           <p className="text-center text-sm text-muted-foreground mb-8">
-            Comprehensive guides for all ABI boosting services
+            Comprehensive guides for all ABI marketplace services
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -40,7 +40,7 @@ export interface Dota2ServiceMeta {
 export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
   "mmr-boost": {
     serviceId: "mmr-boost",
-    pageTitle: "Dota 2 MMR Boost",
+    pageTitle: "Dota 2 MMR Service",
     badge: "POPULAR",
     featureTags: [
       { icon: "🎯", label: "Any MMR, Any Rank Tier" },
@@ -67,8 +67,8 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       },
       {
         icon: "⚔️",
-        title: "Booster Plays",
-        desc: "Pro player connects and runs ranked matches toward your target MMR.",
+        title: "PRO Plays",
+        desc: "Verified PRO player connects and runs ranked matches toward your target MMR.",
       },
       {
         icon: "🏆",
@@ -83,7 +83,7 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
   },
   "calibration-boost": {
     serviceId: "calibration-boost",
-    pageTitle: "Dota 2 Calibration Boost",
+    pageTitle: "Dota 2 Calibration Service",
     badge: "NEW",
     featureTags: [
       { icon: "🏆", label: "High MMR Placement" },
@@ -105,12 +105,12 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       {
         icon: "📋",
         title: "Order Set",
-        desc: "Share account details, booster connects shortly after payment.",
+        desc: "Share account details, PRO connects shortly after payment.",
       },
       {
         icon: "⚔️",
         title: "Calibration Games Run",
-        desc: "Booster plays calibration matches with optimized hero choice for high MMR placement.",
+        desc: "PRO plays calibration matches with optimized hero choice for high MMR placement.",
       },
       {
         icon: "🏆",
@@ -147,12 +147,12 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       {
         icon: "📋",
         title: "Account Connected",
-        desc: "Share Discord or account details, booster connects shortly.",
+        desc: "Share Discord or account details, PRO connects shortly.",
       },
       {
         icon: "⚔️",
         title: "Single Draft Cleared",
-        desc: "Booster wins the required LP games to exit Single Draft pool.",
+        desc: "PRO wins the required LP games to exit Single Draft pool.",
       },
       {
         icon: "🏆",
@@ -167,7 +167,7 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
   },
   "behavior-score-boost": {
     serviceId: "behavior-score-boost",
-    pageTitle: "Dota 2 Behavior Score Boost",
+    pageTitle: "Dota 2 Behavior Score Service",
     badge: "SAFE",
     featureTags: [
       { icon: "✅", label: "Conduct Tier Lifted" },
@@ -194,7 +194,7 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       {
         icon: "⚔️",
         title: "Clean Matches Run",
-        desc: "Booster runs clean matches toward the target behavior score.",
+        desc: "PRO runs clean matches toward the target behavior score.",
       },
       {
         icon: "🏆",
@@ -209,11 +209,11 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
   },
   "win-rate-boost": {
     serviceId: "win-rate-boost",
-    pageTitle: "Dota 2 Win Rate Boost",
+    pageTitle: "Dota 2 Win Rate Service",
     badge: "POPULAR",
     featureTags: [
       { icon: "🎮", label: "Play or Spectate" },
-      { icon: "⭐", label: "Elite Boosters" },
+      { icon: "⭐", label: "Elite PROs" },
       { icon: "🏆", label: "Choose the Amount of Wins" },
     ],
     delivery: {
@@ -250,7 +250,7 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
   },
   "battle-cup": {
     serviceId: "battle-cup",
-    pageTitle: "Dota 2 Battle Cup Boost",
+    pageTitle: "Dota 2 Battle Cup",
     badge: "NEW",
     featureTags: [
       { icon: "🏅", label: "All Tier Rewards Banked" },
@@ -273,12 +273,12 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       {
         icon: "📋",
         title: "Order Confirmed",
-        desc: "Fill in details, Discord chat with assigned booster set up shortly.",
+        desc: "Fill in details, Discord chat with assigned PRO set up shortly.",
       },
       {
         icon: "⚔️",
         title: "Tournament Played",
-        desc: "Bracket runs at scheduled weekend window; in Piloted mode booster plays your account.",
+        desc: "Bracket runs at scheduled weekend window; in Piloted mode PRO plays your account.",
       },
       {
         icon: "🏆",
@@ -293,7 +293,7 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
   },
   "rank-tokens": {
     serviceId: "rank-tokens",
-    pageTitle: "Dota 2 Rank Tokens Farming",
+    pageTitle: "Dota 2 Rank Tokens Delivery",
     badge: "NEW",
     featureTags: [
       { icon: "🎫", label: "Any Token Count Delivered" },
@@ -315,12 +315,12 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       {
         icon: "📋",
         title: "Order Placed",
-        desc: "Booster contacts via Discord to align scope and timing.",
+        desc: "PRO contacts via Discord to align scope and timing.",
       },
       {
         icon: "⚔️",
         title: "Token Matches Run",
-        desc: "Booster signs in or queues with you to run ranked matches, earning Role Queue Tokens.",
+        desc: "PRO signs in or queues with you to run ranked matches, earning Role Queue Tokens.",
       },
       {
         icon: "🎫",

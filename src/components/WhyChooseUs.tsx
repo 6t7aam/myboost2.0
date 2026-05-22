@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 const features = [
   { icon: Zap, title: "Fast Delivery", description: "Most orders start within 15 minutes and complete in hours.", badge: "2-6 hrs avg" },
   { icon: Shield, title: "Secure Payments", description: "Crypto & card options with full payment protection.", badge: "100% safe" },
-  { icon: Trophy, title: "Professional Boosters", description: "Top 0.1% verified players with thousands of orders.", badge: "500+ pros" },
+  { icon: Trophy, title: "Verified PRO Players", description: "Top 0.1% verified players with thousands of orders.", badge: "500+ pros" },
   { icon: Users, title: "10,000+ Players", description: "Trusted by thousands of gamers worldwide every day.", badge: "10k+ done" },
   { icon: Clock, title: "24/7 Support", description: "Live Discord support around the clock. Always here.", badge: "< 2 min" },
   { icon: CreditCard, title: "Money Back", description: "Not satisfied? Get a full refund. No questions asked.", badge: "Guaranteed" },
@@ -21,7 +21,7 @@ const WhyChooseUs = () => {
           Why Choose <span className="text-primary glow-text">Us</span>
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground animate-slide-up" style={{ animationDelay: '0.1s' }}>
-          The most trusted boosting service in the gaming community.
+          The most trusted gaming marketplace in the community.
         </p>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

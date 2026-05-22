@@ -114,7 +114,7 @@ const renderOrderForm = (serviceId: string) => {
       return (
         <Dota2SimpleOrderForm
           serviceId="calibration-boost"
-          serviceName="Calibration Boost"
+          serviceName="Calibration Service"
           orderTitle="Order Calibration"
           sliderLabel="Amount"
           unitSingular="match"
@@ -131,8 +131,8 @@ const renderOrderForm = (serviceId: string) => {
       return (
         <Dota2DualRangeOrderForm
           serviceId="behavior-score-boost"
-          serviceName="Behavior Score Boost"
-          orderTitle="Order Behavior Boost"
+          serviceName="Behavior Score Service"
+          orderTitle="Order Behavior Score"
           chooserLabel="Choose your current and desired score"
           currentLabel="Current Score"
           desiredLabel="Desired Score"
@@ -155,7 +155,7 @@ const renderOrderForm = (serviceId: string) => {
       return (
         <Dota2SimpleOrderForm
           serviceId="win-rate-boost"
-          serviceName="Win Rate Boost"
+          serviceName="Win Rate Service"
           orderTitle="Order Win Rate"
           sliderLabel="Amount"
           unitSingular="win"

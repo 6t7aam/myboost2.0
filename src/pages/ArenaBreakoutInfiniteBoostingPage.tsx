@@ -23,10 +23,10 @@ const ArenaBreakoutInfiniteBoostingPage = () => {
           <div className="container relative z-10 mx-auto px-4 py-16 md:py-24">
             <div className="mx-auto max-w-4xl text-center">
               <h1 className="text-4xl font-black uppercase tracking-tight text-foreground md:text-6xl">
-                Arena Breakout: Infinite <span className="text-primary glow-text">Boosting</span>
+                Arena Breakout: Infinite <span className="text-primary glow-text">Marketplace</span>
               </h1>
               <p className="mt-6 text-lg text-muted-foreground md:text-xl">
-                Professional Arena Breakout: Infinite boosting services by elite players. Whether you need Koens farming, raid carries, or expert coaching, our experienced team delivers fast, safe, and reliable results. Join 600+ satisfied customers who trust MyBoost for their ABI boosting needs.
+                Premium Arena Breakout: Infinite marketplace fulfilled by verified PRO players. Whether you need Koens delivery, raid sessions, or expert coaching, our experienced team delivers fast, safe, and reliable results. Join 600+ satisfied customers who trust MyBoost for their ABI marketplace needs.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Link to="/game/arena-breakout/koens-farming">
@@ -36,7 +36,7 @@ const ArenaBreakoutInfiniteBoostingPage = () => {
                 </Link>
                 <Link to="/game/arena-breakout/raids-boost">
                   <Button size="lg" variant="outline" className="gap-2 font-bold uppercase">
-                    Raid Carries
+                    Raid Sessions
                   </Button>
                 </Link>
               </div>
@@ -168,17 +168,17 @@ const ArenaBreakoutInfiniteBoostingPage = () => {
                   Ready to Level Up Your Arena Breakout: Infinite Experience?
                 </h3>
                 <p className="mt-3 text-muted-foreground">
-                  Choose your service and get started in minutes. Fast delivery, professional boosters, 100% secure.
+                  Choose your service and get started in minutes. Fast delivery, verified PRO players, 100% secure.
                 </p>
                 <div className="mt-6 flex flex-wrap justify-center gap-4">
                   <Link to="/game/arena-breakout/koens-farming">
                     <Button size="lg" className="gap-2 glow-box font-bold uppercase">
-                      <Zap className="h-5 w-5" /> Buy Koens Now
+                      <Zap className="h-5 w-5" /> Order Koens
                     </Button>
                   </Link>
                   <Link to="/game/arena-breakout/raids-boost">
                     <Button size="lg" variant="outline" className="gap-2 font-bold uppercase">
-                      Get Raid Carry
+                      Order Raid Session
                     </Button>
                   </Link>
                   <Link to="/game/arena-breakout/coaching">

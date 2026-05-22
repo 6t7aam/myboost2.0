@@ -194,7 +194,7 @@ const PILLARS = [
   {
     icon: BadgeCheck,
     title: "Verified Pros Only",
-    desc: "Experienced Rust players who handle base builds, raids, and farming routes daily.",
+    desc: "Experienced Rust PROs who handle base builds, raid sessions, and resource routes daily.",
   },
   {
     icon: Headset,

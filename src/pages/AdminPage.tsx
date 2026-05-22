@@ -378,7 +378,7 @@ const AdminPage = () => {
                   <TableHead className="text-muted-foreground">User Account</TableHead>
                   <TableHead className="text-muted-foreground">Service</TableHead>
                    <TableHead className="text-muted-foreground text-right">Price</TableHead>
-                   <TableHead className="text-muted-foreground">Booster</TableHead>
+                   <TableHead className="text-muted-foreground">PRO</TableHead>
                    <TableHead className="text-muted-foreground text-center">Status</TableHead>
                    <TableHead className="text-muted-foreground text-center">Actions</TableHead>
                    <TableHead className="text-muted-foreground text-center">View</TableHead>

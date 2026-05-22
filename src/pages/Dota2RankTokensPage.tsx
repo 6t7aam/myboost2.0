@@ -42,7 +42,7 @@ const RANK_OPTIONS = [
 ];
 
 const INTRO =
-  "Collect Dota 2 rank tokens fast with our professional farming service. Our Immortal players deliver guaranteed token collection with safe methods, progress updates, and custom amounts.";
+  "Collect Dota 2 rank tokens fast with our verified PRO delivery service. Our Immortal PROs deliver guaranteed token collection with safe methods, progress updates, and custom amounts.";
 
 const PRICING = dota2ServicePricing["rank-tokens"];
 
@@ -134,19 +134,19 @@ const Dota2RankTokensPage = () => {
                     <div className="rounded-xl border border-border/50 bg-card p-6">
                       <h3 className="text-lg font-bold text-foreground">How do rank tokens work in Dota 2?</h3>
                       <p className="mt-2 text-muted-foreground">
-                        In Dota 2's ranked system, you earn rank tokens by winning ranked matches. You need a specific number of tokens to progress through sub-ranks and unlock new medal tiers. Our service farms these tokens efficiently by providing Immortal players who win matches consistently.
+                        In Dota 2's ranked system, you earn rank tokens by winning ranked matches. You need a specific number of tokens to progress through sub-ranks and unlock new medal tiers. Our service delivers these tokens efficiently with Immortal PROs who win matches consistently.
                       </p>
                     </div>
                     <div className="rounded-xl border border-border/50 bg-card p-6">
-                      <h3 className="text-lg font-bold text-foreground">How fast is token farming delivery?</h3>
+                      <h3 className="text-lg font-bold text-foreground">How fast is token delivery?</h3>
                       <p className="mt-2 text-muted-foreground">
-                        Most token farming orders are completed within 24-48 hours, depending on the number of tokens requested. Our Immortal players maintain high win rates, ensuring consistent token gains. You'll receive real-time progress updates after each match showing tokens earned.
+                        Most token orders are completed within 24-48 hours, depending on the number of tokens requested. Our Immortal PROs maintain high win rates, ensuring consistent token gains. You'll receive real-time progress updates after each match showing tokens earned.
                       </p>
                     </div>
                     <div className="rounded-xl border border-border/50 bg-card p-6">
-                      <h3 className="text-lg font-bold text-foreground">Is token farming safe for my account?</h3>
+                      <h3 className="text-lg font-bold text-foreground">Is token delivery safe for my account?</h3>
                       <p className="mt-2 text-muted-foreground">
-                        Yes, our token farming service is completely safe. We use VPN protection matched to your region, and our Immortal players maintain natural gameplay patterns. We never use bots or cheats—only skilled players who win ranked matches legitimately. With thousands of completed orders and zero bans, your account security is guaranteed.
+                        Yes — every token delivery is completely safe. We use VPN protection matched to your region, and our Immortal PROs maintain natural gameplay patterns. We never use bots or cheats — only skilled players who win ranked matches legitimately. With thousands of completed orders and zero bans, your account security is guaranteed.
                       </p>
                     </div>
                     <div className="rounded-xl border border-border/50 bg-card p-6">
@@ -171,9 +171,9 @@ const Dota2RankTokensPage = () => {
                     <Link to="/game/dota-2/mmr-boost" className="group">
                       <div className="rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-primary/50 hover:shadow-[0_0_20px_hsl(48_100%_50%_/_0.1)]">
                         <Trophy className="h-10 w-10 text-primary" />
-                        <h3 className="mt-4 text-xl font-bold text-foreground group-hover:text-primary">MMR Boost</h3>
+                        <h3 className="mt-4 text-xl font-bold text-foreground group-hover:text-primary">MMR Service</h3>
                         <p className="mt-2 text-muted-foreground">
-                          Climb ranks with Immortal players. Fast, safe boosting from $3 per game.
+                          Climb ranks with Immortal PROs. Fast, safe MMR service from $3 per game.
                         </p>
                       </div>
                     </Link>
@@ -278,7 +278,7 @@ const Dota2RankTokensPage = () => {
                 id: "",
                 game: "Dota 2",
                 gameSlug: "dota-2",
-                service: "Rank Tokens Farming",
+                service: "Rank Tokens Delivery",
                 options: {
                   tokens: quantity,
                   rank,

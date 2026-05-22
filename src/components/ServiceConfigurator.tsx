@@ -423,7 +423,7 @@ const ServiceConfigurator = ({
         <>
           <div>
             <label className="mb-2 block text-sm font-medium uppercase tracking-[0.14em] text-foreground">
-              Boost Method
+              Service Method
             </label>
             <div className="grid grid-cols-2 gap-2">
               {[

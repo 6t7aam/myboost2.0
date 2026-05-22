@@ -21,18 +21,18 @@ export const arenaBreakoutServiceMeta: Record<string, ArenaServiceMeta> = {
     serviceId: "koens-farming",
     featureTags: [
       { icon: "Loot", label: "1M to 500M Koens" },
-      { icon: "Route", label: "Efficient farming routes" },
+      { icon: "Route", label: "Efficient delivery routes" },
       { icon: "Safe", label: "Secure account handling" },
     ],
     wins: [
       "Massive Koens stock delivered without manual grind",
       "Fast currency flow for weapons, armor, and cases",
-      "Experienced looters farming high-value routes efficiently",
+      "Experienced PRO looters running high-value routes efficiently",
       "Safe account handling with support during the full order",
     ],
     steps: [
       { icon: "1", title: "Set your amount", desc: "Pick how many millions of Koens you want delivered." },
-      { icon: "2", title: "Booster starts farming", desc: "Our looters begin the run and keep progress moving fast." },
+      { icon: "2", title: "PRO starts the run", desc: "Our PRO looters begin the run and keep progress moving fast." },
       { icon: "3", title: "Koens delivered", desc: "Your order is completed and your stash is ready for upgrades." },
     ],
   },
@@ -51,7 +51,7 @@ export const arenaBreakoutServiceMeta: Record<string, ArenaServiceMeta> = {
     ],
     steps: [
       { icon: "1", title: "Choose map and mode", desc: "Select your preferred raid type and the number of runs." },
-      { icon: "2", title: "Raid carry begins", desc: "Our booster handles rotations, fights, loot paths, and extracts." },
+      { icon: "2", title: "Raid session begins", desc: "Our PRO handles rotations, fights, loot paths, and extracts." },
       { icon: "3", title: "Loot secured", desc: "Your selected raids are completed with efficient delivery." },
     ],
   },
@@ -108,7 +108,7 @@ export const arenaBreakoutServiceMeta: Record<string, ArenaServiceMeta> = {
     ],
     steps: [
       { icon: "1", title: "Pick your hours", desc: "Select how long you want a pro teammate by your side." },
-      { icon: "2", title: "Queue up together", desc: "Your booster joins and supports your raids in real time." },
+      { icon: "2", title: "Queue up together", desc: "Your PRO teammate joins and supports your raids in real time." },
       { icon: "3", title: "Win more raids", desc: "You progress faster with live support, cover, and guidance." },
     ],
   },

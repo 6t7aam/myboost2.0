@@ -105,7 +105,7 @@ const Dota2CoachingPage = () => {
                     <div className="rounded-xl border border-border/50 bg-card p-6">
                       <h3 className="text-lg font-bold text-foreground">Will coaching actually improve my MMR?</h3>
                       <p className="mt-2 text-muted-foreground">
-                        Yes — coaching is the most sustainable way to climb. Unlike boosting, you build skills that translate to long-term gains. Most students see measurable improvement within 5-10 hours of structured coaching, with rank gains following naturally as habits change.
+                        Yes — coaching is the most sustainable way to climb. Unlike account-share services, you build skills that translate to long-term gains. Most students see measurable improvement within 5-10 hours of structured coaching, with rank gains following naturally as habits change.
                       </p>
                     </div>
                   </div>
@@ -124,22 +124,22 @@ const Dota2CoachingPage = () => {
                     <Link to="/game/dota-2/mmr-boost" className="group">
                       <div className="rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-primary/50 hover:shadow-[0_0_20px_hsl(48_100%_50%_/_0.1)]">
                         <Trophy className="h-10 w-10 text-primary" />
-                        <h3 className="mt-4 text-xl font-bold text-foreground group-hover:text-primary">MMR Boost</h3>
-                        <p className="mt-2 text-muted-foreground">Climb ranks with Immortal players. Fast, safe boosting.</p>
+                        <h3 className="mt-4 text-xl font-bold text-foreground group-hover:text-primary">MMR Service</h3>
+                        <p className="mt-2 text-muted-foreground">Climb ranks with Immortal PROs. Fast, safe service.</p>
                       </div>
                     </Link>
                     <Link to="/game/dota-2/lp-removal" className="group">
                       <div className="rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-primary/50 hover:shadow-[0_0_20px_hsl(48_100%_50%_/_0.1)]">
                         <Shield className="h-10 w-10 text-primary" />
                         <h3 className="mt-4 text-xl font-bold text-foreground group-hover:text-primary">Low Priority Removal</h3>
-                        <p className="mt-2 text-muted-foreground">Escape LP queue fast with professional completion.</p>
+                        <p className="mt-2 text-muted-foreground">Escape LP queue fast with PRO completion.</p>
                       </div>
                     </Link>
                     <Link to="/game/dota-2/rank-tokens" className="group">
                       <div className="rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-primary/50 hover:shadow-[0_0_20px_hsl(48_100%_50%_/_0.1)]">
                         <Award className="h-10 w-10 text-primary" />
-                        <h3 className="mt-4 text-xl font-bold text-foreground group-hover:text-primary">Rank Tokens Farming</h3>
-                        <p className="mt-2 text-muted-foreground">Collect rank tokens fast with Immortal players.</p>
+                        <h3 className="mt-4 text-xl font-bold text-foreground group-hover:text-primary">Rank Tokens Delivery</h3>
+                        <p className="mt-2 text-muted-foreground">Collect rank tokens fast with Immortal PROs.</p>
                       </div>
                     </Link>
                   </div>

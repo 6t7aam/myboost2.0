@@ -8,7 +8,7 @@ import { dota2PageSEO } from "@/data/dota2PageSEO";
 const SEO_DATA = dota2PageSEO["mmr-boost"];
 
 const INTRO =
-  "Climb the ranks with Immortal-tier players. Safe, fast, and guaranteed results. Our professional boosters deliver consistent MMR gains with VPN protection and a 15-minute start guarantee.";
+  "Climb the ranks with Immortal-tier PROs. Safe, fast, and guaranteed results. Our verified PRO players deliver consistent MMR gains with VPN protection and a 15-minute start guarantee.";
 
 const Dota2MMRBoostPage = () => {
   const structuredData = {
@@ -64,27 +64,27 @@ const Dota2MMRBoostPage = () => {
                   </h2>
                   <div className="space-y-6">
                     <div className="rounded-xl border border-border/50 bg-card p-6">
-                      <h3 className="text-lg font-bold text-foreground">Is Dota 2 MMR boosting safe?</h3>
+                      <h3 className="text-lg font-bold text-foreground">Is the Dota 2 MMR service safe?</h3>
                       <p className="mt-2 text-muted-foreground">
-                        Yes, our MMR boosting service is completely safe. We use VPN protection matched to your region, and our Immortal boosters play during your typical hours. We never use bots or cheats, only skilled players. With thousands of completed orders and zero bans, your account security is guaranteed.
+                        Yes — every MMR service is fulfilled by verified PRO players, completely safely. We use VPN protection matched to your region, and our Immortal PROs play during your typical hours. We never use bots or cheats, only skilled players. With thousands of completed orders and zero bans, your account security is guaranteed.
                       </p>
                     </div>
                     <div className="rounded-xl border border-border/50 bg-card p-6">
-                      <h3 className="text-lg font-bold text-foreground">How fast is MMR boost delivery?</h3>
+                      <h3 className="text-lg font-bold text-foreground">How fast is MMR service delivery?</h3>
                       <p className="mt-2 text-muted-foreground">
-                        We start your order within 15 minutes and deliver approximately 500 MMR in 4-12 hours on average, depending on your starting bracket. Higher MMR gains take longer due to increased match difficulty, but our Immortal boosters work efficiently to reach your target rank as quickly as possible.
+                        We start your order within 15 minutes and deliver approximately 500 MMR in 4-12 hours on average, depending on your starting bracket. Higher MMR gains take longer due to increased match difficulty, but our Immortal PROs work efficiently to reach your target rank as quickly as possible.
                       </p>
                     </div>
                     <div className="rounded-xl border border-border/50 bg-card p-6">
-                      <h3 className="text-lg font-bold text-foreground">What&apos;s the difference between Solo and Duo boost?</h3>
+                      <h3 className="text-lg font-bold text-foreground">What&apos;s the difference between Solo and Duo service?</h3>
                       <p className="mt-2 text-muted-foreground">
-                        Solo boost means our Immortal player plays on your account while you relax, fastest method with guaranteed results. Duo boost means you play alongside an Immortal player who carries your games while you learn, perfect for improving your skills while climbing. Both options deliver the same high-quality service.
+                        Solo service means our Immortal PRO plays on your account while you relax — the fastest method with guaranteed results. Duo service means you play alongside an Immortal PRO who supports your games while you learn, perfect for improving your skills while climbing. Both options deliver the same high-quality service.
                       </p>
                     </div>
                     <div className="rounded-xl border border-border/50 bg-card p-6">
-                      <h3 className="text-lg font-bold text-foreground">Can I track my MMR boost progress?</h3>
+                      <h3 className="text-lg font-bold text-foreground">Can I track my MMR service progress?</h3>
                       <p className="mt-2 text-muted-foreground">
-                        Yes. We provide live match tracking for all MMR boost orders. You&apos;ll receive real-time updates on every game played, including match results, heroes picked, and MMR gained. Track your progress from your dashboard and watch your rank climb in real time.
+                        Yes. We provide live match tracking for all MMR orders. You&apos;ll receive real-time updates on every game played, including match results, heroes picked, and MMR gained. Track your progress from your dashboard and watch your rank climb in real time.
                       </p>
                     </div>
                   </div>
@@ -106,7 +106,7 @@ const Dota2MMRBoostPage = () => {
                           Low Priority Removal
                         </h3>
                         <p className="mt-2 text-muted-foreground">
-                          Escape LP queue fast with professional completion. From $5 per game.
+                          Escape LP queue fast with PRO completion. From $5 per game.
                         </p>
                       </div>
                     </Link>
@@ -114,10 +114,10 @@ const Dota2MMRBoostPage = () => {
                       <div className="rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-primary/50 hover:shadow-[0_0_20px_hsl(48_100%_50%_/_0.1)]">
                         <Award className="h-10 w-10 text-primary" />
                         <h3 className="mt-4 text-xl font-bold text-foreground group-hover:text-primary">
-                          Rank Tokens Farming
+                          Rank Tokens Delivery
                         </h3>
                         <p className="mt-2 text-muted-foreground">
-                          Collect rank tokens fast with Immortal players. From $3 per token.
+                          Collect rank tokens fast with Immortal PROs. From $3 per token.
                         </p>
                       </div>
                     </Link>

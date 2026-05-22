@@ -21,7 +21,7 @@ const Navbar = () => {
   const unreadCount = useUnreadOrderMessages(user);
   const [soundEnabled, setSoundPref] = useSoundPreference();
 
-  const handleGetBoosted = () => {
+  const handleBrowseServices = () => {
     setMobileOpen(false);
     if (location.pathname === "/") {
       document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
@@ -139,8 +139,8 @@ const Navbar = () => {
               </span>
             )}
           </Link>
-          <Button onClick={handleGetBoosted} className="hidden md:inline-flex btn-yellow cta-pulse glow-box font-bold uppercase tracking-wider transition-all duration-300 hover:glow-box-intense hover:scale-[1.02]">
-            Get Boosted
+          <Button onClick={handleBrowseServices} className="hidden md:inline-flex btn-yellow cta-pulse glow-box font-bold uppercase tracking-wider transition-all duration-300 hover:glow-box-intense hover:scale-[1.02]">
+            Browse Services
           </Button>
           <button className="md:hidden text-foreground transition-all duration-300 hover:text-primary hover:scale-110" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -196,8 +196,8 @@ const Navbar = () => {
               Admin Panel
             </Link>
           )}
-          <Button onClick={handleGetBoosted} className="mt-3 w-full btn-yellow glow-box font-bold uppercase tracking-wider transition-all duration-300 hover:glow-box-intense">
-            Get Boosted
+          <Button onClick={handleBrowseServices} className="mt-3 w-full btn-yellow glow-box font-bold uppercase tracking-wider transition-all duration-300 hover:glow-box-intense">
+            Browse Services
           </Button>
         </div>
       )}

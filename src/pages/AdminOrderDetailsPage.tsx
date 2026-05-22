@@ -286,7 +286,7 @@ const AdminOrderDetailsPage = () => {
                   <div className="flex items-start gap-3">
                     <User className="h-5 w-5 text-primary mt-0.5" />
                     <div className="flex-1">
-                      <p className="text-sm text-muted-foreground">Booster Type</p>
+                      <p className="text-sm text-muted-foreground">PRO Type</p>
                       <p className="font-semibold text-foreground">{order.booster_type}</p>
                     </div>
                   </div>

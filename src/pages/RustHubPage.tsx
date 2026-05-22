@@ -86,16 +86,16 @@ const DELIVERY_INFO = [
 
 const FAQ_ITEMS = [
   {
-    q: "Is your Rust boosting service safe?",
-    a: "Yes. We rely exclusively on manual play by verified Rust veterans — no bots, no scripts, no automation. We use VPN routing, appear-offline mode, and account-safe practices on every order.",
+    q: "Is the Rust marketplace safe?",
+    a: "Yes. Every order is fulfilled manually by verified PRO players — no bots, no scripts, no automation. We use VPN routing, appear-offline mode, and account-safe practices on every order.",
   },
   {
     q: "How fast will my Rust order be completed?",
-    a: "Most services start within 15 minutes of payment. Component, electronics, and key card orders typically complete the same day. Base builds, raids, and farm setups complete within 1-24 hours depending on scope.",
+    a: "Most services start within 15 minutes of payment. Component, electronics, and key card orders typically complete the same day. Bases, raid sessions, and resource deliveries complete within 1-24 hours depending on scope.",
   },
   {
-    q: "Can I play on my Rust account while the boost runs?",
-    a: "For account-share services, please stay offline while the booster is working. For Rent A Booster, Coaching, and PvP Assistance you can play together with our Rust pros.",
+    q: "Can I play on my Rust account while a service runs?",
+    a: "For account-share orders, please stay offline while the PRO is working. For Hire A PRO, Coaching, and PvP Assistance you can play together with our Rust pros.",
   },
   {
     q: "What's the difference between Standard, Express, and Super Express?",
@@ -107,7 +107,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How do I receive components, electronics, or key cards?",
-    a: "All farmed items are delivered directly to your Rust base, TC, or stash on the server you specify. Our team coordinates a safe drop window with you before delivery.",
+    a: "All items are delivered directly to your Rust base, TC, or stash on the server you specify. Our team coordinates a safe drop window with you before delivery.",
   },
 ];
 
@@ -154,12 +154,12 @@ const RustHubPage = () => {
               <ArrowLeft className="h-3.5 w-3.5" /> Back to Home
             </Link>
             <h1 className="text-3xl font-black uppercase tracking-tight text-foreground md:text-5xl">
-              Rust <span className="text-primary glow-text">Boosting</span>
+              Rust <span className="text-primary glow-text">Marketplace</span>
             </h1>
             <p className="mt-3 max-w-2xl text-muted-foreground md:text-lg">
-              Premium Rust services delivered by veteran players. Base builds, raids,
-              farming, components, electronics, key cards, coaching, and rent-a-booster
-              — all manual, all safe, all backed by our refund guarantee.
+              Premium Rust services fulfilled by verified PRO players. Bases, raid sessions,
+              resource delivery, components, electronics, key cards, coaching, and Hire A PRO
+              — all manual, all secure, all backed by our refund guarantee.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <StatBadge Icon={CheckCircle} value={RUST_STATS.orders} label="orders" />
@@ -233,8 +233,8 @@ const RustHubPage = () => {
               How <span className="text-primary glow-text">Delivery</span> Works
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-muted-foreground md:text-base">
-              Every Rust order is handled manually by verified players. Here's what to expect from
-              placing your order to delivery.
+              Every Rust order is fulfilled manually by verified PRO players. Here's what to expect
+              from placing your order to delivery.
             </p>
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {DELIVERY_INFO.map(({ icon: Icon, title, desc }) => (
@@ -289,22 +289,22 @@ const RustHubPage = () => {
           <div className="container mx-auto max-w-4xl px-4">
             <div className="rounded-2xl border border-border/40 bg-card/35 p-6 md:p-8">
               <h2 className="text-2xl font-black uppercase tracking-tight text-foreground md:text-3xl">
-                Rust Boosting Done Right
+                Rust Marketplace Done Right
               </h2>
               <div className="prose prose-invert mt-4 max-w-none text-muted-foreground prose-headings:text-foreground prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight prose-a:text-primary">
                 <p>
                   Rust is a brutal game. Wipes restart every week, raids hit at the worst
                   possible time, and the grind from rock-bashing to AKs takes more hours than most
-                  players can afford. Our Rust services give you a shortcut without compromising
-                  account safety or fairness — every order is handled by verified Rust veterans
+                  players can afford. Our Rust marketplace gives you a shortcut without compromising
+                  account safety or fairness — every order is fulfilled by verified PRO players
                   who play wipes weekly.
                 </p>
                 <h3>Full Catalog Coverage</h3>
                 <p>
                   From a clean starter base in the first hour of wipe, to bunker builds, online
-                  raids, monument runs, component stockpiles, pre-crafted electronics, key cards,
-                  and weapons — we cover every part of the Rust experience. If you need it farmed,
-                  built, raided, or coached, it's in the catalog above.
+                  raid sessions, monument runs, component stockpiles, pre-crafted electronics,
+                  key cards, and weapons — we cover every part of the Rust experience. If you need
+                  it delivered, built, raided, or coached, it's in the catalog above.
                 </p>
                 <h3>Manual Only, Always</h3>
                 <p>
