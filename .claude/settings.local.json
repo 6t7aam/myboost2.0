@@ -58,7 +58,9 @@
       "Bash(ls api/)",
       "Bash(ls PAYPAL*)",
       "Bash(git stash *)",
-      "Bash(echo \"EXIT: $?\")"
+      "Bash(echo \"EXIT: $?\")",
+      "PowerShell(npx tsc --noEmit 2>&1)",
+      "PowerShell(npx tsc --noEmit; \"exit: $LASTEXITCODE\")"
     ]
   }
 }

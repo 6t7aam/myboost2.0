@@ -46,9 +46,9 @@ const games: GameCardEntry[] = [
     name: "Rust",
     slug: "rust",
     image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg",
-    description: "Base Building, Raids, Farming",
+    description: "Base Building, Raids, Resources, Weapons",
     tag: null,
-    startPrice: "From $2.50",
+    startPrice: "From $1.09",
   },
 ];
 

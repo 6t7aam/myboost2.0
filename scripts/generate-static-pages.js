@@ -70,8 +70,8 @@ const pages = [
   },
   {
     path: 'game/rust',
-    title: 'Rust Boosting Services - Base Building, Raids & Resource Farming',
-    description: 'Professional Rust services. Expert base building, raid assistance, resource farming, and coaching. 900+ orders completed. Dominate your server with our help.',
+    title: 'Rust Boosting Services - Bases, Raids, Resources, Components, Electronics & More',
+    description: 'Premium Rust boosting — base building, raiding, resources, components, electronics, key cards, oil barrel farming, weapons, ammo, coaching, and rent-a-booster. Manual delivery by Rust veterans. 600+ orders, 4.9★ rating.',
     canonical: 'https://www.myboost.top/game/rust'
   }
 ];

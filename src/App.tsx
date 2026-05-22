@@ -16,6 +16,8 @@ import OrderStatusPage from "./pages/OrderStatusPage.tsx";
 import GamePage from "./pages/GamePage.tsx";
 import ArenaBreakoutServicePage from "./pages/ArenaBreakoutServicePage.tsx";
 import Dota2ServicePage from "./pages/Dota2ServicePage.tsx";
+import RustServicePage from "./pages/RustServicePage.tsx";
+import RustHubPage from "./pages/RustHubPage.tsx";
 import ArenaBreakoutInfiniteBoostingPage from "./pages/ArenaBreakoutInfiniteBoostingPage.tsx";
 import BuyArenaBreakoutInfiniteKoensPage from "./pages/BuyArenaBreakoutInfiniteKoensPage.tsx";
 import ArenaBreakoutInfiniteRaidsBoostPage from "./pages/ArenaBreakoutInfiniteRaidsBoostPage.tsx";
@@ -71,6 +73,8 @@ const AnimatedRoutes = () => {
           <Route path="/game/dota-2/rank-tokens" element={<Dota2RankTokensPage />} />
           <Route path="/game/dota-2/coaching" element={<Dota2CoachingPage />} />
           <Route path="/game/dota-2/:serviceId" element={<Dota2ServicePage />} />
+          <Route path="/game/rust" element={<RustHubPage />} />
+          <Route path="/game/rust/:serviceId" element={<RustServicePage />} />
           <Route path="/game/:gameSlug" element={<GamePage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/order" element={<OrderPage />} />

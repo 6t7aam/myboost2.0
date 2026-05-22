@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -15,9 +15,16 @@ import Dota2ServiceGrid from "@/components/Dota2ServiceGrid";
 
 const GamePage = () => {
   const { gameSlug } = useParams<{ gameSlug: string }>();
-  const config = gameConfigs[gameSlug || ""];
-  const [activeServiceId, setActiveServiceId] = useState<string | null>(null);
   const { addItem } = useCart();
+  const [activeServiceId, setActiveServiceId] = useState<string | null>(null);
+
+  // Rust uses its own hub page (see RustHubPage). The route is registered
+  // before this catch-all so we only reach here if the route order changes.
+  if (gameSlug === "rust") {
+    return <Navigate to="/game/rust" replace />;
+  }
+
+  const config = gameConfigs[gameSlug || ""];
 
   if (!config) {
     return (
