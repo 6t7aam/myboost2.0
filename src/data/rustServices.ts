@@ -11,7 +11,28 @@ export type RustCategoryId =
   | "coaching"
   | "rent-a-booster";
 
-export type RustCalculatorType = "fixed" | "hourly" | "quantity";
+export type RustCalculatorType = "fixed" | "hourly" | "quantity" | "selector";
+
+/**
+ * A pickable option inside a `selector` calculator. Selecting a variant drives
+ * the entire calculator: price, slider range, bundle math, and receive text.
+ */
+export interface RustVariant {
+  id: string;
+  title: string;
+  /** Optional short blurb shown under the variant button. */
+  blurb?: string;
+  /** Price per "unit" (one pack or one item). */
+  price: number;
+  /** How many real game items per priced unit. Defaults to 1. */
+  packSize?: number;
+  packUnitLabel?: string;
+  qtyMin?: number;
+  qtyMax?: number;
+  qtyStep?: number;
+  qtyDefault?: number;
+  qtyUnit?: string;
+}
 
 export interface RustService {
   id: string;
@@ -21,9 +42,9 @@ export interface RustService {
   description: string;
   /** Exactly three short selling points shown on the card. */
   bullets: [string, string, string];
-  /** Base price for a single "unit" of the calculator (1 pack, 1 item, or 1 hour). */
+  /** Base price shown on the card. Use the cheapest variant for `selector` services. */
   price: number;
-  /** Used by `hourly` and as fallback label on cards. */
+  /** Used by `hourly` (and as fallback label on cards). */
   unit?: string;
   badge?: string;
   image: string;
@@ -31,20 +52,17 @@ export interface RustService {
   rating: string;
   calculatorType: RustCalculatorType;
 
-  /**
-   * For `quantity` calculators only — how many real game items are contained
-   * in each priced "pack". E.g. Metal Spring sells in packs of 10 for $5.85,
-   * so `packSize = 10` and `packUnitLabel = "metal springs"`.
-   * When `packSize` is 1, the calculator treats each step as a single item.
-   */
+  /** For `quantity` calculators only. */
   packSize?: number;
   packUnitLabel?: string;
   qtyMin?: number;
   qtyMax?: number;
   qtyStep?: number;
   qtyDefault?: number;
-  /** Display label for the calculator unit. E.g. "pack", "card", "item". */
   qtyUnit?: string;
+
+  /** Variant list — required when `calculatorType === "selector"`. */
+  variants?: RustVariant[];
 }
 
 export interface RustCategory {
@@ -74,28 +92,28 @@ export const RUST_CATEGORIES: RustCategory[] = [
     title: "Resources",
     shortTitle: "Resources",
     description:
-      "Rust resource farming for stone, wood, sulfur, scrap, cloth, fabric, and farm infrastructure setups.",
+      "Pick your resource and order in bundles — stone, wood, metal fragments, sulfur, HQM, scrap, and cloth.",
   },
   {
     id: "components",
     title: "Components",
     shortTitle: "Components",
     description:
-      "Stockpile Rust components — metal springs, rifle bodies, road signs, rope, sewing kits, and sheet metal.",
+      "All Rust components in one calculator — metal springs, rifle bodies, road signs, rope, sewing kits, sheet metal.",
   },
   {
     id: "electronics",
     title: "Electronics",
     shortTitle: "Electronics",
     description:
-      "Pre-crafted Rust electronics — generators, solar panels, batteries, computer stations, and trap parts.",
+      "All Rust electronics in one calculator — generators, solar panels, batteries, computer stations, traps, and switches.",
   },
   {
     id: "key-cards",
     title: "Key Cards",
     shortTitle: "Key Cards",
     description:
-      "Green, blue, and red Rust key cards delivered ready for monument puzzles and high-tier loot routes.",
+      "Pick green, blue, or red Rust keycards from one calculator — manual farming, same-day delivery.",
   },
   {
     id: "oil-barrel",
@@ -145,10 +163,6 @@ export const RUST_GAME_SLUG = "rust";
 export const RUST_HERO_IMAGE =
   "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/252490/ss_c27e1201e68812e48a12ca6e44b60a3e3f3d7.1920x1080.jpg";
 
-/**
- * Placeholder image used by the card / layout when a custom service image is
- * not yet available on disk. Returns a dark themed SVG with the service name.
- */
 export const rustPlaceholderImage = (name: string, w = 400, h = 300) =>
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='" +
   w +
@@ -161,6 +175,260 @@ export const rustPlaceholderImage = (name: string, w = 400, h = 300) =>
   "' fill='url(%23g)'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, Arial, sans-serif' font-weight='900' font-size='22' fill='%23ffd700' letter-spacing='2'%3E" +
   encodeURIComponent(name.toUpperCase()) +
   "%3C/text%3E%3C/svg%3E";
+
+// ---------------------------------------------------------------------------
+//   Variant lists
+// ---------------------------------------------------------------------------
+
+const COMPONENT_VARIANTS: RustVariant[] = [
+  {
+    id: "metal-spring",
+    title: "Metal Spring",
+    blurb: "10 per pack",
+    price: 5.85,
+    packSize: 10,
+    packUnitLabel: "metal springs",
+    qtyMin: 1,
+    qtyMax: 30,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "pack",
+  },
+  {
+    id: "rifle-body",
+    title: "Rifle Body",
+    blurb: "3 per pack",
+    price: 5.85,
+    packSize: 3,
+    packUnitLabel: "rifle bodies",
+    qtyMin: 1,
+    qtyMax: 30,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "pack",
+  },
+  {
+    id: "road-signs",
+    title: "Road Signs",
+    blurb: "20 per pack",
+    price: 5.85,
+    packSize: 20,
+    packUnitLabel: "road signs",
+    qtyMin: 1,
+    qtyMax: 30,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "pack",
+  },
+  {
+    id: "rope",
+    title: "Rope",
+    blurb: "50 per pack",
+    price: 5.85,
+    packSize: 50,
+    packUnitLabel: "ropes",
+    qtyMin: 1,
+    qtyMax: 30,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "pack",
+  },
+  {
+    id: "sewing-kit",
+    title: "Sewing Kit",
+    blurb: "20 per pack",
+    price: 5.85,
+    packSize: 20,
+    packUnitLabel: "sewing kits",
+    qtyMin: 1,
+    qtyMax: 30,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "pack",
+  },
+  {
+    id: "sheet-metal",
+    title: "Sheet Metal",
+    blurb: "10 per pack",
+    price: 5.85,
+    packSize: 10,
+    packUnitLabel: "sheet metals",
+    qtyMin: 1,
+    qtyMax: 30,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "pack",
+  },
+];
+
+const ELECTRONICS_VARIANT_BASE = (id: string, title: string, max = 20, label?: string): RustVariant => ({
+  id,
+  title,
+  blurb: "1 item",
+  price: 3.99,
+  packSize: 1,
+  packUnitLabel: label ?? title.toLowerCase(),
+  qtyMin: 1,
+  qtyMax: max,
+  qtyStep: 1,
+  qtyDefault: 1,
+  qtyUnit: "item",
+});
+
+const ELECTRONICS_VARIANTS: RustVariant[] = [
+  ELECTRONICS_VARIANT_BASE("wind-turbine", "Wind Turbine"),
+  ELECTRONICS_VARIANT_BASE("small-generator", "Small Generator"),
+  ELECTRONICS_VARIANT_BASE("large-solar-panel", "Large Solar Panel"),
+  ELECTRONICS_VARIANT_BASE("lr-battery", "LR Battery"),
+  ELECTRONICS_VARIANT_BASE("mr-battery", "MR Battery"),
+  ELECTRONICS_VARIANT_BASE("computer-station", "Computer Station", 10),
+  ELECTRONICS_VARIANT_BASE("guntrap", "Guntrap"),
+  ELECTRONICS_VARIANT_BASE("switch", "Switch", 30),
+  ELECTRONICS_VARIANT_BASE("sprinkler", "Sprinkler"),
+];
+
+const KEY_CARD_VARIANTS: RustVariant[] = [
+  {
+    id: "green",
+    title: "Green Card",
+    blurb: "Low-tier monuments",
+    price: 9.99,
+    packSize: 1,
+    packUnitLabel: "green keycard",
+    qtyMin: 1,
+    qtyMax: 15,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "card",
+  },
+  {
+    id: "blue",
+    title: "Blue Card",
+    blurb: "Mid-tier monuments",
+    price: 15.99,
+    packSize: 1,
+    packUnitLabel: "blue keycard",
+    qtyMin: 1,
+    qtyMax: 15,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "card",
+  },
+  {
+    id: "red",
+    title: "Red Card",
+    blurb: "High-tier monuments",
+    price: 24.99,
+    packSize: 1,
+    packUnitLabel: "red keycard",
+    qtyMin: 1,
+    qtyMax: 10,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "card",
+  },
+];
+
+const RESOURCE_FARM_VARIANTS: RustVariant[] = [
+  {
+    id: "stone",
+    title: "Stone",
+    blurb: "1,000 per bundle",
+    price: 2.49,
+    packSize: 1000,
+    packUnitLabel: "stone",
+    qtyMin: 1,
+    qtyMax: 50,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "bundle",
+  },
+  {
+    id: "wood",
+    title: "Wood",
+    blurb: "5,000 per bundle",
+    price: 2.49,
+    packSize: 5000,
+    packUnitLabel: "wood",
+    qtyMin: 1,
+    qtyMax: 50,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "bundle",
+  },
+  {
+    id: "metal-fragments",
+    title: "Metal Fragments",
+    blurb: "1,000 per bundle",
+    price: 3.49,
+    packSize: 1000,
+    packUnitLabel: "metal fragments",
+    qtyMin: 1,
+    qtyMax: 50,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "bundle",
+  },
+  {
+    id: "sulfur",
+    title: "Sulfur",
+    blurb: "1,000 per bundle",
+    price: 5.99,
+    packSize: 1000,
+    packUnitLabel: "sulfur",
+    qtyMin: 1,
+    qtyMax: 50,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "bundle",
+  },
+  {
+    id: "high-quality-metal",
+    title: "High Quality Metal",
+    blurb: "100 per bundle",
+    price: 4.99,
+    packSize: 100,
+    packUnitLabel: "high quality metal",
+    qtyMin: 1,
+    qtyMax: 30,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "bundle",
+  },
+  {
+    id: "scrap",
+    title: "Scrap",
+    blurb: "500 per bundle",
+    price: 3.99,
+    packSize: 500,
+    packUnitLabel: "scrap",
+    qtyMin: 1,
+    qtyMax: 50,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "bundle",
+  },
+  {
+    id: "cloth",
+    title: "Cloth",
+    blurb: "500 per bundle",
+    price: 2.29,
+    packSize: 500,
+    packUnitLabel: "cloth",
+    qtyMin: 1,
+    qtyMax: 50,
+    qtyStep: 1,
+    qtyDefault: 1,
+    qtyUnit: "bundle",
+  },
+];
+
+const cheapestVariantPrice = (variants: RustVariant[]) =>
+  variants.reduce((min, v) => (v.price < min ? v.price : min), variants[0].price);
+
+// ---------------------------------------------------------------------------
+//   Services
+// ---------------------------------------------------------------------------
 
 export const rustServices: RustService[] = [
   // --- 1. Base Building ---------------------------------------------------
@@ -326,21 +594,15 @@ export const rustServices: RustService[] = [
     category: "resources",
     title: "Resource Farm",
     description:
-      "Bulk Rust resource farming for stone, wood, metal, sulfur, cloth, and other essential materials.",
-    bullets: ["Stone, sulfur, scrap", "Manual farming only", "Delivered to your base"],
-    price: 2.93,
+      "Pick stone, wood, metal fragments, sulfur, HQM, scrap or cloth — order any resource type from one calculator.",
+    bullets: ["7 resource types", "Manual farming only", "Delivered to your base"],
+    price: cheapestVariantPrice(RESOURCE_FARM_VARIANTS),
     badge: "POPULAR",
     image: "/images/rust/resources.webp",
     delivery: "Same day",
     rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1000,
-    packUnitLabel: "resources",
-    qtyMin: 1,
-    qtyMax: 50,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "bundle",
+    calculatorType: "selector",
+    variants: RESOURCE_FARM_VARIANTS,
   },
   {
     id: "tea-farm",
@@ -357,463 +619,59 @@ export const rustServices: RustService[] = [
     rating: "4.9",
     calculatorType: "fixed",
   },
-  {
-    id: "oil-barrel-farm",
-    slug: "oil-barrel-farm",
-    category: "resources",
-    title: "Oil Barrel Farm",
-    description:
-      "Fast Rust oil barrel farming service for fuel, crude oil, scrap, and early wipe resource support.",
-    bullets: ["Crude + low grade", "Cheapest farm option", "Same-day delivery"],
-    price: 1.09,
-    badge: "HOT",
-    image: "/images/rust/oil-barrel-farm.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 5,
-    packUnitLabel: "oil barrels",
-    qtyMin: 1,
-    qtyMax: 50,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "pack",
-  },
-  {
-    id: "electronics-farm",
-    slug: "electronics-farm",
-    category: "resources",
-    title: "Electronics Farm",
-    description:
-      "Rust electronics farming boost for electrical components, tech items, circuits, and base automation.",
-    bullets: ["Circuits + switches", "Base automation ready", "Manual gathering"],
-    price: 3.99,
-    badge: "FAST DELIVERY",
-    image: "/images/rust/electronics-farm.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1,
-    packUnitLabel: "electronics item",
-    qtyMin: 1,
-    qtyMax: 25,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "item",
-  },
-  {
-    id: "key-cards-farm",
-    slug: "key-cards-farm",
-    category: "resources",
-    title: "Key Cards Farm",
-    description:
-      "Rust key cards farming service for monument progression, puzzle access, and high-tier loot routes.",
-    bullets: ["Green / blue / red", "Monument access", "Manual farming only"],
-    price: 9.99,
-    badge: "HOT",
-    image: "/images/rust/key-cards-farm.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1,
-    packUnitLabel: "key card",
-    qtyMin: 1,
-    qtyMax: 15,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "card",
-  },
 
   // --- 4. Components ------------------------------------------------------
   {
-    id: "components-metal-spring",
-    slug: "components-metal-spring",
+    id: "components",
+    slug: "components",
     category: "components",
-    title: "Metal Spring",
+    title: "Components",
     description:
-      "Bulk Metal Spring components farmed and delivered to your Rust base, ready for high-tier weapon crafting.",
-    bullets: ["10 metal springs per pack", "Manual scrap farming", "Same-day delivery"],
-    price: 5.85,
+      "Pick metal spring, rifle body, road signs, rope, sewing kit, or sheet metal — all 6 components in one calculator.",
+    bullets: ["6 component types", "Manual scrap farming", "Same-day delivery"],
+    price: cheapestVariantPrice(COMPONENT_VARIANTS),
     badge: "POPULAR",
     image: "/images/rust/components.webp",
     delivery: "Same day",
     rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 10,
-    packUnitLabel: "metal springs",
-    qtyMin: 1,
-    qtyMax: 30,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "pack",
-  },
-  {
-    id: "components-rifle-body",
-    slug: "components-rifle-body",
-    category: "components",
-    title: "Rifle Body",
-    description:
-      "Rifle Body components for AK and Bolt-action crafting, farmed and delivered straight to your base.",
-    bullets: ["3 rifle bodies per pack", "AK / Bolt ready", "Same-day delivery"],
-    price: 5.85,
-    badge: "HOT",
-    image: "/images/rust/components.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 3,
-    packUnitLabel: "rifle bodies",
-    qtyMin: 1,
-    qtyMax: 30,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "pack",
-  },
-  {
-    id: "components-road-signs",
-    slug: "components-road-signs",
-    category: "components",
-    title: "Road Signs",
-    description:
-      "Road Sign components for armor crafting and recycling — farmed manually and delivered to your Rust base.",
-    bullets: ["20 road signs per pack", "Armor crafting ready", "Manual farming"],
-    price: 5.85,
-    image: "/images/rust/components.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 20,
-    packUnitLabel: "road signs",
-    qtyMin: 1,
-    qtyMax: 30,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "pack",
-  },
-  {
-    id: "components-rope",
-    slug: "components-rope",
-    category: "components",
-    title: "Rope",
-    description:
-      "Bulk Rope components for crossbow, holster, and high-tier crafting, farmed manually by veteran players.",
-    bullets: ["50 ropes per pack", "Crossbow / holster ready", "Same-day delivery"],
-    price: 5.85,
-    image: "/images/rust/components.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 50,
-    packUnitLabel: "ropes",
-    qtyMin: 1,
-    qtyMax: 30,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "pack",
-  },
-  {
-    id: "components-sewing-kit",
-    slug: "components-sewing-kit",
-    category: "components",
-    title: "Sewing Kit",
-    description:
-      "Sewing Kit components for clothing and roadsign armor crafting, delivered ready to use in your base.",
-    bullets: ["20 sewing kits per pack", "Armor + clothing crafts", "Manual gathering"],
-    price: 5.85,
-    image: "/images/rust/components.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 20,
-    packUnitLabel: "sewing kits",
-    qtyMin: 1,
-    qtyMax: 30,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "pack",
-  },
-  {
-    id: "components-sheet-metal",
-    slug: "components-sheet-metal",
-    category: "components",
-    title: "Sheet Metal",
-    description:
-      "Sheet Metal components for armor, traps, and door crafting — bulk delivered to your Rust base.",
-    bullets: ["10 sheet metals per pack", "Armor / trap crafting", "Same-day delivery"],
-    price: 5.85,
-    image: "/images/rust/components.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 10,
-    packUnitLabel: "sheet metals",
-    qtyMin: 1,
-    qtyMax: 30,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "pack",
+    calculatorType: "selector",
+    variants: COMPONENT_VARIANTS,
   },
 
   // --- 5. Electronics -----------------------------------------------------
   {
-    id: "electronics-wind-turbine",
-    slug: "electronics-wind-turbine",
+    id: "electronics",
+    slug: "electronics",
     category: "electronics",
-    title: "Wind Turbine",
+    title: "Electronics",
     description:
-      "Pre-crafted Wind Turbines delivered to your Rust base — ready to power your electrical setup.",
-    bullets: ["Ready-to-place turbines", "Power your grid", "Manual crafting"],
-    price: 3.99,
-    badge: "POPULAR",
-    image: "/images/rust/electronics-farm.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1,
-    packUnitLabel: "wind turbine",
-    qtyMin: 1,
-    qtyMax: 20,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "item",
-  },
-  {
-    id: "electronics-small-generator",
-    slug: "electronics-small-generator",
-    category: "electronics",
-    title: "Small Generator",
-    description:
-      "Small Generator units crafted and delivered to your Rust base for backup power and trap setups.",
-    bullets: ["Backup power", "Trap-ready", "Manual crafting"],
-    price: 3.99,
-    image: "/images/rust/electronics-farm.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1,
-    packUnitLabel: "small generator",
-    qtyMin: 1,
-    qtyMax: 20,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "item",
-  },
-  {
-    id: "electronics-large-solar-panel",
-    slug: "electronics-large-solar-panel",
-    category: "electronics",
-    title: "Large Solar Panel",
-    description:
-      "Large Solar Panels crafted and delivered ready to wire into your Rust base electrical grid.",
-    bullets: ["High output panels", "Plug-and-play", "Manual crafting"],
-    price: 3.99,
+      "Pick wind turbines, generators, solar panels, batteries, computer stations, guntraps, switches, or sprinklers — all in one calculator.",
+    bullets: ["9 electronics types", "Pre-crafted delivery", "Manual crafting only"],
+    price: cheapestVariantPrice(ELECTRONICS_VARIANTS),
     badge: "HOT",
     image: "/images/rust/electronics-farm.webp",
     delivery: "Same day",
     rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1,
-    packUnitLabel: "large solar panel",
-    qtyMin: 1,
-    qtyMax: 20,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "item",
-  },
-  {
-    id: "electronics-lr-battery",
-    slug: "electronics-lr-battery",
-    category: "electronics",
-    title: "LR Battery",
-    description:
-      "Large Rechargeable (LR) Batteries crafted and delivered for full base power buffering.",
-    bullets: ["High-capacity storage", "Stabilises power grid", "Manual crafting"],
-    price: 3.99,
-    image: "/images/rust/electronics-farm.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1,
-    packUnitLabel: "LR battery",
-    qtyMin: 1,
-    qtyMax: 20,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "item",
-  },
-  {
-    id: "electronics-mr-battery",
-    slug: "electronics-mr-battery",
-    category: "electronics",
-    title: "MR Battery",
-    description:
-      "Medium Rechargeable (MR) Batteries crafted and delivered to your base for compact electrical setups.",
-    bullets: ["Mid-tier storage", "Compact wiring", "Manual crafting"],
-    price: 3.99,
-    image: "/images/rust/electronics-farm.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1,
-    packUnitLabel: "MR battery",
-    qtyMin: 1,
-    qtyMax: 20,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "item",
-  },
-  {
-    id: "electronics-computer-station",
-    slug: "electronics-computer-station",
-    category: "electronics",
-    title: "Computer Station",
-    description:
-      "Pre-crafted Computer Stations delivered to your Rust base for camera networks and CCTV setups.",
-    bullets: ["CCTV-ready", "Camera networking", "Manual crafting"],
-    price: 3.99,
-    badge: "SAFE",
-    image: "/images/rust/electronics-farm.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1,
-    packUnitLabel: "computer station",
-    qtyMin: 1,
-    qtyMax: 10,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "item",
-  },
-  {
-    id: "electronics-guntrap",
-    slug: "electronics-guntrap",
-    category: "electronics",
-    title: "Guntrap",
-    description:
-      "Auto-defense Guntraps crafted and delivered to your Rust base for hardened door defense.",
-    bullets: ["Auto-defense", "Door / window ready", "Manual crafting"],
-    price: 3.99,
-    image: "/images/rust/electronics-farm.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1,
-    packUnitLabel: "guntrap",
-    qtyMin: 1,
-    qtyMax: 20,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "item",
-  },
-  {
-    id: "electronics-switch",
-    slug: "electronics-switch",
-    category: "electronics",
-    title: "Switch",
-    description:
-      "Electrical Switches crafted and delivered for trap base setups and remote power control.",
-    bullets: ["Remote control", "Trap base setups", "Manual crafting"],
-    price: 3.99,
-    image: "/images/rust/electronics-farm.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1,
-    packUnitLabel: "switch",
-    qtyMin: 1,
-    qtyMax: 30,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "item",
-  },
-  {
-    id: "electronics-sprinkler",
-    slug: "electronics-sprinkler",
-    category: "electronics",
-    title: "Sprinkler",
-    description:
-      "Pre-crafted Sprinklers delivered ready to plug into your Rust farm or tea production setup.",
-    bullets: ["Auto-irrigation", "Farm-ready", "Manual crafting"],
-    price: 3.99,
-    image: "/images/rust/electronics-farm.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1,
-    packUnitLabel: "sprinkler",
-    qtyMin: 1,
-    qtyMax: 20,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "item",
+    calculatorType: "selector",
+    variants: ELECTRONICS_VARIANTS,
   },
 
   // --- 6. Key Cards -------------------------------------------------------
   {
-    id: "key-cards-green",
-    slug: "key-cards-green",
+    id: "key-cards",
+    slug: "key-cards",
     category: "key-cards",
-    title: "Green Card",
+    title: "Key Cards",
     description:
-      "Green Keycards delivered ready for low-tier monument puzzles and early Rust loot routes.",
-    bullets: ["Low-tier monument access", "Same-day farm", "Manual gathering"],
-    price: 9.99,
+      "Pick green, blue, or red Rust keycards — all monument access tiers in one calculator with dynamic pricing.",
+    bullets: ["Green / blue / red", "Monument access", "Same-day farming"],
+    price: cheapestVariantPrice(KEY_CARD_VARIANTS),
     badge: "POPULAR",
     image: "/images/rust/key-cards-farm.webp",
     delivery: "Same day",
     rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1,
-    packUnitLabel: "green keycard",
-    qtyMin: 1,
-    qtyMax: 15,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "card",
-  },
-  {
-    id: "key-cards-blue",
-    slug: "key-cards-blue",
-    category: "key-cards",
-    title: "Blue Card",
-    description:
-      "Blue Keycards delivered for mid-tier Rust monument puzzles and intermediate loot rooms.",
-    bullets: ["Mid-tier monument access", "Puzzle ready", "Manual gathering"],
-    price: 15.99,
-    badge: "HOT",
-    image: "/images/rust/key-cards-farm.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1,
-    packUnitLabel: "blue keycard",
-    qtyMin: 1,
-    qtyMax: 15,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "card",
-  },
-  {
-    id: "key-cards-red",
-    slug: "key-cards-red",
-    category: "key-cards",
-    title: "Red Card",
-    description:
-      "Red Keycards delivered for high-tier Rust monument puzzles and the top loot rooms in the game.",
-    bullets: ["High-tier monument access", "Top loot rooms", "Manual gathering"],
-    price: 24.99,
-    badge: "BEST VALUE",
-    image: "/images/rust/key-cards-farm.webp",
-    delivery: "Same day",
-    rating: "4.9",
-    calculatorType: "quantity",
-    packSize: 1,
-    packUnitLabel: "red keycard",
-    qtyMin: 1,
-    qtyMax: 10,
-    qtyStep: 1,
-    qtyDefault: 1,
-    qtyUnit: "card",
+    calculatorType: "selector",
+    variants: KEY_CARD_VARIANTS,
   },
 
   // --- 7. Oil Barrel ------------------------------------------------------

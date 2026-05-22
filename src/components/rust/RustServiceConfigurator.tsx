@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { RustService } from "@/data/rustServices";
+import { RustService, RustVariant } from "@/data/rustServices";
 import { SpeedOption } from "@/contexts/CartContext";
 
 interface SpeedDef {
@@ -58,6 +58,8 @@ export interface RustOrderPayload {
   serviceName: string;
   category: string;
   calculatorType: RustService["calculatorType"];
+  variantId?: string;
+  variantTitle?: string;
   quantity?: number;
   hours?: number;
   unit?: string;
@@ -84,6 +86,24 @@ interface RustServiceConfiguratorProps {
 const clamp = (val: number, min: number, max: number) =>
   Math.min(Math.max(val, min), max);
 
+const formatInt = (n: number) => n.toLocaleString("en-US");
+
+/** Pull the active quantity-config from either the variant or the parent service. */
+const useQtyConfig = (service: RustService, variant: RustVariant | null) => {
+  return useMemo(() => {
+    const src = variant ?? service;
+    const qtyMin = src.qtyMin ?? 1;
+    const qtyMax = src.qtyMax ?? 50;
+    const qtyStep = src.qtyStep ?? 1;
+    const qtyDefault = src.qtyDefault ?? qtyMin;
+    const packSize = src.packSize ?? 1;
+    const packUnitLabel = src.packUnitLabel ?? src.qtyUnit ?? "items";
+    const qtyUnit = src.qtyUnit ?? "item";
+    const price = variant?.price ?? service.price;
+    return { qtyMin, qtyMax, qtyStep, qtyDefault, packSize, packUnitLabel, qtyUnit, price };
+  }, [service, variant]);
+};
+
 const RustServiceConfigurator = ({
   service,
   onAddToCart,
@@ -91,22 +111,40 @@ const RustServiceConfigurator = ({
   const isHourly = service.calculatorType === "hourly";
   const isQuantity = service.calculatorType === "quantity";
   const isFixed = service.calculatorType === "fixed";
+  const isSelector = service.calculatorType === "selector";
+  const variants = service.variants ?? [];
 
-  const qtyMin = service.qtyMin ?? 1;
-  const qtyMax = service.qtyMax ?? 50;
-  const qtyStep = service.qtyStep ?? 1;
-  const qtyDefault = service.qtyDefault ?? qtyMin;
-  const packSize = service.packSize ?? 1;
+  // Variant selection (selector calculators only)
+  const [variantId, setVariantId] = useState<string>(variants[0]?.id ?? "");
+  const variant = useMemo<RustVariant | null>(
+    () => (isSelector ? variants.find((v) => v.id === variantId) ?? null : null),
+    [isSelector, variants, variantId],
+  );
 
+  const qtyCfg = useQtyConfig(service, variant);
+
+  // Local UI state
   const [hours, setHours] = useState<number>(1);
-  const [quantity, setQuantity] = useState<number>(qtyDefault);
+  const [quantity, setQuantity] = useState<number>(qtyCfg.qtyDefault);
   const [speed, setSpeed] = useState<SpeedOption>("normal");
+
+  // When variant changes, reset quantity to the variant's default and clamp.
+  useEffect(() => {
+    if (!isSelector) return;
+    setQuantity(qtyCfg.qtyDefault);
+  }, [isSelector, variantId, qtyCfg.qtyDefault]);
+
+  // Keep quantity inside variant bounds whenever variant bounds shift.
+  useEffect(() => {
+    setQuantity((q) => clamp(q, qtyCfg.qtyMin, qtyCfg.qtyMax));
+  }, [qtyCfg.qtyMin, qtyCfg.qtyMax]);
 
   const basePrice = useMemo(() => {
     if (isHourly) return service.price * hours;
     if (isQuantity) return service.price * quantity;
+    if (isSelector) return qtyCfg.price * quantity;
     return service.price;
-  }, [service.price, isHourly, isQuantity, hours, quantity]);
+  }, [isHourly, isQuantity, isSelector, service.price, hours, quantity, qtyCfg.price]);
 
   const deliveryModifier = SPEEDS.find((s) => s.value === speed)?.modifier ?? 0;
   const totalModifier = 1 + deliveryModifier;
@@ -115,7 +153,9 @@ const RustServiceConfigurator = ({
 
   const handleQtyInput = (raw: string) => {
     const n = parseInt(raw, 10);
-    setQuantity(Number.isFinite(n) ? clamp(n, qtyMin, qtyMax) : qtyMin);
+    setQuantity(
+      Number.isFinite(n) ? clamp(n, qtyCfg.qtyMin, qtyCfg.qtyMax) : qtyCfg.qtyMin,
+    );
   };
 
   const handleHoursInput = (raw: string) => {
@@ -123,39 +163,48 @@ const RustServiceConfigurator = ({
     setHours(Number.isFinite(n) ? clamp(n, 1, 24) : 1);
   };
 
-  const totalItems = packSize * quantity;
-  const itemLabel = service.packUnitLabel ?? service.qtyUnit ?? "items";
+  const totalItems = qtyCfg.packSize * quantity;
+  const itemLabel = qtyCfg.packUnitLabel;
+  const showsPack = (isQuantity || isSelector) && qtyCfg.packSize > 1;
 
   const handleAdd = () => {
     const options: Record<string, string> = {};
+
+    if (isSelector && variant) {
+      options[service.title] = variant.title;
+    }
+
     if (isHourly) {
       options["Hours"] = `${hours}`;
-    } else if (isQuantity) {
-      if (packSize > 1) {
-        options["Quantity"] = `${quantity} × pack of ${packSize} = ${totalItems} ${itemLabel}`;
+    } else if (isQuantity || isSelector) {
+      if (qtyCfg.packSize > 1) {
+        options["Quantity"] = `${quantity} × pack of ${qtyCfg.packSize} = ${formatInt(totalItems)} ${itemLabel}`;
       } else {
         options["Quantity"] = `${quantity} ${itemLabel}`;
       }
     }
-    if (speed !== "normal") {
-      options["Delivery"] = SPEEDS.find((s) => s.value === speed)?.label ?? speed;
-    } else {
-      options["Delivery"] = "Standard";
-    }
+
+    options["Delivery"] =
+      speed === "normal" ? "Standard" : SPEEDS.find((s) => s.value === speed)?.label ?? speed;
+
+    const displayName =
+      isSelector && variant ? `${service.title} — ${variant.title}` : service.title;
 
     onAddToCart({
       game: "Rust",
       gameSlug: "rust",
       serviceId: service.id,
-      serviceName: service.title,
+      serviceName: displayName,
       category: service.category,
       calculatorType: service.calculatorType,
-      quantity: isQuantity ? quantity : undefined,
+      variantId: variant?.id,
+      variantTitle: variant?.title,
+      quantity: isQuantity || isSelector ? quantity : undefined,
       hours: isHourly ? hours : undefined,
       unit: isHourly
         ? service.unit
-        : isQuantity
-          ? service.qtyUnit ?? "item"
+        : isQuantity || isSelector
+          ? qtyCfg.qtyUnit
           : undefined,
       basePrice,
       finalPrice,
@@ -176,6 +225,56 @@ const RustServiceConfigurator = ({
   return (
     <TooltipProvider delayDuration={150}>
       <div className="space-y-5">
+        {/* --- Variant selector (selector mode only) --- */}
+        {isSelector && variants.length > 0 && (
+          <div>
+            <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.16em] text-foreground">
+              Select {service.title.replace(/s$/, "")}
+            </label>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+              {variants.map((v) => {
+                const active = v.id === variantId;
+                return (
+                  <button
+                    key={v.id}
+                    type="button"
+                    onClick={() => setVariantId(v.id)}
+                    className={`group relative rounded-lg border px-2.5 py-2 text-left transition-all ${
+                      active
+                        ? "border-primary bg-primary/12 shadow-[0_0_12px_hsl(48_100%_50%_/_0.18)]"
+                        : "border-border/50 bg-secondary/40 hover:border-primary/40"
+                    }`}
+                  >
+                    <div
+                      className={`text-[12px] font-bold uppercase tracking-wide leading-tight ${
+                        active ? "text-primary" : "text-foreground"
+                      }`}
+                    >
+                      {v.title}
+                    </div>
+                    <div className="mt-0.5 flex items-center justify-between gap-2 text-[10px]">
+                      <span
+                        className={`uppercase tracking-wide ${
+                          active ? "text-primary/85" : "text-muted-foreground"
+                        }`}
+                      >
+                        {v.blurb ?? `${v.packSize ?? 1} per unit`}
+                      </span>
+                      <span
+                        className={`font-bold ${
+                          active ? "text-primary" : "text-foreground/80"
+                        }`}
+                      >
+                        ${v.price.toFixed(2)}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         {/* --- Quantity / Hours --- */}
         {isFixed && (
           <div className="rounded-xl border border-border/60 bg-secondary/40 px-4 py-3 text-sm text-muted-foreground">
@@ -236,18 +335,19 @@ const RustServiceConfigurator = ({
           </div>
         )}
 
-        {isQuantity && (
+        {(isQuantity || isSelector) && (
           <div>
             <div className="mb-3 flex items-end justify-between">
               <label className="text-[11px] font-bold uppercase tracking-[0.16em] text-foreground">
-                Quantity {service.qtyUnit ? `(${service.qtyUnit}s)` : ""}
+                Quantity ({qtyCfg.qtyUnit}
+                {quantity === 1 ? "" : "s"})
               </label>
               <div className="flex items-center gap-1.5">
                 <button
                   type="button"
                   aria-label="Decrease quantity"
                   onClick={() =>
-                    setQuantity((v) => clamp(v - qtyStep, qtyMin, qtyMax))
+                    setQuantity((v) => clamp(v - qtyCfg.qtyStep, qtyCfg.qtyMin, qtyCfg.qtyMax))
                   }
                   className="flex h-8 w-8 items-center justify-center rounded-md border border-border/50 bg-secondary/60 text-foreground transition hover:border-primary/50 hover:text-primary"
                 >
@@ -257,16 +357,16 @@ const RustServiceConfigurator = ({
                   type="number"
                   value={quantity}
                   onChange={(e) => handleQtyInput(e.target.value)}
-                  min={qtyMin}
-                  max={qtyMax}
-                  step={qtyStep}
+                  min={qtyCfg.qtyMin}
+                  max={qtyCfg.qtyMax}
+                  step={qtyCfg.qtyStep}
                   className="h-8 w-16 border-border/50 bg-secondary/50 text-center text-sm"
                 />
                 <button
                   type="button"
                   aria-label="Increase quantity"
                   onClick={() =>
-                    setQuantity((v) => clamp(v + qtyStep, qtyMin, qtyMax))
+                    setQuantity((v) => clamp(v + qtyCfg.qtyStep, qtyCfg.qtyMin, qtyCfg.qtyMax))
                   }
                   className="flex h-8 w-8 items-center justify-center rounded-md border border-border/50 bg-secondary/60 text-foreground transition hover:border-primary/50 hover:text-primary"
                 >
@@ -277,24 +377,27 @@ const RustServiceConfigurator = ({
             <Slider
               value={[quantity]}
               onValueChange={([v]) => setQuantity(v)}
-              min={qtyMin}
-              max={qtyMax}
-              step={qtyStep}
+              min={qtyCfg.qtyMin}
+              max={qtyCfg.qtyMax}
+              step={qtyCfg.qtyStep}
             />
             <div className="mt-1 flex justify-between text-xs text-muted-foreground">
               <span>
-                {qtyMin} {service.qtyUnit ?? "item"}
+                {qtyCfg.qtyMin} {qtyCfg.qtyUnit}
               </span>
               <span>
-                {qtyMax} {service.qtyUnit ?? "item"}s
+                {qtyCfg.qtyMax} {qtyCfg.qtyUnit}s
               </span>
             </div>
 
-            {packSize > 1 && (
+            {showsPack && (
               <div className="mt-3 rounded-lg border border-primary/20 bg-primary/5 px-3 py-2 text-[11px] font-medium text-foreground/85">
                 <span className="text-primary">You receive: </span>
-                {totalItems} {itemLabel}
-                <span className="text-muted-foreground"> · {quantity} × pack of {packSize}</span>
+                {formatInt(totalItems)} {itemLabel}
+                <span className="text-muted-foreground">
+                  {" · "}
+                  {quantity} × pack of {qtyCfg.packSize}
+                </span>
               </div>
             )}
           </div>

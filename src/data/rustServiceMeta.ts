@@ -41,52 +41,6 @@ const STANDARD_STEPS = (verb: string, deliverable: string): RustHowItWorksStep[]
   },
 ];
 
-const FARM_TAGS = (label: string): RustFeatureTag[] => [
-  { icon: "Safe", label: "Manual farming only" },
-  { icon: "Fast", label: "Same-day delivery" },
-  { icon: "Pro", label: `Veteran ${label} farmers` },
-];
-
-const FARM_WINS = (label: string, extra: string[] = []): string[] => [
-  `Bulk ${label} delivered straight to your base`,
-  "Manual gathering — no bots, no detection risk",
-  "Flexible order size scaled to your needs",
-  "Verified Rust veterans handle the farm",
-  ...extra,
-  "Live support throughout the order",
-];
-
-const COMPONENT_META = (label: string, packSize: number): RustServiceMeta => ({
-  serviceId: `components-${label.toLowerCase().replace(/\s+/g, "-")}`,
-  featureTags: [
-    { icon: "Pack", label: `${packSize} per pack` },
-    { icon: "Safe", label: "Manual farming only" },
-    { icon: "Fast", label: "Same-day delivery" },
-  ],
-  wins: FARM_WINS(`${label}`, [
-    "Crafting-ready components for high-tier gear",
-    "Saves hours of monument and radtown grinding",
-  ]),
-  steps: STANDARD_STEPS("Farmer", label),
-});
-
-const ELECTRONICS_META = (slugPart: string, label: string): RustServiceMeta => ({
-  serviceId: `electronics-${slugPart}`,
-  featureTags: [
-    { icon: "Built", label: "Pre-crafted item" },
-    { icon: "Safe", label: "Manual crafting only" },
-    { icon: "Fast", label: "Same-day delivery" },
-  ],
-  wins: [
-    `${label} delivered ready to place in your Rust base`,
-    "All required components are sourced manually",
-    "Saves the painful electrical farming grind",
-    "Crafted by Rust veterans who play wipes weekly",
-    "Live support throughout the order",
-  ],
-  steps: STANDARD_STEPS("Crafter", label),
-});
-
 export const rustServiceMeta: Record<string, RustServiceMeta> = {
   // --- Base Building ----------------------------------------------------
   "advanced-base": {
@@ -276,16 +230,19 @@ export const rustServiceMeta: Record<string, RustServiceMeta> = {
   "resource-farm": {
     serviceId: "resource-farm",
     featureTags: [
-      { icon: "Any", label: "Stone, wood, sulfur, scrap" },
-      { icon: "Speed", label: "Same-day farm" },
-      { icon: "Safe", label: "No bots — manual only" },
+      { icon: "Pick", label: "7 resource types" },
+      { icon: "Safe", label: "Manual farming only" },
+      { icon: "Speed", label: "Same-day delivery" },
     ],
-    wins: FARM_WINS("resources", [
-      "Stockpiles of stone, wood, metal, sulfur and cloth",
-      "Saves hours of repetitive farming",
-    ]),
+    wins: [
+      "Pick stone, wood, metal frags, sulfur, HQM, scrap, or cloth",
+      "Bundle pricing scales to any order size",
+      "Manual gathering — no bots, no detection risk",
+      "Delivered to your base or stash directly",
+      "Live support throughout the order",
+    ],
     steps: [
-      { icon: "1", title: "Pick the amount", desc: "Choose how many resource bundles you want farmed." },
+      { icon: "1", title: "Pick the resource", desc: "Choose the resource type and how many bundles you want farmed." },
       { icon: "2", title: "Farm begins", desc: "Our players gather the resources efficiently." },
       { icon: "3", title: "Resources delivered", desc: "The full order lands in your stash, ready to use." },
     ],
@@ -306,111 +263,88 @@ export const rustServiceMeta: Record<string, RustServiceMeta> = {
     ],
     steps: STANDARD_STEPS("Farmer", "Tea farm"),
   },
-  "oil-barrel-farm": {
-    serviceId: "oil-barrel-farm",
-    featureTags: FARM_TAGS("barrel"),
-    wins: FARM_WINS("oil barrels", [
-      "Crude oil and low grade fuel piles delivered",
-      "Cheapest farming order in our Rust catalog",
-    ]),
-    steps: STANDARD_STEPS("Farmer", "Oil barrels"),
-  },
-  "electronics-farm": {
-    serviceId: "electronics-farm",
-    featureTags: FARM_TAGS("electronics"),
-    wins: FARM_WINS("electronics", [
-      "Electrical components for base automation",
-      "Foundation for traps and bunker tech",
-    ]),
-    steps: STANDARD_STEPS("Farmer", "Electronics"),
-  },
-  "key-cards-farm": {
-    serviceId: "key-cards-farm",
-    featureTags: FARM_TAGS("monument"),
-    wins: FARM_WINS("key cards", [
-      "Full card set for monument puzzles",
-      "Faster access to high-tier loot routes",
-    ]),
-    steps: STANDARD_STEPS("Farmer", "Key cards"),
-  },
 
   // --- Components -------------------------------------------------------
-  "components-metal-spring": COMPONENT_META("Metal Spring", 10),
-  "components-rifle-body": COMPONENT_META("Rifle Body", 3),
-  "components-road-signs": COMPONENT_META("Road Signs", 20),
-  "components-rope": COMPONENT_META("Rope", 50),
-  "components-sewing-kit": COMPONENT_META("Sewing Kit", 20),
-  "components-sheet-metal": COMPONENT_META("Sheet Metal", 10),
+  components: {
+    serviceId: "components",
+    featureTags: [
+      { icon: "Pick", label: "6 component types" },
+      { icon: "Safe", label: "Manual scrap farming" },
+      { icon: "Speed", label: "Same-day delivery" },
+    ],
+    wins: [
+      "Pick the component you need — metal springs, rifle bodies, road signs, rope, sewing kits, or sheet metal",
+      "Bulk pack pricing scales to any crafting need",
+      "Crafting-ready stockpile for high-tier gear",
+      "Manual gathering — no bots, no detection risk",
+      "Delivered to your base or stash directly",
+    ],
+    steps: [
+      { icon: "1", title: "Pick the component", desc: "Choose the component type and pack count in the calculator." },
+      { icon: "2", title: "Farm begins", desc: "Our players gather and recycle for your components." },
+      { icon: "3", title: "Components delivered", desc: "Stockpile lands in your base, ready to craft with." },
+    ],
+  },
 
   // --- Electronics ------------------------------------------------------
-  "electronics-wind-turbine": ELECTRONICS_META("wind-turbine", "Wind Turbine"),
-  "electronics-small-generator": ELECTRONICS_META("small-generator", "Small Generator"),
-  "electronics-large-solar-panel": ELECTRONICS_META("large-solar-panel", "Large Solar Panel"),
-  "electronics-lr-battery": ELECTRONICS_META("lr-battery", "LR Battery"),
-  "electronics-mr-battery": ELECTRONICS_META("mr-battery", "MR Battery"),
-  "electronics-computer-station": ELECTRONICS_META("computer-station", "Computer Station"),
-  "electronics-guntrap": ELECTRONICS_META("guntrap", "Guntrap"),
-  "electronics-switch": ELECTRONICS_META("switch", "Switch"),
-  "electronics-sprinkler": ELECTRONICS_META("sprinkler", "Sprinkler"),
+  electronics: {
+    serviceId: "electronics",
+    featureTags: [
+      { icon: "Pick", label: "9 electronics types" },
+      { icon: "Build", label: "Pre-crafted delivery" },
+      { icon: "Speed", label: "Same-day delivery" },
+    ],
+    wins: [
+      "Pick from 9 ready-to-place Rust electronics",
+      "Pre-crafted by veteran players — no scrap math for you",
+      "Power, trap, and farm setups all covered",
+      "Manual crafting — no bots, no detection risk",
+      "Delivered to your base ready to wire",
+    ],
+    steps: [
+      { icon: "1", title: "Pick the electronics", desc: "Choose your item type and how many you need." },
+      { icon: "2", title: "Crafting begins", desc: "Our players source components and craft your items." },
+      { icon: "3", title: "Items delivered", desc: "Ready-to-place electronics arrive at your base." },
+    ],
+  },
 
   // --- Key Cards --------------------------------------------------------
-  "key-cards-green": {
-    serviceId: "key-cards-green",
+  "key-cards": {
+    serviceId: "key-cards",
     featureTags: [
-      { icon: "Green", label: "Low-tier monuments" },
-      { icon: "Fast", label: "Same-day delivery" },
+      { icon: "Pick", label: "Green / Blue / Red" },
+      { icon: "Monument", label: "Monument access" },
       { icon: "Safe", label: "Manual gathering" },
     ],
     wins: [
-      "Green keycards ready for low-tier monuments",
-      "Faster access to early Rust loot rooms",
-      "Saves repetitive monument puzzle runs",
+      "Pick the card tier you need — green, blue, or red",
+      "Unlock monument puzzles without grinding them",
       "Cards delivered to your base ready to use",
+      "Manual farming — no bots, no detection risk",
       "Live support throughout the order",
     ],
-    steps: STANDARD_STEPS("Farmer", "Green keycards"),
-  },
-  "key-cards-blue": {
-    serviceId: "key-cards-blue",
-    featureTags: [
-      { icon: "Blue", label: "Mid-tier monuments" },
-      { icon: "Fast", label: "Same-day delivery" },
-      { icon: "Safe", label: "Manual gathering" },
+    steps: [
+      { icon: "1", title: "Pick the card", desc: "Select green, blue, or red and the number of cards." },
+      { icon: "2", title: "Farming begins", desc: "Our players run the monuments to collect your cards." },
+      { icon: "3", title: "Cards delivered", desc: "Cards land in your base ready for the next puzzle run." },
     ],
-    wins: [
-      "Blue keycards delivered for mid-tier monuments",
-      "Intermediate loot rooms unlocked",
-      "Saves repetitive monument runs",
-      "Cards delivered to your base ready to use",
-      "Live support throughout the order",
-    ],
-    steps: STANDARD_STEPS("Farmer", "Blue keycards"),
-  },
-  "key-cards-red": {
-    serviceId: "key-cards-red",
-    featureTags: [
-      { icon: "Red", label: "High-tier monuments" },
-      { icon: "Loot", label: "Top loot rooms" },
-      { icon: "Safe", label: "Manual gathering" },
-    ],
-    wins: [
-      "Red keycards delivered for the best loot rooms",
-      "High-tier monument puzzles solved",
-      "Faster access to elite loot routes",
-      "Cards delivered to your base ready to use",
-      "Live support throughout the order",
-    ],
-    steps: STANDARD_STEPS("Farmer", "Red keycards"),
   },
 
   // --- Oil Barrel -------------------------------------------------------
   "oil-barrel": {
     serviceId: "oil-barrel",
-    featureTags: FARM_TAGS("barrel"),
-    wins: FARM_WINS("oil barrels", [
+    featureTags: [
+      { icon: "Cheap", label: "Cheapest farm" },
+      { icon: "Fuel", label: "Crude + low grade" },
+      { icon: "Safe", label: "Manual farming" },
+    ],
+    wins: [
       "Crude oil and low grade fuel delivered",
+      "Side scrap from barrel routes included",
       "Cheapest farming order in our Rust catalog",
-    ]),
+      "Perfect for early-wipe fuel reserves",
+      "Manual road farming — no bots ever",
+    ],
     steps: STANDARD_STEPS("Farmer", "Oil barrels"),
   },
 

@@ -5,9 +5,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Check, Clock } from "lucide-react";
 import { RustService, rustPlaceholderImage } from "@/data/rustServices";
 
-const formatPrice = (service: RustService): { value: string; suffix?: string } => {
+const formatPrice = (service: RustService): { value: string; suffix?: string; prefix?: string } => {
   if (service.calculatorType === "hourly") {
     return { value: `$${service.price.toFixed(2)}`, suffix: `/${service.unit ?? "hour"}` };
+  }
+  if (service.calculatorType === "selector") {
+    return { prefix: "From", value: `$${service.price.toFixed(2)}` };
   }
   if (service.calculatorType === "quantity") {
     if (service.packSize && service.packSize > 1) {
@@ -68,7 +71,7 @@ const RustServiceCard = ({ service }: { service: RustService }) => {
           <div className="mt-4 flex items-end justify-between">
             <div>
               <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Starting at
+                {price.prefix ?? "Starting at"}
               </div>
               <div className="mt-0.5 flex items-baseline gap-1">
                 <span className="text-xl font-black text-primary glow-text">{price.value}</span>

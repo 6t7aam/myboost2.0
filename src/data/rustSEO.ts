@@ -164,18 +164,18 @@ export const rustSEO: Record<string, RustServiceSEO> = {
 
   // --- Resources --------------------------------------------------------
   "resource-farm": {
-    metaTitle: "Rust Resource Farming — Stone, Sulfur, Scrap & Cloth Bundles",
+    metaTitle: "Rust Resource Farm — Stone, Wood, Sulfur, HQM, Scrap & Cloth",
     metaDescription:
-      "Manual Rust resource farming for stone, wood, sulfur, scrap, cloth, and metal. Scalable bundle orders from 1 to 50, same-day delivery, no bots ever.",
+      "Pick any Rust resource — stone, wood, metal fragments, sulfur, high quality metal, scrap, or cloth — in one calculator. Manual farming, same-day delivery.",
     keywords:
-      "rust resource farm, rust stone sulfur scrap, rust farming service, buy rust resources, rust material boost, rust cloth farm",
+      "rust resource farm, rust stone wood sulfur scrap, rust hqm farm, rust cloth farm, rust metal fragments, buy rust resources, rust bundle farm",
     h1: "Rust Resource Farming",
     content: `
-      <p>The Resource Farm service hands off the most tedious part of Rust — manual gathering. Stone, wood, metal, sulfur, cloth, and other materials are farmed by hand and delivered to your base or crate.</p>
-      <h2>Scalable Order Sizes</h2>
-      <p>Order anywhere from 1 to 50 bundles. The price scales with the amount, so small farms and bulk farms are both supported.</p>
+      <p>The Resource Farm bundles every essential Rust material into a single configurable order. Pick stone, wood, metal fragments, sulfur, high quality metal, scrap, or cloth — every type has its own bundle size, its own slider scale, and its own price.</p>
+      <h2>One Calculator, Seven Resources</h2>
+      <p>Switch resources inside the order panel and the calculator updates instantly — bundle math, receive text, total price, all dynamic. Order what you actually need.</p>
       <h2>No Bots, Ever</h2>
-      <p>All gathering is manual. We use Rust veterans on real accounts — same standard we use for raids and base builds.</p>
+      <p>All gathering is manual. We use Rust veterans on real accounts — same standard we apply to raids and base builds.</p>
     `,
   },
   "tea-farm": {
@@ -193,325 +193,55 @@ export const rustSEO: Record<string, RustServiceSEO> = {
       <p>Tea Farm is one of our top-rated Rust services. Done once, it carries you through the rest of the wipe with very little maintenance.</p>
     `,
   },
-  "oil-barrel-farm": {
-    metaTitle: "Rust Oil Barrel Farming (Resources) — Crude & Low Grade Fuel",
-    metaDescription:
-      "Resource-line oil barrel farming for Rust. Crude oil, low grade fuel, and scrap from roadside barrels. Cheapest farm in the catalog, same-day delivery.",
-    keywords:
-      "rust oil barrel farm, rust low grade fuel, rust crude oil, roadside barrel farm rust, rust fuel reserve, rust scrap from barrels",
-    h1: "Rust Oil Barrel Farming",
-    content: `
-      <p>Oil Barrel Farming covers the long road-running needed to gather crude oil, low grade fuel, and side-scrap from roadside barrels in Rust.</p>
-      <h2>Early Wipe Fuel</h2>
-      <p>Fuel is the silent currency of early wipe. Tools, vehicles, and quarries all need it. This service builds up your fuel reserve so you don't have to.</p>
-      <h2>Same-Day Delivery</h2>
-      <p>Most barrel farm orders are completed in a single play session. Manual only, no bots.</p>
-    `,
-  },
-  "electronics-farm": {
-    metaTitle: "Rust Electronics Farming — Circuits, Switches & Trap Parts",
-    metaDescription:
-      "Bulk Rust electronics farming for circuits, switches, splitters, smart alarms, and trap-base parts. Manual gathering by veterans, same-day delivery.",
-    keywords:
-      "rust electronics farm, rust circuit farm, rust switches farm, rust trap base parts, rust electrical components, rust smart alarm",
-    h1: "Rust Electronics Farming",
-    content: `
-      <p>Electronics Farming gathers the electrical components that power base automation in Rust — switches, branches, splitters, smart alarms, and the rest.</p>
-      <h2>Base Automation Ready</h2>
-      <p>Once electronics are stockpiled, traps, alarms, and auto-turrets become trivial to set up. This service hands you that stockpile.</p>
-      <h2>Manual Only</h2>
-      <p>No bots, no shortcuts. Done by Rust veterans who play wipes weekly.</p>
-    `,
-  },
-  "key-cards-farm": {
-    metaTitle: "Rust Key Cards Farming — Green, Blue & Red Cards Delivered",
-    metaDescription:
-      "Rust key cards farmed and delivered for every monument puzzle. Green, blue, and red cards covered. Manual farming, same-day delivery, no bots ever.",
-    keywords:
-      "rust key cards, rust monument keycard, rust puzzle cards, green blue red card rust, monument access rust, rust keycard bundle",
-    h1: "Rust Key Cards Farming",
-    content: `
-      <p>Key Cards Farming delivers the green, blue, and red key cards used for Rust monument puzzles. With cards in hand, you unlock the highest-tier loot rooms across the map.</p>
-      <h2>Monument Access, Solved</h2>
-      <p>Most groups skip monument loot because puzzle runs take time and risk. This service removes that cost — cards land in your base, ready to use.</p>
-      <h2>Same-Day Delivery</h2>
-      <p>Manual farming, fast service, no bots.</p>
-    `,
-  },
 
   // --- Components -------------------------------------------------------
-  "components-metal-spring": {
-    metaTitle: "Rust Metal Spring Farming — 10 Springs Per Pack Delivered",
+  components: {
+    metaTitle: "Rust Components Farming — Springs, Rifle Bodies, Rope, Sheet Metal & More",
     metaDescription:
-      "Order Rust Metal Spring components in packs of 10. Crafting-ready for AKs, traps, and high-tier gear. Manual farming, same-day delivery, no bots.",
+      "All Rust components in one calculator. Pick metal springs, rifle bodies, road signs, rope, sewing kits, or sheet metal — each with its own pack size and price.",
     keywords:
-      "rust metal spring, rust spring component, rust ak craft parts, rust crafting components, buy rust metal springs, metal spring farm",
-    h1: "Rust Metal Spring Farming",
+      "rust components, rust metal spring, rust rifle body, rust road signs, rust rope, rust sewing kit, rust sheet metal, rust component farm",
+    h1: "Rust Components Farming",
     content: `
-      <p>Bulk Metal Spring components delivered to your Rust base, ready for high-tier weapon crafting. Each pack contains 10 metal springs farmed manually by Rust veterans.</p>
-      <h2>Skip The Radtown Grind</h2>
-      <p>Component grinding is one of the most repetitive parts of Rust. This service hands you the metal spring stockpile so you can focus on building, raiding, and PvP instead.</p>
-      <h2>Manual Delivery</h2>
-      <p>Manual farming only — no bots, no shortcuts. All components are delivered straight to your base or stash.</p>
-    `,
-  },
-  "components-rifle-body": {
-    metaTitle: "Rust Rifle Body Farming — 3 Bodies Per Pack for AK Crafts",
-    metaDescription:
-      "Buy Rust Rifle Body components in packs of 3. Ready for AK and Bolt-action crafting. Manual scrap farming, same-day delivery to your base.",
-    keywords:
-      "rust rifle body, rust ak component, rust bolt action craft, rust gun parts, rifle body rust farm, rust weapon parts",
-    h1: "Rust Rifle Body Farming",
-    content: `
-      <p>Bulk Rifle Body components delivered to your Rust base, ready for AK and Bolt-action crafting. Each pack contains 3 rifle bodies farmed manually by Rust veterans.</p>
-      <h2>Skip The Radtown Grind</h2>
-      <p>Rifle Bodies are some of the rarest gun-craft components in Rust. This service hands you the stockpile so you can focus on building, raiding, and PvP instead.</p>
-      <h2>Manual Delivery</h2>
-      <p>Manual farming only — no bots, no shortcuts. All components are delivered straight to your base or stash.</p>
-    `,
-  },
-  "components-road-signs": {
-    metaTitle: "Rust Road Sign Farming — 20 Signs Per Pack for Roadsign Armor",
-    metaDescription:
-      "Order Rust Road Sign components in packs of 20 for roadsign armor and recycling. Manual farming by veterans, same-day delivery to your base.",
-    keywords:
-      "rust road signs, rust roadsign armor, rust armor crafting, rust road sign farm, recycling parts rust, roadsign kilt rust",
-    h1: "Rust Road Signs Farming",
-    content: `
-      <p>Bulk Road Sign components delivered to your Rust base, ready for armor crafting and recycling. Each pack contains 20 road signs farmed manually by Rust veterans.</p>
-      <h2>Skip The Radtown Grind</h2>
-      <p>Road Sign components feed roadsign armor — one of the cheapest mid-tier protection sets in Rust. This service hands you the stockpile so you can focus on building, raiding, and PvP.</p>
-      <h2>Manual Delivery</h2>
-      <p>Manual farming only — no bots, no shortcuts. All components are delivered straight to your base or stash.</p>
-    `,
-  },
-  "components-rope": {
-    metaTitle: "Rust Rope Farming — 50 Ropes Per Pack for Crossbows & Holsters",
-    metaDescription:
-      "Bulk Rust Rope components in packs of 50. Ready for crossbow, holster, and high-tier crafting. Manual gathering, same-day delivery.",
-    keywords:
-      "rust rope, rust crossbow craft, rust holster component, rust rope farm, buy rust rope, rust hot air balloon parts",
-    h1: "Rust Rope Farming",
-    content: `
-      <p>Bulk Rope components delivered to your Rust base, ready for crossbow and holster crafting. Each pack contains 50 ropes farmed manually by Rust veterans.</p>
-      <h2>Skip The Radtown Grind</h2>
-      <p>Rope drops are notoriously slow per barrel — this service hands you the stockpile so you can focus on building, raiding, and PvP instead.</p>
-      <h2>Manual Delivery</h2>
-      <p>Manual farming only — no bots, no shortcuts. All components are delivered straight to your base or stash.</p>
-    `,
-  },
-  "components-sewing-kit": {
-    metaTitle: "Rust Sewing Kit Farming — 20 Kits Per Pack for Armor Crafts",
-    metaDescription:
-      "Order Rust Sewing Kit components in packs of 20. Ready for clothing, armor, and roadsign-suit crafting. Manual farming, same-day delivery.",
-    keywords:
-      "rust sewing kit, rust armor craft parts, rust clothing components, sewing kit farm rust, buy sewing kit rust, rust hazmat parts",
-    h1: "Rust Sewing Kit Farming",
-    content: `
-      <p>Bulk Sewing Kit components delivered to your Rust base, ready for armor and clothing crafting. Each pack contains 20 sewing kits farmed manually by Rust veterans.</p>
-      <h2>Skip The Radtown Grind</h2>
-      <p>Sewing Kits feed almost every clothing and armor craft in Rust. This service hands you the stockpile so you can focus on building, raiding, and PvP.</p>
-      <h2>Manual Delivery</h2>
-      <p>Manual farming only — no bots, no shortcuts. All components are delivered straight to your base or stash.</p>
-    `,
-  },
-  "components-sheet-metal": {
-    metaTitle: "Rust Sheet Metal Farming — 10 Sheets Per Pack for Traps & Doors",
-    metaDescription:
-      "Buy Rust Sheet Metal components in packs of 10. Ready for armor, traps, sheet doors, and base upgrades. Manual farming, same-day delivery.",
-    keywords:
-      "rust sheet metal, rust sheet door craft, rust trap parts, rust metal armor, sheet metal farm rust, rust auto turret parts",
-    h1: "Rust Sheet Metal Farming",
-    content: `
-      <p>Bulk Sheet Metal components delivered to your Rust base, ready for armor, traps, and door crafting. Each pack contains 10 sheet metals farmed manually by Rust veterans.</p>
-      <h2>Skip The Radtown Grind</h2>
-      <p>Sheet Metal is one of the heaviest mid-wipe components — used for sheet doors, traps, and metal armor. This service hands you the stockpile so you can focus on building, raiding, and PvP.</p>
-      <h2>Manual Delivery</h2>
-      <p>Manual farming only — no bots, no shortcuts. All components are delivered straight to your base or stash.</p>
+      <p>All six Rust component types live inside a single dynamic calculator. Pick metal spring, rifle body, road signs, rope, sewing kit, or sheet metal — every variant has its own pack size and crafting use.</p>
+      <h2>One Order, Any Component</h2>
+      <p>Switch components inside the order panel and the calculator updates instantly — pack math, receive text, and total price all change with your selection.</p>
+      <h2>Manual Farming Only</h2>
+      <p>All components are farmed manually by verified Rust players. No bots, no shortcuts, no detection risk.</p>
     `,
   },
 
   // --- Electronics ------------------------------------------------------
-  "electronics-wind-turbine": {
-    metaTitle: "Rust Wind Turbine Crafting — Pre-Built Turbines Delivered",
+  electronics: {
+    metaTitle: "Rust Electronics Crafting — Turbines, Solar, Batteries, Traps & More",
     metaDescription:
-      "Pre-crafted Rust Wind Turbines delivered ready to mount. Renewable power for your base electrical grid. Manual crafting, same-day delivery.",
+      "Pre-crafted Rust electronics in one calculator. Wind turbines, generators, solar panels, batteries, computer stations, guntraps, switches, sprinklers.",
     keywords:
-      "rust wind turbine, rust renewable power, rust electrical base, buy wind turbine rust, rust base power, rust wind energy",
-    h1: "Rust Wind Turbine Crafting",
+      "rust electronics, rust wind turbine, rust solar panel, rust battery, rust computer station, rust guntrap, rust switch, rust sprinkler, rust electrical components",
+    h1: "Rust Electronics Crafting",
     content: `
-      <p>Pre-crafted Wind Turbines delivered to your Rust base, ready to mount and wire into your power grid. Our players handle the component farming, scrap recycling, and crafting so you don't have to.</p>
-      <h2>Plug-And-Play Electronics</h2>
-      <p>Skip the painful electrical grind. Wind Turbines are delivered fully assembled and ready to mount on your roof.</p>
+      <p>Nine of the most essential Rust electronics live inside a single order panel. Pick wind turbines, small generators, large solar panels, LR or MR batteries, computer stations, guntraps, switches, or sprinklers — all pre-crafted, all ready to mount.</p>
+      <h2>One Order, Any Electronics</h2>
+      <p>Switch electronics inside the order panel and the calculator updates instantly — quantity, receive text, and total price all change with your selection.</p>
       <h2>Manual Crafting Only</h2>
-      <p>Every order is handled manually by Rust veterans — no bots, no detection risk.</p>
-    `,
-  },
-  "electronics-small-generator": {
-    metaTitle: "Rust Small Generator Crafting — Pre-Built Generators Delivered",
-    metaDescription:
-      "Buy pre-crafted Rust Small Generators for backup power and trap base setups. Manual crafting by veterans, same-day delivery to your base.",
-    keywords:
-      "rust small generator, rust backup power, rust trap base electronics, small electric generator rust, rust base power, rust generator craft",
-    h1: "Rust Small Generator Crafting",
-    content: `
-      <p>Pre-crafted Small Generators delivered to your Rust base, ready for backup power and trap base setups. Our players handle the component farming, scrap recycling, and crafting so you don't have to.</p>
-      <h2>Plug-And-Play Electronics</h2>
-      <p>Small Generators ship as a portable, easy-deploy power source — drop one in your trap room and you're done.</p>
-      <h2>Manual Crafting Only</h2>
-      <p>Every order is handled manually by Rust veterans — no bots, no detection risk.</p>
-    `,
-  },
-  "electronics-large-solar-panel": {
-    metaTitle: "Rust Large Solar Panel — Pre-Crafted High-Output Panels Delivered",
-    metaDescription:
-      "Order pre-crafted Rust Large Solar Panels. High-output, plug-and-play for your base power grid. Manual crafting, same-day delivery.",
-    keywords:
-      "rust large solar panel, rust solar power, rust base electricity, solar panel craft rust, rust electrical grid, rust roof solar",
-    h1: "Rust Large Solar Panel Crafting",
-    content: `
-      <p>Pre-crafted Large Solar Panels delivered to your Rust base, ready to plug into your electrical grid. Our players handle the component farming, scrap recycling, and crafting so you don't have to.</p>
-      <h2>Plug-And-Play Electronics</h2>
-      <p>High-output panels arrive fully assembled — clip them to your roof and start charging batteries immediately.</p>
-      <h2>Manual Crafting Only</h2>
-      <p>Every order is handled manually by Rust veterans — no bots, no detection risk.</p>
-    `,
-  },
-  "electronics-lr-battery": {
-    metaTitle: "Rust LR Battery Crafting — Large Rechargeable Batteries Delivered",
-    metaDescription:
-      "Pre-crafted Rust LR Batteries (Large Rechargeable) for full base power buffering. Manual crafting, ready to wire, same-day delivery.",
-    keywords:
-      "rust lr battery, rust large rechargeable battery, rust power storage, lr battery craft rust, rust electrical buffer, rust solar storage",
-    h1: "Rust LR Battery Crafting",
-    content: `
-      <p>Pre-crafted LR (Large Rechargeable) Batteries delivered to your Rust base, ready for full base power buffering. Our players handle the component farming, scrap recycling, and crafting so you don't have to.</p>
-      <h2>Plug-And-Play Electronics</h2>
-      <p>LR Batteries are the high-capacity option for solar + turbine setups — buffer power across nights and stable production cycles.</p>
-      <h2>Manual Crafting Only</h2>
-      <p>Every order is handled manually by Rust veterans — no bots, no detection risk.</p>
-    `,
-  },
-  "electronics-mr-battery": {
-    metaTitle: "Rust MR Battery Crafting — Medium Rechargeable Batteries Delivered",
-    metaDescription:
-      "Order Rust MR Batteries (Medium Rechargeable) pre-crafted and ready to wire. Compact power storage for traps and bases. Same-day delivery.",
-    keywords:
-      "rust mr battery, rust medium rechargeable battery, rust compact storage, mr battery craft rust, rust trap base power, rust mid tier battery",
-    h1: "Rust MR Battery Crafting",
-    content: `
-      <p>Pre-crafted MR (Medium Rechargeable) Batteries delivered to your Rust base, ready for compact electrical setups. Our players handle the component farming, scrap recycling, and crafting so you don't have to.</p>
-      <h2>Plug-And-Play Electronics</h2>
-      <p>MR Batteries fit smaller bases and trap rooms — the right pick when you don't have space for an LR.</p>
-      <h2>Manual Crafting Only</h2>
-      <p>Every order is handled manually by Rust veterans — no bots, no detection risk.</p>
-    `,
-  },
-  "electronics-computer-station": {
-    metaTitle: "Rust Computer Station Crafting — CCTV-Ready Stations Delivered",
-    metaDescription:
-      "Pre-crafted Rust Computer Stations delivered for camera networks and CCTV setups. Manual crafting, same-day delivery, fully account-safe.",
-    keywords:
-      "rust computer station, rust cctv setup, rust camera network, computer station craft rust, rust base camera, rust monitoring station",
-    h1: "Rust Computer Station Crafting",
-    content: `
-      <p>Pre-crafted Computer Stations delivered to your Rust base, ready for camera networks and CCTV monitoring. Our players handle the component farming, scrap recycling, and crafting so you don't have to.</p>
-      <h2>Plug-And-Play Electronics</h2>
-      <p>Computer Stations turn into central monitoring rooms — connect cameras across your base, raid targets, or roam outposts.</p>
-      <h2>Manual Crafting Only</h2>
-      <p>Every order is handled manually by Rust veterans — no bots, no detection risk.</p>
-    `,
-  },
-  "electronics-guntrap": {
-    metaTitle: "Rust Guntrap Crafting — Auto-Defense Guntraps Delivered",
-    metaDescription:
-      "Order pre-crafted Rust Guntraps for hardened door defense and trap base layouts. Manual crafting, ready to mount, same-day delivery.",
-    keywords:
-      "rust guntrap, rust auto defense, rust trap base craft, guntrap rust delivered, rust door defense, rust shotgun trap",
-    h1: "Rust Guntrap Crafting",
-    content: `
-      <p>Pre-crafted Guntraps delivered to your Rust base, ready for hardened door defense. Our players handle the component farming, scrap recycling, and crafting so you don't have to.</p>
-      <h2>Plug-And-Play Electronics</h2>
-      <p>Guntraps auto-defend any choke or doorway — drop them on your hard sides for instant raid pressure on attackers.</p>
-      <h2>Manual Crafting Only</h2>
-      <p>Every order is handled manually by Rust veterans — no bots, no detection risk.</p>
-    `,
-  },
-  "electronics-switch": {
-    metaTitle: "Rust Switch Crafting — Electrical Switches Delivered",
-    metaDescription:
-      "Pre-crafted Rust Switches for trap setups and remote power control. Manual crafting by Rust veterans, same-day delivery to your base.",
-    keywords:
-      "rust switch, rust electrical switch, rust trap base components, switch craft rust, remote power rust, rust circuit switch",
-    h1: "Rust Switch Crafting",
-    content: `
-      <p>Pre-crafted Switches delivered to your Rust base, ready for trap setups and remote power control. Our players handle the component farming, scrap recycling, and crafting so you don't have to.</p>
-      <h2>Plug-And-Play Electronics</h2>
-      <p>Switches are the backbone of any trap base — control turrets, lights, and traps from a central console.</p>
-      <h2>Manual Crafting Only</h2>
-      <p>Every order is handled manually by Rust veterans — no bots, no detection risk.</p>
-    `,
-  },
-  "electronics-sprinkler": {
-    metaTitle: "Rust Sprinkler Crafting — Auto-Irrigation Sprinklers Delivered",
-    metaDescription:
-      "Pre-crafted Rust Sprinklers for automated farm irrigation and tea production. Manual crafting, plug-and-play, same-day delivery.",
-    keywords:
-      "rust sprinkler, rust farm irrigation, rust tea sprinkler, sprinkler craft rust, rust auto irrigation, rust planter sprinkler",
-    h1: "Rust Sprinkler Crafting",
-    content: `
-      <p>Pre-crafted Sprinklers delivered to your Rust base, ready to auto-irrigate your farm setup. Our players handle the component farming, scrap recycling, and crafting so you don't have to.</p>
-      <h2>Plug-And-Play Electronics</h2>
-      <p>Sprinklers automate planter watering and feed any tea farm scaling — drop them above the rows and walk away.</p>
-      <h2>Manual Crafting Only</h2>
-      <p>Every order is handled manually by Rust veterans — no bots, no detection risk.</p>
+      <p>Every electronic item is sourced and crafted manually by Rust veterans. No bots, no detection risk.</p>
     `,
   },
 
   // --- Key Cards --------------------------------------------------------
-  "key-cards-green": {
-    metaTitle: "Rust Green Keycard Delivery — Low-Tier Monument Access",
+  "key-cards": {
+    metaTitle: "Rust Key Cards Farming — Green, Blue & Red Cards in One Calculator",
     metaDescription:
-      "Order Rust Green Keycards delivered to your base. Unlocks Sewer Branch, Harbor, and low-tier monument puzzles. Manual farming, same-day delivery.",
+      "Pick green, blue, or red Rust keycards in one dynamic calculator. Monument puzzle access farmed manually and delivered to your base same-day.",
     keywords:
-      "rust green keycard, rust low tier monument, rust sewer branch card, rust harbor keycard, green card rust farm, rust puzzle green",
-    h1: "Rust Green Keycard Farming",
+      "rust key cards, rust green keycard, rust blue keycard, rust red keycard, rust monument puzzle, rust launch site card, rust airfield card",
+    h1: "Rust Key Cards Farming",
     content: `
-      <p>Green Keycards delivered to your Rust base, ready for low-tier monument puzzles. Our farmers gather and deliver the cards manually so you can hit your next puzzle run without farming yourself.</p>
-      <h2>Low-Tier Monument Access</h2>
-      <p>Green cards unlock Sewer Branch, Harbor, and other early Rust loot rooms. A clean stockpile keeps the puzzle loop short.</p>
+      <p>All three Rust keycard tiers live inside a single calculator. Pick green for Sewer Branch and Harbor, blue for Airfield and Power Plant, or red for Launch Site and Military Tunnels.</p>
+      <h2>One Order, Any Tier</h2>
+      <p>Switch card tiers inside the order panel and the calculator updates instantly — price, card count, and total all reflect your selection.</p>
       <h2>Manual Farming</h2>
-      <p>No bots, no automation — just experienced Rust farmers handling your order.</p>
-    `,
-  },
-  "key-cards-blue": {
-    metaTitle: "Rust Blue Keycard Delivery — Mid-Tier Monument Access",
-    metaDescription:
-      "Rust Blue Keycards delivered manually for Airfield, Train Yard, Power Plant, and other mid-tier monuments. Same-day delivery, no bots.",
-    keywords:
-      "rust blue keycard, rust airfield card, rust power plant card, rust train yard, mid tier monument rust, rust blue puzzle card",
-    h1: "Rust Blue Keycard Farming",
-    content: `
-      <p>Blue Keycards delivered to your Rust base, ready for mid-tier monument puzzles. Our farmers gather and deliver the cards manually so you skip the puzzle prep entirely.</p>
-      <h2>Mid-Tier Monument Access</h2>
-      <p>Blue cards unlock Airfield, Train Yard, Power Plant, and other intermediate loot rooms — the sweet spot for component and gear runs.</p>
-      <h2>Manual Farming</h2>
-      <p>No bots, no automation — just experienced Rust farmers handling your order.</p>
-    `,
-  },
-  "key-cards-red": {
-    metaTitle: "Rust Red Keycard Delivery — Launch Site & Military Tunnels",
-    metaDescription:
-      "Buy Rust Red Keycards delivered for Launch Site and Military Tunnels loot rooms. Top-tier monument access in your base, same-day delivery.",
-    keywords:
-      "rust red keycard, rust launch site, rust military tunnels, red card rust delivery, top tier monument rust, rust elite crate access",
-    h1: "Rust Red Keycard Farming",
-    content: `
-      <p>Red Keycards delivered to your Rust base, ready for the top loot rooms in the game. Our farmers gather and deliver the cards manually so you can hit Launch Site and Military Tunnels immediately.</p>
-      <h2>Top-Tier Monument Access</h2>
-      <p>Red cards unlock the best monument loot — elite crates, military hardware, and high-tier components.</p>
-      <h2>Manual Farming</h2>
-      <p>No bots, no automation — just experienced Rust farmers handling your order.</p>
+      <p>Every card is farmed manually by Rust veterans. No bots, no detection risk, same-day delivery to your base.</p>
     `,
   },
 
