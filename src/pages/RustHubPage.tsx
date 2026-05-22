@@ -127,9 +127,9 @@ const RustHubPage = () => {
   return (
     <>
       <SEO
-        title="Rust Boosting Services - Bases, Raids, Resources, Components, Electronics & More"
-        description="Premium Rust boosting services — base building, raiding, resources, components, electronics, key cards, oil barrel farming, weapons, ammo, coaching, and rent-a-booster. Manual delivery by Rust veterans. 600+ orders, 4.9★ rating."
-        keywords="rust boosting, rust base building, rust raid boost, rust components, rust electronics, rust key cards, rust oil barrel, rust weapons, rust coaching, rent a booster rust"
+        title="Rust Boosting Marketplace — Bases, Raids, Components, Electronics, Key Cards & Rent A Booster"
+        description="One-stop Rust marketplace: base builds, raids, resource farming, components, pre-crafted electronics, key cards, oil barrels, weapons, ammo, 1-on-1 coaching, and hire-a-pro. Manual delivery by Rust veterans. 600+ orders, 4.9★ rating."
+        keywords="rust boosting marketplace, rust services hub, buy rust boost, rust base raid build, rust components electronics, rust key cards farm, rust oil barrel, rust weapons ammo, rust coaching, rent a rust booster"
         canonicalUrl="https://www.myboost.top/game/rust"
       />
       <div className="min-h-screen bg-background relative">

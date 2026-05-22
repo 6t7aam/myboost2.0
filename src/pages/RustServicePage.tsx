@@ -70,7 +70,7 @@ const RustServicePage = () => {
       <SEO
         title={seo.metaTitle}
         description={seo.metaDescription}
-        keywords={`rust ${service.title.toLowerCase()} boost, rust ${service.category} service, buy rust boost, ${service.title.toLowerCase()} rust`}
+        keywords={seo.keywords}
         canonicalUrl={`https://www.myboost.top/game/rust/${service.slug}`}
       />
       <StructuredData
