@@ -30,9 +30,9 @@ const games: GameCardEntry[] = [
     name: "CS2",
     slug: "cs2",
     image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/730/header.jpg",
-    description: "ELO Service, Premier, Coaching",
+    description: "Premier, FACEIT, Ranks, Coaching",
     tag: "Most Popular",
-    startPrice: "From $4.50",
+    startPrice: "From $2.41",
   },
   {
     name: "Dota 2",
@@ -66,7 +66,7 @@ const GameCards = () => {
   };
 
   return (
-    <section id="services" className="py-24 relative">
+    <section id="services" className="pt-6 pb-24 relative">
       {/* Background accent */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(48_100%_50%_/_0.03)_0%,_transparent_50%)]" />
 

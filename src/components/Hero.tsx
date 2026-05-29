@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { ChevronRight, Zap, ShieldCheck, Trophy, Users } from "lucide-react";
+import { Zap, ShieldCheck, Trophy, Users } from "lucide-react";
 import Particles from "@/components/Particles";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -14,12 +13,8 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const scrollToGames = () => {
-    document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-16">
+    <section className="relative flex flex-col items-center justify-center overflow-hidden pt-24 pb-10">
       {/* Enhanced background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(48_100%_50%_/_0.08)_0%,_transparent_60%)]" />
       <div className="absolute top-1/3 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-primary/5 blur-[150px] animate-pulse-glow" />
@@ -99,30 +94,8 @@ const Hero = () => {
           Premium gaming marketplace for competitive titles. Fast, secure, and fulfilled by verified PRO players.
         </motion.p>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <motion.div
-            initial={reduced ? false : { opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.35, delay: 0.85, ease: "easeOut" }}
-          >
-            <Button onClick={scrollToGames} size="lg" className="group rounded-xl glow-box-intense btn-yellow cta-pulse px-8 text-base font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_hsl(48_100%_50%_/_0.4)]">
-              Browse Marketplace
-              <ChevronRight className="ml-1 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </Button>
-          </motion.div>
-          <motion.div
-            initial={reduced ? false : { opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.35, delay: 0.95, ease: "easeOut" }}
-          >
-            <Button onClick={scrollToGames} size="lg" variant="outline" className="group rounded-xl border-primary/40 px-8 text-base font-bold uppercase tracking-wider text-primary hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-105 hover:border-primary/60">
-              View Services
-            </Button>
-          </motion.div>
-        </div>
-
         {/* Enhanced trust strip */}
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-6 md:gap-8 text-sm text-muted-foreground">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-6 md:gap-8 text-sm text-muted-foreground">
           {[
             { Icon: ShieldCheck, label: "100% Safe" },
             { Icon: Zap, label: "15 min start" },

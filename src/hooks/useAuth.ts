@@ -47,5 +47,20 @@ export const useAuth = () => {
     await supabase.auth.signOut();
   };
 
-  return { user, session, loading, signUp, signIn, signOut };
+  const resetPassword = async (email: string) => {
+    const baseUrl = window.location.hostname === "localhost"
+      ? window.location.origin
+      : "https://www.myboost.top";
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${baseUrl}/reset-password`,
+    });
+    return { error };
+  };
+
+  const updatePassword = async (password: string) => {
+    const { error } = await supabase.auth.updateUser({ password });
+    return { error };
+  };
+
+  return { user, session, loading, signUp, signIn, signOut, resetPassword, updatePassword };
 };

@@ -14,6 +14,7 @@ import OrderPage from "./pages/OrderPage.tsx";
 import BoosterSelectionPage from "./pages/BoosterSelectionPage.tsx";
 import OrderStatusPage from "./pages/OrderStatusPage.tsx";
 import GamePage from "./pages/GamePage.tsx";
+import Cs2ServicePage from "./pages/Cs2ServicePage.tsx";
 import ArenaBreakoutServicePage from "./pages/ArenaBreakoutServicePage.tsx";
 import Dota2ServicePage from "./pages/Dota2ServicePage.tsx";
 import RustServicePage from "./pages/RustServicePage.tsx";
@@ -31,6 +32,7 @@ import AdminPage from "./pages/AdminPage.tsx";
 import AdminOrderDetailsPage from "./pages/AdminOrderDetailsPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import SignupPage from "./pages/SignupPage.tsx";
+import UpdatePasswordPage from "./pages/UpdatePasswordPage.tsx";
 import AccountPage from "./pages/AccountPage.tsx";
 import MyOrdersPage from "./pages/MyOrdersPage.tsx";
 import ChatPage from "./pages/ChatPage.tsx";
@@ -75,6 +77,7 @@ const AnimatedRoutes = () => {
           <Route path="/game/dota-2/:serviceId" element={<Dota2ServicePage />} />
           <Route path="/game/rust" element={<RustHubPage />} />
           <Route path="/game/rust/:serviceId" element={<RustServicePage />} />
+          <Route path="/game/cs2/:serviceId" element={<Cs2ServicePage />} />
           <Route path="/game/:gameSlug" element={<GamePage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/order" element={<OrderPage />} />
@@ -84,6 +87,7 @@ const AnimatedRoutes = () => {
           <Route path="/admin/order/:orderId" element={<AdminOrderDetailsPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="/reset-password" element={<UpdatePasswordPage />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="/my-orders" element={<MyOrdersPage />} />
           <Route path="/chat" element={<ChatPage />} />

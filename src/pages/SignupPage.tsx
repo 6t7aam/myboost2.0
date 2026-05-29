@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
-import { UserPlus, Loader2 } from "lucide-react";
-import Navbar from "@/components/Navbar";
+import { UserPlus, Loader2, Mail, Lock, MailCheck } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+import AuthShell from "@/components/auth/AuthShell";
+import { AuthField, PasswordField } from "@/components/auth/AuthField";
 
 const SignupPage = () => {
   const [email, setEmail] = useState("");
@@ -16,6 +15,7 @@ const SignupPage = () => {
   const [agreed, setAgreed] = useState(false);
   const [showAgreementError, setShowAgreementError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [created, setCreated] = useState(false);
   const { signUp } = useAuth();
   const { toast } = useToast();
 
@@ -33,6 +33,7 @@ const SignupPage = () => {
     if (error) {
       toast({ title: "Sign up failed", description: error.message, variant: "destructive" });
     } else {
+      setCreated(true);
       toast({
         title: "Account created!",
         description: "Check your email to verify your account, then log in.",
@@ -41,76 +42,99 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <Helmet>
         <link rel="canonical" href="https://www.myboost.top/signup" />
       </Helmet>
-      <Navbar />
-      <div className="flex items-center justify-center px-4 pt-24 pb-12">
-        <Card className="w-full max-w-md border-primary/20 glow-border">
-          <CardHeader className="text-center space-y-2">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 mb-2">
-              <UserPlus className="h-7 w-7 text-primary" />
-            </div>
-            <CardTitle className="text-2xl font-bold text-foreground">Create Account</CardTitle>
-            <p className="text-sm text-muted-foreground">Join MyBoost today</p>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <Input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="bg-secondary border-border focus:border-primary"
-              />
-              <Input
-                type="password"
-                placeholder="Password (min 6 characters)"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                minLength={6}
-                className="bg-secondary border-border focus:border-primary"
-              />
-
-              <div className="space-y-1">
-                <div className="flex items-start gap-2">
-                  <Checkbox
-                    id="agree-terms"
-                    checked={agreed}
-                    onCheckedChange={(v) => {
-                      setAgreed(v === true);
-                      if (v) setShowAgreementError(false);
-                    }}
-                    className="mt-1 border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
-                  />
-                  <label htmlFor="agree-terms" className="text-sm text-muted-foreground leading-snug cursor-pointer select-none">
-                    I agree to the{" "}
-                    <Link to="/terms" className="text-primary hover:underline" target="_blank">Terms of Service</Link>,{" "}
-                    <Link to="/refund" className="text-primary hover:underline" target="_blank">Refund Policy</Link>, and{" "}
-                    <Link to="/privacy" className="text-primary hover:underline" target="_blank">Privacy Policy</Link>
-                  </label>
-                </div>
-                {showAgreementError && (
-                  <p className="text-xs text-destructive pl-6">You must agree to the terms to continue</p>
-                )}
-              </div>
-
-              <Button type="submit" disabled={isLoading} className="w-full glow-box font-bold uppercase tracking-wider">
-                {isLoading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
-                Create Account
-              </Button>
-            </form>
-            <p className="mt-4 text-center text-sm text-muted-foreground">
+      <AuthShell
+        icon={<UserPlus className="h-7 w-7 text-primary" />}
+        title="Create Account"
+        subtitle="Join MyBoost and start climbing today"
+        footer={
+          !created ? (
+            <p className="text-center text-sm text-muted-foreground">
               Already have an account?{" "}
-              <Link to="/login" className="text-primary hover:underline font-semibold">Login</Link>
+              <Link to="/login" className="font-semibold text-primary hover:underline">
+                Log In
+              </Link>
             </p>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
+          ) : undefined
+        }
+      >
+        {created ? (
+          <div className="rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center">
+            <MailCheck className="mx-auto h-12 w-12 text-primary" />
+            <h3 className="mt-3 text-lg font-bold text-foreground">Almost there!</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              We've sent a verification link to <span className="font-semibold text-foreground">{email}</span>.
+              Confirm your email, then log in.
+            </p>
+            <Link to="/login">
+              <Button className="btn-yellow mt-5 h-11 w-full gap-2 rounded-xl font-bold uppercase tracking-wider glow-box">
+                Go to Login
+              </Button>
+            </Link>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <AuthField
+              id="signup-email"
+              label="Email"
+              type="email"
+              Icon={Mail}
+              value={email}
+              onChange={setEmail}
+              placeholder="you@example.com"
+              autoComplete="email"
+              required
+            />
+            <PasswordField
+              id="signup-password"
+              label="Password"
+              Icon={Lock}
+              value={password}
+              onChange={setPassword}
+              placeholder="At least 6 characters"
+              autoComplete="new-password"
+              required
+              minLength={6}
+            />
+
+            <div className="space-y-1">
+              <div className="flex items-start gap-2.5">
+                <Checkbox
+                  id="agree-terms"
+                  checked={agreed}
+                  onCheckedChange={(v) => {
+                    setAgreed(v === true);
+                    if (v) setShowAgreementError(false);
+                  }}
+                  className="mt-0.5 border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                />
+                <label htmlFor="agree-terms" className="cursor-pointer select-none text-xs leading-snug text-muted-foreground">
+                  I agree to the{" "}
+                  <Link to="/terms" className="text-primary hover:underline" target="_blank">Terms of Service</Link>,{" "}
+                  <Link to="/refund" className="text-primary hover:underline" target="_blank">Refund Policy</Link>, and{" "}
+                  <Link to="/privacy" className="text-primary hover:underline" target="_blank">Privacy Policy</Link>
+                </label>
+              </div>
+              {showAgreementError && (
+                <p className="pl-7 text-xs text-destructive">You must agree to the terms to continue</p>
+              )}
+            </div>
+
+            <Button
+              type="submit"
+              disabled={isLoading}
+              className="btn-yellow h-12 w-full gap-2 rounded-xl font-bold uppercase tracking-wider glow-box"
+            >
+              {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <UserPlus className="h-4 w-4" />}
+              Create Account
+            </Button>
+          </form>
+        )}
+      </AuthShell>
+    </>
   );
 };
 

@@ -50,9 +50,93 @@
   </url>
   <url>
     <loc>https://www.myboost.top/game/cs2</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.myboost.top/game/cs2/premier-rating</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.myboost.top/game/cs2/rent-a-booster</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.myboost.top/game/cs2/faceit-wins</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.myboost.top/game/cs2/faceit-rank</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.myboost.top/game/cs2/esea-rank</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.myboost.top/game/cs2/competitive-rank</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.myboost.top/game/cs2/wingman-rank</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.myboost.top/game/cs2/placement-matches</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.myboost.top/game/cs2/wins-boost</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.myboost.top/game/cs2/armory-boost</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.myboost.top/game/cs2/profile-rank</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.myboost.top/game/cs2/coaching</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.myboost.top/game/cs2/esea-wins</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.myboost.top/game/cs2/global-elite-boost</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.myboost.top/game/dota-2</loc>

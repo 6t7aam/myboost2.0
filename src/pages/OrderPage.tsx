@@ -33,11 +33,13 @@ const OrderPage = () => {
   const [manualOpen, setManualOpen] = useState(false);
   const reducedMotion = useReducedMotion();
 
-  const successAndRedirect = (orderId: string) => {
-    toast.success("✅ Order placed! Redirecting to your chat...");
-    setTimeout(() => {
-      navigate(`/order/status/${orderId}`, { state: { openChat: true } });
-    }, 1500);
+  const successAndRedirect = (orderId: string, openChat = true, instant = false) => {
+    toast.success(
+      openChat ? "✅ Order placed! Redirecting to your chat..." : "✅ Order placed! Redirecting to payment..."
+    );
+    const go = () => navigate(`/order/status/${orderId}`, { state: { openChat } });
+    if (instant) go();
+    else setTimeout(go, 1500);
   };
 
   const promoCode = (location.state as any)?.promoCode as { code: string; discount_percent: number } | null;
@@ -205,7 +207,9 @@ const OrderPage = () => {
         toast.message(`Send ${paymentData.pay_amount} ${paymentData.pay_currency?.toUpperCase()} to the address shown.`);
       }
 
-      successAndRedirect(order.id);
+      // Crypto: redirect instantly to the Order Details tab so the payment
+      // invoice (address + amount + auto-checking) is shown, not the chat.
+      successAndRedirect(order.id, false, true);
     } catch (err: any) {
       console.error(err);
       toast.error(err.message || "Something went wrong");

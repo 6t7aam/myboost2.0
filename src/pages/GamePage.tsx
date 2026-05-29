@@ -12,6 +12,7 @@ import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
 import ArenaBreakoutServiceGrid from "@/components/ArenaBreakoutServiceGrid";
 import Dota2ServiceGrid from "@/components/Dota2ServiceGrid";
+import Cs2ServiceGrid from "@/components/Cs2ServiceGrid";
 
 const GamePage = () => {
   const { gameSlug } = useParams<{ gameSlug: string }>();
@@ -55,6 +56,11 @@ const GamePage = () => {
   // Dota 2 uses service grid hub page
   if (gameSlug === "dota-2") {
     return <Dota2ServiceGrid config={config} />;
+  }
+
+  // CS2 uses service grid hub page
+  if (gameSlug === "cs2") {
+    return <Cs2ServiceGrid config={config} />;
   }
 
   const activeService = config.services.find((s) => s.id === activeServiceId) || config.services[0];

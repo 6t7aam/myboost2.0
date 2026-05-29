@@ -1,24 +1,27 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { LogIn, Loader2 } from "lucide-react";
-import Navbar from "@/components/Navbar";
+import { LogIn, Loader2, Mail, Lock, ArrowLeft, KeyRound, MailCheck } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+import AuthShell from "@/components/auth/AuthShell";
+import { AuthField, PasswordField } from "@/components/auth/AuthField";
+
+type Mode = "login" | "forgot";
 
 const LoginPage = () => {
+  const [mode, setMode] = useState<Mode>("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const { signIn } = useAuth();
+  const [resetSent, setResetSent] = useState(false);
+  const { signIn, resetPassword } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     const { error } = await signIn(email, password);
@@ -27,7 +30,6 @@ const LoginPage = () => {
     if (error) {
       toast({ title: "Login failed", description: error.message, variant: "destructive" });
     } else {
-      // Check if user is admin and redirect accordingly
       const { data: { user: loggedInUser } } = await supabase.auth.getUser();
       if (loggedInUser) {
         const { data: isAdmin } = await supabase.rpc("has_role", {
@@ -40,52 +42,133 @@ const LoginPage = () => {
     }
   };
 
+  const handleForgot = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    const { error } = await resetPassword(email);
+    setIsLoading(false);
+
+    if (error) {
+      toast({ title: "Couldn't send email", description: error.message, variant: "destructive" });
+    } else {
+      setResetSent(true);
+      toast({ title: "Check your inbox", description: "We've sent you a password reset link." });
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <Helmet>
         <link rel="canonical" href="https://www.myboost.top/login" />
       </Helmet>
-      <Navbar />
-      <div className="flex items-center justify-center px-4 pt-24 pb-12">
-        <Card className="w-full max-w-md border-primary/20 glow-border">
-          <CardHeader className="text-center space-y-2">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 mb-2">
-              <LogIn className="h-7 w-7 text-primary" />
+
+      {mode === "login" ? (
+        <AuthShell
+          icon={<LogIn className="h-7 w-7 text-primary" />}
+          title="Welcome Back"
+          subtitle="Log in to manage your orders and boosts"
+          footer={
+            <p className="text-center text-sm text-muted-foreground">
+              Don't have an account?{" "}
+              <Link to="/signup" className="font-semibold text-primary hover:underline">
+                Sign Up
+              </Link>
+            </p>
+          }
+        >
+          <form onSubmit={handleLogin} className="space-y-4">
+            <AuthField
+              id="login-email"
+              label="Email"
+              type="email"
+              Icon={Mail}
+              value={email}
+              onChange={setEmail}
+              placeholder="you@example.com"
+              autoComplete="email"
+              required
+            />
+            <PasswordField
+              id="login-password"
+              label="Password"
+              Icon={Lock}
+              value={password}
+              onChange={setPassword}
+              placeholder="••••••••"
+              autoComplete="current-password"
+              required
+            />
+
+            <div className="flex justify-end">
+              <button
+                type="button"
+                onClick={() => { setMode("forgot"); setResetSent(false); }}
+                className="text-xs font-semibold text-primary transition-colors hover:underline"
+              >
+                Forgot password?
+              </button>
             </div>
-            <CardTitle className="text-2xl font-bold text-foreground">Login</CardTitle>
-            <p className="text-sm text-muted-foreground">Welcome back to MyBoost</p>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <Input
+
+            <Button
+              type="submit"
+              disabled={isLoading}
+              className="btn-yellow h-12 w-full gap-2 rounded-xl font-bold uppercase tracking-wider glow-box"
+            >
+              {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <LogIn className="h-4 w-4" />}
+              Log In
+            </Button>
+          </form>
+        </AuthShell>
+      ) : (
+        <AuthShell
+          icon={<KeyRound className="h-7 w-7 text-primary" />}
+          title="Reset Password"
+          subtitle="Enter your email and we'll send you a reset link"
+          footer={
+            <button
+              type="button"
+              onClick={() => { setMode("login"); setResetSent(false); }}
+              className="mx-auto flex items-center justify-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:underline"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" /> Back to login
+            </button>
+          }
+        >
+          {resetSent ? (
+            <div className="rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center">
+              <MailCheck className="mx-auto h-12 w-12 text-primary" />
+              <h3 className="mt-3 text-lg font-bold text-foreground">Email sent!</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                If an account exists for <span className="font-semibold text-foreground">{email}</span>, you'll
+                receive a password reset link shortly. Check your inbox and spam folder.
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={handleForgot} className="space-y-4">
+              <AuthField
+                id="forgot-email"
+                label="Email"
                 type="email"
-                placeholder="Email"
+                Icon={Mail}
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={setEmail}
+                placeholder="you@example.com"
+                autoComplete="email"
                 required
-                className="bg-secondary border-border focus:border-primary"
               />
-              <Input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="bg-secondary border-border focus:border-primary"
-              />
-              <Button type="submit" disabled={isLoading} className="w-full glow-box font-bold uppercase tracking-wider">
-                {isLoading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
-                Login
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className="btn-yellow h-12 w-full gap-2 rounded-xl font-bold uppercase tracking-wider glow-box"
+              >
+                {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}
+                Send Reset Link
               </Button>
             </form>
-            <p className="mt-4 text-center text-sm text-muted-foreground">
-              Don't have an account?{" "}
-              <Link to="/signup" className="text-primary hover:underline font-semibold">Sign Up</Link>
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
+          )}
+        </AuthShell>
+      )}
+    </>
   );
 };
 

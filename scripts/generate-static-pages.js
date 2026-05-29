@@ -58,9 +58,93 @@ const pages = [
   },
   {
     path: 'game/cs2',
-    title: 'CS2 Boosting Services - ELO Boost, Premier Rank & Coaching',
-    description: 'Professional CS2 boosting services. ELO boost, Premier rank boosting, coaching, and more. 2,400+ orders, 4.9★ rating. Fast, safe, and affordable CS2 boost.',
+    title: 'CS2 Boosting Services - Premier, FACEIT, Ranks & Coaching',
+    description: 'Professional CS2 boosting services. Premier rating, FACEIT wins & rank, ESEA, competitive & wingman ranks, coaching, and more. 2,400+ orders, 4.9★ rating. Fast, safe, and affordable CS2 boost.',
     canonical: 'https://www.myboost.top/game/cs2'
+  },
+  {
+    path: 'game/cs2/premier-rating',
+    title: 'CS2 Premier Rating Boost - Up to 21k ELO | MyBoost',
+    description: 'Boost your CS2 Premier Rating with skilled players. Up to 21k ELO, many games with high KD, choose the number of pros. Fast and safe delivery.',
+    canonical: 'https://www.myboost.top/game/cs2/premier-rating'
+  },
+  {
+    path: 'game/cs2/rent-a-booster',
+    title: 'CS2 Rent a Booster - Hourly Pro Session | MyBoost',
+    description: 'Hire a professional CS2 booster for an hourly session. Any in-game activities, up to 4 professionals. Instant start, safe and reliable.',
+    canonical: 'https://www.myboost.top/game/cs2/rent-a-booster'
+  },
+  {
+    path: 'game/cs2/faceit-wins',
+    title: 'CS2 FACEIT Wins Boost - High KD Performance | MyBoost',
+    description: 'Get FACEIT wins fast with high KD performance. Up to 5 wins, all games with high KD, available for all levels. Fast and safe delivery.',
+    canonical: 'https://www.myboost.top/game/cs2/faceit-wins'
+  },
+  {
+    path: 'game/cs2/faceit-rank',
+    title: 'CS2 FACEIT Rank Boost - ELO & Level | MyBoost',
+    description: 'Boost your FACEIT level safely and quickly. Both ELO and level boost, many games with high KD, customizable offer. Fast and safe delivery.',
+    canonical: 'https://www.myboost.top/game/cs2/faceit-rank'
+  },
+  {
+    path: 'game/cs2/esea-rank',
+    title: 'CS2 ESEA Rank Boost - Any Desired Rank | MyBoost',
+    description: 'Reach your desired ESEA rank with experienced players. Any desired ESEA rank, many games with high KD, safe rank progression.',
+    canonical: 'https://www.myboost.top/game/cs2/esea-rank'
+  },
+  {
+    path: 'game/cs2/competitive-rank',
+    title: 'CS2 Competitive Rank Boost - Silver to Global | MyBoost',
+    description: 'Climb CS2 Competitive ranks fast and safely. From Silver to Global fast, many games with high KD, all maps available.',
+    canonical: 'https://www.myboost.top/game/cs2/competitive-rank'
+  },
+  {
+    path: 'game/cs2/wingman-rank',
+    title: 'CS2 Wingman Rank Boost - Any Desired Rank | MyBoost',
+    description: 'Boost your CS2 Wingman rank with reliable players. Any desired wingman rank, many games with high KD, add extra wins.',
+    canonical: 'https://www.myboost.top/game/cs2/wingman-rank'
+  },
+  {
+    path: 'game/cs2/placement-matches',
+    title: 'CS2 Placement Matches - Unlock Competitive | MyBoost',
+    description: 'Complete CS2 placement matches with strong results. Unlock competitive mode, up to 10 wins available, no cheats or hacks.',
+    canonical: 'https://www.myboost.top/game/cs2/placement-matches'
+  },
+  {
+    path: 'game/cs2/wins-boost',
+    title: 'CS2 Wins Boost - Any Number of Wins | MyBoost',
+    description: 'Order any number of CS2 wins with professional players. Any number of wins, no software used, all ranks available.',
+    canonical: 'https://www.myboost.top/game/cs2/wins-boost'
+  },
+  {
+    path: 'game/cs2/armory-boost',
+    title: 'CS2 The Armory Boost - Farm Armory Credits | MyBoost',
+    description: 'Farm CS2 Armory credits safely and efficiently. Any number of Armory credits, no software used, chance to get top skins.',
+    canonical: 'https://www.myboost.top/game/cs2/armory-boost'
+  },
+  {
+    path: 'game/cs2/profile-rank',
+    title: 'CS2 Profile Rank Boost - Military Ranks | MyBoost',
+    description: 'Boost your CS2 profile rank and unlock rewards. Up to 40 military ranks, many games with high KD, chance to get Service Medal.',
+    canonical: 'https://www.myboost.top/game/cs2/profile-rank'
+  },
+  {
+    path: 'game/cs2/coaching',
+    title: 'CS2 Coaching - Pro Player Sessions | MyBoost',
+    description: 'Improve your CS2 skills with professional coaching. Hourly gaming session, learn the best tactics, solidify your progress.',
+    canonical: 'https://www.myboost.top/game/cs2/coaching'
+  },
+  {
+    path: 'game/cs2/esea-wins',
+    title: 'CS2 ESEA Wins Boost - Stable Results | MyBoost',
+    description: 'Get ESEA wins with skilled players and stable results. Up to 5 wins, all games with high KD, available for all levels.',
+    canonical: 'https://www.myboost.top/game/cs2/esea-wins'
+  },
+  {
+    path: 'game/cs2/global-elite-boost',
+    title: 'CS2 Global Elite Boost - Reach Global Elite | MyBoost',
+    description: 'Reach Global Elite rank with expert CS2 players. Get Global Elite rank, many games with high KD, rank-based discounts.',
+    canonical: 'https://www.myboost.top/game/cs2/global-elite-boost'
   },
   {
     path: 'game/dota-2',
