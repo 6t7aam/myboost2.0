@@ -3,9 +3,11 @@ import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
 import { ShieldCheck, Zap, Clock, ShoppingCart, MessageCircle } from "lucide-react";
 import { ServiceOption } from "@/data/gameConfigs";
-import { SpeedOption } from "@/contexts/CartContext";
+import { SpeedOption, useCart } from "@/contexts/CartContext";
+import PromoCodeInput from "@/components/PromoCodeInput";
 import {
   getArenaServiceSaleRatio,
   getArenaRaidSale,
@@ -27,13 +29,8 @@ export interface OrderSummary {
   options: Record<string, string>;
   currency?: string;
   boostMethod?: string;
-  additionalFeatures?: {
-    liveStream: boolean;
-  };
-  modifiers?: {
-    boostMethodModifier: number;
-    liveStreamModifier: number;
-  };
+  additionalFeatures?: Record<string, boolean>;
+  modifiers?: Record<string, number>;
   basePrice: number;
   price: number;
   oldPrice?: number;
@@ -45,8 +42,8 @@ type ArenaBoostMethod = "piloted" | "self-play-party";
 
 const speedOptions: { value: SpeedOption; label: string; multiplier: number }[] = [
   { value: "normal", label: "Normal", multiplier: 1 },
-  { value: "express", label: "⚡ Express", multiplier: 1.2 },
-  { value: "super-express", label: "⚡ Super Express", multiplier: 1.3 },
+  { value: "express", label: "вљЎ Express", multiplier: 1.2 },
+  { value: "super-express", label: "вљЎ Super Express", multiplier: 1.3 },
 ];
 
 const ServiceConfigurator = ({
@@ -56,6 +53,7 @@ const ServiceConfigurator = ({
   onAddToCart,
   hideHeader = false,
 }: ServiceConfiguratorProps) => {
+  const { appliedPromo, setAppliedPromo } = useCart();
   const [quantity, setQuantity] = useState(service.defaultValue || 1);
   const [selectedMap, setSelectedMap] = useState(service.maps?.[0] || "");
   const [selectedMode, setSelectedMode] = useState(service.modes?.[0]?.name || "");
@@ -231,7 +229,7 @@ const ServiceConfigurator = ({
       {/* Fixed */}
       {service.type === "fixed" && (
         <div className="rounded-xl border border-border/50 bg-secondary/50 p-4">
-          <p className="text-sm text-muted-foreground">Fixed price — no configuration needed</p>
+          <p className="text-sm text-muted-foreground">Fixed price вЂ” no configuration needed</p>
         </div>
       )}
 
@@ -280,7 +278,7 @@ const ServiceConfigurator = ({
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Price Tiers</p>
             {service.tiers.map((t) => (
               <div key={t.minElo} className="flex justify-between text-xs text-muted-foreground py-0.5">
-                <span>{t.minElo}–{t.maxElo === 10000 || t.maxElo === 15000 || t.maxElo === 40000 ? `${t.maxElo}+` : t.maxElo} {service.unit}</span>
+                <span>{t.minElo}вЂ“{t.maxElo === 10000 || t.maxElo === 15000 || t.maxElo === 40000 ? `${t.maxElo}+` : t.maxElo} {service.unit}</span>
                 <span className="text-foreground font-medium">${t.pricePer.toFixed(1)} / {t.per} {service.unit}</span>
               </div>
             ))}
@@ -460,15 +458,15 @@ const ServiceConfigurator = ({
             <label className="mb-2 block text-sm font-medium uppercase tracking-[0.14em] text-foreground">
               Additional Features
             </label>
-            <label className="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-border/50 bg-secondary/30 px-4 py-3 transition-all hover:border-primary/30">
+            <label htmlFor="sc-live-stream" className="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-border/50 bg-secondary/30 px-4 py-3 transition-all hover:border-primary/30">
               <div className="flex items-center gap-3">
-                <input
-                  type="checkbox"
+                <Checkbox
+                  id="sc-live-stream"
                   checked={liveStream}
-                  onChange={(event) => setLiveStream(event.target.checked)}
-                  className="h-4 w-4 rounded border-primary/40 accent-[hsl(48_100%_50%)]"
+                  onCheckedChange={(v) => setLiveStream(v === true)}
+                  className="border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
                 />
-                <span className="text-sm font-medium text-foreground">Live stream</span>
+                <span className="text-sm font-medium text-foreground">🎥 Livestream</span>
               </div>
               <span className="text-sm font-bold text-primary">+30%</span>
             </label>
@@ -502,6 +500,19 @@ const ServiceConfigurator = ({
               </button>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* Promo Code */}
+      {service.type !== "contact" && (
+        <div>
+          <label className="mb-2 block text-sm font-medium text-foreground">Promo Code</label>
+          <PromoCodeInput
+            appliedCode={appliedPromo}
+            onApply={setAppliedPromo}
+            onRemove={() => setAppliedPromo(null)}
+            orderTotal={price}
+          />
         </div>
       )}
 

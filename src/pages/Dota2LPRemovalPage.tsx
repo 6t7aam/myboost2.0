@@ -73,7 +73,7 @@ const Dota2LPRemovalPage = () => {
     name: "Dota 2 Low Priority Removal - Fast LP Queue Exit",
     description:
       "Remove Dota 2 Low Priority fast. Our boosters play your LP games professionally. Get out of LP queue in hours, not days. Safe method, no ban risk.",
-    image: "https://www.myboost.top/images/dota2/dota2-lp-removal.jpg",
+    image: "https://www.myboost.top/images/dota2/dota2-lp-removal.webp",
     brand: { "@type": "Brand", name: "MyBoost" },
     offers: {
       "@type": "Offer",
@@ -107,7 +107,7 @@ const Dota2LPRemovalPage = () => {
 
       <Dota2ServiceLayout
         serviceId="lp-removal"
-        imageSrc="/images/dota2/dota2-lp-removal.jpg"
+        imageSrc="/images/dota2/dota2-lp-removal.webp"
         intro={INTRO}
         belowLayout={
           <>

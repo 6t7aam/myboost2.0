@@ -5,16 +5,14 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { ShoppingCart, Trash2, ArrowRight, ArrowLeft, Zap } from "lucide-react";
 import PromoCodeInput from "@/components/PromoCodeInput";
-import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { SALE_BADGE_LABEL } from "@/config/pricing";
 
 const CartPage = () => {
-  const { items, removeItem, totalPrice, totalOldPrice, clearCart } = useCart();
+  const { items, removeItem, totalPrice, totalOldPrice, clearCart, appliedPromo, setAppliedPromo } = useCart();
   const navigate = useNavigate();
-  const [appliedCode, setAppliedCode] = useState<{ code: string; discount_percent: number } | null>(null);
 
-  const discountAmount = appliedCode ? totalPrice * (appliedCode.discount_percent / 100) : 0;
+  const discountAmount = appliedPromo ? totalPrice * (appliedPromo.discount_percent / 100) : 0;
   const finalPrice = totalPrice - discountAmount;
   const hasSale = totalOldPrice > totalPrice;
   const saleSavings = hasSale ? totalOldPrice - totalPrice : 0;
@@ -102,9 +100,9 @@ const CartPage = () => {
               {/* Promo Code */}
               <div className="mt-6">
                 <PromoCodeInput
-                  appliedCode={appliedCode}
-                  onApply={setAppliedCode}
-                  onRemove={() => setAppliedCode(null)}
+                  appliedCode={appliedPromo}
+                  onApply={setAppliedPromo}
+                  onRemove={() => setAppliedPromo(null)}
                   orderTotal={totalPrice}
                 />
               </div>
@@ -131,9 +129,9 @@ const CartPage = () => {
                   <span className="text-sm text-muted-foreground">Subtotal</span>
                   <span className="text-sm text-muted-foreground">${totalPrice.toFixed(2)}</span>
                 </div>
-                {appliedCode && (
+                {appliedPromo && (
                   <div className="flex items-center justify-between mt-1">
-                    <span className="text-sm text-green-400">Discount ({appliedCode.discount_percent}%)</span>
+                    <span className="text-sm text-green-400">Discount ({appliedPromo.discount_percent}%)</span>
                     <span className="text-sm text-green-400">-${discountAmount.toFixed(2)}</span>
                   </div>
                 )}
@@ -150,9 +148,9 @@ const CartPage = () => {
                   onClick={() => {
                     const hasArenaBreakout = items.some((i) => i.gameSlug === "arena-breakout");
                     if (hasArenaBreakout) {
-                      navigate("/choose-booster", { state: { promoCode: appliedCode } });
+                      navigate("/choose-booster", { state: { promoCode: appliedPromo } });
                     } else {
-                      navigate("/order", { state: { promoCode: appliedCode } });
+                      navigate("/order", { state: { promoCode: appliedPromo } });
                     }
                   }}
                   size="lg"

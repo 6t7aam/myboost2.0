@@ -9,7 +9,7 @@ export type RustCategoryId =
   | "weapons"
   | "ammo"
   | "coaching"
-  | "rent-a-booster";
+  | "rent-a-pro";
 
 export type RustCalculatorType = "fixed" | "hourly" | "quantity" | "selector";
 
@@ -497,7 +497,7 @@ export const rustServices: RustService[] = [
     id: "workbench-boost",
     slug: "workbench-boost",
     category: "base-building",
-    title: "Workbench Boost",
+    title: "Workbench Service",
     description:
       "Fast Rust workbench progression service — unlock higher-tier crafting without the scrap grind.",
     bullets: ["Up to Tier 3", "Crafting unlocked", "Same-day delivery"],
@@ -764,11 +764,11 @@ export const rustServices: RustService[] = [
     calculatorType: "hourly",
   },
 
-  // --- 11. Rent A Booster -------------------------------------------------
+  // --- 11. Rent A Pro -------------------------------------------------
   {
     id: "rent-a-booster",
     slug: "rent-a-booster",
-    category: "rent-a-booster",
+    category: "rent-a-pro",
     title: "Hire A PRO",
     description:
       "Hire a verified Rust PRO by the hour for any task — resource delivery, building, scouting, roaming, or raids.",

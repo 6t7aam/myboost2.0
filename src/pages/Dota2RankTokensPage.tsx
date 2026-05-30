@@ -85,7 +85,7 @@ const Dota2RankTokensPage = () => {
     name: "Dota 2 Rank Tokens Farming - Fast Token Collection",
     description:
       "Buy Dota 2 rank tokens farming service. Collect tokens fast with our Immortal players. Safe account handling, fast delivery, competitive prices. Start today.",
-    image: "https://www.myboost.top/images/dota2/dota2-rank-tokens.jpg",
+    image: "https://www.myboost.top/images/dota2/dota2-rank-tokens.webp",
     brand: { "@type": "Brand", name: "MyBoost" },
     offers: {
       "@type": "Offer",
@@ -119,7 +119,7 @@ const Dota2RankTokensPage = () => {
 
       <Dota2ServiceLayout
         serviceId="rank-tokens"
-        imageSrc="/images/dota2/dota2-rank-tokens.jpg"
+        imageSrc="/images/dota2/dota2-rank-tokens.webp"
         intro={INTRO}
         belowLayout={
           <>

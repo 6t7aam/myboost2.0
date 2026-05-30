@@ -28,7 +28,7 @@ const StatBadge = ({ Icon, value, label, fill }: { Icon: typeof CheckCircle; val
 
 /**
  * Image slot for a CS2 service. Drop a file at the service's `image` path
- * (e.g. /service-images/cs2/<slug>.png) and it appears automatically.
+ * (e.g. /service-images/cs2/<slug>.webp) and it appears automatically.
  * Until then, a black-yellow gradient placeholder is shown.
  */
 const ServiceMedia = ({ service }: { service: ServiceOption }) => {
@@ -58,6 +58,7 @@ const ServiceMedia = ({ service }: { service: ServiceOption }) => {
           src={service.image}
           alt={service.name}
           loading="lazy"
+          decoding="async"
           onLoad={() => setImageReady(true)}
           onError={() => setImageReady(false)}
           className={`absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-105 ${

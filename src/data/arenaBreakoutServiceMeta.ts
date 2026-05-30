@@ -36,7 +36,7 @@ export const arenaBreakoutServiceMeta: Record<string, ArenaServiceMeta> = {
       { icon: "3", title: "Koens delivered", desc: "Your order is completed and your stash is ready for upgrades." },
     ],
   },
-  "raids-boost": {
+  "raids-service": {
     serviceId: "raids-boost",
     featureTags: [
       { icon: "Maps", label: "All major ABI maps" },
@@ -93,7 +93,7 @@ export const arenaBreakoutServiceMeta: Record<string, ArenaServiceMeta> = {
       { icon: "3", title: "Apply and improve", desc: "Leave with practical habits you can use immediately in raids." },
     ],
   },
-  "rent-a-booster": {
+  "rent-a-pro": {
     serviceId: "rent-a-booster",
     featureTags: [
       { icon: "Duo", label: "Play alongside a pro" },

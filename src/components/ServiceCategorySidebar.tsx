@@ -22,9 +22,15 @@ const ARENA_BREAKOUT_SERVICE_LINKS: ServiceLink[] = gameConfigs["arena-breakout"
   path: `/game/arena-breakout/${service.id}`,
 }));
 
+const CS2_SERVICE_LINKS: ServiceLink[] = gameConfigs["cs2"].services.map((service) => ({
+  label: service.name,
+  path: `/game/cs2/${service.id}`,
+}));
+
 const gameServices: Record<string, ServiceLink[]> = {
   "dota-2": DOTA_2_SERVICE_LINKS,
   "arena-breakout": ARENA_BREAKOUT_SERVICE_LINKS,
+  "cs2": CS2_SERVICE_LINKS,
 };
 
 const gameAliases: Record<string, string> = {

@@ -3,7 +3,7 @@
  *
  * Used by the shared section components in
  * `src/components/dota2/Dota2ServiceSections.tsx`. Both the dedicated
- * pages (Dota2MMRBoostPage etc.) and the dynamic page (Dota2ServicePage)
+ * pages (Dota2MMRServicePage etc.) and the dynamic page (Dota2ServicePage)
  * pull from this single source of truth.
  */
 
@@ -38,7 +38,7 @@ export interface Dota2ServiceMeta {
 }
 
 export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
-  "mmr-boost": {
+  "mmr-service": {
     serviceId: "mmr-boost",
     pageTitle: "Dota 2 MMR Service",
     badge: "POPULAR",
@@ -77,11 +77,11 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       },
     ],
     seoSection: {
-      title: "Dota 2 MMR Boost — Rank Climb Service",
-      text: "Buy Dota 2 MMR Boost and climb to your chosen rank without solo loss streaks. Our professional Immortal-tier boosters handle any rank tier — from Herald to Immortal — with Piloted or Duo method picked at checkout. Every order includes position and hero pool flexibility, so your preferred lane and hero picks are honored throughout the climb. Accounts with low behavior scores or unusual match counts are fully supported. The booster logs in or queues with you and runs ranked matches until the target MMR lands on your account. Backed by a 4.9/5 rating, our service is the fastest and safest way to reach your desired rank in Dota 2. Choose Express for 20% faster delivery or Super Express for 30% faster. 100% Money-Back Guarantee on every order.",
+      title: "Dota 2 MMR Service — Rank Climb Service",
+      text: "Buy Dota 2 MMR Service and climb to your chosen rank without solo loss streaks. Our professional Immortal-tier pros handle any rank tier — from Herald to Immortal — with Piloted or Duo method picked at checkout. Every order includes position and hero pool flexibility, so your preferred lane and hero picks are honored throughout the climb. Accounts with low behavior scores or unusual match counts are fully supported. The pro logs in or queues with you and runs ranked matches until the target MMR lands on your account. Backed by a 4.9/5 rating, our service is the fastest and safest way to reach your desired rank in Dota 2. Choose Express for 20% faster delivery or Super Express for 30% faster. 100% Money-Back Guarantee on every order.",
     },
   },
-  "calibration-boost": {
+  "calibration-service": {
     serviceId: "calibration-boost",
     pageTitle: "Dota 2 Calibration Service",
     badge: "NEW",
@@ -119,8 +119,8 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       },
     ],
     seoSection: {
-      title: "Dota 2 Calibration Boost — Top MMR Placement Service",
-      text: "Make every Dota 2 calibration match count. Our professional calibration boost service is powered by Immortal-ranked players who specialize in maximizing initial MMR placement. Whether you're starting a fresh account or returning after a long break requiring recalibration, our boosters run your placement matches with optimal hero selection and high-impact play to secure the best possible starting rank. Calibration is locked end-to-end — no solo placement losses, with any Behavior or Match Count tier supported. Choose between 1 and 30 calibration matches. Express and Super Express options available for faster delivery. Every order includes our 100% Money-Back Guarantee and starts within 15 minutes.",
+      title: "Dota 2 Calibration Service — Top MMR Placement Service",
+      text: "Make every Dota 2 calibration match count. Our professional calibration service is powered by Immortal-ranked players who specialize in maximizing initial MMR placement. Whether you're starting a fresh account or returning after a long break requiring recalibration, our pros run your placement matches with optimal hero selection and high-impact play to secure the best possible starting rank. Calibration is locked end-to-end — no solo placement losses, with any Behavior or Match Count tier supported. Choose between 1 and 30 calibration matches. Express and Super Express options available for faster delivery. Every order includes our 100% Money-Back Guarantee and starts within 15 minutes.",
     },
   },
   "lp-removal": {
@@ -140,7 +140,7 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       "LP queue escaped — booked win count delivered to exit the pool",
       "Ranked matchmaking re-opened — normal queue restored after exit",
       "Battle Pass progress resumed — rewards rolling in normal matches",
-      "Cosmetic drops chance — random items rolled during the boost",
+      "Cosmetic drops chance — random items rolled during the service",
       "Single Draft LP games handled by veteran players",
     ],
     steps: [
@@ -162,10 +162,10 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
     ],
     seoSection: {
       title: "Dota 2 Low Priority Removal — Fast LP Exit Service",
-      text: "Buy Dota 2 Low Priority Removal and escape the LP queue fast. Our experienced LP specialists handle Single Draft games with veteran-level play, getting you back to ranked matchmaking within 24 hours using ban-safe methods. Once stuck in Low Priority, every game is Single Draft — our boosters know exactly how to win these efficiently. After your order, Battle Pass progress resumes and item drops are re-enabled in normal matches. No bots, no cheats — manual boosting only with Smart VPN protection. Choose between Piloted (we play your account) mode. Express and Super Express delivery available. 100% Money-Back Guarantee.",
+      text: "Buy Dota 2 Low Priority Removal and escape the LP queue fast. Our experienced LP specialists handle Single Draft games with veteran-level play, getting you back to ranked matchmaking within 24 hours using ban-safe methods. Once stuck in Low Priority, every game is Single Draft — our pros know exactly how to win these efficiently. After your order, Battle Pass progress resumes and item drops are re-enabled in normal matches. No bots, no cheats — manual services only with Smart VPN protection. Choose between Piloted (we play your account) mode. Express and Super Express delivery available. 100% Money-Back Guarantee.",
     },
   },
-  "behavior-score-boost": {
+  "behavior-score-service": {
     serviceId: "behavior-score-boost",
     pageTitle: "Dota 2 Behavior Score Service",
     badge: "SAFE",
@@ -176,14 +176,14 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
     ],
     delivery: {
       startTime: "15 min average start time",
-      completion: "10 days 8 hours for full boost, 24-72 hours typical",
+      completion: "10 days 8 hours for full service, 24-72 hours typical",
     },
     wins: [
       "Behavior Score reached — chosen tier from 0 to 12,000 locked on account",
       "Chat and voice access unlocked — full client communications reopened",
       "Ranked queue restored — restrictions lifted and matchmaking opened up",
       "Position and hero flex — pick lane preference and hero pool for the climb",
-      "Cosmetic drops chance — random items rolled during matches in the boost",
+      "Cosmetic drops chance — random items rolled during matches in the service",
     ],
     steps: [
       {
@@ -203,11 +203,11 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       },
     ],
     seoSection: {
-      title: "Dota 2 Behavior Score Boost — Fast Recovery Service",
-      text: "Stuck with a low Dota 2 behavior score? Long queue times, toxic matchmaking pools, and locked features can ruin your experience. Our professional behavior score boost service quickly raises your score back to 12,000 — restoring full matchmaking access and unlocking the normal Dota 2 experience again. Our boosters run clean, report-free matches that reliably increase your conduct score tier. Chat and voice communications are unlocked once you reach the clean player pool threshold. Choose between 1k and 12k score increase. The service works on any account state — whether your score is near 0 or just needs a push above a threshold. Express delivery options available. Rated 4.9/5 with a 100% Money-Back Guarantee.",
+      title: "Dota 2 Behavior Score Service — Fast Recovery Service",
+      text: "Stuck with a low Dota 2 behavior score? Long queue times, toxic matchmaking pools, and locked features can ruin your experience. Our professional behavior score service quickly raises your score back to 12,000 — restoring full matchmaking access and unlocking the normal Dota 2 experience again. Our pros run clean, report-free matches that reliably increase your conduct score tier. Chat and voice communications are unlocked once you reach the clean player pool threshold. Choose between 1k and 12k score increase. The service works on any account state — whether your score is near 0 or just needs a push above a threshold. Express delivery options available. Rated 4.9/5 with a 100% Money-Back Guarantee.",
     },
   },
-  "win-rate-boost": {
+  "win-rate-service": {
     serviceId: "win-rate-boost",
     pageTitle: "Dota 2 Win Rate Service",
     badge: "POPULAR",
@@ -234,8 +234,8 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       },
       {
         icon: "⚔️",
-        title: "Booster Plays",
-        desc: "Skilled booster queues in normal matches and wins your target count.",
+        title: "Pro Plays",
+        desc: "Skilled pro queues in normal matches and wins your target count.",
       },
       {
         icon: "🏆",
@@ -244,8 +244,8 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       },
     ],
     seoSection: {
-      title: "Dota 2 Win Rate Boost — Professional Wins Service",
-      text: "Revitalize your Dota 2 experience with our Win Rate Boost service. Say goodbye to defeat screens and hello to a winning streak. Our skilled boosters ensure rapid improvement in your win rate, helping you dominate normal matchmaking. Choose anywhere from 1 to 50 wins. Each win includes a chance for cosmetic item drops and contributes to your account level. With 1,800+ completed win rate orders and a 4.8 rating, our service delivers consistent results with 1-24 hour delivery per win. Express and Super Express options cut delivery time by 20-30%. Piloted mode available — we play, you watch. 100% Money-Back Guarantee on all orders.",
+      title: "Dota 2 Win Rate Service — Professional Wins Service",
+      text: "Revitalize your Dota 2 experience with our Win Rate Service. Say goodbye to defeat screens and hello to a winning streak. Our skilled pros ensure rapid improvement in your win rate, helping you dominate normal matchmaking. Choose anywhere from 1 to 50 wins. Each win includes a chance for cosmetic item drops and contributes to your account level. With 1,800+ completed win rate orders and a 4.8 rating, our service delivers consistent results with 1-24 hour delivery per win. Express and Super Express options cut delivery time by 20-30%. Piloted mode available — we play, you watch. 100% Money-Back Guarantee on all orders.",
     },
   },
   "battle-cup": {
@@ -287,8 +287,8 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       },
     ],
     seoSection: {
-      title: "Dota 2 Battle Cup Boost — Weekend Tournament Win Service",
-      text: "Want to win Dota 2's Battle Cup but tired of getting stuck with random groups that bow out in the first round? Our Battle Cup boost service stacks your team with experienced Immortal players who know exactly how to navigate the bracket. Available for EU and NA regions. Every tier of rewards is banked to your account — trophy, chat badge, seven exclusive emoticons for one week, the permanent effigy cosmetic, Battle Points, Shards, and the prestige profile description showing your victory streak. Runs at the scheduled weekend tournament window. Piloted or Self-play (Duo) mode available. 100% Money-Back Guarantee.",
+      title: "Dota 2 Battle Cup Service — Weekend Tournament Win Service",
+      text: "Want to win Dota 2's Battle Cup but tired of getting stuck with random groups that bow out in the first round? Our Battle Cup Service stacks your team with experienced Immortal players who know exactly how to navigate the bracket. Available for EU and NA regions. Every tier of rewards is banked to your account — trophy, chat badge, seven exclusive emoticons for one week, the permanent effigy cosmetic, Battle Points, Shards, and the prestige profile description showing your victory streak. Runs at the scheduled weekend tournament window. Piloted or Self-play (Duo) mode available. 100% Money-Back Guarantee.",
     },
   },
   "rank-tokens": {
@@ -330,7 +330,7 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
     ],
     seoSection: {
       title: "Dota 2 Role Queue Tokens Farming — Fast Token Collection",
-      text: "Buy Dota 2 Role Queue Tokens Farming and get your tokens stacked through veteran-played matches without solo queue wait. Role Queue Tokens are required to play in the role-locked ranked system — running out means waiting through unranked games or losing your preferred position. Our boosters earn tokens through clean, high-skill matches that also bump your behavior score. Choose between 1 and 20 tokens. Your rank tier is selected at checkout to ensure rank-appropriate matchmaking. Express and Super Express options deliver tokens 20-30% faster. Tokens sit in your inventory immediately after each earning match. Rated 4.9/5 with a 100% Money-Back Guarantee.",
+      text: "Buy Dota 2 Role Queue Tokens Farming and get your tokens stacked through veteran-played matches without solo queue wait. Role Queue Tokens are required to play in the role-locked ranked system — running out means waiting through unranked games or losing your preferred position. Our pros earn tokens through clean, high-skill matches that also bump your behavior score. Choose between 1 and 20 tokens. Your rank tier is selected at checkout to ensure rank-appropriate matchmaking. Express and Super Express options deliver tokens 20-30% faster. Tokens sit in your inventory immediately after each earning match. Rated 4.9/5 with a 100% Money-Back Guarantee.",
     },
   },
   coaching: {

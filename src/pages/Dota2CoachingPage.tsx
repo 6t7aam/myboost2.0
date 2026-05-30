@@ -45,7 +45,7 @@ const Dota2CoachingPage = () => {
     "@context": "https://schema.org",
     "@type": "Product",
     name: "Dota 2 Coaching",
-    image: "https://www.myboost.top/images/dota2/dota2-coaching.jpg",
+    image: "https://www.myboost.top/images/dota2/dota2-coaching.webp",
     brand: { "@type": "Brand", name: "MyBoost" },
     offers: {
       "@type": "Offer",
@@ -72,7 +72,7 @@ const Dota2CoachingPage = () => {
 
       <Dota2ServiceLayout
         serviceId="coaching"
-        imageSrc="/images/dota2/dota2-coaching.jpg"
+        imageSrc="/images/dota2/dota2-coaching.webp"
         intro={INTRO}
         belowLayout={
           <>

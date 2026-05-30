@@ -17,6 +17,7 @@ import {
   type BoostMethod,
 } from "@/data/dota2ServicePricing";
 import { useCart, SpeedOption } from "@/contexts/CartContext";
+import PromoCodeInput from "@/components/PromoCodeInput";
 import { toast } from "sonner";
 
 const rangeFill = (value: number, min: number, max: number) => {
@@ -87,7 +88,7 @@ const Dota2SimpleOrderForm = ({
   const [speed, setSpeed] = useState<Speed>("standard");
   const [boostMethod, setBoostMethod] = useState<BoostMethod>("piloted");
   const [checkedOptions, setCheckedOptions] = useState<Set<string>>(new Set());
-  const { addItem } = useCart();
+  const { addItem, appliedPromo, setAppliedPromo } = useCart();
 
   const speedMultiplier = SPEED_OPTIONS.find((s) => s.id === speed)!.multiplier;
   const basePrice = quantity * pricePerUnit;
@@ -178,6 +179,16 @@ const Dota2SimpleOrderForm = ({
             onToggleOption={toggleOption}
           />
         )}
+
+        <div>
+          <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-foreground">Promo Code</label>
+          <PromoCodeInput
+            appliedCode={appliedPromo}
+            onApply={setAppliedPromo}
+            onRemove={() => setAppliedPromo(null)}
+            orderTotal={totalPrice}
+          />
+        </div>
 
         <div className="rounded-xl border-2 border-primary/30 bg-secondary/30 p-5 text-center">
           <div className="text-3xl font-black text-primary">${totalPrice.toFixed(2)}</div>

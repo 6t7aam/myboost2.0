@@ -7,6 +7,7 @@
  */
 
 import { HelpCircle } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Tooltip,
   TooltipContent,
@@ -86,17 +87,18 @@ const Dota2BoostMethodAndOptions = ({
               return (
                 <label
                   key={opt.id}
+                  htmlFor={`dota2-opt-${opt.id}`}
                   className={`flex cursor-pointer items-center gap-2 rounded-lg border bg-[#111] px-3 py-2 transition-colors ${
                     checked
                       ? "border-primary/70 bg-primary/5"
                       : "border-[rgba(255,215,0,0.2)] hover:border-[rgba(255,215,0,0.5)]"
                   }`}
                 >
-                  <input
-                    type="checkbox"
+                  <Checkbox
+                    id={`dota2-opt-${opt.id}`}
                     checked={checked}
-                    onChange={() => onToggleOption(opt.id)}
-                    className="h-4 w-4 shrink-0 cursor-pointer accent-[#FFD700]"
+                    onCheckedChange={() => onToggleOption(opt.id)}
+                    className="shrink-0 border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
                   />
                   <span aria-hidden className="text-base">{opt.icon}</span>
                   <span className="flex-1 text-xs font-semibold text-foreground">

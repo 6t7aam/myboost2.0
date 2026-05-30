@@ -8,6 +8,7 @@ import { Slider } from "@/components/ui/slider";
 import Dota2BoostMethodAndOptions from "./Dota2BoostMethodAndOptions";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useCart, type SpeedOption } from "@/contexts/CartContext";
+import PromoCodeInput from "@/components/PromoCodeInput";
 import {
   applyBoostOptionsPrice,
   dota2ServicePricing,
@@ -83,7 +84,7 @@ const Dota2DualRangeOrderForm = ({
   const [speed, setSpeed] = useState<Speed>("standard");
   const [boostMethod, setBoostMethod] = useState<BoostMethod>("piloted");
   const [checkedOptions, setCheckedOptions] = useState<Set<string>>(new Set());
-  const { addItem } = useCart();
+  const { addItem, appliedPromo, setAppliedPromo } = useCart();
 
   const [currentValue, desiredValue] = range;
   const difference = Math.max(0, desiredValue - currentValue);
@@ -279,6 +280,16 @@ const Dota2DualRangeOrderForm = ({
           checkedOptionIds={checkedOptions}
           onToggleOption={toggleOption}
         />
+
+        <div>
+          <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-foreground">Promo Code</label>
+          <PromoCodeInput
+            appliedCode={appliedPromo}
+            onApply={setAppliedPromo}
+            onRemove={() => setAppliedPromo(null)}
+            orderTotal={totalPrice}
+          />
+        </div>
 
         <div className="rounded-xl border-2 border-primary/30 bg-secondary/30 p-5 text-center">
           <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">

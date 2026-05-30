@@ -111,7 +111,7 @@ export const rustServiceMeta: Record<string, RustServiceMeta> = {
       { icon: "3", title: "Get the time back", desc: "The hours are spent on your account efficiently." },
     ],
   },
-  "workbench-boost": {
+  "workbench-service": {
     serviceId: "workbench-boost",
     featureTags: [
       { icon: "Tier", label: "Up to Tier 3" },
@@ -125,11 +125,11 @@ export const rustServiceMeta: Record<string, RustServiceMeta> = {
       "No more manual scrap grinding to unlock tiers",
       "Clean delivery with full account safety",
     ],
-    steps: STANDARD_STEPS("Booster", "Workbench"),
+    steps: STANDARD_STEPS("Pro", "Workbench"),
   },
 
   // --- Raiding ----------------------------------------------------------
-  "base-raiding-boost": {
+  "base-raiding-service": {
     serviceId: "base-raiding-boost",
     featureTags: [
       { icon: "Raid", label: "Full enemy raid" },
@@ -203,7 +203,7 @@ export const rustServiceMeta: Record<string, RustServiceMeta> = {
       "Hardened access points and choke layouts",
       "Quick fix without rebuilding from scratch",
     ],
-    steps: STANDARD_STEPS("Booster", "Security upgrade"),
+    steps: STANDARD_STEPS("Pro", "Security upgrade"),
   },
   "hourly-pvp-assistance": {
     serviceId: "hourly-pvp-assistance",
@@ -363,7 +363,7 @@ export const rustServiceMeta: Record<string, RustServiceMeta> = {
       "Manual gathering — no bots, no risk",
       "Built to fit your loadout needs",
     ],
-    steps: STANDARD_STEPS("Booster", "Weapons"),
+    steps: STANDARD_STEPS("Pro", "Weapons"),
   },
 
   // --- Ammo -------------------------------------------------------------
@@ -381,7 +381,7 @@ export const rustServiceMeta: Record<string, RustServiceMeta> = {
       "All weapon calibers supported",
       "Saves hours of gunpowder and scrap grinding",
     ],
-    steps: STANDARD_STEPS("Booster", "Ammo"),
+    steps: STANDARD_STEPS("Pro", "Ammo"),
   },
 
   // --- Coaching ---------------------------------------------------------
@@ -406,8 +406,8 @@ export const rustServiceMeta: Record<string, RustServiceMeta> = {
     ],
   },
 
-  // --- Rent A Booster ---------------------------------------------------
-  "rent-a-booster": {
+  // --- Rent A Pro ---------------------------------------------------
+  "rent-a-pro": {
     serviceId: "rent-a-booster",
     featureTags: [
       { icon: "Flex", label: "Any task allowed" },

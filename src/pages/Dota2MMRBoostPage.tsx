@@ -17,7 +17,7 @@ const Dota2MMRBoostPage = () => {
     name: "Dota 2 MMR Boost - Fast Rank Up by Immortal Players",
     description:
       "Buy Dota 2 MMR boost from top Immortal & Divine players. Safe, fast rank climbing with VPN protection. Solo or duo boosting available. Start in 15 minutes.",
-    image: "https://www.myboost.top/images/dota2/dota2-mmr-boost.jpg",
+    image: "https://www.myboost.top/images/dota2/dota2-mmr-boost.webp",
     brand: { "@type": "Brand", name: "MyBoost" },
     offers: {
       "@type": "Offer",
@@ -51,7 +51,7 @@ const Dota2MMRBoostPage = () => {
 
       <Dota2ServiceLayout
         serviceId="mmr-boost"
-        imageSrc="/images/dota2/dota2-mmr-boost.jpg"
+        imageSrc="/images/dota2/dota2-mmr-boost.webp"
         intro={INTRO}
         showDefaultOrderFooter={false}
         belowLayout={

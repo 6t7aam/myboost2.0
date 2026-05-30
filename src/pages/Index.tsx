@@ -15,9 +15,9 @@ const Index = () => {
   return (
     <>
       <SEO
-        title="Professional Game Boosting Services - Fast, Safe & Affordable"
-        description="Get professional game boosting for Arena Breakout: Infinite, CS2, Dota 2, and Rust. Expert boosters, 24/7 support, secure account handling. 5000+ orders completed with 4.9★ rating."
-        keywords="game boosting, arena breakout boosting, cs2 boosting, dota 2 boosting, rust boosting, professional boosting service, safe game boost"
+        title="Professional Pro Gaming Services - Fast, Safe & Affordable"
+        description="Get professional gaming services for Arena Breakout: Infinite, CS2, Dota 2, and Rust. Expert pro players, 24/7 support, secure account handling. 5000+ orders completed with 4.9★ rating."
+        keywords="pro gaming services, arena breakout carry, cs2 pro service, dota 2 pro service, rust services, professional gaming service, safe game carry"
         canonicalUrl="https://www.myboost.top/"
       />
       <StructuredData
@@ -26,7 +26,7 @@ const Index = () => {
           name: 'MyBoost',
           url: 'https://www.myboost.top',
           logo: 'https://www.myboost.top/favicon.ico',
-          description: 'Professional game boosting services for Arena Breakout: Infinite, CS2, Dota 2, and Rust',
+          description: 'Professional gaming services for Arena Breakout: Infinite, CS2, Dota 2, and Rust',
           aggregateRating: {
             '@type': 'AggregateRating',
             ratingValue: '4.9',

@@ -15,7 +15,7 @@ export const rustSEO: Record<string, RustServiceSEO> = {
       "Order a Rust Advanced Base built by veterans. Reinforced loot rooms, raid-cost focused layout, 4-8 hour manual delivery, fair price, full account safety.",
     keywords:
       "rust advanced base, buy rust base build, rust raid-resistant base, rust base building service, rust wipe base, rust pro base design",
-    h1: "Rust Advanced Base Boost",
+    h1: "Rust Advanced Base Service",
     content: `
       <p>Our Rust Advanced Base service is designed for players who want a stronger wipe start without spending hours planning and building. Experienced Rust players create a durable base structure with protected loot rooms, practical movement, and a higher raid cost.</p>
       <h2>Built For Real Wipe Pressure</h2>
@@ -30,7 +30,7 @@ export const rustSEO: Record<string, RustServiceSEO> = {
       "Get a Rust bunker base with a hidden entry, multi-layer loot rooms, and long-wipe raid resistance. Manual build by Rust veterans, 4-10 hour delivery.",
     keywords:
       "rust bunker base, rust hidden base, rust loot bunker, rust raid resistant base, buy bunker base rust, secret entry rust base",
-    h1: "Rust Bunker Base Boost",
+    h1: "Rust Bunker Base Service",
     content: `
       <p>The Bunker Base service delivers a multi-layered Rust base with a hidden entry system, protected loot rooms, and a layout designed to drain raider resources. It's the long-wipe option for players who want their loot to actually survive.</p>
       <h2>Why A Bunker?</h2>
@@ -45,7 +45,7 @@ export const rustSEO: Record<string, RustServiceSEO> = {
       "Order a clean Rust starter base built and placed in 1-3 hours. Smart wipe-day spot, essential loot protection, manual build, fair price, instant start.",
     keywords:
       "rust starter base, rust wipe base, rust early game base, buy rust starter base, fast rust base service, first hour rust base",
-    h1: "Rust Starter Base Boost",
+    h1: "Rust Starter Base Service",
     content: `
       <p>The Starter Base service gets you out of the painful first wipe hour. Our builders drop a clean, defensible base in a smart location with the right doors, walls, and loot space to survive the early window.</p>
       <h2>Early Wipe, Done Right</h2>
@@ -55,12 +55,12 @@ export const rustSEO: Record<string, RustServiceSEO> = {
     `,
   },
   "hourly-driving": {
-    metaTitle: "Rust Hourly Driving — Hire a Pro Rust Booster by the Hour",
+    metaTitle: "Rust Hourly Driving — Hire a Pro Rust Pro by the Hour",
     metaDescription:
       "Book a verified Rust pro by the hour for farming, building, scouting, or roaming. Any task allowed, instant start, 1-24 hour bookings, account-safe.",
     keywords:
-      "rust hourly driving, hire rust booster, rust pro by the hour, rust farming help, rust account share, rust grind service",
-    h1: "Rust Hourly Driving Boost",
+      "rust hourly driving, hire rust pro, rust pro by the hour, rust farming help, rust account share, rust grind service",
+    h1: "Rust Hourly Driving Service",
     content: `
       <p>Hourly Driving puts a verified Rust player on your account by the hour for whatever task you need handled — farming, building, scouting, roaming, or progression. No fixed scope, no padding, just a clean hourly rate.</p>
       <h2>Any Task Allowed</h2>
@@ -69,32 +69,32 @@ export const rustSEO: Record<string, RustServiceSEO> = {
       <p>Start with one hour or commit to a longer block. Safety, communication, and clean delivery are guaranteed across every booked hour.</p>
     `,
   },
-  "workbench-boost": {
-    metaTitle: "Rust Workbench Boost — Unlock Tier 3 Crafting Fast",
+  "workbench-service": {
+    metaTitle: "Rust Workbench Service — Unlock Tier 3 Crafting Fast",
     metaDescription:
-      "Skip the scrap grind with a Rust Workbench Boost up to Tier 3. Unlock late-wipe crafting, AKs, and explosives in 1-4 hours. Manual, safe, fast.",
+      "Skip the scrap grind with a Rust Workbench Service up to Tier 3. Unlock late-wipe crafting, AKs, and explosives in 1-4 hours. Manual, safe, fast.",
     keywords:
-      "rust workbench boost, rust tier 3 unlock, rust crafting boost, rust scrap farm, workbench upgrade rust, rust ak unlock",
-    h1: "Rust Workbench Boost",
+      "rust workbench service, rust tier 3 unlock, rust crafting service, rust scrap farm, workbench upgrade rust, rust ak unlock",
+    h1: "Rust Workbench Service",
     content: `
-      <p>Workbench Boost takes the painful scrap grind off your plate. We push your workbench progression up to Tier 3 so you can craft late-wipe weapons, modules, and explosives without the usual recycling marathon.</p>
+      <p>Workbench Service takes the painful scrap grind off your plate. We push your workbench progression up to Tier 3 so you can craft late-wipe weapons, modules, and explosives without the usual recycling marathon.</p>
       <h2>Tier 3 Unlocked</h2>
-      <p>Once Tier 3 is live, the rest of the wipe becomes about raids and PvP — not about whether you have an AK. Our boost is the fastest path to that point.</p>
+      <p>Once Tier 3 is live, the rest of the wipe becomes about raids and PvP — not about whether you have an AK. Our service is the fastest path to that point.</p>
       <h2>Account-Safe Delivery</h2>
       <p>Everything is done manually by experienced Rust players. No tools, no cheats, no detection risk.</p>
     `,
   },
 
   // --- Raiding ----------------------------------------------------------
-  "base-raiding-boost": {
+  "base-raiding-service": {
     metaTitle: "Rust Base Raid Carry — Loot Delivered to Your Stash",
     metaDescription:
       "Order a full Rust base raid: sulfur prep, explosives, online execution, and loot returned to you. Manual raid carry by veterans, 4-12 hour completion.",
     keywords:
       "rust base raid, rust raid carry, online raid rust, rust enemy base raid, buy rust raid, rust sulfur prep",
-    h1: "Rust Base Raiding Boost",
+    h1: "Rust Base Raiding Service",
     content: `
-      <p>Our Base Raiding Boost handles the full raid pipeline on an enemy base. From sulfur farming and explosives crafting to online raid execution and loot extraction, it's all included in one professional service.</p>
+      <p>Our Base Raiding Service handles the full raid pipeline on an enemy base. From sulfur farming and explosives crafting to online raid execution and loot extraction, it's all included in one professional service.</p>
       <h2>Full Raid Coverage</h2>
       <p>Tell us the target. Our crew preps charges, scouts the base, executes the raid efficiently, and returns with the loot.</p>
       <h2>Safe And Efficient</h2>
@@ -106,7 +106,7 @@ export const rustSEO: Record<string, RustServiceSEO> = {
     metaDescription:
       "Cargo Ship raid carry in Rust — crates, locked crate, scientists, and PvP control covered. Loot returned to your stash in 1-3 hours, manual play only.",
     keywords:
-      "rust cargo ship raid, rust locked crate, rust cargo loot, cargo ship boost rust, rust monument carry, rust scientists",
+      "rust cargo ship raid, rust locked crate, rust cargo loot, cargo ship service rust, rust monument carry, rust scientists",
     h1: "Rust Cargo Ship Raid",
     content: `
       <p>Cargo Ship Raid is a complete Cargo run handled by experienced Rust players. Crates, scientists, the locked crate timer, and any PvP pressure are all covered.</p>
@@ -117,14 +117,14 @@ export const rustSEO: Record<string, RustServiceSEO> = {
     `,
   },
   "oil-rig-raid": {
-    metaTitle: "Rust Oil Rig Raid Boost — Locked Crate & Top Loot",
+    metaTitle: "Rust Oil Rig Raid Service — Locked Crate & Top Loot",
     metaDescription:
       "Premium Rust Oil Rig raid carry. Scientists cleared, locked crate timer covered, PvP defended. High-tier monument loot delivered in 2-4 hours.",
     keywords:
-      "rust oil rig raid, rust oil rig carry, rust locked crate, large oil rig boost, rust monument raid, oil rig loot rust",
+      "rust oil rig raid, rust oil rig carry, rust locked crate, large oil rig service, rust monument raid, oil rig loot rust",
     h1: "Rust Oil Rig Raid",
     content: `
-      <p>Oil Rig is one of Rust's highest-reward monument runs and one of the most dangerous to do alone. Our Oil Rig Raid Boost covers the scientists, the timer wait, the locked crate, and any PvP that lands during the run.</p>
+      <p>Oil Rig is one of Rust's highest-reward monument runs and one of the most dangerous to do alone. Our Oil Rig Raid Service covers the scientists, the timer wait, the locked crate, and any PvP that lands during the run.</p>
       <h2>Locked Crate Delivered</h2>
       <p>The locked crate is the goal — we sit the timer correctly, defend the rig, and deliver the loot back to you.</p>
       <h2>Account-Safe Service</h2>
@@ -137,7 +137,7 @@ export const rustSEO: Record<string, RustServiceSEO> = {
       "Harden your Rust base without rebuilding. Better doors, electric traps, and tighter loot-room flow delivered in 1-3 hours. Manual, account-safe.",
     keywords:
       "rust base security, rust trap base, rust electric traps, harden rust base, rust loot protection, rust raid defense",
-    h1: "Rust Base Security Boost",
+    h1: "Rust Base Security Service",
     content: `
       <p>Base Security upgrades your existing Rust base without forcing a full rebuild. We harden doors, place electric traps, restructure loot rooms, and clean up weak choke points.</p>
       <h2>Tangible Loot Protection</h2>
@@ -286,7 +286,7 @@ export const rustSEO: Record<string, RustServiceSEO> = {
       "Bulk Rust ammo crafted for every caliber — rifles, pistols, bolts, shotguns. Raid supply prep and explosives covered. Manual crafting, fast delivery.",
     keywords:
       "rust ammo, rust bullets, rust raid supplies, rust explosives prep, rust ammo crafting, rust gunpowder farm",
-    h1: "Rust Ammo Farming Boost",
+    h1: "Rust Ammo Farming Service",
     content: `
       <p>Ammo orders cover bullets and explosives prep for every Rust loadout. Stockpiles delivered to your base, ready for the next raid or PvP push.</p>
       <h2>Raid Supply Prep</h2>
@@ -313,16 +313,16 @@ export const rustSEO: Record<string, RustServiceSEO> = {
     `,
   },
 
-  // --- Rent A Booster ---------------------------------------------------
-  "rent-a-booster": {
-    metaTitle: "Rent A Rust Booster — Hire a Veteran Rust Pro By The Hour",
+  // --- Rent A Pro ---------------------------------------------------
+  "rent-a-pro": {
+    metaTitle: "Rent A Rust Pro — Hire a Veteran Rust Pro By The Hour",
     metaDescription:
-      "Rent a verified Rust booster by the hour for farming, building, scouting, roaming, or raids. Any task allowed, 1-24 hour bookings, account-safe.",
+      "Rent a verified Rust pro by the hour for farming, building, scouting, roaming, or raids. Any task allowed, 1-24 hour bookings, account-safe.",
     keywords:
-      "rent rust booster, hire rust pro, rust account share, rust booster service, rust hourly help, rust pro for hire",
-    h1: "Rust Rent A Booster",
+      "rent rust pro, hire rust pro, rust account share, rust pro service, rust hourly help, rust pro for hire",
+    h1: "Rust Rent A Pro",
     content: `
-      <p>Rent A Booster puts a verified Rust player on your account by the hour for whatever task you need handled — farming, building, scouting, roaming, raiding, or progression.</p>
+      <p>Rent A Pro puts a verified Rust player on your account by the hour for whatever task you need handled — farming, building, scouting, roaming, raiding, or progression.</p>
       <h2>Any Task Allowed</h2>
       <p>No fixed scope, no padding, just a clean hourly rate. Hand off the grind and keep your wipe moving.</p>
       <h2>Flexible 1-24 Hour Bookings</h2>

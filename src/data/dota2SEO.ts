@@ -6,58 +6,58 @@ export interface ServiceSEO {
 }
 
 export const dota2SEO: Record<string, ServiceSEO> = {
-  "mmr-boost": {
-    metaTitle: "Dota 2 MMR Boost - Fast Rank Up by Immortal Players | MyBoost",
-    metaDescription: "Buy Dota 2 MMR boost from top Immortal & Divine players. Safe, fast rank climbing with VPN protection. Solo or duo boosting available. Start in 15 minutes.",
-    h1: "Dota 2 MMR Boost - Professional Rank Climbing Service",
+  "mmr-service": {
+    metaTitle: "Dota 2 MMR Service - Fast Rank Up by Immortal Players | MyBoost",
+    metaDescription: "Buy Dota 2 MMR Service from top Immortal & Divine players. Safe, fast rank climbing with VPN protection. Solo or duo services available. Start in 15 minutes.",
+    h1: "Dota 2 MMR Service - Professional Rank Climbing Service",
     content: `
-      <p>Looking to climb the Dota 2 ranked ladder fast? Our professional MMR boost service is powered exclusively by Immortal and Divine-ranked players who dominate every bracket. Whether you're stuck in Herald, grinding through Legend, or pushing for Immortal, our expert boosters deliver guaranteed MMR gains with a focus on 100% win rate performance.</p>
+      <p>Looking to climb the Dota 2 ranked ladder fast? Our professional MMR Service is powered exclusively by Immortal and Divine-ranked players who dominate every bracket. Whether you're stuck in Herald, grinding through Legend, or pushing for Immortal, our expert pros deliver guaranteed MMR gains with a focus on 100% win rate performance.</p>
 
-      <h2>Why Choose Our Dota 2 MMR Boost Service?</h2>
-      <p>Our Dota 2 MMR boost team consists exclusively of top-tier Immortal players with proven track records in high-level ranked play. Every booster is thoroughly vetted, experienced, and capable of carrying games at any skill bracket with exceptional win rates. When you buy Dota 2 MMR boost from us, you're getting more than just rank—you're getting guaranteed results from the best players in the game.</p>
+      <h2>Why Choose Our Dota 2 MMR Service?</h2>
+      <p>Our Dota 2 MMR Service team consists exclusively of top-tier Immortal players with proven track records in high-level ranked play. Every pro is thoroughly vetted, experienced, and capable of carrying games at any skill bracket with exceptional win rates. When you buy Dota 2 MMR Service from us, you're getting more than just rank—you're getting guaranteed results from the best players in the game.</p>
 
-      <h2>Immortal-Ranked Boosters Only</h2>
-      <p>We maintain the highest standards in the industry by employing only Immortal-ranked players. Our boosters have thousands of hours of experience, deep understanding of the current meta, and the mechanical skill to dominate matches consistently. This ensures your MMR boost is completed efficiently with maximum win rates, regardless of your starting bracket.</p>
+      <h2>Immortal-Ranked Pros Only</h2>
+      <p>We maintain the highest standards in the industry by employing only Immortal-ranked players. Our pros have thousands of hours of experience, deep understanding of the current meta, and the mechanical skill to dominate matches consistently. This ensures your MMR Service is completed efficiently with maximum win rates, regardless of your starting bracket.</p>
 
       <h2>VPN Protection Included</h2>
-      <p>Account security is our top priority. Every Dota 2 MMR boost order includes enterprise-grade VPN protection matched to your region. Our boosters play during your typical gaming hours to maintain natural account behavior, and we never use scripts, bots, or any prohibited software—just pure skill and game knowledge. Your account remains completely safe throughout the entire boosting process.</p>
+      <p>Account security is our top priority. Every Dota 2 MMR Service order includes enterprise-grade VPN protection matched to your region. Our pros play during your typical gaming hours to maintain natural account behavior, and we never use scripts, bots, or any prohibited software—just pure skill and game knowledge. Your account remains completely safe throughout the entire services process.</p>
 
-      <h2>Solo & Duo Boosting Options</h2>
-      <p>Choose the boosting method that works best for you:</p>
+      <h2>Solo & Duo Services Options</h2>
+      <p>Choose the services method that works best for you:</p>
       <ul>
-        <li><strong>Solo Boost:</strong> Our booster plays on your account while you relax. Fastest method with guaranteed results.</li>
-        <li><strong>Duo Boost:</strong> Play alongside an Immortal player who carries your games while you learn. Perfect for improving your own skills while climbing.</li>
+        <li><strong>Solo Service:</strong> Our pro plays on your account while you relax. Fastest method with guaranteed results.</li>
+        <li><strong>Duo Service:</strong> Play alongside an Immortal player who carries your games while you learn. Perfect for improving your own skills while climbing.</li>
       </ul>
-      <p>Both options deliver the same high-quality service with professional boosters and guaranteed MMR gains.</p>
+      <p>Both options deliver the same high-quality service with professional pros and guaranteed MMR gains.</p>
 
       <h2>15-Minute Start Guarantee</h2>
-      <p>Time matters when you're ready to climb. Our Dota 2 MMR boost service guarantees that your order begins within 15 minutes of purchase. We have boosters available 24/7 across all regions, ensuring immediate service whenever you need it. No waiting, no delays—just fast, professional MMR boosting.</p>
+      <p>Time matters when you're ready to climb. Our Dota 2 MMR Service guarantees that your order begins within 15 minutes of purchase. We have pros available 24/7 across all regions, ensuring immediate service whenever you need it. No waiting, no delays—just fast, professional MMR Services.</p>
 
       <h2>Live Match Tracking</h2>
-      <p>Stay informed throughout your MMR boost with our live match tracking system. You'll receive real-time updates on every game played, including match results, heroes picked, and MMR gained. Track your progress from your dashboard and watch your rank climb in real-time. Full transparency from start to finish.</p>
+      <p>Stay informed throughout your MMR Service with our live match tracking system. You'll receive real-time updates on every game played, including match results, heroes picked, and MMR gained. Track your progress from your dashboard and watch your rank climb in real-time. Full transparency from start to finish.</p>
 
       <h2>100% Win Rate Focused</h2>
-      <p>Our boosters are selected based on their exceptional win rates in ranked matchmaking. We focus on maximizing wins and minimizing losses to ensure your MMR boost is completed as efficiently as possible. With Immortal-tier players handling your games, you can expect dominant performances and consistent victories across all brackets.</p>
+      <p>Our pros are selected based on their exceptional win rates in ranked matchmaking. We focus on maximizing wins and minimizing losses to ensure your MMR Service is completed as efficiently as possible. With Immortal-tier players handling your games, you can expect dominant performances and consistent victories across all brackets.</p>
 
       <h2>Affordable Pricing - From $3 Per Game</h2>
-      <p>Our Dota 2 MMR boost service offers competitive pricing starting at just $3 per game. Pricing scales based on your current MMR bracket and desired rank, ensuring fair rates that reflect the actual difficulty of climbing. Use our calculator to get an instant quote for your specific MMR goals.</p>
+      <p>Our Dota 2 MMR Service offers competitive pricing starting at just $3 per game. Pricing scales based on your current MMR bracket and desired rank, ensuring fair rates that reflect the actual difficulty of climbing. Use our calculator to get an instant quote for your specific MMR goals.</p>
 
-      <h2>How Our Dota 2 MMR Boost Works</h2>
-      <p>Getting started is simple. Select your current MMR and desired MMR using our calculator. Choose between solo or duo boost. Complete your secure checkout, and our team will begin your order within 15 minutes. You'll receive login credentials for our tracking dashboard where you can monitor every game in real-time. Once complete, you'll have the rank you've always wanted.</p>
+      <h2>How Our Dota 2 MMR Service Works</h2>
+      <p>Getting started is simple. Select your current MMR and desired MMR using our calculator. Choose between solo or duo service. Complete your secure checkout, and our team will begin your order within 15 minutes. You'll receive login credentials for our tracking dashboard where you can monitor every game in real-time. Once complete, you'll have the rank you've always wanted.</p>
 
-      <h2>Safe & Secure Boosting</h2>
-      <p>We've completed thousands of MMR boosts with a perfect security record. Every order uses VPN protection, secure login protocols, and our boosters are trained in account safety best practices. We maintain complete confidentiality, never share your information, and ensure your account is returned in perfect condition with your desired MMR.</p>
+      <h2>Safe & Secure Services</h2>
+      <p>We've completed thousands of MMR Services with a perfect security record. Every order uses VPN protection, secure login protocols, and our pros are trained in account safety best practices. We maintain complete confidentiality, never share your information, and ensure your account is returned in perfect condition with your desired MMR.</p>
 
       <h2>24/7 Customer Support</h2>
-      <p>Questions about your Dota 2 MMR boost? Our support team is available around the clock via live chat. Every order comes with a satisfaction guarantee—if you're not happy with the service, we'll make it right. Join thousands of satisfied customers who have reached their dream ranks with our professional Dota 2 MMR boost service.</p>
+      <p>Questions about your Dota 2 MMR Service? Our support team is available around the clock via live chat. Every order comes with a satisfaction guarantee—if you're not happy with the service, we'll make it right. Join thousands of satisfied customers who have reached their dream ranks with our professional Dota 2 MMR Service.</p>
 
-      <h2>Why Players Choose Our MMR Boost</h2>
-      <p>Players trust us for Dota 2 MMR boosting because we deliver results. Our Immortal boosters maintain exceptional win rates, our VPN protection keeps accounts safe, and our 15-minute start guarantee means no waiting. Whether you're climbing from Herald to Crusader or pushing from Divine to Immortal, we have the expertise and experience to get you there fast.</p>
+      <h2>Why Players Choose Our MMR Service</h2>
+      <p>Players trust us for Dota 2 MMR Services because we deliver results. Our Immortal pros maintain exceptional win rates, our VPN protection keeps accounts safe, and our 15-minute start guarantee means no waiting. Whether you're climbing from Herald to Crusader or pushing from Divine to Immortal, we have the expertise and experience to get you there fast.</p>
     `
   },
   "lp-removal": {
     metaTitle: "Dota 2 Low Priority Removal - Fast LP Queue Exit | MyBoost",
-    metaDescription: "Remove Dota 2 Low Priority fast. Our boosters play your LP games professionally. Get out of LP queue in hours, not days. Safe method, no ban risk.",
+    metaDescription: "Remove Dota 2 Low Priority fast. Our pros play your LP games professionally. Get out of LP queue in hours, not days. Safe method, no ban risk.",
     h1: "Dota 2 Low Priority Removal - Fast LP Queue Exit Service",
     content: `
       <p>Stuck in Dota 2 Low Priority? Our professional LP removal service gets you out of the Low Priority queue fast with guaranteed game completions. Whether you need 1 game or 5 games to escape LP hell, our experienced specialists deliver quick, reliable results so you can get back to ranked matchmaking without the frustration.</p>
@@ -75,7 +75,7 @@ export const dota2SEO: Record<string, ServiceSEO> = {
       <p>Concerned about account security? We offer a coaching mode option where you don't need to share your account credentials at all. In coaching mode, you play your own LP games while our expert coach guides you through voice chat, helping you secure wins efficiently. This is the safest method available—you maintain complete control of your account while still getting professional assistance.</p>
 
       <h2>Ban-Safe Method</h2>
-      <p>Account safety is our top priority. Our Dota 2 LP removal service uses completely legitimate methods—no bots, no scripts, no exploits. Whether you choose standard boosting or coaching mode, we ensure your account remains completely safe. We use VPN protection matched to your region, play during your typical hours, and maintain natural gameplay patterns. With thousands of completed orders and zero bans, your account security is guaranteed.</p>
+      <p>Account safety is our top priority. Our Dota 2 LP removal service uses completely legitimate methods—no bots, no scripts, no exploits. Whether you choose standard services or coaching mode, we ensure your account remains completely safe. We use VPN protection matched to your region, play during your typical hours, and maintain natural gameplay patterns. With thousands of completed orders and zero bans, your account security is guaranteed.</p>
 
       <h2>Completed Within 24 Hours</h2>
       <p>We guarantee that your Low Priority removal will be completed within 24 hours of order placement. Most orders are finished much faster—often within just a few hours—but we provide the 24-hour guarantee to ensure you know exactly when you'll be back in normal matchmaking. No more uncertainty, no more waiting days to escape LP.</p>
@@ -84,12 +84,12 @@ export const dota2SEO: Record<string, ServiceSEO> = {
       <p>Our Dota 2 LP removal service offers transparent, affordable pricing starting at just $3 per game. Need 1 LP win? That's $3. Need 5 LP wins? That's $15. Simple, straightforward pricing with no hidden fees. Select the number of games you need to complete, and we'll handle the rest at a price that won't break the bank.</p>
 
       <h2>How Our LP Removal Service Works</h2>
-      <p>Getting out of Low Priority is simple with our service. First, check how many LP games you need to complete (usually displayed in your Dota 2 client). Select that number of games in our order form and choose between standard boosting or coaching mode. Complete your secure checkout, and our team will begin your order immediately. You'll receive updates throughout the process, and once complete, you'll be back in normal matchmaking.</p>
+      <p>Getting out of Low Priority is simple with our service. First, check how many LP games you need to complete (usually displayed in your Dota 2 client). Select that number of games in our order form and choose between standard services or coaching mode. Complete your secure checkout, and our team will begin your order immediately. You'll receive updates throughout the process, and once complete, you'll be back in normal matchmaking.</p>
 
-      <h2>Standard Boosting vs Coaching Mode</h2>
+      <h2>Standard Services vs Coaching Mode</h2>
       <p>We offer two methods for LP removal to suit your preferences:</p>
       <ul>
-        <li><strong>Standard Boosting:</strong> Our specialist plays on your account to complete LP games. Fastest method with guaranteed results. Includes VPN protection and secure login protocols.</li>
+        <li><strong>Standard Services:</strong> Our specialist plays on your account to complete LP games. Fastest method with guaranteed results. Includes VPN protection and secure login protocols.</li>
         <li><strong>Coaching Mode:</strong> You play your own LP games while our expert coach guides you via voice chat. Safest method with zero account sharing. Perfect if you want to maintain complete control.</li>
       </ul>
       <p>Both methods deliver the same result—getting you out of Low Priority fast—so choose whichever option makes you most comfortable.</p>
@@ -160,111 +160,111 @@ export const dota2SEO: Record<string, ServiceSEO> = {
       <p>Don't waste another day grinding for rank tokens manually. Our Dota 2 rank tokens farming service delivers fast, safe, and guaranteed token collection at competitive prices. With Immortal players, real-time progress updates, and custom token amounts, you can trust us to handle your token farming efficiently. Order now and unlock your desired rank today.</p>
     `
   },
-  "calibration-boost": {
-    metaTitle: "Dota 2 Calibration Boost - Secure Top MMR Placement | MyBoost",
-    metaDescription: "Buy Dota 2 calibration boost from Immortal players. Complete all calibration matches and lock in the highest possible MMR placement. Safe, fast, guaranteed.",
-    h1: "Dota 2 Calibration Boost - Top MMR Placement Service",
+  "calibration-service": {
+    metaTitle: "Dota 2 Calibration Service - Secure Top MMR Placement | MyBoost",
+    metaDescription: "Buy Dota 2 calibration service from Immortal players. Complete all calibration matches and lock in the highest possible MMR placement. Safe, fast, guaranteed.",
+    h1: "Dota 2 Calibration Service - Top MMR Placement Service",
     content: `
-      <p>Make every Dota 2 calibration match count. Our professional calibration boost service is powered by Immortal-ranked players who specialize in maximizing initial MMR placement. Whether you're starting a fresh account or returning to ranked after a long break, our boosters secure the best possible calibrated rank so you don't waste months climbing the ladder.</p>
+      <p>Make every Dota 2 calibration match count. Our professional calibration service is powered by Immortal-ranked players who specialize in maximizing initial MMR placement. Whether you're starting a fresh account or returning to ranked after a long break, our pros secure the best possible calibrated rank so you don't waste months climbing the ladder.</p>
 
       <h2>Why Calibration Matters in Dota 2</h2>
-      <p>Calibration matches determine your starting MMR for an entire season. A poor calibration can leave you stuck hundreds of MMR below your true skill level, forcing you to grind extra games to recover. Our Dota 2 calibration boost ensures you start the season at the highest realistic MMR for your account, giving you a competitive edge from day one.</p>
+      <p>Calibration matches determine your starting MMR for an entire season. A poor calibration can leave you stuck hundreds of MMR below your true skill level, forcing you to grind extra games to recover. Our Dota 2 calibration service ensures you start the season at the highest realistic MMR for your account, giving you a competitive edge from day one.</p>
 
-      <h2>Immortal Boosters for Every Calibration Game</h2>
+      <h2>Immortal Pros for Every Calibration Game</h2>
       <p>Each calibration match is handled by an Immortal-ranked player with thousands of ranked games of experience. They know which heroes to pick to maximize MVP impact, how to read the matchmaking system, and how to consistently win calibration games against unpredictable opponents. This expertise translates directly into a higher calibrated MMR for you.</p>
 
       <h2>Up to 30 Calibration Matches Available</h2>
       <p>Our service covers the full set of calibration games required by Dota 2's ranked system. You choose how many matches you need completed — from a single placement game all the way up to 30 matches for full role calibration. Pricing scales linearly so you pay only for what you need.</p>
 
       <h2>Safe Account Handling</h2>
-      <p>Every Dota 2 calibration boost order includes enterprise-grade VPN protection matched to your region. We never use scripts, bots, or any prohibited software — just pure skill. With thousands of completed boosts and zero account bans, your account security is guaranteed throughout the entire calibration process.</p>
+      <p>Every Dota 2 calibration service order includes enterprise-grade VPN protection matched to your region. We never use scripts, bots, or any prohibited software — just pure skill. With thousands of completed services and zero account bans, your account security is guaranteed throughout the entire calibration process.</p>
 
       <h2>Affordable Pricing - From $3 Per Match</h2>
-      <p>Our calibration boost starts at just $3 per match — the most competitive rate in the industry for Immortal-tier play. No hidden fees, no surprises. Use our calculator to get an instant quote for your specific calibration goals.</p>
+      <p>Our calibration service starts at just $3 per match — the most competitive rate in the industry for Immortal-tier play. No hidden fees, no surprises. Use our calculator to get an instant quote for your specific calibration goals.</p>
 
       <h2>Fast Start, Steady Delivery</h2>
-      <p>Your calibration boost begins within 15 minutes of order confirmation. Most orders complete within 24-72 hours depending on the number of matches selected. You'll receive real-time updates after each game and can track every match from your dashboard.</p>
+      <p>Your calibration service begins within 15 minutes of order confirmation. Most orders complete within 24-72 hours depending on the number of matches selected. You'll receive real-time updates after each game and can track every match from your dashboard.</p>
 
       <h2>24/7 Customer Support</h2>
-      <p>Questions about your Dota 2 calibration boost? Our support team is available around the clock via live chat. Every order comes with a satisfaction guarantee — if you're not happy with the placement, we'll make it right.</p>
+      <p>Questions about your Dota 2 calibration service? Our support team is available around the clock via live chat. Every order comes with a satisfaction guarantee — if you're not happy with the placement, we'll make it right.</p>
     `
   },
-  "behavior-score-boost": {
-    metaTitle: "Dota 2 Behavior Score Boost - Reach 12k Score Fast | MyBoost",
-    metaDescription: "Buy Dota 2 behavior score boost. Recover from low behavior, reach 12,000 score, and unlock full matchmaking access. Safe, reliable, ban-free service.",
-    h1: "Dota 2 Behavior Score Boost - Fast Recovery Service",
+  "behavior-score-service": {
+    metaTitle: "Dota 2 Behavior Score Service - Reach 12k Score Fast | MyBoost",
+    metaDescription: "Buy Dota 2 behavior score service. Recover from low behavior, reach 12,000 score, and unlock full matchmaking access. Safe, reliable, ban-free service.",
+    h1: "Dota 2 Behavior Score Service - Fast Recovery Service",
     content: `
-      <p>Stuck with a low Dota 2 behavior score? Long queue times, toxic matchmaking pools, and locked features can ruin your experience. Our professional behavior score boost service quickly raises your score back to 12,000 — restoring full matchmaking access and unlocking the normal Dota 2 experience again.</p>
+      <p>Stuck with a low Dota 2 behavior score? Long queue times, toxic matchmaking pools, and locked features can ruin your experience. Our professional behavior score service quickly raises your score back to 12,000 — restoring full matchmaking access and unlocking the normal Dota 2 experience again.</p>
 
       <h2>Why Behavior Score Matters</h2>
       <p>Behavior score affects almost every part of Dota 2 ranked play. A low score means longer queues, worse teammates, restricted voice chat, and reduced ranked rewards. Climbing back to 12k behavior score manually can take dozens of clean games — often hundreds of hours of play. Our service skips that grind safely.</p>
 
       <h2>Any Starting Score Supported</h2>
-      <p>Whether your behavior score is at 9,000 or all the way down at 1,000, our boosters can recover it. We handle even the lowest-score accounts where matchmaking is nearly unplayable, using a careful approach that consistently raises your score every game.</p>
+      <p>Whether your behavior score is at 9,000 or all the way down at 1,000, our pros can recover it. We handle even the lowest-score accounts where matchmaking is nearly unplayable, using a careful approach that consistently raises your score every game.</p>
 
       <h2>Reach 12,000 Behavior Score</h2>
       <p>We aim for the maximum 12,000 behavior score — the threshold that unlocks all matchmaking features. Once complete, you'll be paired with normal-behavior teammates, queue times return to normal, and your overall Dota 2 experience improves dramatically.</p>
 
       <h2>Safe, Ban-Free Method</h2>
-      <p>Our behavior score boost uses 100% legitimate play — no exploits, no scripts, no risky third-party tools. Boosters connect through VPN protection in your region, play during your typical hours, and maintain natural account behavior. Thousands of completed boosts, zero bans.</p>
+      <p>Our behavior score service uses 100% legitimate play — no exploits, no scripts, no risky third-party tools. Pros connect through VPN protection in your region, play during your typical hours, and maintain natural account behavior. Thousands of completed services, zero bans.</p>
 
       <h2>Affordable Pricing - From $5</h2>
       <p>Pricing scales with how much score you need to recover. The further from 12,000 you start, the more games are needed — but our per-step pricing keeps it affordable. Use the calculator to get an instant quote.</p>
 
       <h2>24/7 Customer Support</h2>
-      <p>Questions about your Dota 2 behavior score boost? Our support team is available around the clock. Every order comes with a satisfaction guarantee — if anything goes wrong, we make it right.</p>
+      <p>Questions about your Dota 2 behavior score service? Our support team is available around the clock. Every order comes with a satisfaction guarantee — if anything goes wrong, we make it right.</p>
     `
   },
-  "win-rate-boost": {
-    metaTitle: "Dota 2 Win Rate Boost - Buy Wins from Immortal Players | MyBoost",
-    metaDescription: "Boost your Dota 2 win rate fast. Choose the number of wins, play or spectate, and let Immortal players carry you. Safe, reliable, professional service.",
-    h1: "Dota 2 Win Rate Boost - Professional Wins Service",
+  "win-rate-service": {
+    metaTitle: "Dota 2 Win Rate Service - Buy Wins from Immortal Players | MyBoost",
+    metaDescription: "Level up your Dota 2 win rate fast. Choose the number of wins, play or spectate, and let Immortal players carry you. Safe, reliable, professional service.",
+    h1: "Dota 2 Win Rate Service - Professional Wins Service",
     content: `
-      <p>Improve your Dota 2 win rate without endless grinding. Our professional win rate boost service is powered by Immortal-ranked players who consistently dominate ranked matches. Choose the exact number of wins you want, pick whether you play or spectate, and watch your win rate climb fast.</p>
+      <p>Improve your Dota 2 win rate without endless grinding. Our professional win rate service is powered by Immortal-ranked players who consistently dominate ranked matches. Choose the exact number of wins you want, pick whether you play or spectate, and watch your win rate climb fast.</p>
 
-      <h2>Why Choose Our Win Rate Boost?</h2>
-      <p>Your win rate affects how matchmaking sees you, how teammates respect you, and how fast you progress in ranked. Building a healthy win rate manually can take hundreds of games. Our Dota 2 win rate boost gives you guaranteed wins from elite players — turning a losing streak into a winning record in days, not months.</p>
+      <h2>Why Choose Our Win Rate Service?</h2>
+      <p>Your win rate affects how matchmaking sees you, how teammates respect you, and how fast you progress in ranked. Building a healthy win rate manually can take hundreds of games. Our Dota 2 win rate service gives you guaranteed wins from elite players — turning a losing streak into a winning record in days, not months.</p>
 
       <h2>Play or Spectate - Your Choice</h2>
-      <p>We support both solo boosting (booster plays on your account) and duo boosting (you play alongside an Immortal carry). The duo option is perfect if you want to keep your hands on the keyboard and learn from a top-tier teammate while still securing wins. Solo is the fastest method for pure win rate gains.</p>
+      <p>We support both solo services (pro plays on your account) and duo services (you play alongside an Immortal carry). The duo option is perfect if you want to keep your hands on the keyboard and learn from a top-tier teammate while still securing wins. Solo is the fastest method for pure win rate gains.</p>
 
       <h2>Choose the Exact Number of Wins</h2>
       <p>Our calculator lets you pick from a single win all the way up to 50+ wins. Need 5 quick wins to recover from a losing streak? Done. Want to push for 25 wins to dramatically improve your overall record? We handle that too. Pricing is per win, so you pay only for what you need.</p>
 
-      <h2>Elite Immortal Boosters Only</h2>
-      <p>Every win is delivered by an Immortal-ranked player. These boosters maintain exceptional personal win rates across all brackets and have the mechanical skill and game sense to carry matches consistently. You're not getting just any wins — you're getting wins from the best players in the game.</p>
+      <h2>Elite Immortal Pros Only</h2>
+      <p>Every win is delivered by an Immortal-ranked player. These pros maintain exceptional personal win rates across all brackets and have the mechanical skill and game sense to carry matches consistently. You're not getting just any wins — you're getting wins from the best players in the game.</p>
 
       <h2>Safe & Secure - From $3 Per Win</h2>
       <p>Our service starts at just $3 per win with full VPN protection, secure login protocols, and a zero-ban track record across thousands of completed orders. Transparent pricing, no hidden fees, fast start within 15 minutes of order.</p>
 
       <h2>24/7 Customer Support</h2>
-      <p>Questions about your Dota 2 win rate boost? Our support team is available around the clock via live chat. Every order comes with a satisfaction guarantee.</p>
+      <p>Questions about your Dota 2 win rate service? Our support team is available around the clock via live chat. Every order comes with a satisfaction guarantee.</p>
     `
   },
   "battle-cup": {
-    metaTitle: "Dota 2 Battle Cup Boost - Win the Weekend Tournament | MyBoost",
+    metaTitle: "Dota 2 Battle Cup Service - Win the Weekend Tournament | MyBoost",
     metaDescription: "Win your Dota 2 Battle Cup with Immortal players. Trophies, effigies, and tier rewards guaranteed. Skip random groups and dominate the weekend tournament.",
-    h1: "Dota 2 Battle Cup Boost - Weekend Tournament Win Service",
+    h1: "Dota 2 Battle Cup Service - Weekend Tournament Win Service",
     content: `
-      <p>Want to win Dota 2's Battle Cup but tired of getting stuck with random groups that bow out in the first round? Our Battle Cup boost service stacks your team with experienced Immortal players who know exactly how to navigate the weekend tournament bracket and bring home the trophy.</p>
+      <p>Want to win Dota 2's Battle Cup but tired of getting stuck with random groups that bow out in the first round? Our Battle Cup Service stacks your team with experienced Immortal players who know exactly how to navigate the weekend tournament bracket and bring home the trophy.</p>
 
       <h2>Win the Weekend Battle Cup</h2>
-      <p>Battle Cup is Dota 2's weekend tournament mode — single-elimination, party-based, with real rewards on the line. Winning earns you the trophy, the effigy, and tier-based cosmetic upgrades. Our Dota 2 Battle Cup boost guarantees you the win so you walk away with all the rewards every weekend.</p>
+      <p>Battle Cup is Dota 2's weekend tournament mode — single-elimination, party-based, with real rewards on the line. Winning earns you the trophy, the effigy, and tier-based cosmetic upgrades. Our Dota 2 Battle Cup Service guarantees you the win so you walk away with all the rewards every weekend.</p>
 
       <h2>Skip Random Groups</h2>
-      <p>The hardest part of Battle Cup is finding a coordinated team. Random pickup groups often abandon the tournament after a single loss, leaving you with nothing. Our boost service replaces that frustration with a full team of Immortal players who communicate, coordinate, and play to win every round.</p>
+      <p>The hardest part of Battle Cup is finding a coordinated team. Random pickup groups often abandon the tournament after a single loss, leaving you with nothing. Our service replaces that frustration with a full team of Immortal players who communicate, coordinate, and play to win every round.</p>
 
       <h2>Trophy, Effigy, and Tier Rewards</h2>
-      <p>Winning the Battle Cup unlocks the seasonal trophy, an effigy you can plant on the map, and tier rewards that scale based on consecutive wins. With our boost, every reward is locked in. Plus, with each consecutive cup win, your tier progresses for even bigger cosmetic upgrades.</p>
+      <p>Winning the Battle Cup unlocks the seasonal trophy, an effigy you can plant on the map, and tier rewards that scale based on consecutive wins. With our service, every reward is locked in. Plus, with each consecutive cup win, your tier progresses for even bigger cosmetic upgrades.</p>
 
       <h2>Experienced Tournament Players</h2>
-      <p>Battle Cup play is different from regular ranked. Drafts matter more, early game decisions are critical, and tournament pressure punishes mistakes. Our boosters are specifically chosen for their Battle Cup experience and tournament-style play. They've won dozens of cups and know every meta cheese pick.</p>
+      <p>Battle Cup play is different from regular ranked. Drafts matter more, early game decisions are critical, and tournament pressure punishes mistakes. Our pros are specifically chosen for their Battle Cup experience and tournament-style play. They've won dozens of cups and know every meta cheese pick.</p>
 
       <h2>Safe, Fast, Affordable - From $3</h2>
-      <p>Our Battle Cup boost starts at just $3 per cup. Full VPN protection, secure login, and a zero-ban track record. Most boosts complete during the next available Battle Cup weekend.</p>
+      <p>Our Battle Cup Service starts at just $3 per cup. Full VPN protection, secure login, and a zero-ban track record. Most services complete during the next available Battle Cup weekend.</p>
 
       <h2>24/7 Customer Support</h2>
-      <p>Questions about your Dota 2 Battle Cup boost? Our support team is available around the clock. Every order comes with a satisfaction guarantee — no win, no charge.</p>
+      <p>Questions about your Dota 2 Battle Cup Service? Our support team is available around the clock. Every order comes with a satisfaction guarantee — no win, no charge.</p>
     `
   }
 };

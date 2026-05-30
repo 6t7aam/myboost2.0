@@ -19,7 +19,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { RustService, RustVariant } from "@/data/rustServices";
-import { SpeedOption } from "@/contexts/CartContext";
+import { SpeedOption, useCart } from "@/contexts/CartContext";
+import PromoCodeInput from "@/components/PromoCodeInput";
 
 interface SpeedDef {
   value: SpeedOption;
@@ -108,6 +109,7 @@ const RustServiceConfigurator = ({
   service,
   onAddToCart,
 }: RustServiceConfiguratorProps) => {
+  const { appliedPromo, setAppliedPromo } = useCart();
   const isHourly = service.calculatorType === "hourly";
   const isQuantity = service.calculatorType === "quantity";
   const isFixed = service.calculatorType === "fixed";
@@ -451,6 +453,19 @@ const RustServiceConfigurator = ({
               );
             })}
           </div>
+        </div>
+
+        {/* --- Promo Code --- */}
+        <div>
+          <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.16em] text-foreground">
+            Promo Code
+          </label>
+          <PromoCodeInput
+            appliedCode={appliedPromo}
+            onApply={setAppliedPromo}
+            onRemove={() => setAppliedPromo(null)}
+            orderTotal={finalPrice}
+          />
         </div>
 
         {/* --- Price block --- */}

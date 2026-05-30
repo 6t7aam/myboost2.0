@@ -1,27 +1,20 @@
 CS2 service card images
 ========================
 
-Drop image files here. Each card automatically shows its image once the matching
-file exists (until then a black-yellow gradient placeholder is displayed).
+The site serves optimized .webp files (small + fast). The service config
+(src/data/gameConfigs.ts) points at /service-images/cs2/<slug>.webp.
 
-Recommended: ~800x450 (16:9), .png or .jpg, dark/high-contrast art.
+To add or replace an image:
+  1. Drop a .png / .jpg / .webp here named after the service slug
+     (e.g. premier-rating.png).
+  2. Run:  npm run optimize:images
+     This resizes to max 800px wide and writes an optimized <slug>.webp
+     (deleting the heavy original). ~2MB source -> ~50-90KB webp.
 
-Expected filenames (must match the service slug):
+Service slugs:
+  premier-rating, rent-a-booster, faceit-wins, faceit-rank, esea-rank,
+  competitive-rank, wingman-rank, placement-matches, wins-boost,
+  armory-boost, profile-rank, coaching, esea-wins, global-elite-boost
 
-  premier-rating.png
-  rent-a-booster.png
-  faceit-wins.png
-  faceit-rank.png
-  esea-rank.png
-  competitive-rank.png
-  wingman-rank.png
-  placement-matches.png
-  wins-boost.png
-  armory-boost.png
-  profile-rank.png
-  coaching.png
-  esea-wins.png
-  global-elite-boost.png
-
-If you use .jpg instead of .png, update the `image` path for that service in
-src/data/gameConfigs.ts (the cs2 block) to match the extension.
+Until a file exists for a slug, the card/order panel shows a black-yellow
+gradient placeholder.

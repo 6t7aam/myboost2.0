@@ -9,6 +9,7 @@ import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useCart } from "@/contexts/CartContext";
+import PromoCodeInput from "@/components/PromoCodeInput";
 import { Dota2PaymentRow } from "./Dota2ServiceSections";
 import {
   DOTA2_MMR_MAX,
@@ -44,7 +45,7 @@ const optionButtonClass = (active: boolean) =>
   );
 
 const Dota2MmrBoostCalculator = () => {
-  const { addItem } = useCart();
+  const { addItem, appliedPromo, setAppliedPromo } = useCart();
   const [currentMMR, setCurrentMMR] = useState(0);
   const [desiredMMR, setDesiredMMR] = useState(8000);
   const [currentInput, setCurrentInput] = useState("0");
@@ -395,9 +396,19 @@ const Dota2MmrBoostCalculator = () => {
       </section>
 
       <section className={sectionClassName}>
+        <div>
+          <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-foreground">Promo Code</label>
+          <PromoCodeInput
+            appliedCode={appliedPromo}
+            onApply={setAppliedPromo}
+            onRemove={() => setAppliedPromo(null)}
+            orderTotal={finalPrice}
+          />
+        </div>
+
         <Button
           size="lg"
-          className="w-full rounded-xl py-6 text-base font-bold uppercase shadow-[0_0_26px_rgba(245,197,24,0.18)]"
+          className="mt-4 w-full rounded-xl py-6 text-base font-bold uppercase shadow-[0_0_26px_rgba(245,197,24,0.18)]"
           onClick={() => {
             addItem({
               id: "",
