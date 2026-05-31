@@ -18,6 +18,7 @@ import {
 } from "@/data/dota2ServicePricing";
 import { useCart, SpeedOption } from "@/contexts/CartContext";
 import PromoCodeInput from "@/components/PromoCodeInput";
+import { SALE_ACTIVE, GLOBAL_SALE_RATIO, SALE_BADGE_LABEL } from "@/config/pricing";
 import { toast } from "sonner";
 
 const rangeFill = (value: number, min: number, max: number) => {
@@ -94,7 +95,7 @@ const Dota2SimpleOrderForm = ({
   const basePrice = quantity * pricePerUnit;
   const priceAfterSpeed = basePrice * speedMultiplier;
   const flatExtra = flatAdder ? flatAdder(quantity) : 0;
-  const totalPrice = applyBoostOptionsPrice({
+  const priceBeforeSale = applyBoostOptionsPrice({
     priceAfterSpeed,
     boostMethod,
     selfPlayMultiplier: PRICING?.selfPlayMultiplier ?? 1,
@@ -102,6 +103,7 @@ const Dota2SimpleOrderForm = ({
     checkedOptionIds: checkedOptions,
     flatAdder: flatExtra,
   });
+  const totalPrice = SALE_ACTIVE ? priceBeforeSale * GLOBAL_SALE_RATIO : priceBeforeSale;
 
   const handleBoostMethodChange = (m: BoostMethod) => {
     setBoostMethod(m);
@@ -192,6 +194,14 @@ const Dota2SimpleOrderForm = ({
 
         <div className="rounded-xl border-2 border-primary/30 bg-secondary/30 p-5 text-center">
           <div className="text-3xl font-black text-primary">${totalPrice.toFixed(2)}</div>
+          {SALE_ACTIVE && (
+            <div className="mt-1 flex items-center justify-center gap-2">
+              <span className="text-sm text-muted-foreground/70 line-through">${priceBeforeSale.toFixed(2)}</span>
+              <span className="inline-flex items-center rounded-full border border-primary/60 bg-primary/15 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-primary">
+                {SALE_BADGE_LABEL}
+              </span>
+            </div>
+          )}
           <div className="mt-1 text-xs text-muted-foreground">
             {quantity} {unit} × ${pricePerUnit.toFixed(2)} · {SPEED_OPTIONS.find((s) => s.id === speed)!.label}
           </div>

@@ -102,6 +102,42 @@ export const getArenaServiceSaleRatio = (
 };
 
 /**
+ * Global 25% discount applied to all services except Arena Breakout
+ * (which has its own custom sale percentages above).
+ */
+export const GLOBAL_SALE_PERCENT = 25;
+
+export const GLOBAL_SALE_RATIO = 1 - GLOBAL_SALE_PERCENT / 100; // 0.75
+
+/**
+ * Compute sale price for any non-arena service.
+ * Returns { oldPrice, newPrice } where newPrice = oldPrice * 0.75.
+ */
+export const getGlobalSale = (originalPrice: number): SalePrice | null => {
+  if (!SALE_ACTIVE || originalPrice <= 0) return null;
+  return {
+    oldPrice: originalPrice,
+    newPrice: Math.round(originalPrice * GLOBAL_SALE_RATIO * 100) / 100,
+  };
+};
+
+/**
+ * Sale ratio for any game/service. Arena Breakout uses its own custom rates;
+ * everything else uses the global 25% discount.
+ */
+export const getServiceSaleRatio = (
+  gameSlug: string,
+  serviceId: string,
+  raidMode?: string,
+): number => {
+  if (!SALE_ACTIVE) return 1;
+  if (gameSlug === "arena-breakout") {
+    return getArenaServiceSaleRatio(serviceId, raidMode);
+  }
+  return GLOBAL_SALE_RATIO;
+};
+
+/**
  * Format a USD amount with two decimals (e.g. 4.99 -> "$4.99").
  */
 export const formatUsd = (amount: number): string =>

@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight, Check, CheckCircle, Crosshair, Star, Zap } from "lucide-react";
 import { GameConfig, ServiceOption } from "@/data/gameConfigs";
 import { useCountUp } from "@/hooks/useCountUp";
+import { getGlobalSale, SALE_BADGE_LABEL } from "@/config/pricing";
 
 interface Cs2ServiceGridProps {
   config: GameConfig;
@@ -131,7 +132,11 @@ const Cs2ServiceGrid = ({ config }: Cs2ServiceGridProps) => {
               variants={reduced ? undefined : { animate: { transition: { staggerChildren: 0.06 } } }}
               className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
             >
-              {config.services.map((service) => (
+              {config.services.map((service) => {
+                const basePrice = service.pricePerUnit ?? service.fixedPrice ?? 0;
+                const sale = getGlobalSale(basePrice);
+                const isFromPrice = service.startPrice?.toLowerCase().startsWith("from");
+                return (
                 <motion.div key={service.id} variants={reduced ? undefined : cardVariant}>
                   <Link to={`/game/cs2/${service.id}`} className="group block h-full">
                     <Card className="service-card-hover relative flex h-full flex-col overflow-hidden border-border/50 bg-card hover:glow-border">
@@ -139,6 +144,11 @@ const Cs2ServiceGrid = ({ config }: Cs2ServiceGridProps) => {
                         <Badge className="badge-shimmer absolute right-3 top-3 z-10 border-none px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">
                           {service.tag}
                         </Badge>
+                      )}
+                      {sale && (
+                        <span className="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border border-primary/70 bg-primary/15 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-primary shadow-[0_0_12px_hsl(48_100%_50%_/_0.35)] backdrop-blur-sm">
+                          {SALE_BADGE_LABEL}
+                        </span>
                       )}
 
                       <ServiceMedia service={service} />
@@ -160,7 +170,23 @@ const Cs2ServiceGrid = ({ config }: Cs2ServiceGridProps) => {
                           </ul>
                         )}
 
-                        <p className="mt-auto pt-4 text-base font-bold text-primary glow-text">{service.startPrice}</p>
+                        {sale ? (
+                          <div className="mt-auto pt-4 flex items-baseline gap-2">
+                            {isFromPrice && (
+                              <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                                From
+                              </span>
+                            )}
+                            <span className="text-sm font-medium text-muted-foreground/70 line-through">
+                              ${sale.oldPrice.toFixed(2)}
+                            </span>
+                            <span className="text-lg font-black text-primary glow-text">
+                              ${sale.newPrice.toFixed(2)}
+                            </span>
+                          </div>
+                        ) : (
+                          <p className="mt-auto pt-4 text-base font-bold text-primary glow-text">{service.startPrice}</p>
+                        )}
 
                         <Button className="btn-yellow view-service-btn mt-3 w-full gap-2 rounded-lg font-bold uppercase tracking-wider glow-box transition-all duration-200 group-hover:glow-box-intense">
                           View Service <ArrowRight className="view-service-arrow h-4 w-4" />
@@ -169,7 +195,8 @@ const Cs2ServiceGrid = ({ config }: Cs2ServiceGridProps) => {
                     </Card>
                   </Link>
                 </motion.div>
-              ))}
+                );
+              })}
             </motion.div>
           </div>
         </section>

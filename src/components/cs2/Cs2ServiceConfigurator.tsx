@@ -24,6 +24,7 @@ import {
   getCs2ServicePricing,
   getCs2ValidationMessage,
 } from "@/data/cs2Pricing";
+import { SALE_ACTIVE, GLOBAL_SALE_RATIO, SALE_BADGE_LABEL } from "@/config/pricing";
 
 interface Cs2ServiceConfiguratorProps {
   service: ServiceOption;
@@ -66,13 +67,17 @@ const Cs2ServiceConfigurator = ({ service, gameTitle, onAddToCart }: Cs2ServiceC
   const { appliedPromo, setAppliedPromo } = useCart();
 
   const validationMessage = getCs2ValidationMessage(service.id, values);
+  const promoFraction = appliedPromo ? appliedPromo.discount_percent / 100 : 0;
+  const combinedDiscount = SALE_ACTIVE
+    ? 1 - (1 - promoFraction) * GLOBAL_SALE_RATIO
+    : promoFraction;
   const priceResult = calculateCs2ServicePrice({
     serviceSlug: service.id,
     values,
     method,
     selectedFeatures,
     speed,
-    promoDiscount: appliedPromo ? appliedPromo.discount_percent / 100 : 0,
+    promoDiscount: combinedDiscount,
   });
   const methodOptions = service.id === "coaching" ? cs2CoachingMethodOptions : cs2MethodOptions;
   const selectedMethod = methodOptions.find((option) => option.id === method) ?? methodOptions[0];
@@ -848,11 +853,18 @@ const Cs2ServiceConfigurator = ({ service, gameTitle, onAddToCart }: Cs2ServiceC
             {showOriginalPrice && struckPrice !== null ? (
               <p className="text-xs text-muted-foreground line-through">{formatUsd(struckPrice)}</p>
             ) : null}
-            {!validationMessage && hasDiscount && appliedPromo ? (
+            {!validationMessage && hasDiscount ? (
               <div className="mt-2 flex flex-wrap gap-1.5">
-                <span className="inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">
-                  <Tag className="h-3 w-3" /> {appliedPromo.code} -{appliedPromo.discount_percent}%
-                </span>
+                {SALE_ACTIVE && (
+                  <span className="inline-flex items-center rounded-full border border-primary/60 bg-primary/15 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-primary">
+                    {SALE_BADGE_LABEL}
+                  </span>
+                )}
+                {appliedPromo && (
+                  <span className="inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">
+                    <Tag className="h-3 w-3" /> {appliedPromo.code} -{appliedPromo.discount_percent}%
+                  </span>
+                )}
                 <span className="inline-flex items-center rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400">
                   You save {formatUsd(priceResult.subtotal - priceResult.finalPrice)}
                 </span>

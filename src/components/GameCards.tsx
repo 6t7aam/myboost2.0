@@ -32,7 +32,8 @@ const games: GameCardEntry[] = [
     image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/730/header.jpg",
     description: "Premier, FACEIT, Ranks, Coaching",
     tag: "Most Popular",
-    startPrice: "From $2.41",
+    startPrice: "From $1.12",
+    startOldPrice: "$1.49",
   },
   {
     name: "Dota 2",
@@ -40,7 +41,8 @@ const games: GameCardEntry[] = [
     image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/570/header.jpg",
     description: "MMR Service, LP Removal, Tokens",
     tag: null,
-    startPrice: "From $3",
+    startPrice: "From $2.25",
+    startOldPrice: "$3.00",
   },
   {
     name: "Rust",
@@ -48,7 +50,8 @@ const games: GameCardEntry[] = [
     image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg",
     description: "Bases, Raids, Resource Delivery, Weapons",
     tag: null,
-    startPrice: "From $1.09",
+    startPrice: "From $1.72",
+    startOldPrice: "$2.29",
   },
 ];
 

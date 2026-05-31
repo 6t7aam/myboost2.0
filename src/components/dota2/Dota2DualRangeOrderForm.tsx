@@ -14,6 +14,7 @@ import {
   dota2ServicePricing,
   type BoostMethod,
 } from "@/data/dota2ServicePricing";
+import { SALE_ACTIVE, GLOBAL_SALE_RATIO, SALE_BADGE_LABEL } from "@/config/pricing";
 
 type Speed = "standard" | "express" | "super-express";
 
@@ -91,13 +92,14 @@ const Dota2DualRangeOrderForm = ({
   const speedConfig = SPEED_OPTIONS.find((option) => option.id === speed) ?? SPEED_OPTIONS[0];
   const basePrice = calculateBasePrice(currentValue, desiredValue);
   const priceAfterSpeed = basePrice * speedConfig.multiplier;
-  const totalPrice = applyBoostOptionsPrice({
+  const priceBeforeSale = applyBoostOptionsPrice({
     priceAfterSpeed,
     boostMethod,
     selfPlayMultiplier: pricing.selfPlayMultiplier,
     additionalOptions: pricing.additionalOptions,
     checkedOptionIds: checkedOptions,
   });
+  const totalPrice = SALE_ACTIVE ? priceBeforeSale * GLOBAL_SALE_RATIO : priceBeforeSale;
 
   const animatedPrice = useCountUp(`$${totalPrice.toFixed(2)}`, 220);
 
@@ -298,6 +300,14 @@ const Dota2DualRangeOrderForm = ({
           <div className="mt-1 text-3xl font-black text-primary transition-all duration-200 ease">
             {animatedPrice}
           </div>
+          {SALE_ACTIVE && (
+            <div className="mt-1 flex items-center justify-center gap-2">
+              <span className="text-sm text-muted-foreground/70 line-through">${priceBeforeSale.toFixed(2)}</span>
+              <span className="inline-flex items-center rounded-full border border-primary/60 bg-primary/15 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-primary">
+                {SALE_BADGE_LABEL}
+              </span>
+            </div>
+          )}
           <div className="mt-1 text-xs text-muted-foreground">
             {selectionSummary(currentValue, desiredValue)} | {speedConfig.label}
           </div>

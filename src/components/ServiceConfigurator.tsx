@@ -11,6 +11,7 @@ import PromoCodeInput from "@/components/PromoCodeInput";
 import {
   getArenaServiceSaleRatio,
   getArenaRaidSale,
+  getServiceSaleRatio,
   SALE_BADGE_LABEL,
 } from "@/config/pricing";
 
@@ -127,10 +128,7 @@ const ServiceConfigurator = ({
   const priceAfterSpeed = basePrice * speedMultiplier;
   const price = priceAfterSpeed * (1 + boostMethodModifier + liveStreamModifier);
 
-  const saleRatio =
-    gameSlug === "arena-breakout"
-      ? getArenaServiceSaleRatio(service.id, selectedMode)
-      : 1;
+  const saleRatio = getServiceSaleRatio(gameSlug, service.id, selectedMode);
   const saleActive = saleRatio > 0 && saleRatio < 1;
   const oldPrice = saleActive ? price / saleRatio : price;
 

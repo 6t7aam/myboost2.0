@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Check, Clock } from "lucide-react";
 import { RustService, rustPlaceholderImage } from "@/data/rustServices";
+import { getGlobalSale, SALE_BADGE_LABEL } from "@/config/pricing";
 
 const formatPrice = (service: RustService): { value: string; suffix?: string; prefix?: string } => {
   if (service.calculatorType === "hourly") {
@@ -23,6 +24,7 @@ const formatPrice = (service: RustService): { value: string; suffix?: string; pr
 
 const RustServiceCard = ({ service }: { service: RustService }) => {
   const price = formatPrice(service);
+  const sale = getGlobalSale(service.price);
   return (
     <Link to={`/game/rust/${service.slug}`} className="group block focus:outline-none">
       <Card className="rust-card service-card-hover relative h-full overflow-hidden border-white/5 bg-gradient-to-b from-[#161616] to-[#0d0d0d] hover:border-primary/50">
@@ -30,6 +32,11 @@ const RustServiceCard = ({ service }: { service: RustService }) => {
           <Badge className="badge-shimmer absolute top-3 right-3 z-10 border-none text-[11px] font-black uppercase tracking-wider px-2.5 py-1">
             {service.badge}
           </Badge>
+        )}
+        {sale && (
+          <span className="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border border-primary/70 bg-primary/15 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-primary shadow-[0_0_12px_hsl(48_100%_50%_/_0.35)] backdrop-blur-sm">
+            {SALE_BADGE_LABEL}
+          </span>
         )}
 
         <div className="relative aspect-[16/10] overflow-hidden bg-[#0a0a0a]">
@@ -73,14 +80,30 @@ const RustServiceCard = ({ service }: { service: RustService }) => {
               <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                 {price.prefix ?? "Starting at"}
               </div>
-              <div className="mt-0.5 flex items-baseline gap-1">
-                <span className="text-xl font-black text-primary glow-text">{price.value}</span>
-                {price.suffix && (
-                  <span className="text-[11px] font-semibold uppercase text-muted-foreground">
-                    {price.suffix}
+              {sale ? (
+                <div className="mt-0.5 flex items-baseline gap-2">
+                  <span className="text-sm font-medium text-muted-foreground/70 line-through">
+                    {price.value}
                   </span>
-                )}
-              </div>
+                  <span className="text-xl font-black text-primary glow-text">
+                    ${sale.newPrice.toFixed(2)}
+                  </span>
+                  {price.suffix && (
+                    <span className="text-[11px] font-semibold uppercase text-muted-foreground">
+                      {price.suffix}
+                    </span>
+                  )}
+                </div>
+              ) : (
+                <div className="mt-0.5 flex items-baseline gap-1">
+                  <span className="text-xl font-black text-primary glow-text">{price.value}</span>
+                  {price.suffix && (
+                    <span className="text-[11px] font-semibold uppercase text-muted-foreground">
+                      {price.suffix}
+                    </span>
+                  )}
+                </div>
+              )}
             </div>
           </div>
 

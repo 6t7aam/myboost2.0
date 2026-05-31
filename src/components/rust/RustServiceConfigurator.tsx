@@ -21,6 +21,7 @@ import {
 import { RustService, RustVariant } from "@/data/rustServices";
 import { SpeedOption, useCart } from "@/contexts/CartContext";
 import PromoCodeInput from "@/components/PromoCodeInput";
+import { SALE_ACTIVE, GLOBAL_SALE_RATIO, SALE_BADGE_LABEL } from "@/config/pricing";
 
 interface SpeedDef {
   value: SpeedOption;
@@ -150,7 +151,8 @@ const RustServiceConfigurator = ({
 
   const deliveryModifier = SPEEDS.find((s) => s.value === speed)?.modifier ?? 0;
   const totalModifier = 1 + deliveryModifier;
-  const finalPrice = basePrice * totalModifier;
+  const priceBeforeSale = basePrice * totalModifier;
+  const finalPrice = SALE_ACTIVE ? priceBeforeSale * GLOBAL_SALE_RATIO : priceBeforeSale;
   const cashback = finalPrice * CASHBACK_RATE;
 
   const handleQtyInput = (raw: string) => {
@@ -478,10 +480,15 @@ const RustServiceConfigurator = ({
               <p className="mt-1 text-3xl font-black text-primary drop-shadow-[0_0_10px_hsl(48_100%_50%_/_0.45)]">
                 ${finalPrice.toFixed(2)}
               </p>
-              {totalModifier !== 1 && (
-                <p className="text-xs text-muted-foreground line-through">
-                  ${basePrice.toFixed(2)}
-                </p>
+              {SALE_ACTIVE && (
+                <div className="flex items-center gap-2">
+                  <p className="text-xs text-muted-foreground line-through">
+                    ${priceBeforeSale.toFixed(2)}
+                  </p>
+                  <span className="inline-flex items-center rounded-full border border-primary/60 bg-primary/15 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-primary">
+                    {SALE_BADGE_LABEL}
+                  </span>
+                </div>
               )}
             </div>
             <div className="text-right text-xs">

@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight, CheckCircle, Check, Star, Zap } from "lucide-react";
 import { GameConfig } from "@/data/gameConfigs";
 import { useCountUp } from "@/hooks/useCountUp";
+import { getGlobalSale, SALE_BADGE_LABEL } from "@/config/pricing";
 
 interface Dota2ServiceGridProps {
   config: GameConfig;
@@ -75,7 +76,11 @@ const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
           </h2>
 
           <div className="grid gap-6" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
-            {config.services.map((service) => (
+            {config.services.map((service) => {
+              const basePrice = service.pricePerUnit ?? service.fixedPrice ?? 0;
+              const sale = getGlobalSale(basePrice);
+              const isFromPrice = service.startPrice?.toLowerCase().startsWith("from");
+              return (
               <Link key={service.id} to={`/game/dota-2/${service.id}`} className="group">
                 <Card
                   className="service-card-hover relative h-full overflow-hidden border-border/50 bg-card hover:glow-border"
@@ -85,6 +90,11 @@ const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
                     <Badge className="badge-shimmer absolute top-3 right-3 z-10 border-none text-sm font-bold uppercase backdrop-blur-sm px-3 py-1">
                       {service.tag}
                     </Badge>
+                  )}
+                  {sale && (
+                    <span className="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border border-primary/70 bg-primary/15 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-primary shadow-[0_0_12px_hsl(48_100%_50%_/_0.35)] backdrop-blur-sm">
+                      {SALE_BADGE_LABEL}
+                    </span>
                   )}
                   <div className="relative overflow-hidden bg-secondary/30" style={{ height: '220px' }}>
                     <img
@@ -115,7 +125,23 @@ const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
                         ))}
                       </ul>
                     )}
-                    <p className="mt-3 text-base font-bold text-primary">{service.startPrice}</p>
+                    {sale ? (
+                      <div className="mt-3 flex items-baseline gap-2">
+                        {isFromPrice && (
+                          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                            From
+                          </span>
+                        )}
+                        <span className="text-sm font-medium text-muted-foreground/70 line-through">
+                          ${sale.oldPrice.toFixed(2)}
+                        </span>
+                        <span className="text-lg font-black text-primary glow-text">
+                          ${sale.newPrice.toFixed(2)}
+                        </span>
+                      </div>
+                    ) : (
+                      <p className="mt-3 text-base font-bold text-primary">{service.startPrice}</p>
+                    )}
                     <Button
                       className="btn-yellow view-service-btn mt-3 w-full gap-2 rounded-lg glow-box font-bold uppercase tracking-wider transition-all duration-200 group-hover:glow-box-intense"
                       size="default"
@@ -125,7 +151,8 @@ const Dota2ServiceGrid = ({ config }: Dota2ServiceGridProps) => {
                   </CardContent>
                 </Card>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
