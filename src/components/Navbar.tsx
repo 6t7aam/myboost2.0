@@ -36,7 +36,6 @@ const Navbar = () => {
   const navLinks = [
     { label: "Services", href: "#services" },
     { label: "How It Works", href: "#how-it-works" },
-    { label: "Reviews", href: "#reviews" },
     { label: "FAQ", href: "#faq" },
   ];
 
