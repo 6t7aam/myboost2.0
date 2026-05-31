@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Check, ChevronRight, Shield, Wallet, BadgeCheck, Headset, Star, Zap } from "lucide-react";
 import { gameConfigs } from "@/data/gameConfigs";
 import { cs2ServiceMeta } from "@/data/cs2ServiceMeta";
+import { HUB_PATHS } from "@/lib/serviceRoutes";
 
 interface BaseProps {
   serviceId: string;
@@ -21,7 +22,7 @@ export const Cs2Breadcrumbs = ({ serviceId }: BaseProps) => {
         </li>
         <ChevronRight className="h-3 w-3 opacity-60" />
         <li>
-          <Link to="/game/cs2" className="transition-colors hover:text-primary">CS2</Link>
+          <Link to={HUB_PATHS.cs2} className="transition-colors hover:text-primary">CS2</Link>
         </li>
         <ChevronRight className="h-3 w-3 opacity-60" />
         <li className="font-semibold text-foreground/80">{label}</li>

@@ -12,6 +12,7 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Star, Check, ChevronRight, Shield, Wallet, BadgeCheck, Headset, Zap, Clock, ShieldCheck } from "lucide-react";
 import { dota2ServiceMeta } from "@/data/dota2ServiceMeta";
+import { HUB_PATHS } from "@/lib/serviceRoutes";
 
 interface BaseProps {
   serviceId: string;
@@ -83,7 +84,7 @@ export const Dota2Breadcrumbs = ({ serviceId }: BaseProps) => {
         </li>
         <ChevronRight className="h-3 w-3 opacity-60" />
         <li>
-          <Link to="/game/dota-2" className="transition-colors hover:text-primary">
+          <Link to={HUB_PATHS["dota-2"]} className="transition-colors hover:text-primary">
             Dota 2
           </Link>
         </li>

@@ -12,6 +12,7 @@ import {
   ArenaBreakoutFeatureTags,
   ArenaBreakoutOrderSummaryBar,
 } from "./ArenaBreakoutServiceSections";
+import { HUB_PATHS } from "@/lib/serviceRoutes";
 
 interface ArenaBreakoutServiceLayoutProps {
   serviceId: string;
@@ -33,7 +34,7 @@ const ArenaBreakoutServiceLayout = ({
       <div className="mx-auto w-full max-w-[1520px] px-4 pt-20 md:px-6">
         <div className="flex flex-wrap items-center justify-between gap-3 pt-4">
           <Link
-            to="/game/arena-breakout"
+            to={HUB_PATHS["arena-breakout"]}
             className="inline-flex items-center gap-1.5 rounded-full border border-border/50 bg-card/50 px-4 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
           >
             <ArrowLeft className="h-3.5 w-3.5" /> Back to Arena Breakout Services

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { RUST_CATEGORIES, RustCategoryId } from "@/data/rustServices";
 import { ChevronDown } from "lucide-react";
+import { HUB_PATHS } from "@/lib/serviceRoutes";
 
 interface RustCategorySidebarProps {
   /**
@@ -69,7 +70,7 @@ const RustCategorySidebar = ({
   };
 
   const linkHref = (id: RustCategoryId) =>
-    mode === "hub" ? `#category-${id}` : `/game/rust#category-${id}`;
+    mode === "hub" ? `#category-${id}` : `${HUB_PATHS.rust}#category-${id}`;
 
   const NavList = (
     <nav className="space-y-1.5" aria-label="Rust service categories">

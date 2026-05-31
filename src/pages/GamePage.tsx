@@ -10,9 +10,7 @@ import { gameConfigs } from "@/data/gameConfigs";
 import ServiceConfigurator, { OrderSummary } from "@/components/ServiceConfigurator";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
-import ArenaBreakoutServiceGrid from "@/components/ArenaBreakoutServiceGrid";
-import Dota2ServiceGrid from "@/components/Dota2ServiceGrid";
-import Cs2ServiceGrid from "@/components/Cs2ServiceGrid";
+import { CANONICAL_PATHS } from "@/lib/siteConfig";
 
 const GamePage = () => {
   const { gameSlug } = useParams<{ gameSlug: string }>();
@@ -22,7 +20,7 @@ const GamePage = () => {
   // Rust uses its own hub page (see RustHubPage). The route is registered
   // before this catch-all so we only reach here if the route order changes.
   if (gameSlug === "rust") {
-    return <Navigate to="/game/rust" replace />;
+    return <Navigate to={CANONICAL_PATHS.rustBoosting} replace />;
   }
 
   const config = gameConfigs[gameSlug || ""];
@@ -48,19 +46,16 @@ const GamePage = () => {
     );
   }
 
-  // Arena Breakout uses service grid hub page
   if (gameSlug === "arena-breakout") {
-    return <ArenaBreakoutServiceGrid config={config} />;
+    return <Navigate to={CANONICAL_PATHS.arenaBreakoutBoosting} replace />;
   }
 
-  // Dota 2 uses service grid hub page
   if (gameSlug === "dota-2") {
-    return <Dota2ServiceGrid config={config} />;
+    return <Navigate to={CANONICAL_PATHS.dota2Boosting} replace />;
   }
 
-  // CS2 uses service grid hub page
   if (gameSlug === "cs2") {
-    return <Cs2ServiceGrid config={config} />;
+    return <Navigate to={CANONICAL_PATHS.cs2Boosting} replace />;
   }
 
   const activeService = config.services.find((s) => s.id === activeServiceId) || config.services[0];

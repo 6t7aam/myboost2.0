@@ -4,6 +4,7 @@ import { Check, ChevronRight, Shield, Wallet, BadgeCheck, Headset, Star, Zap } f
 import { gameConfigs } from "@/data/gameConfigs";
 import { arenaBreakoutServiceMeta } from "@/data/arenaBreakoutServiceMeta";
 import { arenaBreakoutSEO } from "@/data/arenaBreakoutSEO";
+import { HUB_PATHS } from "@/lib/serviceRoutes";
 
 interface BaseProps {
   serviceId: string;
@@ -25,7 +26,7 @@ export const ArenaBreakoutBreadcrumbs = ({ serviceId }: BaseProps) => {
         </li>
         <ChevronRight className="h-3 w-3 opacity-60" />
         <li>
-          <Link to="/game/arena-breakout" className="transition-colors hover:text-primary">
+          <Link to={HUB_PATHS["arena-breakout"]} className="transition-colors hover:text-primary">
             Arena Breakout
           </Link>
         </li>

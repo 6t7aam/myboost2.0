@@ -1,0 +1,1637 @@
+{
+  "D:\\myboost2.0-main\\CHECK_ORDERS.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "809c0b10ec2d7a10cdd200da62b65023",
+    "semantic_hash": "809c0b10ec2d7a10cdd200da62b65023"
+  },
+  "D:\\myboost2.0-main\\CHECK_ORDERS_SIMPLE.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "3d0824333cf98a4140501c9d5bc05641",
+    "semantic_hash": "3d0824333cf98a4140501c9d5bc05641"
+  },
+  "D:\\myboost2.0-main\\components.json": {
+    "mtime": 1779471027.0,
+    "ast_hash": "a547944ace00dc5d5373aaca70a40bc4",
+    "semantic_hash": "a547944ace00dc5d5373aaca70a40bc4"
+  },
+  "D:\\myboost2.0-main\\eslint.config.js": {
+    "mtime": 1779471027.0,
+    "ast_hash": "31c0881fdd8500aa4d0aa963079713ae",
+    "semantic_hash": "31c0881fdd8500aa4d0aa963079713ae"
+  },
+  "D:\\myboost2.0-main\\FIX_ADMIN_EMAIL.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "6c0e2d7808faac8799d14cabcdc5604e",
+    "semantic_hash": "6c0e2d7808faac8799d14cabcdc5604e"
+  },
+  "D:\\myboost2.0-main\\FIX_SQL_ERROR.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "441e458765c08e529c523dc8a3478065",
+    "semantic_hash": "441e458765c08e529c523dc8a3478065"
+  },
+  "D:\\myboost2.0-main\\package.json": {
+    "mtime": 1780072572.0662737,
+    "ast_hash": "d86252cac29b2f9c6282e9cc59731e90",
+    "semantic_hash": "d86252cac29b2f9c6282e9cc59731e90"
+  },
+  "D:\\myboost2.0-main\\playwright-fixture.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "c6b1bf0400f214c8a880d32f4c2a31f8",
+    "semantic_hash": "c6b1bf0400f214c8a880d32f4c2a31f8"
+  },
+  "D:\\myboost2.0-main\\playwright.config.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "98660afe9a3781e2b1e7a0d576915935",
+    "semantic_hash": "98660afe9a3781e2b1e7a0d576915935"
+  },
+  "D:\\myboost2.0-main\\postcss.config.js": {
+    "mtime": 1779471027.0,
+    "ast_hash": "c735540bb63936a123bc867d950c9f69",
+    "semantic_hash": "c735540bb63936a123bc867d950c9f69"
+  },
+  "D:\\myboost2.0-main\\tailwind.config.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "4165d7ccc48bb52348f087444f85bb28",
+    "semantic_hash": "4165d7ccc48bb52348f087444f85bb28"
+  },
+  "D:\\myboost2.0-main\\tsconfig.app.json": {
+    "mtime": 1779471027.0,
+    "ast_hash": "9036c95ea413f9a07f9aa5c7650861a6",
+    "semantic_hash": "9036c95ea413f9a07f9aa5c7650861a6"
+  },
+  "D:\\myboost2.0-main\\tsconfig.json": {
+    "mtime": 1779471027.0,
+    "ast_hash": "bb72695c901d34a52a46196ba258371d",
+    "semantic_hash": "bb72695c901d34a52a46196ba258371d"
+  },
+  "D:\\myboost2.0-main\\tsconfig.node.json": {
+    "mtime": 1779471027.0,
+    "ast_hash": "1417fb05378a1d1102f085e60b20db0e",
+    "semantic_hash": "1417fb05378a1d1102f085e60b20db0e"
+  },
+  "D:\\myboost2.0-main\\vercel.json": {
+    "mtime": 1779471027.0,
+    "ast_hash": "1729618a087927c9b01a0e22d5d09e6f",
+    "semantic_hash": "1729618a087927c9b01a0e22d5d09e6f"
+  },
+  "D:\\myboost2.0-main\\verify-chat-system.sh": {
+    "mtime": 1779471027.0,
+    "ast_hash": "3e7e42ca7b39dfd854fbe1d1fbc2f30c",
+    "semantic_hash": "3e7e42ca7b39dfd854fbe1d1fbc2f30c"
+  },
+  "D:\\myboost2.0-main\\verify-structured-data.js": {
+    "mtime": 1779471027.0,
+    "ast_hash": "a00326a8e38d2698941ed1a7e4af0465",
+    "semantic_hash": "a00326a8e38d2698941ed1a7e4af0465"
+  },
+  "D:\\myboost2.0-main\\vite.config.ts": {
+    "mtime": 1780065754.5012813,
+    "ast_hash": "92f26cc619044f8305584c5067b76ea8",
+    "semantic_hash": "92f26cc619044f8305584c5067b76ea8"
+  },
+  "D:\\myboost2.0-main\\vitest.config.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "9285ab80c07d5cd1a71aa20c1687352a",
+    "semantic_hash": "9285ab80c07d5cd1a71aa20c1687352a"
+  },
+  "D:\\myboost2.0-main\\.claude\\settings.local.json": {
+    "mtime": 1780246925.740243,
+    "ast_hash": "35930d0d7189631184e0c35d11ca7ff5",
+    "semantic_hash": "35930d0d7189631184e0c35d11ca7ff5"
+  },
+  "D:\\myboost2.0-main\\api\\package.json": {
+    "mtime": 1779471027.0,
+    "ast_hash": "a3fb5c671ae7356e29167d712e9b43a1",
+    "semantic_hash": "a3fb5c671ae7356e29167d712e9b43a1"
+  },
+  "D:\\myboost2.0-main\\scripts\\generate-static-pages.js": {
+    "mtime": 1780249724.440169,
+    "ast_hash": "a2adf805399054b34c8d57d51642b373",
+    "semantic_hash": "a2adf805399054b34c8d57d51642b373"
+  },
+  "D:\\myboost2.0-main\\scripts\\optimize-images.mjs": {
+    "mtime": 1780072431.867185,
+    "ast_hash": "9edb4f646ac2944dd8a9fda13bd63598",
+    "semantic_hash": "9edb4f646ac2944dd8a9fda13bd63598"
+  },
+  "D:\\myboost2.0-main\\src\\App.tsx": {
+    "mtime": 1780249673.9789033,
+    "ast_hash": "790789cf0e32b110354869113c407064",
+    "semantic_hash": "790789cf0e32b110354869113c407064"
+  },
+  "D:\\myboost2.0-main\\src\\main.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "092c6937f28c1dff19a7d561f5f98360",
+    "semantic_hash": "092c6937f28c1dff19a7d561f5f98360"
+  },
+  "D:\\myboost2.0-main\\src\\vite-env.d.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "0352474ba2918efe13895edbc3780d94",
+    "semantic_hash": "0352474ba2918efe13895edbc3780d94"
+  },
+  "D:\\myboost2.0-main\\src\\components\\AdminChatPanel.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "5d49e03c5abd2f2577d144a054af314b",
+    "semantic_hash": "5d49e03c5abd2f2577d144a054af314b"
+  },
+  "D:\\myboost2.0-main\\src\\components\\AdminPromoCodes.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "f34fb022c7c6da3e560b08dccde2b42b",
+    "semantic_hash": "f34fb022c7c6da3e560b08dccde2b42b"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ArenaBreakoutGuides.tsx": {
+    "mtime": 1780249955.6477733,
+    "ast_hash": "1ed22d2b8e4d539ae7bbebac3cdda69a",
+    "semantic_hash": "1ed22d2b8e4d539ae7bbebac3cdda69a"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ArenaBreakoutServiceGrid.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "fb15a4deaf24c3eccdead9f50a3b720e",
+    "semantic_hash": "fb15a4deaf24c3eccdead9f50a3b720e"
+  },
+  "D:\\myboost2.0-main\\src\\components\\CanonicalTag.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "3629e997cf0cda8e873e52055d7779d3",
+    "semantic_hash": "3629e997cf0cda8e873e52055d7779d3"
+  },
+  "D:\\myboost2.0-main\\src\\components\\Cs2ServiceGrid.tsx": {
+    "mtime": 1780250455.311082,
+    "ast_hash": "1c60cd8050d0bab8c76cea37ddaeb74b",
+    "semantic_hash": "1c60cd8050d0bab8c76cea37ddaeb74b"
+  },
+  "D:\\myboost2.0-main\\src\\components\\DevTestOrderCreator.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "1b310afc28ef1b9cce2c2c7ac34978f8",
+    "semantic_hash": "1b310afc28ef1b9cce2c2c7ac34978f8"
+  },
+  "D:\\myboost2.0-main\\src\\components\\Dota2ServiceGrid.tsx": {
+    "mtime": 1780250364.8168962,
+    "ast_hash": "f4b76ee0fa6951f614fd46d4d30a534b",
+    "semantic_hash": "f4b76ee0fa6951f614fd46d4d30a534b"
+  },
+  "D:\\myboost2.0-main\\src\\components\\FAQ.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "fdc38cc46c37ae7f0a16d00876900dea",
+    "semantic_hash": "fdc38cc46c37ae7f0a16d00876900dea"
+  },
+  "D:\\myboost2.0-main\\src\\components\\Footer.tsx": {
+    "mtime": 1780249930.53939,
+    "ast_hash": "62a74894fec1609166b13e42671c2afc",
+    "semantic_hash": "62a74894fec1609166b13e42671c2afc"
+  },
+  "D:\\myboost2.0-main\\src\\components\\GameCards.tsx": {
+    "mtime": 1780067720.057403,
+    "ast_hash": "4b81be30ea73cb960db90b2ebbe8e0f7",
+    "semantic_hash": "4b81be30ea73cb960db90b2ebbe8e0f7"
+  },
+  "D:\\myboost2.0-main\\src\\components\\Hero.tsx": {
+    "mtime": 1780067708.804493,
+    "ast_hash": "50eeac4561a9693d369cebc9968e3b30",
+    "semantic_hash": "50eeac4561a9693d369cebc9968e3b30"
+  },
+  "D:\\myboost2.0-main\\src\\components\\HowItWorks.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "861f2754638405a77795919595921fde",
+    "semantic_hash": "861f2754638405a77795919595921fde"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ManualPaymentDialog.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "cc49d56e16f955f55da2536609637cbe",
+    "semantic_hash": "cc49d56e16f955f55da2536609637cbe"
+  },
+  "D:\\myboost2.0-main\\src\\components\\Navbar.tsx": {
+    "mtime": 1780249944.9737594,
+    "ast_hash": "755710b060cc10da4e01c743e863e979",
+    "semantic_hash": "755710b060cc10da4e01c743e863e979"
+  },
+  "D:\\myboost2.0-main\\src\\components\\NavLink.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "8f7c178b4776787e58e1011855ca28f6",
+    "semantic_hash": "8f7c178b4776787e58e1011855ca28f6"
+  },
+  "D:\\myboost2.0-main\\src\\components\\OrderChat.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "8a1b0adb9c5f20b76bfeeb97e5a31079",
+    "semantic_hash": "8a1b0adb9c5f20b76bfeeb97e5a31079"
+  },
+  "D:\\myboost2.0-main\\src\\components\\OrderChatDialog.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "82512943c5df2a5f7eaa3e05e2358563",
+    "semantic_hash": "82512943c5df2a5f7eaa3e05e2358563"
+  },
+  "D:\\myboost2.0-main\\src\\components\\Particles.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "0b4cfe3f5381dfdfd88d3409b04dcc2d",
+    "semantic_hash": "0b4cfe3f5381dfdfd88d3409b04dcc2d"
+  },
+  "D:\\myboost2.0-main\\src\\components\\PriceWithDiscount.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "c7393a0c2cec27cef2eaa937dcd19923",
+    "semantic_hash": "c7393a0c2cec27cef2eaa937dcd19923"
+  },
+  "D:\\myboost2.0-main\\src\\components\\PromoCodeInput.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "41d9241c1d35b5decf0c10ee2b0c5326",
+    "semantic_hash": "41d9241c1d35b5decf0c10ee2b0c5326"
+  },
+  "D:\\myboost2.0-main\\src\\components\\Reveal.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "dfca9188c6670a3be7ec613c108c31bc",
+    "semantic_hash": "dfca9188c6670a3be7ec613c108c31bc"
+  },
+  "D:\\myboost2.0-main\\src\\components\\Reviews.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "fdfc0c5d9d1ea7503b48262e9a0f7ce2",
+    "semantic_hash": "fdfc0c5d9d1ea7503b48262e9a0f7ce2"
+  },
+  "D:\\myboost2.0-main\\src\\components\\RouteProgressBar.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "54acf8cf2702517be6801030d9f98d01",
+    "semantic_hash": "54acf8cf2702517be6801030d9f98d01"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ScrollToTop.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "03ab772a73d36b0e0fcf0dbcf5dd99db",
+    "semantic_hash": "03ab772a73d36b0e0fcf0dbcf5dd99db"
+  },
+  "D:\\myboost2.0-main\\src\\components\\SEO.tsx": {
+    "mtime": 1780249600.2167883,
+    "ast_hash": "bcc99eaca9b49042935d29588ebeed87",
+    "semantic_hash": "bcc99eaca9b49042935d29588ebeed87"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ServiceCard.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "0a7b85f66a9553e35bb5359528f1187b",
+    "semantic_hash": "0a7b85f66a9553e35bb5359528f1187b"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ServiceCategorySidebar.tsx": {
+    "mtime": 1780250495.9353611,
+    "ast_hash": "f8d7bc0b4e5f9561e55e3bf07b68d856",
+    "semantic_hash": "f8d7bc0b4e5f9561e55e3bf07b68d856"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ServiceConfigurator.tsx": {
+    "mtime": 1780165595.8306642,
+    "ast_hash": "d9de6d5be1a1d6deee4782fc4704da4a",
+    "semantic_hash": "d9de6d5be1a1d6deee4782fc4704da4a"
+  },
+  "D:\\myboost2.0-main\\src\\components\\StructuredData.tsx": {
+    "mtime": 1780249572.2418637,
+    "ast_hash": "0b108a96bda53e08d2187338be928559",
+    "semantic_hash": "0b108a96bda53e08d2187338be928559"
+  },
+  "D:\\myboost2.0-main\\src\\components\\WhyChooseUs.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "79233bb0828e418c03034586d8371208",
+    "semantic_hash": "79233bb0828e418c03034586d8371208"
+  },
+  "D:\\myboost2.0-main\\src\\components\\arena-breakout\\ArenaBreakoutServiceLayout.tsx": {
+    "mtime": 1780250059.8028848,
+    "ast_hash": "ea9db9d81777f16854dcf91e3a19212b",
+    "semantic_hash": "ea9db9d81777f16854dcf91e3a19212b"
+  },
+  "D:\\myboost2.0-main\\src\\components\\arena-breakout\\ArenaBreakoutServiceSections.tsx": {
+    "mtime": 1780250054.2978313,
+    "ast_hash": "fbd0b5b7a8fc7b03d623c4981325f9ea",
+    "semantic_hash": "fbd0b5b7a8fc7b03d623c4981325f9ea"
+  },
+  "D:\\myboost2.0-main\\src\\components\\auth\\AuthField.tsx": {
+    "mtime": 1780066020.0814884,
+    "ast_hash": "2d2fe00249ac420aec882c5128f5d7e2",
+    "semantic_hash": "2d2fe00249ac420aec882c5128f5d7e2"
+  },
+  "D:\\myboost2.0-main\\src\\components\\auth\\AuthShell.tsx": {
+    "mtime": 1780066737.7705157,
+    "ast_hash": "1c485baccce090dae1e6872f59561bcf",
+    "semantic_hash": "1c485baccce090dae1e6872f59561bcf"
+  },
+  "D:\\myboost2.0-main\\src\\components\\cs2\\Cs2ServiceConfigurator.tsx": {
+    "mtime": 1780179113.4052207,
+    "ast_hash": "7ab59ca1758722aefbb175f8b1afb308",
+    "semantic_hash": "7ab59ca1758722aefbb175f8b1afb308"
+  },
+  "D:\\myboost2.0-main\\src\\components\\cs2\\Cs2ServiceLayout.tsx": {
+    "mtime": 1780250048.2838266,
+    "ast_hash": "0fa14aca15a0877538c5e1f8f289a7b2",
+    "semantic_hash": "0fa14aca15a0877538c5e1f8f289a7b2"
+  },
+  "D:\\myboost2.0-main\\src\\components\\cs2\\Cs2ServiceSections.tsx": {
+    "mtime": 1780250042.945447,
+    "ast_hash": "8bbf8bc348a8e3b401a5006abf1a7894",
+    "semantic_hash": "8bbf8bc348a8e3b401a5006abf1a7894"
+  },
+  "D:\\myboost2.0-main\\src\\components\\dota2\\Dota2BoostMethodAndOptions.tsx": {
+    "mtime": 1780071222.156074,
+    "ast_hash": "e793dc1263e039d33b090ac6196907ec",
+    "semantic_hash": "e793dc1263e039d33b090ac6196907ec"
+  },
+  "D:\\myboost2.0-main\\src\\components\\dota2\\Dota2DualRangeOrderForm.tsx": {
+    "mtime": 1780165687.3194983,
+    "ast_hash": "e9a25d8b7eef6064ff814e9ec2e2aaf1",
+    "semantic_hash": "e9a25d8b7eef6064ff814e9ec2e2aaf1"
+  },
+  "D:\\myboost2.0-main\\src\\components\\dota2\\Dota2MmrBoostCalculator.tsx": {
+    "mtime": 1780165762.0615628,
+    "ast_hash": "4465acfe9db8c3cd7183a2f2c3c46a3e",
+    "semantic_hash": "4465acfe9db8c3cd7183a2f2c3c46a3e"
+  },
+  "D:\\myboost2.0-main\\src\\components\\dota2\\Dota2ServiceLayout.tsx": {
+    "mtime": 1780250035.0188024,
+    "ast_hash": "0a260af1cec505d39200a3103f71d0ec",
+    "semantic_hash": "0a260af1cec505d39200a3103f71d0ec"
+  },
+  "D:\\myboost2.0-main\\src\\components\\dota2\\Dota2ServiceSections.tsx": {
+    "mtime": 1780250029.874161,
+    "ast_hash": "33ecab5c7836df00e38ef6beeea58002",
+    "semantic_hash": "33ecab5c7836df00e38ef6beeea58002"
+  },
+  "D:\\myboost2.0-main\\src\\components\\dota2\\Dota2SimpleOrderForm.tsx": {
+    "mtime": 1780165716.5432763,
+    "ast_hash": "fe5260e36fdc7c7fe2e3107827abe4fc",
+    "semantic_hash": "fe5260e36fdc7c7fe2e3107827abe4fc"
+  },
+  "D:\\myboost2.0-main\\src\\components\\rust\\RustCategorySidebar.tsx": {
+    "mtime": 1780249988.5755568,
+    "ast_hash": "15605bf56a6fd703deb0023149d8c6d7",
+    "semantic_hash": "15605bf56a6fd703deb0023149d8c6d7"
+  },
+  "D:\\myboost2.0-main\\src\\components\\rust\\RustServiceCard.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "376ff3253495d90e78874e1753bf88b2",
+    "semantic_hash": "376ff3253495d90e78874e1753bf88b2"
+  },
+  "D:\\myboost2.0-main\\src\\components\\rust\\RustServiceConfigurator.tsx": {
+    "mtime": 1780165644.4047246,
+    "ast_hash": "b3e71ed13344291121fc9f86ee186e56",
+    "semantic_hash": "b3e71ed13344291121fc9f86ee186e56"
+  },
+  "D:\\myboost2.0-main\\src\\components\\rust\\RustServiceLayout.tsx": {
+    "mtime": 1780249996.202504,
+    "ast_hash": "41285de837ccb936fb4adc1837a178ee",
+    "semantic_hash": "41285de837ccb936fb4adc1837a178ee"
+  },
+  "D:\\myboost2.0-main\\src\\components\\rust\\RustServiceSections.tsx": {
+    "mtime": 1780250019.9923935,
+    "ast_hash": "8c172ba4b480c1233af0f0e1a67f7d1f",
+    "semantic_hash": "8c172ba4b480c1233af0f0e1a67f7d1f"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\accordion.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "f9ebb6ee913b44e5f3e06fe1d9679784",
+    "semantic_hash": "f9ebb6ee913b44e5f3e06fe1d9679784"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\alert-dialog.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "2ee6c5e5e070315114319bc060d17a52",
+    "semantic_hash": "2ee6c5e5e070315114319bc060d17a52"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\alert.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "354d0206f924d48bcebbb023c3940a6b",
+    "semantic_hash": "354d0206f924d48bcebbb023c3940a6b"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\aspect-ratio.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "c5c364545e1b25a94e9e752cd67ad048",
+    "semantic_hash": "c5c364545e1b25a94e9e752cd67ad048"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\avatar.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "53921dca0903c74cd72fada89388d9f8",
+    "semantic_hash": "53921dca0903c74cd72fada89388d9f8"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\badge.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "8db4e6d330f88f4041f81e7cde43782b",
+    "semantic_hash": "8db4e6d330f88f4041f81e7cde43782b"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\breadcrumb.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "c200fc41e9b214ebb6ccd19a300c42c5",
+    "semantic_hash": "c200fc41e9b214ebb6ccd19a300c42c5"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\button.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "5b2eef9b77b06f9b61847c7839be2cf3",
+    "semantic_hash": "5b2eef9b77b06f9b61847c7839be2cf3"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\calendar.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "1da7a387f28cdb11722da319c0295a6c",
+    "semantic_hash": "1da7a387f28cdb11722da319c0295a6c"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\card.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "202402023747c80d975f48b906e6eb1b",
+    "semantic_hash": "202402023747c80d975f48b906e6eb1b"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\carousel.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "63a7442a3088b58113c8a8cfc1defe26",
+    "semantic_hash": "63a7442a3088b58113c8a8cfc1defe26"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\chart.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "29cfd7470f3197deccd58b2b4f00fbae",
+    "semantic_hash": "29cfd7470f3197deccd58b2b4f00fbae"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\checkbox.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "cb12d2f3410761f7a678add95c90ac5d",
+    "semantic_hash": "cb12d2f3410761f7a678add95c90ac5d"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\collapsible.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "934b00582dae08af749fb55469081de6",
+    "semantic_hash": "934b00582dae08af749fb55469081de6"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\command.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "e911f182b4136a63c601c3fc48b2e9c7",
+    "semantic_hash": "e911f182b4136a63c601c3fc48b2e9c7"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\context-menu.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "9b8e8efdf0456cd542e32d341b071cac",
+    "semantic_hash": "9b8e8efdf0456cd542e32d341b071cac"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\dialog.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "fc3a9626ba52435552c93ac3a74374ec",
+    "semantic_hash": "fc3a9626ba52435552c93ac3a74374ec"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\drawer.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "05e2b536fe11649e9b4c6e73678e32a6",
+    "semantic_hash": "05e2b536fe11649e9b4c6e73678e32a6"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\dropdown-menu.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "f308eb98a2e21bf8bd1e30dbcb741dc0",
+    "semantic_hash": "f308eb98a2e21bf8bd1e30dbcb741dc0"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\form.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "4bb820d59aad3ee5bc78097596298ace",
+    "semantic_hash": "4bb820d59aad3ee5bc78097596298ace"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\hover-card.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "f77f80ed64ff8f3549e5d7e9d837e08e",
+    "semantic_hash": "f77f80ed64ff8f3549e5d7e9d837e08e"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\input-otp.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "3fb5994635434d5168bee869689fc2aa",
+    "semantic_hash": "3fb5994635434d5168bee869689fc2aa"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\input.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "b8279d768c2a1ce78a05a369a0502877",
+    "semantic_hash": "b8279d768c2a1ce78a05a369a0502877"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\label.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "cd2b2255bbe519cb0865dfeaa6615797",
+    "semantic_hash": "cd2b2255bbe519cb0865dfeaa6615797"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\menubar.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "163c3fa58a2b4ea2caa00166f4d862c7",
+    "semantic_hash": "163c3fa58a2b4ea2caa00166f4d862c7"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\navigation-menu.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "77e94b0c299d10c3763d2755bf556916",
+    "semantic_hash": "77e94b0c299d10c3763d2755bf556916"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\pagination.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "a3ced9f9b19826b467d788b1bf01746f",
+    "semantic_hash": "a3ced9f9b19826b467d788b1bf01746f"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\popover.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "c056d22288a642b756b77c7691ad4532",
+    "semantic_hash": "c056d22288a642b756b77c7691ad4532"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\progress.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "9a8b05beca19e008a562a10e489f5968",
+    "semantic_hash": "9a8b05beca19e008a562a10e489f5968"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\radio-group.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "3773798b5b2f334a5db0dc9c8d06f1b8",
+    "semantic_hash": "3773798b5b2f334a5db0dc9c8d06f1b8"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\resizable.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "ec681e92cbe705b5571ded11b5227a2a",
+    "semantic_hash": "ec681e92cbe705b5571ded11b5227a2a"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\scroll-area.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "cfbc224001af0e6daba676de225a2a47",
+    "semantic_hash": "cfbc224001af0e6daba676de225a2a47"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\select.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "25de64d0126624cbd8efa50cfb64bd21",
+    "semantic_hash": "25de64d0126624cbd8efa50cfb64bd21"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\separator.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "ed1101f185e9dc801712593e3330a75d",
+    "semantic_hash": "ed1101f185e9dc801712593e3330a75d"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\sheet.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "3660be09e2e40467a22fd46b354c1b50",
+    "semantic_hash": "3660be09e2e40467a22fd46b354c1b50"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\sidebar.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "9eab1256b1ffe3f1336eebfd07b319c9",
+    "semantic_hash": "9eab1256b1ffe3f1336eebfd07b319c9"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\skeleton.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "c55f76f4faa1d6e888dbc51d41eaa586",
+    "semantic_hash": "c55f76f4faa1d6e888dbc51d41eaa586"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\slider.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "fb08d043d2b8447b069a6121ffa8b379",
+    "semantic_hash": "fb08d043d2b8447b069a6121ffa8b379"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\sonner.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "88644703cc00886c56e0e3b7df0e21d8",
+    "semantic_hash": "88644703cc00886c56e0e3b7df0e21d8"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\switch.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "eccd8c41c46e782eaaa1f8be0111e089",
+    "semantic_hash": "eccd8c41c46e782eaaa1f8be0111e089"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\table.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "d0ff87c4734c23839337811378ad07df",
+    "semantic_hash": "d0ff87c4734c23839337811378ad07df"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\tabs.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "26b15e1ffce0f831be4da95b8f8a43df",
+    "semantic_hash": "26b15e1ffce0f831be4da95b8f8a43df"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\textarea.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "29ab470ee59e9da5070d4fba251bce81",
+    "semantic_hash": "29ab470ee59e9da5070d4fba251bce81"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\toast.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "7c08b5cb6026058514672a4ebc53847e",
+    "semantic_hash": "7c08b5cb6026058514672a4ebc53847e"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\toaster.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "1903846ab268620de6356ef667e3fa21",
+    "semantic_hash": "1903846ab268620de6356ef667e3fa21"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\toggle-group.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "e82bf234e3877ad708ea3d1dba614def",
+    "semantic_hash": "e82bf234e3877ad708ea3d1dba614def"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\toggle.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "ff7a7deebff23c3488e79ad72ee47e4b",
+    "semantic_hash": "ff7a7deebff23c3488e79ad72ee47e4b"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\tooltip.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "d7e923341b9e91d77db45ba5f2fa0cf9",
+    "semantic_hash": "d7e923341b9e91d77db45ba5f2fa0cf9"
+  },
+  "D:\\myboost2.0-main\\src\\components\\ui\\use-toast.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "4f094014a1315ca1081cbdc7f78d55cc",
+    "semantic_hash": "4f094014a1315ca1081cbdc7f78d55cc"
+  },
+  "D:\\myboost2.0-main\\src\\config\\pricing.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "95d7752fc8292b38c83ce634966b59c8",
+    "semantic_hash": "95d7752fc8292b38c83ce634966b59c8"
+  },
+  "D:\\myboost2.0-main\\src\\contexts\\CartContext.tsx": {
+    "mtime": 1780150526.99763,
+    "ast_hash": "d89c16d8ee5c49338283bc068e5ceb9f",
+    "semantic_hash": "d89c16d8ee5c49338283bc068e5ceb9f"
+  },
+  "D:\\myboost2.0-main\\src\\data\\arenaBreakoutSEO.ts": {
+    "mtime": 1780160851.0840502,
+    "ast_hash": "ac209bb3632fb658f6b6c5f74abadbec",
+    "semantic_hash": "ac209bb3632fb658f6b6c5f74abadbec"
+  },
+  "D:\\myboost2.0-main\\src\\data\\arenaBreakoutServiceMeta.ts": {
+    "mtime": 1780160851.0506246,
+    "ast_hash": "3228567eb270b3ee243fc045a8fd0939",
+    "semantic_hash": "3228567eb270b3ee243fc045a8fd0939"
+  },
+  "D:\\myboost2.0-main\\src\\data\\cs2Pricing.ts": {
+    "mtime": 1780180053.6877632,
+    "ast_hash": "a5059c709ebd46407a1a44e30fba9f04",
+    "semantic_hash": "a5059c709ebd46407a1a44e30fba9f04"
+  },
+  "D:\\myboost2.0-main\\src\\data\\cs2SEO.ts": {
+    "mtime": 1780180514.7925313,
+    "ast_hash": "1a05fdd6e16bfbb8fe250c0fce9197cc",
+    "semantic_hash": "1a05fdd6e16bfbb8fe250c0fce9197cc"
+  },
+  "D:\\myboost2.0-main\\src\\data\\cs2ServiceMeta.ts": {
+    "mtime": 1780160850.9285314,
+    "ast_hash": "14a32ffbba92b88ac2628bdaeb15edc4",
+    "semantic_hash": "14a32ffbba92b88ac2628bdaeb15edc4"
+  },
+  "D:\\myboost2.0-main\\src\\data\\dota2MmrBoostCalculator.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "23313d762377bcbb41309189138e0f44",
+    "semantic_hash": "23313d762377bcbb41309189138e0f44"
+  },
+  "D:\\myboost2.0-main\\src\\data\\dota2PageSEO.ts": {
+    "mtime": 1780249840.5699983,
+    "ast_hash": "da2ffe89da263f0c6821a02e8bb3afd5",
+    "semantic_hash": "da2ffe89da263f0c6821a02e8bb3afd5"
+  },
+  "D:\\myboost2.0-main\\src\\data\\dota2SEO.ts": {
+    "mtime": 1780160851.0815325,
+    "ast_hash": "8a8bc14336aa4e6ed6d4a6488e25586d",
+    "semantic_hash": "8a8bc14336aa4e6ed6d4a6488e25586d"
+  },
+  "D:\\myboost2.0-main\\src\\data\\dota2ServiceMeta.ts": {
+    "mtime": 1780160851.0850506,
+    "ast_hash": "ee56582a6562bef7182e12616dab9a00",
+    "semantic_hash": "ee56582a6562bef7182e12616dab9a00"
+  },
+  "D:\\myboost2.0-main\\src\\data\\dota2ServicePricing.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "172405ffd75b6a8d9a2ccf9b5f80e144",
+    "semantic_hash": "172405ffd75b6a8d9a2ccf9b5f80e144"
+  },
+  "D:\\myboost2.0-main\\src\\data\\gameConfigs.ts": {
+    "mtime": 1780160851.0646236,
+    "ast_hash": "ac0b0c02ac96c5775682e7725474bd77",
+    "semantic_hash": "ac0b0c02ac96c5775682e7725474bd77"
+  },
+  "D:\\myboost2.0-main\\src\\data\\rustSEO.ts": {
+    "mtime": 1780160850.9853828,
+    "ast_hash": "bc9d388a9dc6a3d658b641cb5b926c2e",
+    "semantic_hash": "bc9d388a9dc6a3d658b641cb5b926c2e"
+  },
+  "D:\\myboost2.0-main\\src\\data\\rustServiceMeta.ts": {
+    "mtime": 1780160851.0157933,
+    "ast_hash": "b70bcef5472a48b2b892fb0bd5ac9d08",
+    "semantic_hash": "b70bcef5472a48b2b892fb0bd5ac9d08"
+  },
+  "D:\\myboost2.0-main\\src\\data\\rustServices.ts": {
+    "mtime": 1780160851.0336275,
+    "ast_hash": "d41796ce3f77008630877bb9a000123b",
+    "semantic_hash": "d41796ce3f77008630877bb9a000123b"
+  },
+  "D:\\myboost2.0-main\\src\\hooks\\use-mobile.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "c0a0bdd4638c391a1dd06ac82074e60b",
+    "semantic_hash": "c0a0bdd4638c391a1dd06ac82074e60b"
+  },
+  "D:\\myboost2.0-main\\src\\hooks\\use-toast.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "e706bc004c87e17db559a113637eddea",
+    "semantic_hash": "e706bc004c87e17db559a113637eddea"
+  },
+  "D:\\myboost2.0-main\\src\\hooks\\useAdmin.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "029aa27cd477b40f18cbdd588d738e99",
+    "semantic_hash": "029aa27cd477b40f18cbdd588d738e99"
+  },
+  "D:\\myboost2.0-main\\src\\hooks\\useAuth.ts": {
+    "mtime": 1780065780.118813,
+    "ast_hash": "b021997f8cb50e569f164b9bfc20381d",
+    "semantic_hash": "b021997f8cb50e569f164b9bfc20381d"
+  },
+  "D:\\myboost2.0-main\\src\\hooks\\useCountUp.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "307b5b6232d6978a43111e5e7c12465d",
+    "semantic_hash": "307b5b6232d6978a43111e5e7c12465d"
+  },
+  "D:\\myboost2.0-main\\src\\hooks\\useScrolled.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "b63b77cb091275811034b9753f904951",
+    "semantic_hash": "b63b77cb091275811034b9753f904951"
+  },
+  "D:\\myboost2.0-main\\src\\hooks\\useScrollReveal.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "5d57cc677f0adeb34320be6b41899c79",
+    "semantic_hash": "5d57cc677f0adeb34320be6b41899c79"
+  },
+  "D:\\myboost2.0-main\\src\\hooks\\useSoundPreference.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "9c22ce421da4f1f2771c141a42302711",
+    "semantic_hash": "9c22ce421da4f1f2771c141a42302711"
+  },
+  "D:\\myboost2.0-main\\src\\hooks\\useUnreadOrderMessages.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "8a3b27c2daf7e632fd48e7d6abadb48b",
+    "semantic_hash": "8a3b27c2daf7e632fd48e7d6abadb48b"
+  },
+  "D:\\myboost2.0-main\\src\\integrations\\supabase\\client.ts": {
+    "mtime": 1780249605.186826,
+    "ast_hash": "2a3a25b5daafbbcf5c018e03995a5cda",
+    "semantic_hash": "2a3a25b5daafbbcf5c018e03995a5cda"
+  },
+  "D:\\myboost2.0-main\\src\\integrations\\supabase\\types.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "d1835d115df7624d660d13822002cb11",
+    "semantic_hash": "d1835d115df7624d660d13822002cb11"
+  },
+  "D:\\myboost2.0-main\\src\\lib\\notificationSounds.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "6920334935a64392b83c6825269e40d6",
+    "semantic_hash": "6920334935a64392b83c6825269e40d6"
+  },
+  "D:\\myboost2.0-main\\src\\lib\\orderId.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "1a0ee3f24a09e6ee40ba3e1ef8f3dfc2",
+    "semantic_hash": "1a0ee3f24a09e6ee40ba3e1ef8f3dfc2"
+  },
+  "D:\\myboost2.0-main\\src\\lib\\pageTransitions.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "1344cb0dbd301e21cc0cff8690ac2c39",
+    "semantic_hash": "1344cb0dbd301e21cc0cff8690ac2c39"
+  },
+  "D:\\myboost2.0-main\\src\\lib\\titleAlert.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "4f52807baf107ba519b5a918fb8b7868",
+    "semantic_hash": "4f52807baf107ba519b5a918fb8b7868"
+  },
+  "D:\\myboost2.0-main\\src\\lib\\utils.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "d9837f38cc05303254571985e3164050",
+    "semantic_hash": "d9837f38cc05303254571985e3164050"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\AccountPage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "9b963e19404fa081a0d8b9731ffbb4cd",
+    "semantic_hash": "9b963e19404fa081a0d8b9731ffbb4cd"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\AdminOrderDetailsPage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "4c9d091c9628cdb0ffccfc7d98fc9ae0",
+    "semantic_hash": "4c9d091c9628cdb0ffccfc7d98fc9ae0"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\AdminPage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "59fe17e26bbc2238827315e78c899d6a",
+    "semantic_hash": "59fe17e26bbc2238827315e78c899d6a"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\ArenaBreakoutInfiniteBoostingPage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "a717e4fc1893509f599275d559ba0780",
+    "semantic_hash": "a717e4fc1893509f599275d559ba0780"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\ArenaBreakoutInfiniteCoachingPage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "0682ac66bd94d47d3e05a76d23c8cb2e",
+    "semantic_hash": "0682ac66bd94d47d3e05a76d23c8cb2e"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\ArenaBreakoutInfiniteRaidsBoostPage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "393ea8789e469c78e93da2898f49b17d",
+    "semantic_hash": "393ea8789e469c78e93da2898f49b17d"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\ArenaBreakoutServicePage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "0e5e6091a68322b84138d8357698bfd3",
+    "semantic_hash": "0e5e6091a68322b84138d8357698bfd3"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\BoosterSelectionPage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "4d63fc88f86c7539ba9dab1047b5c0bf",
+    "semantic_hash": "4d63fc88f86c7539ba9dab1047b5c0bf"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\BuyArenaBreakoutInfiniteKoensPage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "abf599f2289e1e43cae7213371a67706",
+    "semantic_hash": "abf599f2289e1e43cae7213371a67706"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\CartPage.tsx": {
+    "mtime": 1780150547.2627347,
+    "ast_hash": "fd20bc347e4ff7dfa6a0284406504312",
+    "semantic_hash": "fd20bc347e4ff7dfa6a0284406504312"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\ChatPage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "23b714879f7a2f1b5cef216f70b4626f",
+    "semantic_hash": "23b714879f7a2f1b5cef216f70b4626f"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\Cs2ServicePage.tsx": {
+    "mtime": 1780180812.6489775,
+    "ast_hash": "22ec957c5712be6113f2c30cb295ab18",
+    "semantic_hash": "22ec957c5712be6113f2c30cb295ab18"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\Dota2CoachingPage.tsx": {
+    "mtime": 1780072547.2323935,
+    "ast_hash": "04aae59b6865346c1f9d8ced17372021",
+    "semantic_hash": "04aae59b6865346c1f9d8ced17372021"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\Dota2LPRemovalPage.tsx": {
+    "mtime": 1780072547.2343922,
+    "ast_hash": "424f13568b43066586267297fda958cc",
+    "semantic_hash": "424f13568b43066586267297fda958cc"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\Dota2MMRBoostPage.tsx": {
+    "mtime": 1780072547.2353942,
+    "ast_hash": "fc0a1c2a5329f188400888f9c70d2326",
+    "semantic_hash": "fc0a1c2a5329f188400888f9c70d2326"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\Dota2RankTokensPage.tsx": {
+    "mtime": 1780072547.238392,
+    "ast_hash": "3c0ee44c718860bffae2b2a8af44aab6",
+    "semantic_hash": "3c0ee44c718860bffae2b2a8af44aab6"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\Dota2ServicePage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "abdf045be598463e0cc6bc1135a5087a",
+    "semantic_hash": "abdf045be598463e0cc6bc1135a5087a"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\GamePage.tsx": {
+    "mtime": 1780249738.7813525,
+    "ast_hash": "a9ee3bdb5a6ea906be3a2a551e161352",
+    "semantic_hash": "a9ee3bdb5a6ea906be3a2a551e161352"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\Index.tsx": {
+    "mtime": 1780152350.5036197,
+    "ast_hash": "3929cc6c7fee252ad99a308d7e5c9907",
+    "semantic_hash": "3929cc6c7fee252ad99a308d7e5c9907"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\LoginPage.tsx": {
+    "mtime": 1780065884.008787,
+    "ast_hash": "99abdf25d279ac8c3e0771597daa0eea",
+    "semantic_hash": "99abdf25d279ac8c3e0771597daa0eea"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\MyOrdersPage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "cdffa2a9b3f0882168160fb0ea973ec8",
+    "semantic_hash": "cdffa2a9b3f0882168160fb0ea973ec8"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\NotFound.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "233617e24ded7876ea905f003f0f2889",
+    "semantic_hash": "233617e24ded7876ea905f003f0f2889"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\OrderPage.tsx": {
+    "mtime": 1780065021.4053006,
+    "ast_hash": "901f5367a46bdc60f94029f3f4d86cfa",
+    "semantic_hash": "901f5367a46bdc60f94029f3f4d86cfa"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\OrderStatusPage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "de653629bfb5cae22be9095a477ed870",
+    "semantic_hash": "de653629bfb5cae22be9095a477ed870"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\PrivacyPage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "e889ac2a941104d9351edc0b584893cd",
+    "semantic_hash": "e889ac2a941104d9351edc0b584893cd"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\RefundPage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "592414a40f1e837006dc0b7d55f111c4",
+    "semantic_hash": "592414a40f1e837006dc0b7d55f111c4"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\RustHubPage.tsx": {
+    "mtime": 1780250274.7096748,
+    "ast_hash": "bf40142c346e1f7fc02313d109b41efd",
+    "semantic_hash": "bf40142c346e1f7fc02313d109b41efd"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\RustServicePage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "88d47a3f5216adfb2589db952a832bd2",
+    "semantic_hash": "88d47a3f5216adfb2589db952a832bd2"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\SignupPage.tsx": {
+    "mtime": 1780065913.1481037,
+    "ast_hash": "46a811ea240c2ea0cc19305a974ceba1",
+    "semantic_hash": "46a811ea240c2ea0cc19305a974ceba1"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\TermsPage.tsx": {
+    "mtime": 1779471027.0,
+    "ast_hash": "665985fead32cf59e500b16c2beae2d6",
+    "semantic_hash": "665985fead32cf59e500b16c2beae2d6"
+  },
+  "D:\\myboost2.0-main\\src\\pages\\UpdatePasswordPage.tsx": {
+    "mtime": 1780065939.0364828,
+    "ast_hash": "2ffc403913c0b939da91bc471a870b79",
+    "semantic_hash": "2ffc403913c0b939da91bc471a870b79"
+  },
+  "D:\\myboost2.0-main\\src\\test\\example.test.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "f7aec10728902324d57cf05ee8a8e57e",
+    "semantic_hash": "f7aec10728902324d57cf05ee8a8e57e"
+  },
+  "D:\\myboost2.0-main\\src\\test\\setup.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "3ed816a7adf0e76610ce76bd32744ea0",
+    "semantic_hash": "3ed816a7adf0e76610ce76bd32744ea0"
+  },
+  "D:\\myboost2.0-main\\supabase\\.temp\\linked-project.json": {
+    "mtime": 1779471027.0,
+    "ast_hash": "08d883d7e2410257a83bae715e8b31a5",
+    "semantic_hash": "08d883d7e2410257a83bae715e8b31a5"
+  },
+  "D:\\myboost2.0-main\\supabase\\functions\\create-nowpayment\\index.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "af29335e256b16c3114493c9b359e014",
+    "semantic_hash": "af29335e256b16c3114493c9b359e014"
+  },
+  "D:\\myboost2.0-main\\supabase\\functions\\get-payment-details\\index.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "992f18d196b4c2d040589382fb7f4d00",
+    "semantic_hash": "992f18d196b4c2d040589382fb7f4d00"
+  },
+  "D:\\myboost2.0-main\\supabase\\functions\\nowpayments-webhook\\index.ts": {
+    "mtime": 1779471027.0,
+    "ast_hash": "c309e44ee6668c443c685cf92d62fc21",
+    "semantic_hash": "c309e44ee6668c443c685cf92d62fc21"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260409181231_39748ee8-28ce-4b28-9a07-1d68416c2cb2.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "d18b3b2030b6151af652cf5534161ff1",
+    "semantic_hash": "d18b3b2030b6151af652cf5534161ff1"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260409191603_9c30ee1b-e184-4da9-b234-591d6a4faae0.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "8f7d143294b5dc37638d55f30210464c",
+    "semantic_hash": "8f7d143294b5dc37638d55f30210464c"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260410104142_ff135258-6b4f-4c05-a1f7-f6d79f7da56a.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "431b83aab63d346d9cedfaef39367e81",
+    "semantic_hash": "431b83aab63d346d9cedfaef39367e81"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260410104311_8a6a967d-534d-4d3c-8e6d-8d91eed04d71.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "19fa93beba832fe4afdc8debbc8fcd75",
+    "semantic_hash": "19fa93beba832fe4afdc8debbc8fcd75"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260411074132_533207bd-1c82-4491-b5a5-cb4b0d88c6fd.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "40da4e0d7c1b5f948c2e56c02b22db8b",
+    "semantic_hash": "40da4e0d7c1b5f948c2e56c02b22db8b"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260411082737_1fed4991-d8fb-4427-9be5-eae08d55aac0.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "288f99fe7c6974913bd90901c90a7869",
+    "semantic_hash": "288f99fe7c6974913bd90901c90a7869"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260411082824_9ea34df3-1c0f-49f2-8332-466c1de35f76.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "35655802298834de7b0ab3a47b2f4f7f",
+    "semantic_hash": "35655802298834de7b0ab3a47b2f4f7f"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260411084121_a43fd0b2-c1c2-4aa4-9a20-545fc22792b1.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "958203ab1ae3dbb1280471f73e9df8f0",
+    "semantic_hash": "958203ab1ae3dbb1280471f73e9df8f0"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260411181351_a856086c-10ea-412d-9112-0297c2665b98.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "6b25dc93941fed29b34ab32b73f81fd1",
+    "semantic_hash": "6b25dc93941fed29b34ab32b73f81fd1"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260411182046_6b7f52cb-9295-4842-88a1-7fa26406fcd8.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "c3b77f9ce98e58f8cf3f2f24f9b81a6f",
+    "semantic_hash": "c3b77f9ce98e58f8cf3f2f24f9b81a6f"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260411182232_6098655c-17c6-4c21-976a-67646cb3f3b2.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "17b8faf484a8b34458d60221d14272ae",
+    "semantic_hash": "17b8faf484a8b34458d60221d14272ae"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260413195040_0e1c6f2d-0bdc-4465-a937-08b34143e7ed.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "feac73da16d8fdcd8c190b1265896a48",
+    "semantic_hash": "feac73da16d8fdcd8c190b1265896a48"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260413195240_64f122fb-893e-44d0-9e70-93ac8e30d9c9.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "9df0ba28c1b671d15f83d94602f5ae92",
+    "semantic_hash": "9df0ba28c1b671d15f83d94602f5ae92"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260413201351_ee829c5a-e8e6-4ddd-a299-9e88c7d089de.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "9a3e1dbcc7d16c03129d2c3a2bffae8b",
+    "semantic_hash": "9a3e1dbcc7d16c03129d2c3a2bffae8b"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260502084829_create_order_messages.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "e94aa1ac2c9acd146ac2ad4318f0a227",
+    "semantic_hash": "e94aa1ac2c9acd146ac2ad4318f0a227"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260502163055_add_payment_method.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "0e3589083177a8bc76d0258cdcb97572",
+    "semantic_hash": "0e3589083177a8bc76d0258cdcb97572"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260502164400_improve_promo_codes.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "2aa6a4f4ec6faa180a600add70942f4f",
+    "semantic_hash": "2aa6a4f4ec6faa180a600add70942f4f"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260503093800_fix_admin_order_management.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "5ea0ced2508b536f613b3b69efad6d80",
+    "semantic_hash": "5ea0ced2508b536f613b3b69efad6d80"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260506192600_fix_order_details_and_admin_email_access.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "d6012f2c144cd751a6625b47bcfbe4ce",
+    "semantic_hash": "d6012f2c144cd751a6625b47bcfbe4ce"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260507000000_add_paypal_fields.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "1657f07771ac7e30e03a288fd78ac414",
+    "semantic_hash": "1657f07771ac7e30e03a288fd78ac414"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260509000000_manual_payment_flow.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "8fbd28a333e57399e214dfb78c80c3f5",
+    "semantic_hash": "8fbd28a333e57399e214dfb78c80c3f5"
+  },
+  "D:\\myboost2.0-main\\supabase\\migrations\\20260509100000_chat_system_messages_and_read.sql": {
+    "mtime": 1779471027.0,
+    "ast_hash": "216827a8bc1b2348fcc4add5cade2da9",
+    "semantic_hash": "216827a8bc1b2348fcc4add5cade2da9"
+  },
+  "D:\\myboost2.0-main\\ADMIN_FIXES_DEPLOYMENT.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "dfda2157ef36dd4c6699553fb35e0c2e",
+    "semantic_hash": "dfda2157ef36dd4c6699553fb35e0c2e"
+  },
+  "D:\\myboost2.0-main\\ADMIN_ORDER_LIST_FIX.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "648f2a1fb35a1d8824d7b93d3a66970d",
+    "semantic_hash": "648f2a1fb35a1d8824d7b93d3a66970d"
+  },
+  "D:\\myboost2.0-main\\ADMIN_PENDING_ORDERS_FIX.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "d061b728c0c5d505bffd0e654ca912b8",
+    "semantic_hash": "d061b728c0c5d505bffd0e654ca912b8"
+  },
+  "D:\\myboost2.0-main\\APPLY_ORDER_FIXES.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "5699565626d754db951bc6cb7ccab4d2",
+    "semantic_hash": "5699565626d754db951bc6cb7ccab4d2"
+  },
+  "D:\\myboost2.0-main\\ARENA_BREAKOUT_NAMING_FIX.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "98e070044d99cbc81b8c360d558a3d27",
+    "semantic_hash": "98e070044d99cbc81b8c360d558a3d27"
+  },
+  "D:\\myboost2.0-main\\CHAT_NOTIFICATIONS_SUMMARY.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "f9eea73dc3b98d11be39840e0e789c43",
+    "semantic_hash": "f9eea73dc3b98d11be39840e0e789c43"
+  },
+  "D:\\myboost2.0-main\\CHAT_SYNC_DEBUG_INSTRUCTIONS.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "30057285d1ec1b631b41af734e0acd1d",
+    "semantic_hash": "30057285d1ec1b631b41af734e0acd1d"
+  },
+  "D:\\myboost2.0-main\\CHAT_SYNC_ROOT_CAUSE_FIX.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "d6c3d7c570054d13e6dbaec5954e0371",
+    "semantic_hash": "d6c3d7c570054d13e6dbaec5954e0371"
+  },
+  "D:\\myboost2.0-main\\CHAT_UI_VERIFICATION.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "8eef1304f21dcfd074e7e4f666676e64",
+    "semantic_hash": "8eef1304f21dcfd074e7e4f666676e64"
+  },
+  "D:\\myboost2.0-main\\COMPLETE_SEO_LOCK_REPORT.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "52ad0cba823b7c89d233c66396a38881",
+    "semantic_hash": "52ad0cba823b7c89d233c66396a38881"
+  },
+  "D:\\myboost2.0-main\\DEPLOYMENT_SUMMARY_2026-05-04.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "114df877c95d31bdb7359936ec942215",
+    "semantic_hash": "114df877c95d31bdb7359936ec942215"
+  },
+  "D:\\myboost2.0-main\\DEPLOY_NOW.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "3a152635fbf749f0fed27d6bc4262e21",
+    "semantic_hash": "3a152635fbf749f0fed27d6bc4262e21"
+  },
+  "D:\\myboost2.0-main\\DEV_TEST_ORDER_IMPLEMENTATION.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "3205c1dfdaad4616f9245d83dffa8c72",
+    "semantic_hash": "3205c1dfdaad4616f9245d83dffa8c72"
+  },
+  "D:\\myboost2.0-main\\DOMAIN_FIX_COMPLETE_REPORT.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "7df34f0ca61641ecaa2f9890c73808a7",
+    "semantic_hash": "7df34f0ca61641ecaa2f9890c73808a7"
+  },
+  "D:\\myboost2.0-main\\DOMAIN_FIX_SUMMARY.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "225af68c4db5d5ea760027588bf45655",
+    "semantic_hash": "225af68c4db5d5ea760027588bf45655"
+  },
+  "D:\\myboost2.0-main\\DOTA2_ALL_PAGES_COMPLETE.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "57069731dce505c67a44d2233b3c2e6d",
+    "semantic_hash": "57069731dce505c67a44d2233b3c2e6d"
+  },
+  "D:\\myboost2.0-main\\DOTA2_FINAL_COMPLETE.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "4b360d602d74db4af05744a0c46ebdcb",
+    "semantic_hash": "4b360d602d74db4af05744a0c46ebdcb"
+  },
+  "D:\\myboost2.0-main\\DOTA2_LP_REMOVAL_UPDATED.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "21c1fb8f900571937e5f7f75111220de",
+    "semantic_hash": "21c1fb8f900571937e5f7f75111220de"
+  },
+  "D:\\myboost2.0-main\\DOTA2_MMR_BOOST_UPDATED.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "b40aa2e8e89ec199562008d8b3e9181e",
+    "semantic_hash": "b40aa2e8e89ec199562008d8b3e9181e"
+  },
+  "D:\\myboost2.0-main\\DOTA2_PAGES_SUMMARY.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "d930a52ae402a8da2892bd026fe35c07",
+    "semantic_hash": "d930a52ae402a8da2892bd026fe35c07"
+  },
+  "D:\\myboost2.0-main\\DOTA2_SERVICE_PAGES_COMPLETE.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "95f7832b1786ec9186acaac4085c1b07",
+    "semantic_hash": "95f7832b1786ec9186acaac4085c1b07"
+  },
+  "D:\\myboost2.0-main\\EMAIL_CONFIRMATION_SETUP.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "a78a13e0ac19b9d7275be92a6d84eff0",
+    "semantic_hash": "a78a13e0ac19b9d7275be92a6d84eff0"
+  },
+  "D:\\myboost2.0-main\\EXACT_CODE_FIXES.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "f9428b52b61462e0212a61c7ae783bd5",
+    "semantic_hash": "f9428b52b61462e0212a61c7ae783bd5"
+  },
+  "D:\\myboost2.0-main\\FINAL_DEPLOYMENT_SUMMARY.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "ee1c26815ee6b88b74043e5612c20f37",
+    "semantic_hash": "ee1c26815ee6b88b74043e5612c20f37"
+  },
+  "D:\\myboost2.0-main\\FINAL_IMPLEMENTATION_REPORT.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "f18a83c7b2dc5ab4cb458146237a247a",
+    "semantic_hash": "f18a83c7b2dc5ab4cb458146237a247a"
+  },
+  "D:\\myboost2.0-main\\FINAL_VERIFICATION.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "43dcca3057a2d6e44aa3b438d6ddbfbf",
+    "semantic_hash": "43dcca3057a2d6e44aa3b438d6ddbfbf"
+  },
+  "D:\\myboost2.0-main\\IMPLEMENTATION_COMPLETE.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "bb492d9d01acfaed1e946fa03001853f",
+    "semantic_hash": "bb492d9d01acfaed1e946fa03001853f"
+  },
+  "D:\\myboost2.0-main\\index.html": {
+    "mtime": 1779471027.0,
+    "ast_hash": "2085dc9c6c82fff7a10e1f11d2f03db0",
+    "semantic_hash": "2085dc9c6c82fff7a10e1f11d2f03db0"
+  },
+  "D:\\myboost2.0-main\\INDEX_HTML_CLEANUP.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "91aef835e41b7581d55c05dd6cc04e31",
+    "semantic_hash": "91aef835e41b7581d55c05dd6cc04e31"
+  },
+  "D:\\myboost2.0-main\\NEW_SEO_PAGES_SUMMARY.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "3fd0265ff3d0d03ce1bcd8961f3290dc",
+    "semantic_hash": "3fd0265ff3d0d03ce1bcd8961f3290dc"
+  },
+  "D:\\myboost2.0-main\\NO_BREAKING_CHANGES_VERIFICATION.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "69b364d91c86ac30824df7e4b9daff65",
+    "semantic_hash": "69b364d91c86ac30824df7e4b9daff65"
+  },
+  "D:\\myboost2.0-main\\ORDER_CHAT_ARCHITECTURE.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "b3a9d528f8ebb4f5f03b1396dbe8e271",
+    "semantic_hash": "b3a9d528f8ebb4f5f03b1396dbe8e271"
+  },
+  "D:\\myboost2.0-main\\ORDER_CHAT_DEPLOYMENT.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "b0c933b2f4b7a05756b39df78488a93c",
+    "semantic_hash": "b0c933b2f4b7a05756b39df78488a93c"
+  },
+  "D:\\myboost2.0-main\\ORDER_CHAT_IMPLEMENTATION.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "16e847ec953b5a59a891dc9bacc453b7",
+    "semantic_hash": "16e847ec953b5a59a891dc9bacc453b7"
+  },
+  "D:\\myboost2.0-main\\ORDER_CHAT_REALTIME.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "a9d1f567d788823d726e2938bc9026f4",
+    "semantic_hash": "a9d1f567d788823d726e2938bc9026f4"
+  },
+  "D:\\myboost2.0-main\\ORDER_CHAT_SECURITY.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "1654982294422c3fe270aa87b5bdc388",
+    "semantic_hash": "1654982294422c3fe270aa87b5bdc388"
+  },
+  "D:\\myboost2.0-main\\ORDER_CHAT_SUMMARY.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "7be24e55179c9427108c7114ff7f5bed",
+    "semantic_hash": "7be24e55179c9427108c7114ff7f5bed"
+  },
+  "D:\\myboost2.0-main\\PRODUCTION_FIXES_SUMMARY.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "6cdb60925ec0dbc0ce1601d07651409f",
+    "semantic_hash": "6cdb60925ec0dbc0ce1601d07651409f"
+  },
+  "D:\\myboost2.0-main\\QUICK_DEPLOY.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "1f1f3a151302e6e21cee8342858321ea",
+    "semantic_hash": "1f1f3a151302e6e21cee8342858321ea"
+  },
+  "D:\\myboost2.0-main\\README.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "901eb6f09cb186408dea361084598613",
+    "semantic_hash": "901eb6f09cb186408dea361084598613"
+  },
+  "D:\\myboost2.0-main\\SEO_CHANGES_SUMMARY.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "8ec488bd995579d64fdfcfe3c52df9fc",
+    "semantic_hash": "8ec488bd995579d64fdfcfe3c52df9fc"
+  },
+  "D:\\myboost2.0-main\\SEO_CODE_EXAMPLES.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "6dd0e26ff29f125ffe9403a92fa7a5a5",
+    "semantic_hash": "6dd0e26ff29f125ffe9403a92fa7a5a5"
+  },
+  "D:\\myboost2.0-main\\SEO_CONTENT_VERIFICATION.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "be21a0e88245e8fdc0f91d26881960bb",
+    "semantic_hash": "be21a0e88245e8fdc0f91d26881960bb"
+  },
+  "D:\\myboost2.0-main\\SEO_FINAL_REPORT.txt": {
+    "mtime": 1779471027.0,
+    "ast_hash": "ece11dc001793358dbe6009827f48ddf",
+    "semantic_hash": "ece11dc001793358dbe6009827f48ddf"
+  },
+  "D:\\myboost2.0-main\\SEO_FIXES_SUMMARY.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "bca43c2a07c7237d4389579012b58a83",
+    "semantic_hash": "bca43c2a07c7237d4389579012b58a83"
+  },
+  "D:\\myboost2.0-main\\SEO_IMPLEMENTATION.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "c303bb075eacf19993d3cdaf073bc245",
+    "semantic_hash": "c303bb075eacf19993d3cdaf073bc245"
+  },
+  "D:\\myboost2.0-main\\SEO_PAGES_QUICK_REFERENCE.txt": {
+    "mtime": 1779471027.0,
+    "ast_hash": "427a3515b2e9dea259b4cbe5d44f4d15",
+    "semantic_hash": "427a3515b2e9dea259b4cbe5d44f4d15"
+  },
+  "D:\\myboost2.0-main\\SEO_TITLES_LOCK_REPORT.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "88e4506dae367a7beca998f1fc5f0cc3",
+    "semantic_hash": "88e4506dae367a7beca998f1fc5f0cc3"
+  },
+  "D:\\myboost2.0-main\\SEO_VERIFICATION_REPORT.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "89bf5a04acf079c29b37d42858f0ceb4",
+    "semantic_hash": "89bf5a04acf079c29b37d42858f0ceb4"
+  },
+  "D:\\myboost2.0-main\\START_HERE.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "fec89ee533e83ac710da8cd7a60a0163",
+    "semantic_hash": "fec89ee533e83ac710da8cd7a60a0163"
+  },
+  "D:\\myboost2.0-main\\STRUCTURED_DATA_ALL_PAGES.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "6c2362485f8b46651b72ba9468fe172e",
+    "semantic_hash": "6c2362485f8b46651b72ba9468fe172e"
+  },
+  "D:\\myboost2.0-main\\STRUCTURED_DATA_COMPLETE_FIX.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "85761c352fa3d2c940d639f8f168fee7",
+    "semantic_hash": "85761c352fa3d2c940d639f8f168fee7"
+  },
+  "D:\\myboost2.0-main\\STRUCTURED_DATA_FIXES.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "7ec3f0500aec20e4159b84c7d2985e57",
+    "semantic_hash": "7ec3f0500aec20e4159b84c7d2985e57"
+  },
+  "D:\\myboost2.0-main\\SUPABASE_KEY_ISSUE.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "2219696dacf35bce37719e6fd850117d",
+    "semantic_hash": "2219696dacf35bce37719e6fd850117d"
+  },
+  "D:\\myboost2.0-main\\TEST_ORDER_DEBUG_REPORT.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "a3d1254ee8a4b9de3440f9926fbac2f7",
+    "semantic_hash": "a3d1254ee8a4b9de3440f9926fbac2f7"
+  },
+  "D:\\myboost2.0-main\\UI_UX_IMPROVEMENTS_SUMMARY.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "883016354669c73ae5d1bf88ad6bffea",
+    "semantic_hash": "883016354669c73ae5d1bf88ad6bffea"
+  },
+  "D:\\myboost2.0-main\\.lovable\\plan.md": {
+    "mtime": 1779471027.0,
+    "ast_hash": "495ac385b8ed17723bdd81638e609886",
+    "semantic_hash": "495ac385b8ed17723bdd81638e609886"
+  },
+  "D:\\myboost2.0-main\\public\\robots.txt": {
+    "mtime": 1779471027.0,
+    "ast_hash": "72a7faae3264743a108e733a46699a0b",
+    "semantic_hash": "72a7faae3264743a108e733a46699a0b"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\README.txt": {
+    "mtime": 1780072584.3173478,
+    "ast_hash": "e6a7dba29249612cbb05073f22046055",
+    "semantic_hash": "e6a7dba29249612cbb05073f22046055"
+  },
+  "D:\\myboost2.0-main\\public\\placeholder.svg": {
+    "mtime": 1779471027.0,
+    "ast_hash": "b501d7dff3280ac829c321fe854d99d0",
+    "semantic_hash": "b501d7dff3280ac829c321fe854d99d0"
+  },
+  "D:\\myboost2.0-main\\public\\images\\dota2\\battle-cup.webp": {
+    "mtime": 1780072441.2596078,
+    "ast_hash": "7a2d6ce7c34f4887232386ec892a16f2",
+    "semantic_hash": "7a2d6ce7c34f4887232386ec892a16f2"
+  },
+  "D:\\myboost2.0-main\\public\\images\\dota2\\behavior-score-boost.webp": {
+    "mtime": 1780072441.3406045,
+    "ast_hash": "8ba78cd0e0659139e8b64d4f62c6e2a5",
+    "semantic_hash": "8ba78cd0e0659139e8b64d4f62c6e2a5"
+  },
+  "D:\\myboost2.0-main\\public\\images\\dota2\\calibration-boost.webp": {
+    "mtime": 1780072441.4452941,
+    "ast_hash": "6d31b8024622932350d576b9a54d8016",
+    "semantic_hash": "6d31b8024622932350d576b9a54d8016"
+  },
+  "D:\\myboost2.0-main\\public\\images\\dota2\\dota2-coaching.webp": {
+    "mtime": 1780072441.5276034,
+    "ast_hash": "ab1c566a2089c686539bc24830f55a08",
+    "semantic_hash": "ab1c566a2089c686539bc24830f55a08"
+  },
+  "D:\\myboost2.0-main\\public\\images\\dota2\\dota2-lp-removal.webp": {
+    "mtime": 1780072441.6106017,
+    "ast_hash": "dc077333a342af389291ef3b5788904e",
+    "semantic_hash": "dc077333a342af389291ef3b5788904e"
+  },
+  "D:\\myboost2.0-main\\public\\images\\dota2\\dota2-mmr-boost.webp": {
+    "mtime": 1780072441.689229,
+    "ast_hash": "76bc65ee8416dedca4e105d2c10b8b11",
+    "semantic_hash": "76bc65ee8416dedca4e105d2c10b8b11"
+  },
+  "D:\\myboost2.0-main\\public\\images\\dota2\\win-rate-boost.webp": {
+    "mtime": 1780072441.8406203,
+    "ast_hash": "b066ae8725eddd47281cfcb2ed1174f6",
+    "semantic_hash": "b066ae8725eddd47281cfcb2ed1174f6"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\advanced-base.webp": {
+    "mtime": 1780072441.9041607,
+    "ast_hash": "ba5d47f32ae2b6300c76ac02d6d502cb",
+    "semantic_hash": "ba5d47f32ae2b6300c76ac02d6d502cb"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\ammo.webp": {
+    "mtime": 1780072441.9663396,
+    "ast_hash": "a7321fcdaf454e66a83c89a9e8e59b0c",
+    "semantic_hash": "a7321fcdaf454e66a83c89a9e8e59b0c"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\base-raiding-boost.webp": {
+    "mtime": 1780072442.0287015,
+    "ast_hash": "91ef52194117bebbfc0b1ed5c7bba629",
+    "semantic_hash": "91ef52194117bebbfc0b1ed5c7bba629"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\base-security-boost.webp": {
+    "mtime": 1780072442.0963264,
+    "ast_hash": "9e81dbddad517264070e4da5a7689401",
+    "semantic_hash": "9e81dbddad517264070e4da5a7689401"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\bunker-base.webp": {
+    "mtime": 1780072442.1624935,
+    "ast_hash": "7a8eaa5857aeec60a2fa456f589bdc71",
+    "semantic_hash": "7a8eaa5857aeec60a2fa456f589bdc71"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\cargo-ship-raid-boost.webp": {
+    "mtime": 1780072442.224041,
+    "ast_hash": "16a032c9a8fe5b67b51871b63e1fbef0",
+    "semantic_hash": "16a032c9a8fe5b67b51871b63e1fbef0"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\components.webp": {
+    "mtime": 1780072442.2940428,
+    "ast_hash": "184c557cbbbd83e69b034b7ef387d38d",
+    "semantic_hash": "184c557cbbbd83e69b034b7ef387d38d"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\electronics-farm.webp": {
+    "mtime": 1780072442.3590417,
+    "ast_hash": "3431056964682b037d1b6237efa1ad9a",
+    "semantic_hash": "3431056964682b037d1b6237efa1ad9a"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\hourly-driving.webp": {
+    "mtime": 1780072442.4169385,
+    "ast_hash": "ed3792f2f1f5ea772a741407ca5313bf",
+    "semantic_hash": "ed3792f2f1f5ea772a741407ca5313bf"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\key-cards-farm.webp": {
+    "mtime": 1780072442.484415,
+    "ast_hash": "4d23958133d82e8f24461caee03ceeab",
+    "semantic_hash": "4d23958133d82e8f24461caee03ceeab"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\oil-barrel-farm.webp": {
+    "mtime": 1780072442.550412,
+    "ast_hash": "fb92cef4ac708dfaa04f8cb544e49a60",
+    "semantic_hash": "fb92cef4ac708dfaa04f8cb544e49a60"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\oil-rig-raid-boost.webp": {
+    "mtime": 1780072442.61242,
+    "ast_hash": "3fa76fb4f22338748d23c9cd1030fa33",
+    "semantic_hash": "3fa76fb4f22338748d23c9cd1030fa33"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\raiding-hourly-driving.webp": {
+    "mtime": 1780072442.6736526,
+    "ast_hash": "ed3792f2f1f5ea772a741407ca5313bf",
+    "semantic_hash": "ed3792f2f1f5ea772a741407ca5313bf"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\resources-hourly-driving.webp": {
+    "mtime": 1780072442.7309697,
+    "ast_hash": "ed3792f2f1f5ea772a741407ca5313bf",
+    "semantic_hash": "ed3792f2f1f5ea772a741407ca5313bf"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\resources.webp": {
+    "mtime": 1780072442.7965405,
+    "ast_hash": "18dd066d904891b7215f09c9bd4a056c",
+    "semantic_hash": "18dd066d904891b7215f09c9bd4a056c"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\starter-base.webp": {
+    "mtime": 1780072442.8645327,
+    "ast_hash": "e6cd1c64b548b89dd025a19e1e67f47e",
+    "semantic_hash": "e6cd1c64b548b89dd025a19e1e67f47e"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\tea-farm.webp": {
+    "mtime": 1780072442.9533515,
+    "ast_hash": "d3d92e2fee67ae8ff9d999ba2f1bd26a",
+    "semantic_hash": "d3d92e2fee67ae8ff9d999ba2f1bd26a"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\weapons-hourly-driving.webp": {
+    "mtime": 1780072443.0114453,
+    "ast_hash": "ed3792f2f1f5ea772a741407ca5313bf",
+    "semantic_hash": "ed3792f2f1f5ea772a741407ca5313bf"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\weapons.webp": {
+    "mtime": 1780072443.078643,
+    "ast_hash": "cb573b7537f992e22b05cf9f302849f1",
+    "semantic_hash": "cb573b7537f992e22b05cf9f302849f1"
+  },
+  "D:\\myboost2.0-main\\public\\images\\rust\\workbench-boost.webp": {
+    "mtime": 1780072443.1400568,
+    "ast_hash": "093ab8792a40c9cd27e1eeaf505f8b55",
+    "semantic_hash": "093ab8792a40c9cd27e1eeaf505f8b55"
+  },
+  "D:\\myboost2.0-main\\public\\ranks\\commander.png": {
+    "mtime": 1779471027.0,
+    "ast_hash": "8964926ed45e89ac6ba9673720542521",
+    "semantic_hash": "8964926ed45e89ac6ba9673720542521"
+  },
+  "D:\\myboost2.0-main\\public\\ranks\\ranger.png": {
+    "mtime": 1779471027.0,
+    "ast_hash": "e9b1301fb9e080b59581a09c393ef7a9",
+    "semantic_hash": "e9b1301fb9e080b59581a09c393ef7a9"
+  },
+  "D:\\myboost2.0-main\\public\\ranks\\recruit.png": {
+    "mtime": 1779471027.0,
+    "ast_hash": "10b212cb0f6a644b191f9b1265c050aa",
+    "semantic_hash": "10b212cb0f6a644b191f9b1265c050aa"
+  },
+  "D:\\myboost2.0-main\\public\\ranks\\vanguard.png": {
+    "mtime": 1779471027.0,
+    "ast_hash": "62ce89fb6ee44e65ff5c58ba381ee91e",
+    "semantic_hash": "62ce89fb6ee44e65ff5c58ba381ee91e"
+  },
+  "D:\\myboost2.0-main\\public\\ranks\\warlord.png": {
+    "mtime": 1779471027.0,
+    "ast_hash": "ea6619fd9935e4b262438213299a83b2",
+    "semantic_hash": "ea6619fd9935e4b262438213299a83b2"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\arena-breakout\\coaching.webp": {
+    "mtime": 1780072439.6245687,
+    "ast_hash": "6f29f4d0ecd125e6718a55318bcb4895",
+    "semantic_hash": "6f29f4d0ecd125e6718a55318bcb4895"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\arena-breakout\\koens-farming.webp": {
+    "mtime": 1780072439.6997073,
+    "ast_hash": "645e1cbf5fa2ff88bfccbf5747f2c374",
+    "semantic_hash": "645e1cbf5fa2ff88bfccbf5747f2c374"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\arena-breakout\\raids-boost.webp": {
+    "mtime": 1780072439.79568,
+    "ast_hash": "88fbc21068227f3b52b8f55da9361b19",
+    "semantic_hash": "88fbc21068227f3b52b8f55da9361b19"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\arena-breakout\\rent-a-booster.webp": {
+    "mtime": 1780072439.880674,
+    "ast_hash": "ef7a6b6011f9434b32d62151851a4987",
+    "semantic_hash": "ef7a6b6011f9434b32d62151851a4987"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\arena-breakout\\titanium-case.webp": {
+    "mtime": 1780072439.982718,
+    "ast_hash": "89eca4da319ab1a196036c4e31e8c779",
+    "semantic_hash": "89eca4da319ab1a196036c4e31e8c779"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\armory-boost.webp": {
+    "mtime": 1780072440.0675392,
+    "ast_hash": "16417f4a7b2f5aaa134b34c42a92aeea",
+    "semantic_hash": "16417f4a7b2f5aaa134b34c42a92aeea"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\coaching.webp": {
+    "mtime": 1780072440.1556473,
+    "ast_hash": "e329062f7b55e86f990b11ab2be328f2",
+    "semantic_hash": "e329062f7b55e86f990b11ab2be328f2"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\competitive-rank.webp": {
+    "mtime": 1780072440.2386372,
+    "ast_hash": "1885b1973caea9fceba089cfc419c5ff",
+    "semantic_hash": "1885b1973caea9fceba089cfc419c5ff"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\esea-rank.webp": {
+    "mtime": 1780072440.3210588,
+    "ast_hash": "bf848efb4f9cf4de49569ded059eb06d",
+    "semantic_hash": "bf848efb4f9cf4de49569ded059eb06d"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\esea-wins.webp": {
+    "mtime": 1780072440.3993773,
+    "ast_hash": "6d50e5f935e8b5ed9a1d6111df6a1b2e",
+    "semantic_hash": "6d50e5f935e8b5ed9a1d6111df6a1b2e"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\faceit-rank.webp": {
+    "mtime": 1780072440.4813783,
+    "ast_hash": "29dd1c9c6b96140be542aef0215fd4d3",
+    "semantic_hash": "29dd1c9c6b96140be542aef0215fd4d3"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\faceit-wins.webp": {
+    "mtime": 1780072440.5633786,
+    "ast_hash": "4bb1986a4877c00d18477232bb7af88f",
+    "semantic_hash": "4bb1986a4877c00d18477232bb7af88f"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\global-elite-boost.webp": {
+    "mtime": 1780072440.643615,
+    "ast_hash": "a0063db280ae13423a68aa6d3d7f84cf",
+    "semantic_hash": "a0063db280ae13423a68aa6d3d7f84cf"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\placement-matches.webp": {
+    "mtime": 1780072440.7327218,
+    "ast_hash": "736770da7f0db8e3cf835eb90d376086",
+    "semantic_hash": "736770da7f0db8e3cf835eb90d376086"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\premier-rating.webp": {
+    "mtime": 1780072440.8297238,
+    "ast_hash": "59c4d4281f2d9032d2b5498df311ebb6",
+    "semantic_hash": "59c4d4281f2d9032d2b5498df311ebb6"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\profile-rank.webp": {
+    "mtime": 1780072440.9217205,
+    "ast_hash": "ce4c42f9b54c2d1d81c6db3b7e0e2fc2",
+    "semantic_hash": "ce4c42f9b54c2d1d81c6db3b7e0e2fc2"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\rent-a-booster.webp": {
+    "mtime": 1780072441.0053778,
+    "ast_hash": "7a47dd661a172020d33eb465213a5a04",
+    "semantic_hash": "7a47dd661a172020d33eb465213a5a04"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\wingman-rank.webp": {
+    "mtime": 1780072441.0904865,
+    "ast_hash": "f2d4bf7924779ccdac0eb12de08e8a17",
+    "semantic_hash": "f2d4bf7924779ccdac0eb12de08e8a17"
+  },
+  "D:\\myboost2.0-main\\public\\service-images\\cs2\\wins-boost.webp": {
+    "mtime": 1780072441.1736026,
+    "ast_hash": "595a37cc9d9e1bbb86811f4639195262",
+    "semantic_hash": "595a37cc9d9e1bbb86811f4639195262"
+  },
+  "D:\\myboost2.0-main\\src\\assets\\booster-keitarochka.png": {
+    "mtime": 1779471027.0,
+    "ast_hash": "b5299192f3ffc45b779071f8a4f8a2c9",
+    "semantic_hash": "b5299192f3ffc45b779071f8a4f8a2c9"
+  }
+}

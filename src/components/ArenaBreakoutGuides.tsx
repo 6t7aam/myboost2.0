@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { BookOpen, Coins, Swords, GraduationCap, ArrowRight } from "lucide-react";
+import { CANONICAL_PATHS } from "@/lib/siteConfig";
 
 const ArenaBreakoutGuides = () => {
   const guides = [
@@ -7,25 +8,25 @@ const ArenaBreakoutGuides = () => {
       title: "Complete Marketplace Guide",
       description: "Premium ABI marketplace services overview",
       icon: BookOpen,
-      link: "/arena-breakout-infinite-boosting",
+      link: CANONICAL_PATHS.arenaBreakoutBoosting,
     },
     {
       title: "Buy Koens",
       description: "Fast Koens delivery service",
       icon: Coins,
-      link: "/buy-arena-breakout-infinite-koens",
+      link: CANONICAL_PATHS.arenaBreakoutKoens,
     },
     {
       title: "Raids",
       description: "Expert PRO raid sessions on all maps",
       icon: Swords,
-      link: "/arena-breakout-infinite-raids-boost",
+      link: CANONICAL_PATHS.arenaBreakoutRaids,
     },
     {
       title: "Coaching",
       description: "Learn from elite ABI players",
       icon: GraduationCap,
-      link: "/arena-breakout-infinite-coaching",
+      link: CANONICAL_PATHS.arenaBreakoutCoaching,
     },
   ];
 

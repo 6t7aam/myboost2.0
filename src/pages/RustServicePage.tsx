@@ -88,13 +88,6 @@ const RustServicePage = () => {
             availability: "https://schema.org/InStock",
             areaServed: "Worldwide",
           },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: 4.9,
-            reviewCount: 600,
-            bestRating: 5,
-            worstRating: 1,
-          },
         }}
       />
       <RustServiceLayout
