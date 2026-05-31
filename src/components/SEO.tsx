@@ -1,5 +1,4 @@
 import { Helmet } from 'react-helmet-async';
-import { DEFAULT_OG_IMAGE, SITE_NAME } from '@/lib/siteConfig';
 
 interface SEOProps {
   title: string;
@@ -19,14 +18,13 @@ interface SEOProps {
   twitterDescription?: string;
   /** Optional twitter card type — defaults to summary_large_image. */
   twitterCard?: string;
-  robots?: string;
 }
 
 const SEO = ({
   title,
   description,
   keywords,
-  ogImage = DEFAULT_OG_IMAGE,
+  ogImage = "https://www.myboost.top/og-image.jpg",
   ogType = "website",
   canonicalUrl,
   ogTitle,
@@ -34,9 +32,8 @@ const SEO = ({
   twitterTitle,
   twitterDescription,
   twitterCard = "summary_large_image",
-  robots = "index,follow,max-image-preview:large",
 }: SEOProps) => {
-  const siteName = SITE_NAME;
+  const siteName = "MyBoost";
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
   const resolvedOgTitle = ogTitle ?? fullTitle;
   const resolvedOgDescription = ogDescription ?? description;
@@ -49,7 +46,6 @@ const SEO = ({
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
-      <meta name="robots" content={robots} />
       {keywords && <meta name="keywords" content={keywords} />}
 
       {/* Canonical URL */}

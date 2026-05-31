@@ -142,10 +142,7 @@
       "Bash(echo \"BUILD:$?\")",
       "Read(//c/Users/Гений/.claude/**)",
       "Bash(Select-Object -First 50)",
-      "PowerShell($content = [System.IO.File]::ReadAllText\\(\"d:\\\\myboost2.0-main\\\\src\\\\pages\\\\Cs2ServicePage.tsx\"\\); $idx = $content.IndexOf\\(\"4.9\"\\); if \\($idx -ge 0\\) { $snippet = $content.Substring\\($idx-5, 30\\); $bytes = [System.Text.Encoding]::UTF8.GetBytes\\($snippet\\); \\($bytes | ForEach-Object { '{0:X2}' -f $_ }\\) -join ' ' })",
-      "PowerShell(Remove-Item *)",
-      "PowerShell(& \\(Get-Content graphify-out\\\\.graphify_python\\) graphify-out\\\\cache_check.py)",
-      "PowerShell(& \\(Get-Content graphify-out\\\\.graphify_python\\) graphify-out\\\\ast_extract.py)"
+      "PowerShell($content = [System.IO.File]::ReadAllText\\(\"d:\\\\myboost2.0-main\\\\src\\\\pages\\\\Cs2ServicePage.tsx\"\\); $idx = $content.IndexOf\\(\"4.9\"\\); if \\($idx -ge 0\\) { $snippet = $content.Substring\\($idx-5, 30\\); $bytes = [System.Text.Encoding]::UTF8.GetBytes\\($snippet\\); \\($bytes | ForEach-Object { '{0:X2}' -f $_ }\\) -join ' ' })"
     ],
     "additionalDirectories": [
       "\\tmp"

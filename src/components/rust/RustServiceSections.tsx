@@ -19,7 +19,6 @@ import {
 } from "@/data/rustServices";
 import { rustServiceMeta } from "@/data/rustServiceMeta";
 import { rustSEO } from "@/data/rustSEO";
-import { HUB_PATHS } from "@/lib/serviceRoutes";
 import {
   Accordion,
   AccordionContent,
@@ -43,7 +42,7 @@ export const RustBreadcrumbs = ({ service }: BaseProps) => {
         </li>
         <ChevronRight className="h-3 w-3 opacity-60" />
         <li>
-          <Link to={HUB_PATHS.rust} className="transition-colors hover:text-primary">
+          <Link to="/game/rust" className="transition-colors hover:text-primary">
             Rust
           </Link>
         </li>
@@ -52,7 +51,7 @@ export const RustBreadcrumbs = ({ service }: BaseProps) => {
             <ChevronRight className="h-3 w-3 opacity-60" />
             <li>
               <Link
-                to={`${HUB_PATHS.rust}#category-${category.id}`}
+                to={`/game/rust#category-${category.id}`}
                 className="transition-colors hover:text-primary"
               >
                 {category.title}

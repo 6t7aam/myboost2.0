@@ -14,18 +14,10 @@ if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
 
 export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
   auth: {
-    ...(typeof window !== "undefined"
-      ? {
-          storage: window.localStorage,
-          persistSession: true,
-          autoRefreshToken: true,
-          detectSessionInUrl: true,
-        }
-      : {
-          persistSession: false,
-          autoRefreshToken: false,
-          detectSessionInUrl: false,
-        }),
+    storage: localStorage,
+    persistSession: true,
+    autoRefreshToken: true,
+    detectSessionInUrl: true,
   },
   global: {
     headers: {

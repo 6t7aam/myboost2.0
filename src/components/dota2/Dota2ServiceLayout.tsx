@@ -30,7 +30,6 @@ import {
   Dota2SeoSection,
   Dota2FooterTrustBadges,
 } from "./Dota2ServiceSections";
-import { HUB_PATHS } from "@/lib/serviceRoutes";
 
 interface Dota2ServiceLayoutProps {
   serviceId: string;
@@ -63,7 +62,7 @@ const Dota2ServiceLayout = ({
         {/* Back link + breadcrumbs */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-4">
           <Link
-            to={HUB_PATHS["dota-2"]}
+            to="/game/dota-2"
             className="inline-flex items-center gap-1.5 rounded-full border border-border/50 bg-card/50 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm transition-colors hover:border-primary/50 hover:text-primary"
           >
             <ArrowLeft className="h-3.5 w-3.5" /> Back to Dota 2 Services

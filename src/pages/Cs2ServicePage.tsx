@@ -98,6 +98,13 @@ const Cs2ServicePage = () => {
             availability: "https://schema.org/InStock",
             areaServed: "Worldwide",
           },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: 4.9,
+            reviewCount: 2400,
+            bestRating: 5,
+            worstRating: 1,
+          },
         }}
       />
       <Cs2ServiceLayout

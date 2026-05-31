@@ -9,7 +9,6 @@ import { useScrolled } from "@/hooks/useScrolled";
 import { useUnreadOrderMessages } from "@/hooks/useUnreadOrderMessages";
 import { useSoundPreference } from "@/hooks/useSoundPreference";
 import { playMessageSound, getAudioContextState } from "@/lib/notificationSounds";
-import { HUB_PATHS } from "@/lib/serviceRoutes";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -41,13 +40,6 @@ const Navbar = () => {
     { label: "FAQ", href: "#faq" },
   ];
 
-  const landingLinks = [
-    { label: "Rust Boosting", to: HUB_PATHS.rust },
-    { label: "Dota 2 Boosting", to: HUB_PATHS["dota-2"] },
-    { label: "CS2 Boosting", to: HUB_PATHS.cs2 },
-    { label: "Arena Breakout Boosting", to: HUB_PATHS["arena-breakout"] },
-  ];
-
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     if (location.pathname !== "/") {
@@ -73,14 +65,6 @@ const Navbar = () => {
             <button key={l.href} onClick={() => handleNavClick(l.href)} className="nav-link relative text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-primary">
               {l.label}
             </button>
-          ))}
-        </div>
-
-        <div className="hidden items-center gap-3 xl:flex">
-          {landingLinks.map((link) => (
-            <Link key={link.to} to={link.to} className="text-xs font-bold uppercase tracking-wider text-muted-foreground transition-colors duration-200 hover:text-primary">
-              {link.label}
-            </Link>
           ))}
         </div>
 
@@ -171,11 +155,6 @@ const Navbar = () => {
             <button key={l.href} onClick={() => handleNavClick(l.href)} className="block w-full py-3 text-left text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-primary hover:translate-x-2 border-b border-border/30">
               {l.label}
             </button>
-          ))}
-          {landingLinks.map((link) => (
-            <Link key={link.to} to={link.to} onClick={() => setMobileOpen(false)} className="block w-full py-3 text-left text-sm font-bold text-primary transition-all duration-300 hover:text-primary/80 hover:translate-x-2 border-b border-border/30">
-              {link.label}
-            </Link>
           ))}
           <Link to="/cart" onClick={() => setMobileOpen(false)} className="block w-full py-3 text-left text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-primary hover:translate-x-2 border-b border-border/30">
             Cart {itemCount > 0 && `(${itemCount})`}

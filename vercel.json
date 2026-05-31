@@ -10,46 +10,6 @@
       ],
       "destination": "https://www.myboost.top/:path*",
       "permanent": true
-    },
-    {
-      "source": "/game/rust",
-      "destination": "/rust-boosting",
-      "permanent": true
-    },
-    {
-      "source": "/game/dota-2",
-      "destination": "/dota-2-boosting",
-      "permanent": true
-    },
-    {
-      "source": "/game/cs2",
-      "destination": "/cs2-boosting",
-      "permanent": true
-    },
-    {
-      "source": "/game/arena-breakout",
-      "destination": "/arena-breakout-boosting",
-      "permanent": true
-    },
-    {
-      "source": "/arena-breakout-infinite-boosting",
-      "destination": "/arena-breakout-boosting",
-      "permanent": true
-    },
-    {
-      "source": "/buy-arena-breakout-infinite-koens",
-      "destination": "/arena-breakout-koens",
-      "permanent": true
-    },
-    {
-      "source": "/arena-breakout-infinite-raids-boost",
-      "destination": "/arena-breakout-raids",
-      "permanent": true
-    },
-    {
-      "source": "/arena-breakout-infinite-coaching",
-      "destination": "/arena-breakout-coaching",
-      "permanent": true
     }
   ],
   "rewrites": [

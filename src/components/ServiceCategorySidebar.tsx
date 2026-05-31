@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import { gameConfigs } from "@/data/gameConfigs";
-import { getCs2ServicePath, getDota2ServicePath } from "@/lib/serviceRoutes";
 
 interface ServiceLink {
   label: string;
@@ -8,14 +7,14 @@ interface ServiceLink {
 }
 
 const DOTA_2_SERVICE_LINKS: ServiceLink[] = [
-  { label: "MMR Boost", path: getDota2ServicePath("mmr-boost") },
-  { label: "Coaching", path: getDota2ServicePath("coaching") },
-  { label: "Calibration Boost", path: getDota2ServicePath("calibration-boost") },
-  { label: "Low Priority Removal", path: getDota2ServicePath("lp-removal") },
-  { label: "Behavior Score", path: getDota2ServicePath("behavior-score-boost") },
-  { label: "Win Rate Boost", path: getDota2ServicePath("win-rate-boost") },
-  { label: "Battle Cup", path: getDota2ServicePath("battle-cup") },
-  { label: "Rank Tokens", path: getDota2ServicePath("rank-tokens") },
+  { label: "MMR Boost", path: "/game/dota-2/mmr-boost" },
+  { label: "Coaching", path: "/game/dota-2/coaching" },
+  { label: "Calibration Boost", path: "/game/dota-2/calibration-boost" },
+  { label: "Low Priority Removal", path: "/game/dota-2/lp-removal" },
+  { label: "Behavior Score", path: "/game/dota-2/behavior-score-boost" },
+  { label: "Win Rate Boost", path: "/game/dota-2/win-rate-boost" },
+  { label: "Battle Cup", path: "/game/dota-2/battle-cup" },
+  { label: "Rank Tokens", path: "/game/dota-2/rank-tokens" },
 ];
 
 const ARENA_BREAKOUT_SERVICE_LINKS: ServiceLink[] = gameConfigs["arena-breakout"].services.map((service) => ({
@@ -25,7 +24,7 @@ const ARENA_BREAKOUT_SERVICE_LINKS: ServiceLink[] = gameConfigs["arena-breakout"
 
 const CS2_SERVICE_LINKS: ServiceLink[] = gameConfigs["cs2"].services.map((service) => ({
   label: service.name,
-  path: getCs2ServicePath(service.id),
+  path: `/game/cs2/${service.id}`,
 }));
 
 const gameServices: Record<string, ServiceLink[]> = {
@@ -36,9 +35,6 @@ const gameServices: Record<string, ServiceLink[]> = {
 
 const gameAliases: Record<string, string> = {
   "arena-breakout-infinite": "arena-breakout",
-  "arena-breakout-boosting": "arena-breakout",
-  "dota-2-boosting": "dota-2",
-  "cs2-boosting": "cs2",
 };
 
 const normalizePath = (path: string) => path.replace(/\/+$/, "");
@@ -50,13 +46,11 @@ const getCurrentGameSlug = (pathname: string) => {
   }
 
   if (
-    pathname.startsWith("/arena-breakout-")
+    pathname.startsWith("/arena-breakout-infinite-") ||
+    pathname.startsWith("/buy-arena-breakout-infinite-")
   ) {
     return "arena-breakout";
   }
-
-  if (pathname === "/dota-2-boosting") return "dota-2";
-  if (pathname === "/cs2-boosting") return "cs2";
 
   return null;
 };
