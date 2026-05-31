@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import GameCards from "@/components/GameCards";
 import HowItWorks from "@/components/HowItWorks";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import Reviews from "@/components/Reviews";
 import FAQ from "@/components/FAQ";
 import ArenaBreakoutGuides from "@/components/ArenaBreakoutGuides";
 import Footer from "@/components/Footer";
@@ -47,7 +46,6 @@ const Index = () => {
         <Reveal><GameCards /></Reveal>
         <Reveal><HowItWorks /></Reveal>
         <Reveal><WhyChooseUs /></Reveal>
-        <Reveal><Reviews /></Reveal>
         <Reveal><FAQ /></Reveal>
         <Reveal><ArenaBreakoutGuides /></Reveal>
         <Footer />

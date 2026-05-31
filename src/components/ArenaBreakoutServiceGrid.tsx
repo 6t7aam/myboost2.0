@@ -5,9 +5,8 @@ import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, ArrowRight, CheckCircle, Star, Zap } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, Zap } from "lucide-react";
 import { GameConfig } from "@/data/gameConfigs";
-import { useCountUp } from "@/hooks/useCountUp";
 import {
   getArenaServiceSale,
   getArenaRaidSale,
@@ -18,23 +17,6 @@ interface ArenaBreakoutServiceGridProps {
   config: GameConfig;
 }
 
-interface StatBadgeProps {
-  Icon: typeof CheckCircle;
-  value: string;
-  label: string;
-  fill?: boolean;
-}
-
-const StatBadge = ({ Icon, value, label, fill }: StatBadgeProps) => {
-  const animated = useCountUp(value, 1500);
-  return (
-    <div className="stat-badge flex items-center gap-2 rounded-lg border border-border/50 bg-card/50 px-3 py-1.5 text-sm backdrop-blur-sm">
-      <Icon className={`h-4 w-4 text-primary ${fill ? "fill-primary" : ""}`} />
-      <span className="font-semibold text-foreground tabular-nums">{animated}</span>
-      <span className="text-muted-foreground">{label}</span>
-    </div>
-  );
-};
 
 const ArenaBreakoutServiceGrid = ({ config }: ArenaBreakoutServiceGridProps) => {
   return (
@@ -65,9 +47,16 @@ const ArenaBreakoutServiceGrid = ({ config }: ArenaBreakoutServiceGridProps) => 
           </h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">{config.subtitle}</p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <StatBadge Icon={CheckCircle} value={config.stats.orders} label="orders" />
-            <StatBadge Icon={Star} value={config.stats.rating} label="rating" fill />
-            <StatBadge Icon={Zap} value={config.stats.speed} label="avg. delivery" />
+            <div className="stat-badge flex items-center gap-2 rounded-lg border border-border/50 bg-card/50 px-3 py-1.5 text-sm backdrop-blur-sm">
+              <Zap className="h-4 w-4 text-primary" />
+              <span className="font-semibold text-foreground">Fast Start</span>
+              <span className="text-muted-foreground">within 15 min</span>
+            </div>
+            <div className="stat-badge flex items-center gap-2 rounded-lg border border-border/50 bg-card/50 px-3 py-1.5 text-sm backdrop-blur-sm">
+              <CheckCircle className="h-4 w-4 text-primary" />
+              <span className="font-semibold text-foreground">Manual Only</span>
+              <span className="text-muted-foreground">no bots</span>
+            </div>
           </div>
         </div>
       </section>

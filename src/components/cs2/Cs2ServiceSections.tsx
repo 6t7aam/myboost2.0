@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Check, ChevronRight, Shield, Wallet, BadgeCheck, Headset, Star, Zap } from "lucide-react";
+import { Check, ChevronRight, Shield, ShieldCheck, Wallet, BadgeCheck, Headset, Star, Zap } from "lucide-react";
 import { gameConfigs } from "@/data/gameConfigs";
 import { cs2ServiceMeta } from "@/data/cs2ServiceMeta";
 
@@ -36,21 +36,15 @@ export const Cs2TrustBar = ({ serviceId }: BaseProps) => {
   return (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] text-muted-foreground">
       <div className="flex items-center gap-1.5">
-        <span className="flex items-center text-primary">
-          {[0, 1, 2, 3, 4].map((i) => (
-            <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" />
-          ))}
-        </span>
-        <span className="font-semibold text-foreground">{cs2Config.stats.rating} / 5</span>
+        <ShieldCheck className="h-3.5 w-3.5 text-primary" />
+        <span className="font-semibold text-foreground">Manual Service</span>
       </div>
-      <span className="opacity-40">|</span>
-      <span>
-        <span className="font-semibold text-foreground">{cs2Config.stats.orders}</span> completed orders
-      </span>
       <span className="opacity-40">|</span>
       <span>
         <span className="font-semibold text-foreground">{service?.estimatedTime ?? cs2Config.stats.speed}</span> delivery
       </span>
+      <span className="opacity-40">|</span>
+      <span className="font-semibold text-foreground">Refund Guarantee</span>
     </div>
   );
 };

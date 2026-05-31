@@ -1,4 +1,4 @@
-import { Zap, ShieldCheck, Trophy, Users } from "lucide-react";
+import { Zap, ShieldCheck, Trophy } from "lucide-react";
 import Particles from "@/components/Particles";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -37,7 +37,7 @@ const Hero = () => {
           className="mx-auto inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm text-primary mb-8 glow-box backdrop-blur-cyber"
         >
           <Zap className="h-4 w-4 animate-pulse" />
-          <span className="font-semibold">Trusted by 10,000+ Players</span>
+          <span className="font-semibold">Orders Start in 15 Minutes</span>
         </motion.div>
 
         <motion.h1
@@ -100,7 +100,6 @@ const Hero = () => {
             { Icon: ShieldCheck, label: "100% Safe" },
             { Icon: Zap, label: "15 min start" },
             { Icon: Trophy, label: "Verified PRO Players" },
-            { Icon: Users, label: "10,000+ orders" },
           ].map(({ Icon, label }, i) => (
             <motion.span
               key={label}

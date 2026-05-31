@@ -13,12 +13,10 @@ import {
   PackageCheck,
   Shield,
   ShieldCheck,
-  Star,
   Truck,
   Wifi,
   Zap,
 } from "lucide-react";
-import { useCountUp } from "@/hooks/useCountUp";
 import {
   Accordion,
   AccordionContent,
@@ -28,29 +26,11 @@ import {
 import {
   RUST_CATEGORIES,
   RUST_HERO_IMAGE,
-  RUST_STATS,
   getRustServicesByCategory,
 } from "@/data/rustServices";
 import RustCategorySidebar from "@/components/rust/RustCategorySidebar";
 import RustServiceCard from "@/components/rust/RustServiceCard";
 
-interface StatBadgeProps {
-  Icon: typeof CheckCircle;
-  value: string;
-  label: string;
-  fill?: boolean;
-}
-
-const StatBadge = ({ Icon, value, label, fill }: StatBadgeProps) => {
-  const animated = useCountUp(value, 1500);
-  return (
-    <div className="stat-badge flex items-center gap-2 rounded-lg border border-primary/20 bg-card/60 px-3 py-1.5 text-sm backdrop-blur-sm">
-      <Icon className={`h-4 w-4 text-primary ${fill ? "fill-primary" : ""}`} />
-      <span className="font-semibold text-foreground tabular-nums">{animated}</span>
-      <span className="text-muted-foreground">{label}</span>
-    </div>
-  );
-};
 
 const TRUST_BADGES = [
   { icon: ShieldCheck, label: "SSL Secure" },
@@ -162,9 +142,16 @@ const RustHubPage = () => {
               — all manual, all secure, all backed by our refund guarantee.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <StatBadge Icon={CheckCircle} value={RUST_STATS.orders} label="orders" />
-              <StatBadge Icon={Star} value={RUST_STATS.rating} label="rating" fill />
-              <StatBadge Icon={Zap} value={RUST_STATS.speed} label="avg. delivery" />
+              <div className="stat-badge flex items-center gap-2 rounded-lg border border-primary/20 bg-card/60 px-3 py-1.5 text-sm backdrop-blur-sm">
+                <Zap className="h-4 w-4 text-primary" />
+                <span className="font-semibold text-foreground">Fast Start</span>
+                <span className="text-muted-foreground">within 15 min</span>
+              </div>
+              <div className="stat-badge flex items-center gap-2 rounded-lg border border-primary/20 bg-card/60 px-3 py-1.5 text-sm backdrop-blur-sm">
+                <CheckCircle className="h-4 w-4 text-primary" />
+                <span className="font-semibold text-foreground">Manual Only</span>
+                <span className="text-muted-foreground">no bots</span>
+              </div>
             </div>
 
             {/* Trust pills */}

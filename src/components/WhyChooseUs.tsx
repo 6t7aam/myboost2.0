@@ -4,9 +4,9 @@ import { Card, CardContent } from "@/components/ui/card";
 const features = [
   { icon: Zap, title: "Fast Delivery", description: "Most orders start within 15 minutes and complete in hours.", badge: "2-6 hrs avg" },
   { icon: Shield, title: "Secure Payments", description: "Crypto & card options with full payment protection.", badge: "100% safe" },
-  { icon: Trophy, title: "Verified PRO Players", description: "Top 0.1% verified players with thousands of orders.", badge: "500+ pros" },
-  { icon: Users, title: "10,000+ Players", description: "Trusted by thousands of gamers worldwide every day.", badge: "10k+ done" },
-  { icon: Clock, title: "24/7 Support", description: "Live Discord support around the clock. Always here.", badge: "< 2 min" },
+  { icon: Trophy, title: "Verified PRO Players", description: "Every player is manually vetted and monitored for quality.", badge: "Top tier" },
+  { icon: Users, title: "Global Coverage", description: "PRO players available across all regions and time zones.", badge: "24/7" },
+  { icon: Clock, title: "Live Support", description: "Live Discord support around the clock. Always here.", badge: "< 2 min" },
   { icon: CreditCard, title: "Money Back", description: "Not satisfied? Get a full refund. No questions asked.", badge: "Guaranteed" },
 ];
 

@@ -27,22 +27,20 @@ interface EmbeddableProps extends BaseProps {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Trust bar — ★ 4.9 | 1,500,000+ boosts | 15 min start                      */
+/*  Trust bar — Manual Service | 15 min start | Refund Guarantee               */
 /* -------------------------------------------------------------------------- */
 export const Dota2TrustBar = () => (
   <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] text-muted-foreground">
     <div className="flex items-center gap-1.5">
-      <span className="flex items-center text-primary">
-        {[0, 1, 2, 3, 4].map((i) => (
-          <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" />
-        ))}
-      </span>
-      <span className="font-semibold text-foreground">4.9 / 5</span>
+      <ShieldCheck className="h-3.5 w-3.5 text-primary" />
+      <span className="font-semibold text-foreground">Manual Service</span>
     </div>
     <span className="opacity-40">|</span>
     <span>
       <span className="font-semibold text-foreground">15 min</span> average start time
     </span>
+    <span className="opacity-40">|</span>
+    <span className="font-semibold text-foreground">Refund Guarantee</span>
   </div>
 );
 

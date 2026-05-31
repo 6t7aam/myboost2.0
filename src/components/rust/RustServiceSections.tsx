@@ -69,20 +69,16 @@ export const RustBreadcrumbs = ({ service }: BaseProps) => {
 export const RustTrustBar = ({ service }: BaseProps) => (
   <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] text-muted-foreground">
     <div className="flex items-center gap-1.5">
-      <span className="flex items-center text-primary">
-        {[0, 1, 2, 3, 4].map((i) => (
-          <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" />
-        ))}
-      </span>
-      <span className="font-semibold text-foreground">{service.rating} / 5</span>
+      <ShieldCheck className="h-3.5 w-3.5 text-primary" />
+      <span className="font-semibold text-foreground">Manual Service</span>
     </div>
     <span className="opacity-40">|</span>
     <span>
-      <span className="font-semibold text-foreground">{RUST_STATS.orders}</span> completed orders
+      <span className="font-semibold text-foreground">{service.delivery}</span> delivery
     </span>
     <span className="opacity-40">|</span>
     <span>
-      <span className="font-semibold text-foreground">{service.delivery}</span> delivery
+      <span className="font-semibold text-foreground">Refund Guarantee</span>
     </span>
   </div>
 );
