@@ -77,6 +77,20 @@ const discord = async (
   return res;
 };
 
+// Delete an order's Discord thread. Treats 404 (already gone) as success so a
+// re-fired webhook is idempotent.
+const deleteThread = async (threadId: string) => {
+  const botToken = env("DISCORD_BOT_TOKEN");
+  const res = await discord(`/channels/${threadId}`, { botToken, method: "DELETE" });
+  if (res.ok || res.status === 404) {
+    console.log(`Deleted Discord thread ${threadId} (status ${res.status}).`);
+    return json({ ok: true, deleted_thread: threadId, status: res.status });
+  }
+  const detail = await res.clone().text();
+  console.error(`Failed to delete Discord thread ${threadId}: ${res.status} ${detail}`);
+  return json({ ok: false, error: "failed to delete thread", status: res.status, detail }, 502);
+};
+
 // Discord channel/thread names: <=100 chars, no leading/trailing whitespace.
 const buildThreadName = (order: OrderRecord) => {
   const game = (order.game ?? "order").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -195,6 +209,16 @@ const handleInsert = async (order: OrderRecord) => {
   return json({ ok: true, thread_id: threadId });
 };
 
+// On a hard DELETE, remove the linked thread.
+const handleDelete = async (old: OrderRecord | null) => {
+  if (!old?.discord_thread_id) {
+    console.log(`Delete event: order ${old?.id ?? "?"} had no discord_thread_id — skipping.`);
+    return json({ ok: true, skipped: "no thread" });
+  }
+  console.log(`Order ${old.id} deleted — removing Discord thread ${old.discord_thread_id}.`);
+  return await deleteThread(old.discord_thread_id);
+};
+
 const handleUpdate = async (order: OrderRecord, old: OrderRecord | null) => {
   // Only react to status changes.
   if (old && old.status === order.status) {
@@ -204,6 +228,13 @@ const handleUpdate = async (order: OrderRecord, old: OrderRecord | null) => {
   if (!order.discord_thread_id) {
     console.log(`Order ${order.id}: no discord_thread_id on update — skipping.`);
     return json({ ok: true, skipped: "no thread" });
+  }
+
+  // Soft-delete safety net: if an order is cancelled via a status update,
+  // delete its thread too (same behaviour as a hard delete).
+  if (order.status === "cancelled" && old?.status !== "cancelled") {
+    console.log(`Order ${order.id} cancelled — removing Discord thread ${order.discord_thread_id}.`);
+    return await deleteThread(order.discord_thread_id);
   }
 
   const botToken = env("DISCORD_BOT_TOKEN");
@@ -253,6 +284,9 @@ Deno.serve(async (req) => {
     }
     if (payload.type === "UPDATE" && payload.record) {
       return await handleUpdate(payload.record, payload.old_record);
+    }
+    if (payload.type === "DELETE") {
+      return await handleDelete(payload.old_record);
     }
     return json({ ok: true, skipped: `unhandled type ${payload.type}` });
   } catch (err) {
