@@ -77,6 +77,7 @@ const SignupPage = () => {
             </Link>
           </div>
         ) : (
+          <>
           <div className="space-y-4">
             <DiscordLoginButton label="Sign up with Discord" />
             <div className="flex items-center gap-3">
@@ -142,6 +143,7 @@ const SignupPage = () => {
               Create Account
             </Button>
           </form>
+          </>
         )}
       </AuthShell>
     </>
