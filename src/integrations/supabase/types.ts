@@ -50,8 +50,13 @@ export type Database = {
       }
       orders: {
         Row: {
+          agreed_terms: boolean
+          agreed_terms_at: string | null
           booster_type: string | null
           created_at: string
+          details: string | null
+          discord_thread_id: string | null
+          game: string | null
           id: string
           pay_address: string | null
           pay_amount: number | null
@@ -65,8 +70,13 @@ export type Database = {
           valid_until: string | null
         }
         Insert: {
+          agreed_terms?: boolean
+          agreed_terms_at?: string | null
           booster_type?: string | null
           created_at?: string
+          details?: string | null
+          discord_thread_id?: string | null
+          game?: string | null
           id?: string
           pay_address?: string | null
           pay_amount?: number | null
@@ -80,8 +90,13 @@ export type Database = {
           valid_until?: string | null
         }
         Update: {
+          agreed_terms?: boolean
+          agreed_terms_at?: string | null
           booster_type?: string | null
           created_at?: string
+          details?: string | null
+          discord_thread_id?: string | null
+          game?: string | null
           id?: string
           pay_address?: string | null
           pay_amount?: number | null
@@ -100,6 +115,8 @@ export type Database = {
         Row: {
           avatar_url: string | null
           created_at: string
+          discord_id: string | null
+          discord_username: string | null
           display_name: string | null
           email: string | null
           id: string
@@ -109,6 +126,8 @@ export type Database = {
         Insert: {
           avatar_url?: string | null
           created_at?: string
+          discord_id?: string | null
+          discord_username?: string | null
           display_name?: string | null
           email?: string | null
           id?: string
@@ -118,6 +137,8 @@ export type Database = {
         Update: {
           avatar_url?: string | null
           created_at?: string
+          discord_id?: string | null
+          discord_username?: string | null
           display_name?: string | null
           email?: string | null
           id?: string

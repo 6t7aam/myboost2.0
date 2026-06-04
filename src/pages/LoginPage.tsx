@@ -8,6 +8,7 @@ import { LogIn, Loader2, Mail, Lock, ArrowLeft, KeyRound, MailCheck } from "luci
 import { Helmet } from "react-helmet-async";
 import AuthShell from "@/components/auth/AuthShell";
 import { AuthField, PasswordField } from "@/components/auth/AuthField";
+import DiscordLoginButton from "@/components/auth/DiscordLoginButton";
 
 type Mode = "login" | "forgot";
 
@@ -76,7 +77,16 @@ const LoginPage = () => {
             </p>
           }
         >
-          <form onSubmit={handleLogin} className="space-y-4">
+          <div className="space-y-4">
+            <DiscordLoginButton />
+            <div className="flex items-center gap-3">
+              <div className="h-px flex-1 bg-border/60" />
+              <span className="text-xs uppercase tracking-wider text-muted-foreground">or</span>
+              <div className="h-px flex-1 bg-border/60" />
+            </div>
+          </div>
+
+          <form onSubmit={handleLogin} className="mt-4 space-y-4">
             <AuthField
               id="login-email"
               label="Email"

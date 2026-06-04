@@ -169,11 +169,25 @@ const ManualPaymentDialog = ({
       const screenshotUrl = pub?.publicUrl;
       if (!screenshotUrl) throw new Error("Could not get screenshot URL");
 
+      const orderGame = Array.from(new Set(items.map((i) => i.game))).join(", ");
+      const orderDetails = items
+        .map((i) => {
+          const opts = Object.entries(i.options)
+            .map(([k, v]) => `${k}: ${v}`)
+            .join(", ");
+          return opts ? `${i.game} — ${i.service} (${opts})` : `${i.game} — ${i.service}`;
+        })
+        .join("\n");
+
       const orderInsert: Record<string, unknown> = {
         user_id: user.id,
         service: serviceName,
+        game: orderGame,
+        details: orderDetails,
         price: finalPrice,
         status: "pending_verification",
+        agreed_terms: true,
+        agreed_terms_at: new Date().toISOString(),
         payment_method: "manual_card",
         manual_order_code: orderCode,
         payment_screenshot_url: screenshotUrl,

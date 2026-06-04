@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { ShieldCheck, Zap, ArrowLeft, Loader2, CreditCard, Lock, CheckCircle2, Bitcoin } from "lucide-react";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
@@ -31,7 +32,36 @@ const OrderPage = () => {
   const [processing, setProcessing] = useState(false);
   const [cardPaymentProcessing, setCardPaymentProcessing] = useState(false);
   const [manualOpen, setManualOpen] = useState(false);
+  const [agreedTerms, setAgreedTerms] = useState(false);
+  const [showConsentError, setShowConsentError] = useState(false);
   const reducedMotion = useReducedMotion();
+
+  // Shared guard: require login (with redirect) and explicit consent before
+  // any order can be created. Returns true when it's safe to proceed.
+  const ensureCanOrder = () => {
+    if (!user) {
+      toast.error("Please log in to place an order.");
+      navigate("/login");
+      return false;
+    }
+    if (!agreedTerms) {
+      setShowConsentError(true);
+      toast.error("Please agree to the Terms of Service and Privacy Policy.");
+      return false;
+    }
+    return true;
+  };
+
+  // Game(s) and human-readable details derived from the cart for the order row.
+  const orderGame = Array.from(new Set(items.map((i) => i.game))).join(", ");
+  const orderDetails = items
+    .map((i) => {
+      const opts = Object.entries(i.options)
+        .map(([k, v]) => `${k}: ${v}`)
+        .join(", ");
+      return opts ? `${i.game} — ${i.service} (${opts})` : `${i.game} — ${i.service}`;
+    })
+    .join("\n");
 
   const successAndRedirect = (orderId: string, openChat = true, instant = false) => {
     toast.success(
@@ -70,21 +100,21 @@ const OrderPage = () => {
   }
 
   const handleCardPayment = async () => {
-    if (!user) {
-      toast.error("Please log in to place an order.");
-      navigate("/login");
-      return;
-    }
+    if (!ensureCanOrder()) return;
 
     setCardPaymentProcessing(true);
 
     try {
       const serviceName = items.map((i) => `${i.game} — ${i.service}`).join(", ");
       const orderInsert: any = {
-        user_id: user.id,
+        user_id: user!.id,
         service: serviceName,
+        game: orderGame,
+        details: orderDetails,
         price: finalPrice,
-        status: "pending",
+        status: isFreeOrder ? "pending" : "pending_payment",
+        agreed_terms: true,
+        agreed_terms_at: new Date().toISOString(),
         payment_method: isFreeOrder ? "promo" : "card",
         order_details: {
           items: items.map((i) => ({
@@ -116,7 +146,7 @@ const OrderPage = () => {
       if (promoCode) {
         await supabase.rpc("increment_promo_usage" as any, { _code: promoCode.code });
         await supabase.from("promo_code_usage" as any).insert({
-          user_id: user.id,
+          user_id: user!.id,
           promo_code: promoCode.code,
         });
       }
@@ -133,21 +163,21 @@ const OrderPage = () => {
   };
 
   const handlePay = async () => {
-    if (!user) {
-      toast.error("Please log in to place an order.");
-      navigate("/login");
-      return;
-    }
+    if (!ensureCanOrder()) return;
 
     setProcessing(true);
 
     try {
       const serviceName = items.map((i) => `${i.game} — ${i.service}`).join(", ");
       const orderInsert: any = {
-        user_id: user.id,
+        user_id: user!.id,
         service: serviceName,
+        game: orderGame,
+        details: orderDetails,
         price: finalPrice,
-        status: "pending",
+        status: "pending_payment",
+        agreed_terms: true,
+        agreed_terms_at: new Date().toISOString(),
         payment_method: "crypto",
         order_details: {
           items: items.map((i) => ({
@@ -179,7 +209,7 @@ const OrderPage = () => {
       if (promoCode) {
         await supabase.rpc("increment_promo_usage" as any, { _code: promoCode.code });
         await supabase.from("promo_code_usage" as any).insert({
-          user_id: user.id,
+          user_id: user!.id,
           promo_code: promoCode.code,
         });
       }
@@ -353,6 +383,32 @@ const OrderPage = () => {
                 transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="flex flex-col"
               >
+                {/* Mandatory Terms / Privacy consent — gates every payment path */}
+                <div className="mb-5 rounded-xl border border-border/50 bg-card/40 p-4">
+                  <div className="flex items-start gap-2.5">
+                    <Checkbox
+                      id="order-consent"
+                      checked={agreedTerms}
+                      onCheckedChange={(v) => {
+                        setAgreedTerms(v === true);
+                        if (v) setShowConsentError(false);
+                      }}
+                      className="mt-0.5 border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                    />
+                    <label htmlFor="order-consent" className="cursor-pointer select-none text-xs leading-snug text-muted-foreground">
+                      I agree to the{" "}
+                      <Link to="/terms" target="_blank" className="text-primary hover:underline">Terms of Service</Link>{" "}
+                      and{" "}
+                      <Link to="/privacy" target="_blank" className="text-primary hover:underline">Privacy Policy</Link>.
+                    </label>
+                  </div>
+                  {showConsentError && (
+                    <p className="mt-2 pl-7 text-xs text-destructive">
+                      You must agree to the Terms of Service and Privacy Policy before ordering.
+                    </p>
+                  )}
+                </div>
+
                 {isFreeOrder ? (
                   <div className="flex flex-1 flex-col rounded-2xl border border-primary/30 bg-primary/5 p-6">
                     <div className="flex-1 text-center flex flex-col items-center justify-center">
@@ -365,7 +421,7 @@ const OrderPage = () => {
                     </div>
                     <Button
                       onClick={handleCardPayment}
-                      disabled={cardPaymentProcessing}
+                      disabled={cardPaymentProcessing || !agreedTerms}
                       className="btn-yellow cta-pulse w-full gap-2 rounded-lg font-bold uppercase tracking-wider"
                       style={{ height: "54px", fontSize: "16px" }}
                     >
@@ -439,7 +495,7 @@ const OrderPage = () => {
                         <div className="mt-auto pt-5">
                           <Button
                             onClick={handlePay}
-                            disabled={processing}
+                            disabled={processing || !agreedTerms}
                             className="btn-yellow cta-pulse w-full gap-2 rounded-lg font-bold uppercase tracking-wider"
                             style={{ height: "54px", fontSize: "16px" }}
                           >
@@ -477,7 +533,8 @@ const OrderPage = () => {
                         </div>
                         <div className="mt-5">
                           <Button
-                            onClick={() => setManualOpen(true)}
+                            onClick={() => { if (ensureCanOrder()) setManualOpen(true); }}
+                            disabled={!agreedTerms}
                             type="button"
                             className="btn-yellow cta-pulse w-full gap-2 rounded-lg font-bold uppercase tracking-wider"
                             style={{

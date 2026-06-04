@@ -1,1 +1,6 @@
 project_id = "mujdvutnjxvaujzeoudn"
+
+# order-sync is invoked by a Database Webhook (not an end user), so it does not
+# require a Supabase JWT. It is protected by ORDER_SYNC_WEBHOOK_SECRET instead.
+[functions.order-sync]
+verify_jwt = false

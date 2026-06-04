@@ -34,8 +34,11 @@ const DevTestOrderCreator = () => {
         .insert({
           user_id: user.id,
           service: "Test Order - Arena Breakout: Infinite Koens Farming",
+          game: "Arena Breakout Infinite",
           price: 99.99,
           status: "pending",
+          agreed_terms: true,
+          agreed_terms_at: new Date().toISOString(),
           booster_type: "Test Booster",
         })
         .select()

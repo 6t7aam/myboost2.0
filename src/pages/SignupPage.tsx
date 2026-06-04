@@ -8,6 +8,7 @@ import { UserPlus, Loader2, Mail, Lock, MailCheck } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import AuthShell from "@/components/auth/AuthShell";
 import { AuthField, PasswordField } from "@/components/auth/AuthField";
+import DiscordLoginButton from "@/components/auth/DiscordLoginButton";
 
 const SignupPage = () => {
   const [email, setEmail] = useState("");
@@ -76,7 +77,16 @@ const SignupPage = () => {
             </Link>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-4">
+            <DiscordLoginButton label="Sign up with Discord" />
+            <div className="flex items-center gap-3">
+              <div className="h-px flex-1 bg-border/60" />
+              <span className="text-xs uppercase tracking-wider text-muted-foreground">or</span>
+              <div className="h-px flex-1 bg-border/60" />
+            </div>
+          </div>
+
+          <form onSubmit={handleSubmit} className="mt-4 space-y-4">
             <AuthField
               id="signup-email"
               label="Email"
