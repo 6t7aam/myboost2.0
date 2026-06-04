@@ -70,7 +70,8 @@ const discord = async (
     },
   });
   if (!res.ok) {
-    const text = await res.text();
+    // Clone so the original body is still readable by the caller.
+    const text = await res.clone().text();
     console.error(`Discord ${rest.method ?? "GET"} ${path} failed: ${res.status} ${text}`);
   }
   return res;
@@ -145,7 +146,9 @@ const handleInsert = async (order: OrderRecord) => {
     }),
   });
   if (!threadRes.ok) {
-    return json({ ok: false, error: "failed to create thread" }, 502);
+    const detail = await threadRes.text();
+    console.error(`Order ${order.id}: thread creation failed ${threadRes.status}: ${detail}`);
+    return json({ ok: false, error: "failed to create thread", status: threadRes.status, detail, channel_id: channelId }, 502);
   }
   const thread = await threadRes.json();
   const threadId: string = thread.id;
