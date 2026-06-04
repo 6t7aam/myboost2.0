@@ -125,6 +125,9 @@ const handleInsert = async (order: OrderRecord) => {
   }
 
   const discordId = profile?.discord_id ?? null;
+  console.log(
+    `Order ${order.id}: profile ${profile ? "found" : "missing"} for user ${order.user_id}, resolved discord_id = ${discordId ?? "null"}.`,
+  );
   if (!discordId) {
     console.log(`Order ${order.id}: user ${order.user_id} has no linked Discord — skipping Discord sync.`);
     return json({ ok: true, skipped: "no linked discord" });

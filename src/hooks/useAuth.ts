@@ -64,15 +64,17 @@ const syncDiscordProfile = async (user: User) => {
 
   console.log("[discord] linking profile", { user_id: user.id, discord_id: discordId, discord_username: discordUsername });
 
+  // NOTE: only write columns that actually exist on the live `profiles` table
+  // (id, user_id, email, is_admin, created_at, discord_id, discord_username).
+  // Writing non-existent columns (display_name/avatar_url/updated_at) makes
+  // PostgREST reject the whole upsert, which is what previously left discord_id
+  // null for every user.
   const { error } = await supabase.from("profiles").upsert(
     {
       user_id: user.id,
       email: user.email ?? null,
       discord_id: discordId,
       discord_username: discordUsername,
-      display_name: discordUsername,
-      avatar_url: str(data.avatar_url) || str(meta.avatar_url) || null,
-      updated_at: new Date().toISOString(),
     },
     { onConflict: "user_id" }
   );
