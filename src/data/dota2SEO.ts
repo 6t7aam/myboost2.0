@@ -6,7 +6,7 @@ export interface ServiceSEO {
 }
 
 export const dota2SEO: Record<string, ServiceSEO> = {
-  "mmr-service": {
+  "mmr-boost": {
     metaTitle: "Dota 2 MMR Service - Fast Rank Up by Immortal Players | MyBoost",
     metaDescription: "Buy Dota 2 MMR Service from top Immortal & Divine players. Safe, fast rank climbing with VPN protection. Solo or duo services available. Start in 15 minutes.",
     h1: "Dota 2 MMR Service - Professional Rank Climbing Service",
@@ -160,7 +160,7 @@ export const dota2SEO: Record<string, ServiceSEO> = {
       <p>Don't waste another day grinding for rank tokens manually. Our Dota 2 rank tokens farming service delivers fast, safe, and guaranteed token collection at competitive prices. With Immortal players, real-time progress updates, and custom token amounts, you can trust us to handle your token farming efficiently. Order now and unlock your desired rank today.</p>
     `
   },
-  "calibration-service": {
+  "calibration-boost": {
     metaTitle: "Dota 2 Calibration Service - Secure Top MMR Placement | MyBoost",
     metaDescription: "Buy Dota 2 calibration service from Immortal players. Complete all calibration matches and lock in the highest possible MMR placement. Safe, fast, guaranteed.",
     h1: "Dota 2 Calibration Service - Top MMR Placement Service",
@@ -189,7 +189,7 @@ export const dota2SEO: Record<string, ServiceSEO> = {
       <p>Questions about your Dota 2 calibration service? Our support team is available around the clock via live chat. Every order comes with a satisfaction guarantee — if you're not happy with the placement, we'll make it right.</p>
     `
   },
-  "behavior-score-service": {
+  "behavior-score-boost": {
     metaTitle: "Dota 2 Behavior Score Service - Reach 12k Score Fast | MyBoost",
     metaDescription: "Buy Dota 2 behavior score service. Recover from low behavior, reach 12,000 score, and unlock full matchmaking access. Safe, reliable, ban-free service.",
     h1: "Dota 2 Behavior Score Service - Fast Recovery Service",
@@ -215,7 +215,7 @@ export const dota2SEO: Record<string, ServiceSEO> = {
       <p>Questions about your Dota 2 behavior score service? Our support team is available around the clock. Every order comes with a satisfaction guarantee — if anything goes wrong, we make it right.</p>
     `
   },
-  "win-rate-service": {
+  "win-rate-boost": {
     metaTitle: "Dota 2 Win Rate Service - Buy Wins from Immortal Players | MyBoost",
     metaDescription: "Level up your Dota 2 win rate fast. Choose the number of wins, play or spectate, and let Immortal players carry you. Safe, reliable, professional service.",
     h1: "Dota 2 Win Rate Service - Professional Wins Service",

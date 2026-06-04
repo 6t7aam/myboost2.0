@@ -5,11 +5,11 @@
  * Open Graph and Twitter strings so no two Dota 2 pages share metadata.
  *
  * Keys = route slugs as wired in App.tsx:
- *   /game/dota-2/mmr-service           → "mmr-service"
- *   /game/dota-2/calibration-service   → "calibration-service"
+ *   /game/dota-2/mmr-boost           → "mmr-boost"
+ *   /game/dota-2/calibration-boost   → "calibration-boost"
  *   /game/dota-2/lp-removal          → "lp-removal"
- *   /game/dota-2/behavior-score-service→ "behavior-score-service"
- *   /game/dota-2/win-rate-service      → "win-rate-service"
+ *   /game/dota-2/behavior-score-boost→ "behavior-score-boost"
+ *   /game/dota-2/win-rate-boost      → "win-rate-boost"
  *   /game/dota-2/battle-cup          → "battle-cup"
  *   /game/dota-2/rank-tokens         → "rank-tokens"
  *   /game/dota-2/coaching            → "coaching"
@@ -40,14 +40,14 @@ const BASE_URL = "https://www.myboost.top";
 const img = (path: string) => `${BASE_URL}${path}`;
 
 export const dota2PageSEO: Record<string, Dota2PageSEO> = {
-  "mmr-service": {
+  "mmr-boost": {
     title: "Dota 2 MMR Service – Climb Ranks with Immortals | MyBoost",
     description:
       "Buy Dota 2 MMR Service from Immortal-tier players. Solo or Duo path, 15-minute start, low behavior accounts supported. Climb Herald to Immortal safely.",
     keywords:
       "dota 2 mmr service, buy mmr service, dota 2 services, immortal service, rank services service, dota 2 rank up, dota 2 solo service, dota 2 duo service",
-    canonicalUrl: `${BASE_URL}/game/dota-2/mmr-service`,
-    ogImage: img("/images/dota2/dota2-mmr-service.webp"),
+    canonicalUrl: `${BASE_URL}/game/dota-2/mmr-boost`,
+    ogImage: img("/images/dota2/dota2-mmr-boost.webp"),
     ogTitle: "Buy Dota 2 MMR Service – Skip the Grind, Lock Your Rank",
     ogDescription:
       "Professional MMR Services by Immortal-ranked players. Position and hero flex, live match tracking, and a 100% money-back guarantee on every order.",
@@ -56,14 +56,14 @@ export const dota2PageSEO: Record<string, Dota2PageSEO> = {
       "Climb Dota 2 ranks fast. Piloted or Duo service from $3, full VPN-backed account safety, 15-minute start time.",
   },
 
-  "calibration-service": {
+  "calibration-boost": {
     title: "Dota 2 Calibration Service – Top Placement Matches | MyBoost",
     description:
       "Complete your Dota 2 calibration with Immortal players and lock in the highest possible MMR placement. Up to 30 matches, fast start, ban-safe service.",
     keywords:
       "dota 2 calibration service, calibration matches service, ranked calibration service, high mmr calibration, dota 2 placement service, dota 2 fresh account calibration",
-    canonicalUrl: `${BASE_URL}/game/dota-2/calibration-service`,
-    ogImage: img("/images/dota2/calibration-service.webp"),
+    canonicalUrl: `${BASE_URL}/game/dota-2/calibration-boost`,
+    ogImage: img("/images/dota2/calibration-boost.webp"),
     ogTitle: "Dota 2 Calibration Service – Secure a High Starting MMR",
     ogDescription:
       "Skip the placement grind. Immortal pros run your calibration games with optimal hero picks for the strongest possible starting rank.",
@@ -88,14 +88,14 @@ export const dota2PageSEO: Record<string, Dota2PageSEO> = {
       "LP queue cleared within 24 hours by veteran players. Safe, fast, no bans. From $5 per game.",
   },
 
-  "behavior-score-service": {
+  "behavior-score-boost": {
     title: "Dota 2 Behavior Score Service – Reach 12k Safely | MyBoost",
     description:
       "Recover your Dota 2 behavior score to 12,000 with clean, report-free matches. Unlock chat, voice and full ranked queue. Works from any starting score.",
     keywords:
       "behavior score service, dota 2 behavior score, improve behavior score, unlock ranked matchmaking, conduct tier service, dota 2 chat unlock, dota 2 12k score",
-    canonicalUrl: `${BASE_URL}/game/dota-2/behavior-score-service`,
-    ogImage: img("/images/dota2/behavior-score-service.webp"),
+    canonicalUrl: `${BASE_URL}/game/dota-2/behavior-score-boost`,
+    ogImage: img("/images/dota2/behavior-score-boost.webp"),
     ogTitle: "Dota 2 Behavior Score Service – Unlock Full Matchmaking",
     ogDescription:
       "Tired of long queues and toxic pools? Our pros raise your behavior score to the clean player pool — voice, chat and ranked queue all restored.",
@@ -104,14 +104,14 @@ export const dota2PageSEO: Record<string, Dota2PageSEO> = {
       "From any score up to 12,000. Clean matches only, no exploits. Full client features restored. From $5 per 1k score.",
   },
 
-  "win-rate-service": {
+  "win-rate-boost": {
     title: "Dota 2 Win Rate Service – Buy Wins from Pro Pros | MyBoost",
     description:
       "Level up your Dota 2 win rate with Immortal players. Pick 1-50 wins, play or spectate. Stop losing streaks fast with $3-per-win pricing and elite carries.",
     keywords:
       "dota 2 win rate service, ranked wins service, increase winrate dota 2, buy dota 2 wins, normal match service, dota 2 winrate carry",
-    canonicalUrl: `${BASE_URL}/game/dota-2/win-rate-service`,
-    ogImage: img("/images/dota2/win-rate-service.webp"),
+    canonicalUrl: `${BASE_URL}/game/dota-2/win-rate-boost`,
+    ogImage: img("/images/dota2/win-rate-boost.webp"),
     ogTitle: "Dota 2 Win Rate Service – Break the Losing Streak",
     ogDescription:
       "Elite Immortal pros secure your chosen number of wins in normal matchmaking. Pick play or spectate mode — wins delivered fast.",

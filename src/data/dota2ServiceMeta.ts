@@ -38,7 +38,7 @@ export interface Dota2ServiceMeta {
 }
 
 export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
-  "mmr-service": {
+  "mmr-boost": {
     serviceId: "mmr-boost",
     pageTitle: "Dota 2 MMR Service",
     badge: "POPULAR",
@@ -81,7 +81,7 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       text: "Buy Dota 2 MMR Service and climb to your chosen rank without solo loss streaks. Our professional Immortal-tier pros handle any rank tier — from Herald to Immortal — with Piloted or Duo method picked at checkout. Every order includes position and hero pool flexibility, so your preferred lane and hero picks are honored throughout the climb. Accounts with low behavior scores or unusual match counts are fully supported. The pro logs in or queues with you and runs ranked matches until the target MMR lands on your account. Backed by a 4.9/5 rating, our service is the fastest and safest way to reach your desired rank in Dota 2. Choose Express for 20% faster delivery or Super Express for 30% faster. 100% Money-Back Guarantee on every order.",
     },
   },
-  "calibration-service": {
+  "calibration-boost": {
     serviceId: "calibration-boost",
     pageTitle: "Dota 2 Calibration Service",
     badge: "NEW",
@@ -165,7 +165,7 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       text: "Buy Dota 2 Low Priority Removal and escape the LP queue fast. Our experienced LP specialists handle Single Draft games with veteran-level play, getting you back to ranked matchmaking within 24 hours using ban-safe methods. Once stuck in Low Priority, every game is Single Draft — our pros know exactly how to win these efficiently. After your order, Battle Pass progress resumes and item drops are re-enabled in normal matches. No bots, no cheats — manual services only with Smart VPN protection. Choose between Piloted (we play your account) mode. Express and Super Express delivery available. 100% Money-Back Guarantee.",
     },
   },
-  "behavior-score-service": {
+  "behavior-score-boost": {
     serviceId: "behavior-score-boost",
     pageTitle: "Dota 2 Behavior Score Service",
     badge: "SAFE",
@@ -207,7 +207,7 @@ export const dota2ServiceMeta: Record<string, Dota2ServiceMeta> = {
       text: "Stuck with a low Dota 2 behavior score? Long queue times, toxic matchmaking pools, and locked features can ruin your experience. Our professional behavior score service quickly raises your score back to 12,000 — restoring full matchmaking access and unlocking the normal Dota 2 experience again. Our pros run clean, report-free matches that reliably increase your conduct score tier. Chat and voice communications are unlocked once you reach the clean player pool threshold. Choose between 1k and 12k score increase. The service works on any account state — whether your score is near 0 or just needs a push above a threshold. Express delivery options available. Rated 4.9/5 with a 100% Money-Back Guarantee.",
     },
   },
-  "win-rate-service": {
+  "win-rate-boost": {
     serviceId: "win-rate-boost",
     pageTitle: "Dota 2 Win Rate Service",
     badge: "POPULAR",
