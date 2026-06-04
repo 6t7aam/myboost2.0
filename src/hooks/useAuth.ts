@@ -7,33 +7,62 @@ const authRedirectUrl = () =>
     ? window.location.origin
     : "https://www.myboost.top";
 
+const str = (v: unknown): string | null => (typeof v === "string" && v ? v : null);
+
 // When a user signs in with Discord, persist their Discord identity into
 // `profiles` so the order-sync Edge Function can DM/thread them later.
+//
+// NOTE on schema: this project's `profiles` has a random `id` PK plus a UNIQUE
+// `user_id` FK to auth.users, and RLS is keyed on `auth.uid() = user_id`. So we
+// upsert on `user_id` (NOT `id`) — a row already exists from the signup trigger.
 const syncDiscordProfile = async (user: User) => {
-  const discordIdentity = user.identities?.find((i) => i.provider === "discord");
-  if (!discordIdentity) return;
-
   const meta = (user.user_metadata ?? {}) as Record<string, unknown>;
-  const data = (discordIdentity.identity_data ?? {}) as Record<string, unknown>;
+  const app = (user.app_metadata ?? {}) as Record<string, unknown>;
+  const customClaims = (meta.custom_claims ?? {}) as Record<string, unknown>;
 
-  // Discord's stable user id is `provider_id` / `sub`; username can be
-  // `user_name`, `full_name`, `name`, or `custom_claims.global_name`.
+  // Find the Discord identity if present, but don't *require* it — identities
+  // are not always populated on the session user, and the same data is in
+  // user_metadata. The snowflake id is `identity.id` and/or provider_id/sub.
+  const discordIdentity = user.identities?.find((i) => i.provider === "discord");
+  const data = (discordIdentity?.identity_data ?? {}) as Record<string, unknown>;
+
+  const providers = Array.isArray(app.providers) ? (app.providers as string[]) : [];
+  const isDiscord =
+    !!discordIdentity ||
+    app.provider === "discord" ||
+    providers.includes("discord") ||
+    !!str(data.provider_id) ||
+    str(meta.iss)?.includes("discord") === true;
+
+  if (!isDiscord) return;
+
   const discordId =
-    (data.provider_id as string) ||
-    (data.sub as string) ||
-    (meta.provider_id as string) ||
-    (meta.sub as string) ||
-    null;
-  const discordUsername =
-    (data.user_name as string) ||
-    (data.full_name as string) ||
-    (data.name as string) ||
-    (meta.user_name as string) ||
-    (meta.full_name as string) ||
-    (meta.name as string) ||
+    str(discordIdentity?.id) ||
+    str(data.provider_id) ||
+    str(data.sub) ||
+    str(meta.provider_id) ||
+    str(meta.sub) ||
     null;
 
-  if (!discordId) return;
+  const discordUsername =
+    str(data.user_name) ||
+    str(data.full_name) ||
+    str(data.name) ||
+    str(customClaims.global_name) ||
+    str(meta.user_name) ||
+    str(meta.full_name) ||
+    str(meta.name) ||
+    null;
+
+  if (!discordId) {
+    console.warn("[discord] sign-in detected but could not resolve discord_id from", {
+      identity_data: data,
+      user_metadata: meta,
+    });
+    return;
+  }
+
+  console.log("[discord] linking profile", { user_id: user.id, discord_id: discordId, discord_username: discordUsername });
 
   const { error } = await supabase.from("profiles").upsert(
     {
@@ -42,13 +71,17 @@ const syncDiscordProfile = async (user: User) => {
       discord_id: discordId,
       discord_username: discordUsername,
       display_name: discordUsername,
-      avatar_url: (data.avatar_url as string) || (meta.avatar_url as string) || null,
+      avatar_url: str(data.avatar_url) || str(meta.avatar_url) || null,
       updated_at: new Date().toISOString(),
     },
     { onConflict: "user_id" }
   );
 
-  if (error) console.warn("Failed to sync Discord profile:", error.message);
+  if (error) {
+    console.error("[discord] failed to upsert profile:", error);
+  } else {
+    console.log("[discord] profile linked successfully for", user.id);
+  }
 };
 
 export const useAuth = () => {
@@ -73,6 +106,11 @@ export const useAuth = () => {
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
+      // Backfill: if an already-logged-in Discord user is missing discord_id,
+      // link it now. syncDiscordProfile no-ops for non-Discord users.
+      if (session?.user) {
+        setTimeout(() => { void syncDiscordProfile(session.user); }, 0);
+      }
     });
 
     return () => subscription.unsubscribe();
