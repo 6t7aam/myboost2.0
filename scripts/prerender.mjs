@@ -190,39 +190,37 @@ async function main() {
     const routes = [...discovered].sort();
     console.log(`Discovered ${routes.length} indexable routes.`);
 
-    // 3) Render each route and write static HTML. Use a fresh tab per route so
-    // no SPA state (e.g. a previous page's <title>) can bleed across renders.
+    // 3) Render each route and write static HTML. Reuse a single page: each
+    // `page.goto` performs a full document load (so no SPA state bleeds across
+    // routes), and every page sets its own <title>. We must NOT open/close a page
+    // per route — on Vercel's single-process sparticuz Chromium, closing the last
+    // page terminates the whole browser.
     for (const route of routes) {
       const url = ORIGIN + route;
-      const rp = await browser.newPage();
       try {
-        try {
-          await rp.goto(url, { waitUntil: "networkidle", timeout: 45000 });
-        } catch {
-          await rp.goto(url, { waitUntil: "domcontentloaded", timeout: 45000 });
-        }
-        // Wait for the app to mount and Helmet to apply head tags.
-        await rp.waitForFunction(
-          () => {
-            const root = document.getElementById("root");
-            return !!root && root.childElementCount > 0 && !!document.title;
-          },
-          { timeout: 20000 }
-        ).catch(() => {});
-        await rp.waitForTimeout(400);
-
-        let html = await rp.content();
-        // Normalise localhost origin if it leaked into any absolute URL.
-        html = html.replaceAll(ORIGIN, BASE_URL);
-        html = dedupeHead(html);
-
-        const file = distFileFor(route);
-        fs.mkdirSync(path.dirname(file), { recursive: true });
-        fs.writeFileSync(file, html);
-        console.log(`✓ ${route}`);
-      } finally {
-        await rp.close();
+        await page.goto(url, { waitUntil: "networkidle", timeout: 45000 });
+      } catch {
+        await page.goto(url, { waitUntil: "domcontentloaded", timeout: 45000 });
       }
+      // Wait for the app to mount and Helmet to apply head tags.
+      await page.waitForFunction(
+        () => {
+          const root = document.getElementById("root");
+          return !!root && root.childElementCount > 0 && !!document.title;
+        },
+        { timeout: 20000 }
+      ).catch(() => {});
+      await page.waitForTimeout(400);
+
+      let html = await page.content();
+      // Normalise localhost origin if it leaked into any absolute URL.
+      html = html.replaceAll(ORIGIN, BASE_URL);
+      html = dedupeHead(html);
+
+      const file = distFileFor(route);
+      fs.mkdirSync(path.dirname(file), { recursive: true });
+      fs.writeFileSync(file, html);
+      console.log(`✓ ${route}`);
     }
 
     await browser.close();
