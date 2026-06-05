@@ -60,6 +60,7 @@ const LoginPage = () => {
   return (
     <>
       <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://www.myboost.top/login" />
       </Helmet>
 

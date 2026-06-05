@@ -18,6 +18,8 @@ interface SEOProps {
   twitterDescription?: string;
   /** Optional twitter card type — defaults to summary_large_image. */
   twitterCard?: string;
+  /** When true, emit robots noindex,nofollow (for utility/account pages). */
+  noindex?: boolean;
 }
 
 const SEO = ({
@@ -32,6 +34,7 @@ const SEO = ({
   twitterTitle,
   twitterDescription,
   twitterCard = "summary_large_image",
+  noindex = false,
 }: SEOProps) => {
   const siteName = "MyBoost";
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
@@ -47,6 +50,7 @@ const SEO = ({
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
 
       {/* Canonical URL */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}

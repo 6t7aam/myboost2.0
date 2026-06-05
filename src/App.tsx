@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
@@ -9,37 +10,40 @@ import RouteProgressBar from "@/components/RouteProgressBar";
 import ScrollToTop from "@/components/ScrollToTop";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { getVariants, reducedVariants } from "@/lib/pageTransitions";
+// Home is eager (LCP / most-visited); every other route is code-split so the
+// initial bundle stays small. Prerender + browsers both load chunks fine.
 import Index from "./pages/Index.tsx";
-import OrderPage from "./pages/OrderPage.tsx";
-import BoosterSelectionPage from "./pages/BoosterSelectionPage.tsx";
-import OrderStatusPage from "./pages/OrderStatusPage.tsx";
-import GamePage from "./pages/GamePage.tsx";
-import Cs2ServicePage from "./pages/Cs2ServicePage.tsx";
-import ArenaBreakoutServicePage from "./pages/ArenaBreakoutServicePage.tsx";
-import Dota2ServicePage from "./pages/Dota2ServicePage.tsx";
-import RustServicePage from "./pages/RustServicePage.tsx";
-import RustHubPage from "./pages/RustHubPage.tsx";
-import ArenaBreakoutInfiniteBoostingPage from "./pages/ArenaBreakoutInfiniteBoostingPage.tsx";
-import BuyArenaBreakoutInfiniteKoensPage from "./pages/BuyArenaBreakoutInfiniteKoensPage.tsx";
-import ArenaBreakoutInfiniteRaidsBoostPage from "./pages/ArenaBreakoutInfiniteRaidsBoostPage.tsx";
-import ArenaBreakoutInfiniteCoachingPage from "./pages/ArenaBreakoutInfiniteCoachingPage.tsx";
-import Dota2MMRBoostPage from "./pages/Dota2MMRBoostPage.tsx";
-import Dota2LPRemovalPage from "./pages/Dota2LPRemovalPage.tsx";
-import Dota2RankTokensPage from "./pages/Dota2RankTokensPage.tsx";
-import Dota2CoachingPage from "./pages/Dota2CoachingPage.tsx";
-import CartPage from "./pages/CartPage.tsx";
-import AdminPage from "./pages/AdminPage.tsx";
-import AdminOrderDetailsPage from "./pages/AdminOrderDetailsPage.tsx";
-import LoginPage from "./pages/LoginPage.tsx";
-import SignupPage from "./pages/SignupPage.tsx";
-import UpdatePasswordPage from "./pages/UpdatePasswordPage.tsx";
-import AccountPage from "./pages/AccountPage.tsx";
-import MyOrdersPage from "./pages/MyOrdersPage.tsx";
-import ChatPage from "./pages/ChatPage.tsx";
-import TermsPage from "./pages/TermsPage.tsx";
-import RefundPage from "./pages/RefundPage.tsx";
-import PrivacyPage from "./pages/PrivacyPage.tsx";
-import NotFound from "./pages/NotFound.tsx";
+
+const OrderPage = lazy(() => import("./pages/OrderPage.tsx"));
+const BoosterSelectionPage = lazy(() => import("./pages/BoosterSelectionPage.tsx"));
+const OrderStatusPage = lazy(() => import("./pages/OrderStatusPage.tsx"));
+const GamePage = lazy(() => import("./pages/GamePage.tsx"));
+const Cs2ServicePage = lazy(() => import("./pages/Cs2ServicePage.tsx"));
+const ArenaBreakoutServicePage = lazy(() => import("./pages/ArenaBreakoutServicePage.tsx"));
+const Dota2ServicePage = lazy(() => import("./pages/Dota2ServicePage.tsx"));
+const RustServicePage = lazy(() => import("./pages/RustServicePage.tsx"));
+const RustHubPage = lazy(() => import("./pages/RustHubPage.tsx"));
+const ArenaBreakoutInfiniteBoostingPage = lazy(() => import("./pages/ArenaBreakoutInfiniteBoostingPage.tsx"));
+const BuyArenaBreakoutInfiniteKoensPage = lazy(() => import("./pages/BuyArenaBreakoutInfiniteKoensPage.tsx"));
+const ArenaBreakoutInfiniteRaidsBoostPage = lazy(() => import("./pages/ArenaBreakoutInfiniteRaidsBoostPage.tsx"));
+const ArenaBreakoutInfiniteCoachingPage = lazy(() => import("./pages/ArenaBreakoutInfiniteCoachingPage.tsx"));
+const Dota2MMRBoostPage = lazy(() => import("./pages/Dota2MMRBoostPage.tsx"));
+const Dota2LPRemovalPage = lazy(() => import("./pages/Dota2LPRemovalPage.tsx"));
+const Dota2RankTokensPage = lazy(() => import("./pages/Dota2RankTokensPage.tsx"));
+const Dota2CoachingPage = lazy(() => import("./pages/Dota2CoachingPage.tsx"));
+const CartPage = lazy(() => import("./pages/CartPage.tsx"));
+const AdminPage = lazy(() => import("./pages/AdminPage.tsx"));
+const AdminOrderDetailsPage = lazy(() => import("./pages/AdminOrderDetailsPage.tsx"));
+const LoginPage = lazy(() => import("./pages/LoginPage.tsx"));
+const SignupPage = lazy(() => import("./pages/SignupPage.tsx"));
+const UpdatePasswordPage = lazy(() => import("./pages/UpdatePasswordPage.tsx"));
+const AccountPage = lazy(() => import("./pages/AccountPage.tsx"));
+const MyOrdersPage = lazy(() => import("./pages/MyOrdersPage.tsx"));
+const ChatPage = lazy(() => import("./pages/ChatPage.tsx"));
+const TermsPage = lazy(() => import("./pages/TermsPage.tsx"));
+const RefundPage = lazy(() => import("./pages/RefundPage.tsx"));
+const PrivacyPage = lazy(() => import("./pages/PrivacyPage.tsx"));
+const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const queryClient = new QueryClient();
 
@@ -63,6 +67,7 @@ const AnimatedRoutes = () => {
         animate="animate"
         exit="exit"
       >
+        <Suspense fallback={null}>
         <Routes location={location}>
           <Route path="/" element={<Index />} />
           <Route path="/arena-breakout-infinite-boosting" element={<ArenaBreakoutInfiniteBoostingPage />} />
@@ -98,6 +103,7 @@ const AnimatedRoutes = () => {
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
       </motion.div>
     </AnimatePresence>
   );

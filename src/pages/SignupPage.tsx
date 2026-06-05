@@ -45,6 +45,7 @@ const SignupPage = () => {
   return (
     <>
       <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://www.myboost.top/signup" />
       </Helmet>
       <AuthShell

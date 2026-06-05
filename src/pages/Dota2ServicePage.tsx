@@ -275,13 +275,6 @@ const Dota2ServicePage = () => {
               returnMethod: 'https://schema.org/ReturnByMail',
             },
           },
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: 4.8,
-            reviewCount: 1800,
-            bestRating: 5,
-            worstRating: 1,
-          },
         }}
       />
 

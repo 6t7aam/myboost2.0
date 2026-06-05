@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet-async";
 const PrivacyPage = () => (
   <>
     <Helmet>
+      <title>Privacy Policy | MyBoost</title>
+      <meta name="description" content="MyBoost Privacy Policy — how we collect, use, and protect your personal data when you use our gaming services marketplace." />
       <link rel="canonical" href="https://www.myboost.top/privacy" />
     </Helmet>
     <Navbar />

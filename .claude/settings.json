@@ -18,7 +18,12 @@
       "Bash(git log *)",
       "Bash(git checkout *)",
       "Bash(sed -n '6,20p')",
-      "Bash(grep -q '\"__TRACKED_VAR__\":' src/data/cs2ServiceMeta.ts)"
+      "Bash(grep -q '\"__TRACKED_VAR__\":' src/data/cs2ServiceMeta.ts)",
+      "Bash(npx vite *)",
+      "Bash(echo \"BUILD EXIT=$?\")",
+      "Bash(node scripts/prerender.mjs)",
+      "Bash(echo \"PRERENDER EXIT=$?\")",
+      "Bash(git check-ignore *)"
     ]
   }
 }

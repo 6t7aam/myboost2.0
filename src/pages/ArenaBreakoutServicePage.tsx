@@ -127,13 +127,6 @@ const ArenaBreakoutServicePage = () => {
               returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
               returnMethod: 'https://schema.org/ReturnByMail'
             }
-          },
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: 4.9,
-            reviewCount: 600,
-            bestRating: 5,
-            worstRating: 1
           }
         }}
       />

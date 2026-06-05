@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet-async";
 const TermsPage = () => (
   <>
     <Helmet>
+      <title>Terms of Service | MyBoost</title>
+      <meta name="description" content="MyBoost Terms of Service — the rules and conditions for using our gaming services marketplace, orders, payments, and account handling." />
       <link rel="canonical" href="https://www.myboost.top/terms" />
     </Helmet>
     <Navbar />

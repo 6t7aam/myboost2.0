@@ -27,13 +27,6 @@ const Index = () => {
           url: 'https://www.myboost.top',
           logo: 'https://www.myboost.top/favicon.ico',
           description: 'Professional gaming services for Arena Breakout: Infinite, CS2, Dota 2, and Rust',
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '5000',
-            bestRating: '5',
-            worstRating: '1'
-          },
           contactPoint: {
             '@type': 'ContactPoint',
             contactType: 'Customer Service',

@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet-async";
 const RefundPage = () => (
   <>
     <Helmet>
+      <title>Refund Policy | MyBoost</title>
+      <meta name="description" content="MyBoost Refund Policy — when and how you can request a refund for gaming services orders, eligibility, and the resolution process." />
       <link rel="canonical" href="https://www.myboost.top/refund" />
     </Helmet>
     <Navbar />

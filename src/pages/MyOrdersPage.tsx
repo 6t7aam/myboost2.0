@@ -64,6 +64,7 @@ const MyOrdersPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://www.myboost.top/my-orders" />
       </Helmet>
       <Navbar />

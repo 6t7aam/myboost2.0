@@ -55,6 +55,7 @@ const AccountPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://www.myboost.top/account" />
       </Helmet>
       <Navbar />

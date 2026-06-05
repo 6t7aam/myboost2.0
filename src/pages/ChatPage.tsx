@@ -177,6 +177,7 @@ const ChatPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://www.myboost.top/chat" />
       </Helmet>
       <Navbar />
