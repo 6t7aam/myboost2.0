@@ -70,12 +70,25 @@ const waitForServer = (port, timeoutMs = 30000) =>
   });
 
 async function loadChromium() {
+  // Vercel/Lambda build containers lack Chromium's system libs (libnspr4.so …),
+  // so `playwright install chromium` is not enough there. Use @sparticuz/chromium,
+  // a self-contained Chromium bundled with the required shared libraries, driven
+  // via playwright-core (version-matched to @playwright/test → same Chromium rev).
+  if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME) {
+    const sparticuz = (await import("@sparticuz/chromium")).default;
+    const { chromium } = await import("playwright-core");
+    return chromium.launch({
+      args: [...sparticuz.args, "--no-sandbox"],
+      executablePath: await sparticuz.executablePath(),
+      headless: true,
+    });
+  }
+
+  // Local / standard CI: use the browser bundled with @playwright/test.
   const { chromium } = await import("@playwright/test");
   try {
-    const b = await chromium.launch({ args: ["--no-sandbox"] });
-    return b;
-  } catch (err) {
-    // Browser binary missing (fresh CI / Vercel) — install once and retry.
+    return await chromium.launch({ args: ["--no-sandbox"] });
+  } catch {
     console.warn("Chromium launch failed, installing Playwright browser…");
     execSync("npx playwright install chromium", { stdio: "inherit" });
     return chromium.launch({ args: ["--no-sandbox"] });
@@ -248,5 +261,11 @@ function writeSitemap(routes) {
 
 main().catch((err) => {
   console.error("Prerender failed:", err);
+  // On Vercel, never block the deploy: fall back to the SPA build (it still works,
+  // just without prerendered HTML). Locally/CI, surface the failure loudly.
+  if (process.env.VERCEL) {
+    console.warn("VERCEL detected — continuing with SPA-only build (no prerender).");
+    process.exit(0);
+  }
   process.exit(1);
 });
