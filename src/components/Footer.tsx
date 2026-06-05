@@ -1,8 +1,31 @@
 import { Gamepad2 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import CustomOrderBanner from "@/components/CustomOrderBanner";
+
+// Pages where the custom-order CTA should NOT appear: the homepage already has
+// its own funnel, and auth/admin/checkout utility pages are not browsing pages.
+const HIDE_CUSTOM_ORDER = new Set([
+  "/",
+  "/login",
+  "/signup",
+  "/reset-password",
+  "/account",
+  "/admin",
+  "/cart",
+  "/order",
+  "/chat",
+]);
 
 const Footer = () => {
+  const { pathname } = useLocation();
+  const showCustomOrder =
+    !HIDE_CUSTOM_ORDER.has(pathname) &&
+    !pathname.startsWith("/admin") &&
+    !pathname.startsWith("/order");
+
   return (
+    <>
+      {showCustomOrder && <CustomOrderBanner />}
     <footer className="border-t border-border/50 bg-background py-12 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(48_100%_50%_/_0.02)_0%,_transparent_50%)]" />
@@ -77,6 +100,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    </>
   );
 };
 
